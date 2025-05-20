@@ -15,11 +15,8 @@
       rel="stylesheet"
     />
     <style>
-      p {
+       p {
         margin: 0;
-      }
-      .main{
-        padding-top: 72px;
       }
       .top-banner {
         height: 467px;
@@ -96,74 +93,125 @@
         padding-bottom: 120px;
         overflow-x: hidden;
       }
-      .w-960 {
-        width: 960px;
-        margin: 0 auto;
-        /* border: 1px solid red; */
-      }
+
       .w-1200 {
-        width: 1200px;
-        margin: 0 auto;
-        /* border: 1px solid red; */
-      }
-      .past {
-        height: 490px;
-        /* border: 1px solid gray; */
-        position: relative;
-        margin-top: 109px;
-        margin-bottom: 68px;
-      }
-      .past-box {
-        width: 10000px;
-        /* border: 1px solid red; */
-        position: absolute;
-        left: 0px;
-      }
-      .past-box:hover {
-        cursor: grab;
-      }
-      .past-box-item {
-        width: 373px;
-        height: 490px;
-        float: left;
-        /* border: 1px solid blue; */
-        padding-right: 40px;
-        border-right: 1.5px solid #e6e6e6;
-        margin-right: 32px;
-      }
-      .past-box-item:last-child {
-        border-right: none;
-      }
-      .past-item-year {
-        color: #381c62;
-        font-family: "Microsoft YaHei";
-        font-weight: 700;
-        font-size: 52px;
-        margin-top: 23px;
-        margin-bottom: 39px;
-      }
-      .past-item-text {
         width: 100%;
-        display: flex;
-        color: #666666;
-        font-family: "Microsoft YaHei";
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 21px;
+        height: 400px;      
         position: relative;
-        margin-bottom: 25px;
+        margin: 0 0;   
+        padding-bottom: 0px;      
       }
-      .past-text-left {
-        flex: 1;
-        text-align: right;
+
+      .timeline-container {
+        display: flex;
+        width: 100%;
+        align-items: center;/* 垂直居中对齐内容 */
+        height: 100%; /* 减去 padding 防止撑出屏幕 */
+        padding: 20px 20px;
+        padding-top: 60px;
+        padding-bottom: 0px;
+        box-sizing: border-box;
+        gap: 20px;
       }
-      .past-text-right {
-        flex: 7;
-        padding-left: 23px;
-        white-space: pre-line;
+
+      .timeline-left,
+      .timeline-center,
+      .timeline-right {
+        height: 100%;
+        overflow-y: auto;
       }
-      .progress-bar {
-        background-color: #381c62;
+
+      /* 分配宽度 */
+      .timeline-left {
+        width: 10%;
+        border-right: 2px solid #eee;
+      }
+
+      .timeline-center {
+        width: 45%;
+        padding: 0 20px;
+      }
+
+      .timeline-right {
+        width: 45%;
+      }
+
+      .timeline-left {
+        width: 10%;
+        border-right: 2px solid #eee;
+        overflow-y: auto;
+      }
+
+      .year-item {
+        margin: 30px 0;
+        margin-top: 0;
+        padding-left: 10px;
+        cursor: pointer;
+        color: #666;
+        font-size: 20px;
+      }
+
+      .year-item.active {
+        position: relative;
+        color: #4b0082;
+        font-weight: bold;
+      }
+
+      .year-item.active::after {
+        content: "";
+        position: absolute;
+        bottom: 1px; /* 与文字底部间距 */
+        left: 33%;
+        transform: translateX(-50%);
+        width: 45%; /* 修改这里控制线条长度 */
+        height: 2px;
+        background-color: #4b0082;
+        border-radius: 2px;  
+      }
+
+      .timeline-center {
+        width: 45%;
+        padding: 0 40px;
+      }
+
+      .timeline-center img {
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+
+      #year-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #4b0082;
+        font-weight: bold;
+      }
+
+      .event-item {
+        margin-bottom: 20px;
+        padding-left: 12px;
+      }
+
+      .event-month {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .event-text {
+        color: #444;
+      }
+
+      /* 美化滚动条 */
+      .timeline-left::-webkit-scrollbar,
+      .timeline-right::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      .timeline-left::-webkit-scrollbar-thumb,
+      .timeline-right::-webkit-scrollbar-thumb {
+        background-color: #4b0082;;
+        border-radius: 3px;
       }
     </style>
   </head>
@@ -221,245 +269,118 @@
       </div>
       <!-- content 960px -->
       <div class="w-1200 clearfix">
-        <div class="past">
-          <div class="past-box" id="dragElement">
-            <!-- <div class="past-box-item">
-              <p class="past-item-year">2022</p>
-              <div class="past-event-list">
-                <div class="past-item-text">
-                  <div class="past-text-left">10月</div>
-                  <div class="past-text-right">
-                    公司荣登"2018湖北服务业企业100强"榜单
-                  </div>
-                </div>
-
-                <div class="past-item-text">
-                  <div class="past-text-left">9月</div>
-                  <div class="past-text-right">
-                    湖北精英盛华信息科技股份有限公司研究开发中心被武汉市科技局认定为市级科技创新平台
-                  </div>
-                </div>
-              </div>
-            </div> -->
+        <div class="timeline-container">
+          <div class="timeline-left" id="year-list"></div>
+          <div class="timeline-center">
+            <img id="year-image" src="" alt="Year Image" />
           </div>
-        </div>
-        <!-- bootstrap进度条 -->
-        <div
-          class="progress"
-          role="progressbar"
-          aria-label="Example 1px high"
-          aria-valuenow="25"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          style="height: 2px"
-        >
-          <div class="progress-bar" id="my-progress" style="width: 5%"></div>
+          <div class="timeline-right">
+            <h2 id="year-title"></h2>
+            <div id="year-events"></div>
+          </div>
         </div>
       </div>
     </div>
     <!-- footer组件 -->
     <include file="Admin@Common/new_footer" />
     <script>
-      // 横向拖拽
-      var dragging = false; // 记录鼠标是否正在被按住
-      var offsetX = 0; // 记录鼠标相对于元素左边界的位置
-      var offsetY = 0; // 记录鼠标相对于元素上边界的位置
-
-      document
-        .getElementById("dragElement")
-        .addEventListener("mousedown", function (event) {
-          event.preventDefault(); // 取消默认行为（如选中文本）
-
-          dragging = true;
-          offsetX = event.clientX - this.offsetLeft;
-          offsetY = event.clientY - this.offsetTop;
-        });
-
-      document.addEventListener("mouseup", function () {
-        dragging = false;
-      });
-
-      document.addEventListener("mousemove", function (event) {
-        if (dragging === true) {
-          var xPos = event.clientX - offsetX;
-          var yPos = event.clientY - offsetY;
-          // console.log(xPos);
-
-          if (xPos > 0) {
-            document.getElementById("dragElement").style.left = 0 + "px";
-            document.getElementById("my-progress").style.width = 0 + "%";
-          } else if (xPos < -3200) {
-            document.getElementById("dragElement").style.left = -3200 + "px";
-            document.getElementById("my-progress").style.width = 100 + "%";
-          } else {
-            document.getElementById("dragElement").style.left = xPos + "px";
-            // console.log(-(xPos / 2000) * 100);
-            document.getElementById("my-progress").style.width =
-              Math.ceil(-(xPos / 2000) * 100) + "%";
-
-            // document.getElementById("dragElement").style.top = yPos + "px";
-          }
-        }
-      });
-
-      // 发展历程数据
       const develop_event = [
-        {
-          year: "2023",
-          event: [
-            {
-              month: "12月",
-              text: "公司累计荣获150余项软件著作权",
-            },
-            {
-              month: "5月",
-              text: "公司荣获华为中国合作伙伴大会商业市场携手共进突破奖",
-            },
-          ],
-        },
-        {
-          year: "2022",
-          event: [
-            {
-              month: "4月",
-              text: "公司被认定为专精特新“小巨人”企业",
-            },
-            {
-              month: "2月",
-              text: "公司荣获湖北省就业创业先进集体",
-            },
-          ],
-        },
-        {
-          year: "2020",
-          event: [
-            {
-              month: "9月",
-              text: "公司被评为武汉市守合同重信用企业",
-            },
-            {
-              month: "6月",
-              text: "公司被评为初心号角“新冠肺炎疫情防控“突出贡献单位",
-            },
-          ],
-        },
-        {
-          year: "2019",
-          event: [
-            {
-              month: "11月",
-              text: "公司被认定为科技“小巨人”企业",
-            },
-            {
-              month: "4月",
-              text: "公司荣获2018年度硚口区民营企业创新奖",
-            },
-          ],
-        },
-        {
-          year: "2018",
-          event: [
-            {
-              month: "11月",
-              text: "公司并购武汉博茗低碳产业股份有限公司",
-            },
-            {
-              month: "7月",
-              text: "公司荣登“2018湖北服务业企业100强”榜单\n\n公司荣获民营企业创新奖",
-            },
-          ],
-        },
-        {
-          year: "2017",
-          event: [
-            {
-              month: "12月",
-              text: "公司研究开发中心被武汉市科技局认定为市级科技创新平台",
-            },
-            {
-              month: "2月",
-              text: "公司成功在新三板挂牌（证券简称：精信科技，证券代码：870852）",
-            },
-          ],
-        },
-        {
-          year: "2016",
-          event: [
-            {
-              month: "6月",
-              text: "公司完成股份制改革，变更为湖北精英盛华信息科技股份有限公司",
-            },
-          ],
-        },
-        {
-          year: "2015",
-          event: [
-            {
-              month: "12月",
-              text: "公司并购上海洲信信息技术有限公司",
-            },
-          ],
-        },
-        {
-          year: "2013",
-          event: [
-            {
-              month: "12月",
-              text: "公司荣获高新技术企业资质证书\n\n公司荣获20余个软件著作权",
-            },
-          ],
-        },
-        {
-          year: "2007",
-          event: [
-            {
-              month: "6月",
-              text: "公司注册成立",
-            },
-          ],
-        },
-      ];
-      // 发展历程数据渲染
-      const past_box = document.querySelector(".past-box");
-      // 外层循环：遍历年份
-      develop_event.forEach((yearData) => {
-        const boxItem = document.createElement("div");
-        boxItem.className = "past-box-item";
-        // 创建年份节点
-        const yearItem = document.createElement("p");
-        yearItem.className = "past-item-year";
-        yearItem.textContent = yearData.year;
-        boxItem.appendChild(yearItem);
+        { year: "2024", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "10月", text: "公司荣登“2018武汉最具竞争力企业100强”榜单" },
+          { month: "9月", text: "认定为湖北省中小企业公共服务平台专业化示范平台" },
+          { month: "8月", text: "认定为湖北省中小企业公共服务平台专业化示范平台" },
+          { month: "6月", text: "认定为湖北省中小企业公共服务平台专业化示范平台" },
+          { month: "4月", text: "认定为湖北省中小企业公共服务平台专业化示范平台" },
+          { month: "2月", text: "认定为湖北省中小企业公共服务平台专业化示范平台" },
+          { month: "1月", text: "认定为湖北省中小企业公共服务平台专业化示范平台" }
+        ]},
+        { year: "2023", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "5月", text: "公司荣获华为中国合作伙伴大会商业市场携手共进突破奖" },
+          { month: "12月", text: "公司累计荣获150余项软件著作权" }
+        ]},
+        { year: "2022", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "2月", text: "公司荣获湖北省就业创业先进集体" },
+          { month: "4月", text: "公司被认定为专精特新“小巨人”企业" }
+        ]},
+        { year: "2020", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "6月", text: "公司被评为初心号角“新冠肺炎疫情防控”突出贡献单位" },
+          { month: "9月", text: "公司被评为武汉市守合同重信用企业" }
+        ]},
+        { year: "2019", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "4月", text: "公司荣获2018年度硚口区民营企业创新奖" },
+          { month: "11月", text: "公司被认定为科技“小巨人”企业" }
+        ]},
+        { year: "2018", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "7月", text: "公司荣登“2018湖北服务业企业100强”榜单" },
+          { month: "11月", text: "公司并购武汉博茗低碳产业股份有限公司" }
+        ]},
+        { year: "2017", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "2月", text: "公司研究开发中心被武汉市科技局认定为市级科技创新平台" },
+          { month: "12月", text: "公司成功在新三板挂牌" }
+        ]},
+        { year: "2016", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "6月", text: "公司完成股份制改革，变更为湖北精英盛华信息科技股份有限公司" }
+        ]},
+        { year: "2015", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "12月", text: "公司并购上海洲信信息技术有限公司" }
+        ]},
+        { year: "2013", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "12月", text: "公司荣获高新技术企业资质证书；公司荣获20余个软件著作权" }
+        ]},
+        { year: "2007", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "6月", text: "公司注册成立" }
+        ]},
+        { year: "2006", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "10月", text: "公司开始进行市场拓展" }
+        ]},
+        { year: "2005", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "5月", text: "公司进行第一次资本注入" }
+        ]},
+        { year: "2004", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "3月", text: "公司与第一家合作伙伴达成协议" }
+        ]},
+        { year: "2003", img: "__PUBLIC__/images/test.jpg", event: [
+          { month: "7月", text: "公司成立初期团队组建" }
+        ]}
+    ];
 
-        // 创建事件列表容器
-        const eventList = document.createElement("div");
-        eventList.className = "past-event-list";
-        // 内层循环：遍历事件
-        yearData.event.forEach((eventData) => {
-          const eventItem = document.createElement("div");
-          eventItem.className = "past-item-text";
-          const left = document.createElement("div");
-          left.className = "past-text-left";
-          left.textContent = eventData.month;
-          const right = document.createElement("div");
-          right.className = "past-text-right";
-          right.textContent = eventData.text;
-          eventItem.appendChild(left);
-          eventItem.appendChild(right);
-          eventList.appendChild(eventItem);
-        });
-        // 添加到发展历程容器
-        boxItem.appendChild(eventList);
-        past_box.appendChild(boxItem);
+      const yearList = document.getElementById('year-list');
+      const yearImage = document.getElementById('year-image');
+      const yearTitle = document.getElementById('year-title');
+      const yearEvents = document.getElementById('year-events');
 
-        // 鼠标指针样式
-        past_box.addEventListener("mousedown", function () {
-          boxItem.style.cursor = "grabbing";
-        });
-        past_box.addEventListener("mouseup", function () {
-          boxItem.style.cursor = "grab";
-        });
+      let currentYearIndex = 0;
+
+      // 动态生成年份按钮
+      develop_event.forEach((item, index) => {
+        const yearDiv = document.createElement('div');
+        yearDiv.className = 'year-item';
+        yearDiv.textContent = item.year;
+        yearDiv.addEventListener('click', () => updateYearContent(index));
+        yearList.appendChild(yearDiv);
       });
+
+      function updateYearContent(index) {
+        const selected = develop_event[index];
+        yearTitle.textContent = selected.year;
+        yearImage.src = selected.img;
+
+        document.querySelectorAll('.year-item').forEach(item => item.classList.remove('active'));
+        document.querySelectorAll('.year-item')[index].classList.add('active');
+
+        yearEvents.innerHTML = '';
+        selected.event.forEach(e => {
+          const item = document.createElement('div');
+          item.className = 'event-item';
+          item.innerHTML = `<div class="event-month">${e.month}</div><div class="event-text">${e.text}</div>`;
+          yearEvents.appendChild(item);
+        });
+
+        currentYearIndex = index;
+      }
+
+      // 默认展示第一个年份
+      updateYearContent(currentYearIndex);
     </script>
   </body>
 </html>
