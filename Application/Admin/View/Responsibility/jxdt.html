@@ -1,0 +1,322 @@
+<!-- 新闻中心->企业新闻 v2024 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>社会责任-精信大讲堂</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .main {
+        background: rgba(245, 245, 245, 1);
+      }
+      .top-banner {
+        height: 384px;
+        width: 100%;
+        position: relative;
+      }
+      .banner-text {
+        width: 1200px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* text-align: center; */
+      }
+      .banner-text-title {
+        color: rgba(39, 116, 145, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 84px;
+      }
+      .banner-text-bottom {
+        color: rgba(39, 116, 145, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 42px;
+      }
+      .top-banner img {
+        display: block; /* 图片必须是块级元素 */
+        margin: 0 auto; /* 水平居中 */
+        height: 384px;
+        width: 100%;
+        /* object-fit: cover; */
+      }
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        /* border: 1px solid red; */
+      }
+      .news {
+        padding-left: 0;
+        margin-top: 85px;
+      }
+      .news-item {
+        position: relative;
+        height: 147px;
+        border-bottom: 1px solid #d5dee5;
+        /* list-style: none; */
+      }
+      .news-item:hover {
+        background-color: #f0f0f1;
+      }
+      .news-img-box {
+        width: 200px;
+        height: 105px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .news-img-box img {
+        width: 200px;
+        height: 105px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+      }
+      .news-item-title {
+        /* height: 17px;
+        width: 782px; */
+        color: #333333;
+        font-family: "PingFang SC";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        position: absolute;
+        left: 23px;
+        top: 22px;
+        margin-left: 200px;
+      }
+      .news-item-text {
+        /* height: 35px; */
+        width: 977px;
+        color: #666666;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        position: absolute;
+        left: 23px;
+        top: 47px;
+        margin-left: 200px;
+        overflow: hidden;
+      }
+      .news-item-date {
+        /* height: 13px;
+        width: 782px; */
+        color: #666666;
+        font-family: "PingFang SC";
+        font-weight: 400;
+        font-size: 11.2px;
+        line-height: 16px;
+        position: absolute;
+        left: 23px;
+        bottom: 18px;
+        margin-left: 200px;
+      }
+      .page {
+        /* border: 1px solid red; */
+        text-align: center;
+        text-decoration: none;
+        margin-top: 30px;
+      }
+      .page div {
+        display: inline-block;
+      }
+      .page .current,
+      .page .num,
+      .page .next,
+      .page .prev {
+        margin: 0 4px;
+        font-size: 12px;
+        line-height: 28px;
+        text-decoration: none;
+      }
+      .page .current {
+        float: left;
+        display: block;
+        width: 28px;
+        height: 28px;
+        background-color: rgb(56, 28, 98);
+        color: white;
+      }
+      .page .num {
+        float: left;
+        display: block;
+        width: 28px;
+        height: 28px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+      .page .next {
+        float: left;
+        display: block;
+        width: 58px;
+        height: 28px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+      .page .prev {
+        float: left;
+        display: block;
+        width: 58px;
+        height: 28px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <!-- main -->
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <div class="banner-text">
+          <p class="banner-text-title">责广德远</p>
+          <p class="banner-text-bottom">
+            我们致力于在每一次行动中都展现出对社会的广泛关怀与深远责任
+          </p>
+        </div>
+        <img
+          src="__PUBLIC__/images/new_view_2025/society_group101@2x.png"
+          alt=""
+        />
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item item-selected">
+          <a href="__APP__/index.php/Admin/Responsibility/jxdt" target="_self" class=""
+            >精信大讲堂</a
+          >
+        </div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-1200 clearfix">
+        <ul class="news">
+          <volist name="list" id="vo">
+            <a href="__APP__/index.php/Admin/Responsibility/jxdt_detail?id={$vo.id}">
+              <li class="news-item">
+                <!-- <div>__ROOT__{$vo.news_img}</div> -->
+                <div class="news-img-box">
+                    <img src="__ROOT__{$vo.news_img}" alt="" loading="lazy" />
+                </div>
+
+                <p class="news-item-title">{$vo.name}</p>
+                <p class="news-item-text">{$vo.abstract}</p>
+                <p class="news-item-date">{$vo.year}-{$vo.data}</p>
+              </li>
+            </a>
+          </volist>
+
+          <div class="page clearfix">
+            <!--<ul>-->
+            <!--<a href=""><li>上一页</li></a>-->
+            <!--<li class="select">1</li>-->
+            <!--<a href=""><li>2</li></a>-->
+            <!--<a href=""><li>下一页</li></a>-->
+            <!--</ul>-->
+            {$page}
+          </div>
+
+          <!-- <li class="news-item">
+            <img src="" alt="" class="news-item-img" />
+            <p class="news-item-title">
+              精信科技总裁李文帅出席武汉市高新技术产业会...
+            </p>
+            <p class="news-item-text">
+              7月8日，荆门市鲁商联合会一届一次会员大会在荆门星球国际大酒店举行。荆门市委常委、统战部部长刘振军，湖北省山东商会会长、湖北精英盛华信息科技股份有限公司董事长李文帅率团应邀出席并发表讲话，荆门市工商联党组书记兰坤，市工商联主席王忠标，荆门九派通融媒...
+            </p>
+            <p class="news-item-date">2023-06-25</p>
+          </li>
+          <li class="news-item">
+            <img src="" alt="" class="news-item-img" />
+            <p class="news-item-title">
+              精信科技总裁李文帅出席武汉市高新技术产业会...
+            </p>
+            <p class="news-item-text">
+              7月8日，荆门市鲁商联合会一届一次会员大会在荆门星球国际大酒店举行。荆门市委常委、统战部部长刘振军，湖北省山东商会会长、湖北精英盛华信息科技股份有限公司董事长李文帅率团应邀出席并发表讲话，荆门市工商联党组书记兰坤，市工商联主席王忠标，荆门九派通融媒...
+            </p>
+            <p class="news-item-date">2023-06-25</p>
+          </li>
+          <li class="news-item">
+            <img src="" alt="" class="news-item-img" />
+            <p class="news-item-title">
+              精信科技总裁李文帅出席武汉市高新技术产业会...
+            </p>
+            <p class="news-item-text">
+              7月8日，荆门市鲁商联合会一届一次会员大会在荆门星球国际大酒店举行。荆门市委常委、统战部部长刘振军，湖北省山东商会会长、湖北精英盛华信息科技股份有限公司董事长李文帅率团应邀出席并发表讲话，荆门市工商联党组书记兰坤，市工商联主席王忠标，荆门九派通融媒...
+            </p>
+            <p class="news-item-date">2023-06-25</p>
+          </li>
+          <li class="news-item">
+            <img src="" alt="" class="news-item-img" />
+            <p class="news-item-title">
+              精信科技总裁李文帅出席武汉市高新技术产业会...
+            </p>
+            <p class="news-item-text">
+              7月8日，荆门市鲁商联合会一届一次会员大会在荆门星球国际大酒店举行。荆门市委常委、统战部部长刘振军，湖北省山东商会会长、湖北精英盛华信息科技股份有限公司董事长李文帅率团应邀出席并发表讲话，荆门市工商联党组书记兰坤，市工商联主席王忠标，荆门九派通融媒...
+            </p>
+            <p class="news-item-date">2023-06-25</p>
+          </li> -->
+        </ul>
+      </div>
+      <!-- footer组件 -->
+      <include file="Admin@Common/new_footer" />
+    </div>
+  </body>
+</html>
+
+<!-- <script src="__PUBLIC__/Js/my-lazyload.js"></script> -->

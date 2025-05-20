@@ -18,9 +18,6 @@
       p {
         margin: 0;
       }
-      .main{
-        padding-top: 72px;
-      }
       .top-banner {
         height: 467px;
         width: 100%;
@@ -100,52 +97,53 @@
         margin: 0 auto;
         /* border: 1px solid red; */
       }
-      .culture-box {
+      .accordion-box {
         width: 100%;
-        display: grid;
-        grid-template-rows: repeat(2, 1fr); /* 两行 */
-        grid-template-columns: repeat(3, 1fr); /* 三列 */
-        gap: 0px; /* 设置网格项之间的间距 */
-        background-image: url("__PUBLIC__/images/new_view_2025/culture_group102@2x.png");
-        background-size: cover; /* 让图片覆盖整个元素 */
-        background-position: center; /* 图片居中显示 */
-        background-repeat: no-repeat; /* 防止图片重复 */
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 100px;     
+        font-family: "Microsoft YaHei", sans-serif;
       }
-      .culture-item {
-        height: 315px;
-        width: 400px;
-        padding-left: 52px;
+      .accordion-item {        
+        border-top: 1px solid #ddd;
       }
-      .culture-item:nth-child(1),
-      .culture-item:nth-child(2),
-      .culture-item:nth-child(3) {
-        padding-top: 113px;
+      .accordion-header {
+        padding: 20px;
+        font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+        font-weight: 550;
+        font-size: 18px;
+        color: #1f1f1f;
+        cursor: pointer;
+        position: relative;
+        transition: background 0.3s ease;
       }
-      .culture-item:nth-child(4),
-      .culture-item:nth-child(5),
-      .culture-item:nth-child(6) {
-        padding-top: 30px;
+      .accordion-header::after {
+        content: "›"; /* 朝右的箭头 */
+        font-size: 20px;
+        position: absolute;
+        right: 20px;
+        transition: transform 0.3s ease;
       }
-      .culture-item:nth-child(1),
-      .culture-item:nth-child(2),
-      .culture-item:nth-child(4),
-      .culture-item:nth-child(5) {
-        border-right: 1px solid #ffffff3d;
+      .accordion-header.active::after {
+        transform: rotate(90deg);
       }
-      .culture-item-title {
-        color: #ffffff;
-        font-family: "Microsoft YaHei";
-        font-weight: 700;
-        font-size: 26px;
-        margin-bottom: 25px;
-      }
-      .culture-item-text {
-        color: #ffffff;
-        font-family: "Microsoft YaHei";
-        font-weight: 400;
+      .accordion-content {
+        border-top: 1px solid #ddd;       
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+        font-weight: 350;
         font-size: 14px;
-        line-height: 18px;
-        width: 294px;
+        color: #333;
+        background: #f9f9f9;
+        line-height: 22px;
+        transition: max-height 0.2s ease, padding 0.2s ease;
+      }
+      .accordion-content.open {
+        padding: 15px 20px;
+        border-bottom: 1px solid #ddd;
+        max-height: 500px; /* 足够显示内容即可 */
       }
     </style>
   </head>
@@ -204,91 +202,65 @@
       <!-- content 960px -->
       <div class="w-1200 clearfix">
         <!-- 以图片形式展示 -->
-        <div class="culture-box" style="margin-top: 157px">
-          <div class="culture-item">
-            <p class="culture-item-title">愿景</p>
-            <p class="culture-item-text">客户满意的精准营销服务专家</p>
+        <div class="accordion-box">
+          <div class="accordion-item">
+            <div class="accordion-header">愿景</div>
+            <div class="accordion-content">
+              客户满意的精准营销服务专家
+            </div>
           </div>
-          <div class="culture-item">
-            <p class="culture-item-title">价值观</p>
-            <p class="culture-item-text">
+          <div class="accordion-item">
+            <div class="accordion-header">价值观</div>
+            <div class="accordion-content">
               客户第一，用我们的产品和服务让客户生活得更美好
-            </p>
+            </div>
           </div>
-          <div class="culture-item">
-            <p class="culture-item-title">目标</p>
-            <p class="culture-item-text">中国民营百强企业</p>
+          <div class="accordion-item">
+            <div class="accordion-header">目标</div>
+            <div class="accordion-content">
+              中国民营百强企业
+            </div>
           </div>
-          <div class="culture-item">
-            <p class="culture-item-title">用人理念</p>
-            <p class="culture-item-text">
-              与公司同心同德，重价值、重业绩、重结果，
-              <br />
-              唯贤能是举
-            </p>
+          <div class="accordion-item">
+            <div class="accordion-header">用人理念</div>
+            <div class="accordion-content">
+              与公司同心同德，重价值、重业绩、重结果，唯贤能是举
+            </div>
           </div>
-          <div class="culture-item">
-            <p class="culture-item-title">作风</p>
-            <p class="culture-item-text">
+          <div class="accordion-item">
+            <div class="accordion-header">作风</div>
+            <div class="accordion-content">
               迅速反应，马上行动，雷厉风行，嫉慢如仇
-            </p>
+            </div>
           </div>
-          <div class="culture-item">
-            <p class="culture-item-title">精神</p>
-            <p class="culture-item-text">
-              严谨、敬业、专注、专业、精益求精的工匠精神
-              <br />
-              胜则举杯相庆，败则拼死相救的团队精神
-              <br />
+          <div class="accordion-item">
+            <div class="accordion-header">精神</div>
+            <div class="accordion-content">
+              严谨、敬业、专注、专业、精益求精的工匠精神<br>
+              胜则举杯相庆，败则拼死相救的团队精神<br>
               前行成长，全力以赴，永争第一的个人拼搏精神
-            </p>
+            </div>
           </div>
-          <!-- <img
-            src="__PUBLIC__/images/new_view_2025/culture_group102@2x.png"
-            alt=""
-          /> -->
         </div>
-        <!-- <div class="culture">
-          <div class="culture-item">
-            <p class="culture-item-title">愿景</p>
-            <p class="culture-item-text">客户满意的精准营销服务专家</p>
-          </div>
-          <div class="culture-item">
-            <p class="culture-item-title">价值观</p>
-            <p class="culture-item-text">
-              客户第一，用我们的产品和服务让客户生活的更美好
-            </p>
-          </div>
-          <div class="culture-item">
-            <p class="culture-item-title">目标</p>
-            <p class="culture-item-text">中国民营百强企业</p>
-          </div>
-          <div class="culture-item">
-            <p class="culture-item-title">用人理念</p>
-            <p class="culture-item-text">
-              与公司同心同德，重价值、重业绩、重结果，为贤能是举
-            </p>
-          </div>
-          <div class="culture-item">
-            <p class="culture-item-title">作风</p>
-            <p class="culture-item-text">
-              迅速反应，马上行动，雷厉风行，嫉慢如仇
-            </p>
-          </div>
-          <div class="culture-item">
-            <p class="culture-item-title">精神</p>
-            <p class="culture-item-text" style="width: 336px">
-              严谨、敬业、专注、专业，精益求精的工匠精神
-              <br />
-              胜则举杯相庆，败则拼死相救的团队精神
-              <br />
-              前行成长，全力以赴，永争第一的个人拼搏精神
-            </p>
-          </div>
-        </div> -->
       </div>
     </div>
     <!-- footer组件 -->
     <include file="Admin@Common/new_footer" />
+    <script>
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+          // 如果已激活，关闭它
+          const isActive = header.classList.contains('active');
+          document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+          document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+    
+          // 重新激活当前项
+          if (!isActive) {
+            header.classList.add('active');
+            header.nextElementSibling.classList.add('open');
+          }
+        });
+      });
+    </script>
   </body>
 </html>

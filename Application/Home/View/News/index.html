@@ -88,7 +88,7 @@
 <script type="text/javascript">
     function del(id){
         $.post('__APP__/index.php/Home/News/del', {id:id}, function(data){
-            data = eval('(' + data + ')');
+            data = JSON.parse(data);
             if(data.status){
                 alert(data.info);
                 window.location.reload();
@@ -100,7 +100,7 @@
 
     function set_top(id){
         $.post('top', {id:id}, function(data){
-            data = eval('(' + data + ')');
+            data = JSON.parse(data);
             if(data.status){
                 alert(data.info);
                 window.location.reload();
