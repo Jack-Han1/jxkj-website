@@ -20,7 +20,7 @@ class LogController extends CommonController
         $Page->setConfig('last', '末页');
         $Page->setConfig('first', '首页');
         $Page->setConfig('theme', '%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
-//        $Page->url = 'http://jingying.vipshangbao.com/index.php/Home/Log';
+        //$Page->url = 'http://jingying.vipshangbao.com/index.php/Home/Log';
         $Page->setConfig('link','http://jingying.vipshangbao.com/index.php/Home/Log');
 
         $page  = $Page->show();

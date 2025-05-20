@@ -21,24 +21,24 @@
 <div class="con">
     <form id="from" action="save" method="post" enctype="multipart/form-data" >
 	<div class="add-line-1">
-    <span>标题：</span><input type="text" class="input-k w-350" id="name" name="name"/>
+        <span>标题：</span><input type="text" class="input-k w-350" id="name" name="name"/>
     </div>
     <div class="add-line-1">
-         <span>是否推荐至首页：</span>
-         <input type="radio" value="0" name="top" checked onchange="decheck(this)" />否
-         <input type="radio" value="1" name="top" style="margin-left:50px;" onchange="check(this)" />是
-         <select name="sort" id="sort" style="border:1px solid #ccc;">
-             <option value="">请选择推荐位</option>
-             <option value="1">1</option>
-             <option value="2">2</option>
-             <option value="3">3</option>
-             <option value="4">4</option>
-             <option value="5">5</option>
-             <option value="6">6</option>
-             <option value="7">7</option>
-         </select>
-         <input type="text" name="top_title" id="top_title" class="input-k w-350" style="visibility: hidden;">
-     </div>
+        <span>是否推荐至首页：</span>
+        <input type="radio" value="0" name="top" checked onchange="decheck(this)" />否
+        <input type="radio" value="1" name="top" style="margin-left:50px;" onchange="check(this)" />是
+        <select name="sort" id="sort" style="border:1px solid #ccc;">
+            <option value="">请选择推荐位</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+        <input type="text" name="top_title" id="top_title" class="input-k w-350" style="visibility: hidden;">
+    </div>
         <div class="add-line-1">
             <span>摘要：</span>
             <textarea style="width: 1050px;overflow: auto;resize: none;height: 100px;padding: 5px 10px; border:1px solid #ccc;" id="abstract" name="abstract"></textarea>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <load href="__PUBLIC__/Css/home_base.css"/>
     <load href="__PUBLIC__/Js/jquery-1.6.min.js"/>
-<title>精信官网后台人才</title>
+<title>精信官网后台-精信大讲堂</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 <div class="con">
 	<div class="widget">
     	<div class="widget-header">
-        	<div class="title">新闻列表</div>
+        	<div class="title">精信大讲堂列表</div>
         </div>
         <div class="widget-body">
         	<table class="table">
@@ -57,14 +57,14 @@
                             </td>
                             <td >
                                 <span style="width: 205px;display: inline-block;text-align: left;">
-                                <a href="__APP__/index.php/Admin/News/news_detail?id={$vo.id}" target="_blank">查看</a>
-                                <a href="__APP__/index.php/Home/News/edit?id={$vo.id}">编辑</a>
+                                <a href="__APP__/index.php/Admin/Responsibility/jxdt_detail?id={$vo.id}" target="_blank">查看</a>
+                                <a href="__APP__/index.php/Home/Responsibility/edit?id={$vo.id}">编辑</a>
                                 <a style="cursor: pointer;" onclick="del({$vo.id})">删除</a>
                                     <if condition="$vo.is_top eq 1">
                                         <a style="cursor: pointer;" onclick="set_top({$vo.id})">置顶</a>
                                     </if>
                                 <if condition="$vo.review eq 1">
-                                    <a href="__APP__/index.php/Home/News/review?id={$vo.id}">审核</a>
+                                    <a href="__APP__/index.php/Home/Responsibility/review?id={$vo.id}">审核</a>
                                 </if>
                                     </span>
                             </td>
@@ -88,7 +88,7 @@
 <script type="text/javascript">
     function del(id){
         $.post('__APP__/index.php/Home/News/del', {id:id}, function(data){
-            data = JSON.parse(data);
+            data = eval('(' + data + ')');
             if(data.status){
                 alert(data.info);
                 window.location.reload();
@@ -100,7 +100,7 @@
 
     function set_top(id){
         $.post('top', {id:id}, function(data){
-            data = JSON.parse(data);
+            data = eval('(' + data + ')');
             if(data.status){
                 alert(data.info);
                 window.location.reload();

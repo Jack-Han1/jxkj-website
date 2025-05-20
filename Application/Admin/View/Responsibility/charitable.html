@@ -17,9 +17,6 @@
       p {
         margin: 0;
       }
-      .main{
-        padding-top: 72px;
-      }
       .top-banner {
         height: 384px;
         width: 100%;
@@ -83,6 +80,24 @@
         height: 54px;
         position: relative;
       }
+      .duty-name-text {
+        color: rgba(51, 51, 51, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 36px;
+        height: 54px;
+        position: relative;
+        text-align: center;
+      }
+      .more-text {
+        color: rgb(56, 28, 98);
+        font-family: "PingFang SC Regular";
+        width: 100%;
+        height: 54px;
+        line-height: 54px;
+        display:block;
+        text-align: center;
+      }
       .read-more {
         color: rgb(56, 28, 98);
         font-family: "PingFang SC Regular";
@@ -92,7 +107,7 @@
         height: 54px;
         line-height: 54px;
         margin-right: 30px;
-      }
+      }        
       .read-more::before {
         content: "";
         position: absolute;
@@ -106,6 +121,149 @@
       }
       .read-more:hover {
         color: #5017a7;
+      }
+
+      .read-more-text {
+        color: white;
+        font-family: "PingFang SC Regular";
+        font-size: 20px;
+        font-weight: 400;
+        width: 20%;
+        height: 54px;
+        line-height: 54px;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        margin-top:20px;
+        background: linear-gradient(
+          270deg,
+          #ff0080,
+          #ff8c00,
+          #40e0d0,
+          #8a2be2,
+          #ff0080
+        );
+        background-size: 600% 600%;
+        animation: rainbowFlow 8s ease infinite;
+        transition: all 0.5 ease;
+        border-radius: 5px;
+      }
+      .read-more-text:hover{
+        transform: scale(1.02); 
+        color:black; 
+      }
+      @keyframes rainbowFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .public1-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+      }
+      .public1-wrapper {
+        overflow: hidden;
+        width: 100%;
+      }
+      .public1 {
+        display: flex;
+        transition: transform 0.5s ease;
+        width: max-content; /* 防止子元素溢出 */
+        gap: 40px; /* 设置子元素之间的间隔 */
+      }
+      .public1-item {
+        width: 375px;
+        height: 360px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #d5dee5;
+        padding: 10px;
+        position: relative;
+        /* box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08); */
+        transition: all 0.2s cubic-bezier(0, 0, 0.5, 1);
+        /* border: 1px solid red; */
+      }
+      .public1-item:hover {
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.16);
+        transform: scale3d(1.01, 1.01, 1.01);
+      }
+      .public1-item-pic {
+        width: 100%;
+        height: 216px;
+        /* background-color: #d9d9d9; */
+      }
+      .public1-item-pic img {
+        width: 100%;
+        height: 216px;
+        object-fit: cover;
+        object-position: center; /* 图片居中显示 */
+      }
+      .public1-item-text {
+        /* height: 55px; */
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 32px;
+        margin-top: 18px;
+        display: -webkit-box; /* 使用弹性盒子布局 */
+        -webkit-box-orient: vertical; /* 设置内容垂直排列 */
+        overflow: hidden; /* 隐藏超出部分 */
+        text-overflow: ellipsis; /* 超出部分显示省略号 */
+        position: absolute;
+      }
+      .public1-item-date {
+        color: #666666;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        position: absolute;
+        left: 10px;
+        bottom: 60px;
+        /* margin-top: 29px; */
+      }
+      .more-link {
+        color: #1a73e8;
+        font-size: 14px;
+        left: 10px;
+        bottom: 20px;
+        position: absolute;
+        transition: color 0.3s;
+      }
+
+      .more-link:hover {
+        color: #0056b3;
+        text-decoration: underline;
+      }
+      .arrow {
+        font-size: 32px;
+        color: #c7b4b4;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px;
+        display: inline-block;    
+      }
+      .arrow:hover {
+        color: black;
+      }
+      .arrow-left {
+        display: inline-block; 
+        position: absolute;
+        left: -120px;
+        top: 120px;  
+      }
+      .arrow-right {
+        display: inline-block; 
+        position: absolute;
+        right: -120px;
+        top: 120px;
       }
       .public {
         display: flex;
@@ -147,7 +305,6 @@
         margin-top: 18px;
         display: -webkit-box; /* 使用弹性盒子布局 */
         -webkit-box-orient: vertical; /* 设置内容垂直排列 */
-        -webkit-line-clamp: 2; /* 限制显示的行数 */
         overflow: hidden; /* 隐藏超出部分 */
         text-overflow: ellipsis; /* 超出部分显示省略号 */
       }
@@ -253,10 +410,104 @@
               </div>
             </volist>
           </div>
+          <!-- 精信大讲堂 -->
+          <p class="duty-name-text" style="margin-top: 98px; margin-bottom: 60px">
+            精信大讲堂
+          </p>
+          <div class="public1-container">
+            <div class="arrow arrow-left">❮</div>
+            <div class="public1-wrapper">
+              <div class="public1">           
+                <volist name="top_jxdt_list" id="vo">
+                  <div class="public1-item">
+                    
+                    <a
+                      href="__APP__/index.php/Admin/Responsibility/jxdt_detail?id={$vo.id}"
+                    >
+                      <div class="public1-item-pic">
+                        <img src="__ROOT__{$vo.news_img}" alt="" />
+                      </div>
+                      <p class="public1-item-text">{$vo.name}</p>
+                      <p class="public1-item-date">{$vo.year}-{$vo.data}</p>
+                      <p class="more-link">了解详情</p>
+                    </a>
+                  </div>             
+                </volist>                       
+              </div>
+            </div>
+            <div class="arrow arrow-right">❯</div>
+          </div>
+          <div class="more-text">
+            <a href="__APP__/index.php/Admin/Responsibility/jxdt"
+            ><span class="read-more-text">查看更多</span></a>
+          </div>
         </div>
       </div>
     </div>
     <!-- footer组件 -->
     <include file="Admin@Common/new_footer" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const wrapper = document.querySelector(".public1-wrapper");
+        const slider = document.querySelector(".public1");
+        const leftArrow = document.querySelector(".arrow-left");
+        const rightArrow = document.querySelector(".arrow-right");
+      
+        const visibleCount = 3; // 每次显示3项
+        const itemWidth = 375;
+        const gap = 40;
+        const step = itemWidth + gap;
+      
+        let items = Array.from(slider.children);
+        const realCount = items.length;
+      
+        // 克隆前后可见项，用于实现无缝循环
+        for (let i = 0; i < visibleCount; i++) {
+          const cloneFirst = items[i].cloneNode(true);
+          const cloneLast = items[items.length - 1 - i].cloneNode(true);
+          slider.appendChild(cloneFirst);
+          slider.insertBefore(cloneLast, slider.firstChild);
+        }
+      
+        let currentIndex = visibleCount;
+        const totalCount = slider.children.length;
+        
+        // 初始偏移位置
+        slider.style.transform = `translateX(-${currentIndex * step}px)`;
+      
+        let isAnimating = false; /*动画节流锁，防止用户疯狂点击导致动画冲突*/
+    
+        function updateSlider() {
+          isAnimating = true; /*开启动画节流锁*/
+          slider.style.transition = "transform 0.5s ease";
+          slider.style.transform = `translateX(-${currentIndex * step}px)`;
+      
+          setTimeout(() => {
+            slider.style.transition = "none";
+            if (currentIndex >= realCount + visibleCount) {
+              currentIndex = visibleCount;
+              slider.style.transform = `translateX(-${currentIndex * step}px)`;
+            } else if (currentIndex < visibleCount) {
+              currentIndex = realCount + visibleCount - 1;
+              slider.style.transform = `translateX(-${currentIndex * step}px)`;
+            }
+            isAnimating = false;
+          }, 510);
+        }
+      
+        rightArrow.addEventListener("click", () => {
+          if (isAnimating) return;
+          currentIndex++;
+          updateSlider();
+        });
+      
+        leftArrow.addEventListener("click", () => {
+          if (isAnimating) return;
+          currentIndex--;
+          updateSlider();
+        });
+      });
+      </script> 
+    
   </body>
 </html>
