@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录-武汉地产项目</title>
+
+<load href="__PUBLIC__/Css/base.css"/>
+<load href="__PUBLIC__/Js/jquery-1.9.1.min.js"/>
+<script type="text/javascript">
+	function login(){
+		var user_name = $("#user_name").val();
+		var user_pwd  = $("#user_pwd").val();
+		if(user_name == ''){
+			$(".error").text("请输入用户名");
+			return false;
+		}
+		if(user_pwd == ''){
+			$(".error").text("请输入密码");
+			return false;
+		}
+		var url = "__URL__/ajaxLogin";
+		$.post(url, {user_name:user_name,user_pwd:user_pwd}, function(data){
+			if(data.code == 2){
+				$(".error").text(data.error);
+			}
+			if(data.code == 1){
+				window.location.href = "__APP__/index.php";
+			}
+		}, "json");
+
+
+	}
+</script>
+</head>
+
+<body>
+<!--头部-->
+<div class="top">
+<span class="name-logo">武汉地产项目后台</span>
+    
+</div>
+<!--login-->
+<div class="login-k">
+<div class="mar-0 w-300">
+<span style="margin-left:60px; color:#f00;" class="error"></span>
+<p>账号：<input type="text" style="margin-top: 15px;" name="user_name" id="user_name" class="input-login" placeholder="请输入用户名/手机号" /></p>
+<p>密码：<input type="password" name="user_pwd" id="user_pwd" class="input-login" placeholder="请输入密码" /></p>
+<p class="mar-t-20"><input type="checkbox" />&nbsp;记住选择 <a href="" class="remember-a">找回密码</a></p>
+<p class="text-c mar-t-25"><input type="button" class="submit-btn" onclick="javascript:login()" value="登录" /></p>
+</div>
+</div>
+
+
+</body>
+</html>

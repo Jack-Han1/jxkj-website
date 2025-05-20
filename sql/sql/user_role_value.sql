@@ -1,0 +1,14 @@
+UPDATE jxkj_db.user_role_value SET role = 1, menu_id = 1, status = 1, sort = 3 WHERE id = 3;
+UPDATE jxkj_db.user_role_value SET role = 1, menu_id = 2, status = 1, sort = 1 WHERE id = 4;
+UPDATE jxkj_db.user_role_value SET role = 1, menu_id = 24, status = 1, sort = null WHERE id = 5;
+UPDATE jxkj_db.user_role_value SET role = 1, menu_id = 27, status = 1, sort = null WHERE id = 6;
+UPDATE jxkj_db.user_role_value SET role = 1, menu_id = 54, status = 0, sort = null WHERE id = 7;
+UPDATE jxkj_db.user_role_value SET role = 1, menu_id = 62, status = 1, sort = 2 WHERE id = 8;
+UPDATE jxkj_db.user_role_value SET role = 1, menu_id = 14, status = 1, sort = null WHERE id = 9;
+UPDATE jxkj_db.user_role_value SET role = 3, menu_id = 2, status = 1, sort = 3 WHERE id = 10;
+UPDATE jxkj_db.user_role_value SET role = 2, menu_id = 1, status = 1, sort = 3 WHERE id = 11;
+UPDATE jxkj_db.user_role_value SET role = 2, menu_id = 24, status = 1, sort = null WHERE id = 12;
+UPDATE jxkj_db.user_role_value SET role = 2, menu_id = 27, status = 1, sort = null WHERE id = 13;
+UPDATE jxkj_db.user_role_value SET role = 2, menu_id = 54, status = 0, sort = null WHERE id = 14;
+UPDATE jxkj_db.user_role_value SET role = 2, menu_id = 62, status = 1, sort = 2 WHERE id = 15;
+UPDATE jxkj_db.user_role_value SET role = 2, menu_id = 14, status = 1, sort = null WHERE id = 16;

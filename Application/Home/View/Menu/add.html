@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.6.min.js"/>
+    <load href="__PUBLIC__/uploadify/jquery.uploadify.min.js"/>
+    <load href="__PUBLIC__/uploadify/uploadify.css"/>
+
+<title>精信官网后台新闻</title>
+
+</head>
+
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <form id="from" action="save" method="post" enctype="multipart/form-data" >
+	<div class="add-line-1">
+    <span>名称：</span><input type="text" class="input-k w-350" id="name" name="name"/>
+    </div>
+    <div class="add-line-1">
+        <span>父级菜单：</span>
+        <select class="input-k w-350" style="height: 29px;" id="pid" name="pid">
+            <option value="0">无</option>
+            <volist name="list" id="vo">
+                <option value="{$vo.id}">{$vo.name}</option>
+            </volist>
+        </select>
+    </div>
+    <div class="add-line-1">
+        <span>头部显示：</span>
+        <select class="input-k w-350" style="height: 29px;" id="head_show" name="head_show">
+            <option value="0">否</option>
+            <option value="1">是</option>
+        </select>
+    </div>
+    <div class="add-line-1">
+        <span>类别：</span>
+        <select class="input-k w-350" style="height: 29px;" id="kind" name="kind">
+            <option value="1">列表菜单</option>
+            <option value="2">内容菜单</option>
+        </select>
+    </div>
+    <div class="add-line-1">
+        <span>链接：</span><input type="text" class="input-k w-350" id="url" name="url"/>
+    </div>
+    <div class="add-line-1">
+        <span>顺序：</span><input type="text" class="input-k w-350" id="order_by" name="order_by"/>
+    </div>
+    <div class="add-line-1">
+        <span >图片：</span>
+        <input id="menu_pic" name="menu_pic" type="file" class="input-k w-350" value="上传图片" style="padding-top: 5px;padding-bottom: 5px;" />
+        <img id="img" style="display: none" class="w-350" src="__PUBLIC__/images/ad.png" alt=""/>
+    </div>
+    <div class="add-line-1"><input onclick="sub()" type="button" class="save-btn mar-l-250" value="保存" /></div>
+    </form>
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+<script type="text/javascript">
+    function sub(){
+        var name = $("#name").val();
+        var url = $("#url").val();
+        if(name == ""){
+            alert("请输入名称");
+            return false;
+        }else if(url == ""){
+            alert("请输入链接");
+            return false;
+        }
+        $("#from").submit();
+    }
+</script>
+</body>
+</html>

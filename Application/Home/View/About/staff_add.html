@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.8.3.min.js"/>
+    <!-- <load href="__PUBLIC__/Js/pace.min.js"/> -->
+    <link href="__PUBLIC__/Css/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/Css/fileUpload.css" rel="stylesheet" type="text/css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/fileUpload.js"></script>
+<title>精信官网后台人才</title>
+</head>
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <!-- <form id="from" action="save" method="post" enctype="multipart/form-data" > -->
+    <div class="add-line-1">
+    <span>图集名称：</span><input type="text" class="input-k w-350" id="name" name="name"/>
+    </div>
+    <div class="add-line-1">
+            <span>图集顺序：</span>
+            <input type="text" class="input-k w-150" id="sort" name="sort"/>
+    </div>
+    <!-- <div class="add-line-1"> -->
+        <!-- <div class="base_add">
+            <img src="__PUBLIC__/images/admin_images/addpic.png" width="187" height="166" />
+            <input onchange="picUpload(this)" type="file" class="input-k w-350 file" name="file0" multiple="multiple" />
+            <input onchange="setImagePreviews(this)" type="file" class="input-k w-350 file" name="file[]" multiple="multiple" accept="image/*" id="doc"/>
+        </div> -->
+        <div id="fileUploadContent" class="fileUploadContent"></div>
+        
+        <!-- <button onclick="testUpload()">提交</button> -->
+    <!-- </div> -->
+    <div class="add-line-1"><input type="button" class="save-btn mar-l-250" value="保存" onclick="testUpload()" /></div>
+    <!-- </form> -->
+</div>
+<div class="footer">精信官网后台</div>
+</body>
+</html>
+<!-- <script type="text/javascript">
+    $(function(){
+        picUpload = function(file){
+            console.log(file.files[0]);
+            var objUrl = getObjectURL(file.files[0]);
+            // console.log(objUrl);
+            var count = $('.file').length;
+            var html = '<div><img src="__PUBLIC__/images/admin_images/addpic.png" width="187" height="166"><input onchange="picUpload(this);" type="file" class="input-k w-350 file" name="file'+count+'"/></div>';
+            if(objUrl) {
+                $(file).prev('img').attr('src',objUrl);
+                if($(file).siblings('div').length == 0){
+                    $(file).parents('.add-line-1').append(html);
+                    $(file).parent().append('<div><span style="width: 74px;"><input type="radio" name="cover" value="'+count+'">设为封面</span><span style="width: 74px;cursor:pointer;" onclick="del(this)">删除</span></div>');
+                }
+            }
+        }
+        function getObjectURL(file) {
+            var url;
+            if (window.createObjectURL!=undefined) { // basic
+            url = window.createObjectURL(file) ;
+            } else if (window.URL!=undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file) ;
+            } else if (window.webkitURL!=undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file) ;
+            }
+            return url ;
+        }
+        del = function(obj){
+            $(obj).parent().parent().remove();
+        }
+        sub = function(){
+            var name = $('#name').val();
+            var sort = $('#sort').val();
+            if(name == ""){
+                alert("请输入图集名称！");
+                return false;
+            }else if(sort == ""){
+                alert("请填写图集顺序！");
+                return false;
+            }
+        }
+
+
+
+       setImagePreviews = function(avalue) {
+
+        var docObj = $(avalue);
+        var arr = new Array();
+
+        var fileList = docObj[0].files;
+        for (var i = 0; i < fileList.length; i++) {            
+            var count = $('.file').length;
+            var objUrl = getObjectURL(fileList[i]);
+            $(avalue).parents('.add-line-1').prepend('<div><img src="'+objUrl+'" width="187" height="166" /></div>');
+            // arr.push(objUrl);
+        }  
+        // console.log(arr);
+
+
+            return true;
+
+        }
+    })
+</script> -->
+<!-- <script type="text/javascript">
+ 
+    $(function(){
+        var arrList = new Array(); 
+        var docObj = document.getElementById("doc");
+        var fileList;
+        $('#doc').change(function(){
+            fileList = docObj.files;
+            Array.prototype.push.apply(arrList, fileList);
+        })
+        $('.add-line-1').on('click','.del',function(){
+            var num = $(this).attr('data-num');
+            delete arrList[num];
+            $(this).parent().parent().remove();
+        })
+        $('.save-btn').click(function(){
+            
+            // for(var k=0;k<=fileList.length;k++){
+            //     Array.prototype.push.apply(arrList, fileList[k]);
+            // }
+            // console.log(arrList);
+            // console.log(fileList[0]);
+            var Myform = new FormData();
+            var name = $('#name').val();
+            Myform.append("name",name);
+            var cover=$('input[name=cover]:checked').val();
+            Myform.append("cover",cover);
+            
+            var sort = $('#sort').val();
+
+            Myform.append('sort',sort);
+            for (var i = 0, j = fileList.length; i < j; ++i) {
+                Myform.append('myFileTest[]', fileList[i]);
+            }
+            // Myform.append('file',fileList);
+
+            var Req = new XMLHttpRequest();
+            Req.open("POST", "save");
+            Req.send(Myform);
+            window.location.href='staff';
+            // var arrList = new Array();
+            // arrList = fileList;
+            // console.log(arrList);
+            // console.log(typeof arrList);
+        })
+    })
+
+
+
+    // del = function(obj,num,List){
+    //     delete arrList[num];
+    //     console.log(arrList);
+    // }
+
+    //下面用于多图片上传预览功能
+
+    function setImagePreviews(avalue) {
+        var docObj = document.getElementById("doc");
+        $(docObj).parent().siblings('div').remove(); 
+        var arrList = new Array(); 
+        var fileList;
+        fileList = docObj.files;
+        Array.prototype.push.apply(arrList, fileList);
+        // var dd = document.getElementById("dd");
+ 
+        // dd.innerHTML = "";
+ 
+        // console.log(fileList);  
+        for (var i = 0; i < fileList.length; i++) {            
+ 
+            // dd.innerHTML += "<div style='float:left' > <img id='img" + i + "'  /> </div>";
+            $(avalue).parents('.add-line-1').find('.base_add').before("<div style='float:left' > <img id='img" + i + "'  /><div><span style='width: 74px;'><input type='radio' name='cover' value='"+i+"'>设为封面</span><span style='width: 74px;cursor:pointer;' data-num='"+i+"' class='del'>删除</span></div> </div>");
+            var imgObjPreview = document.getElementById("img"+i); 
+ 
+            if (docObj.files && docObj.files[i]) {
+ 
+                //火狐下，直接设img属性
+ 
+                imgObjPreview.style.display = 'block';
+ 
+                imgObjPreview.style.width = '189px';
+ 
+                imgObjPreview.style.height = '168px';
+ 
+                //imgObjPreview.src = docObj.files[0].getAsDataURL();
+ 
+                //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+ 
+                imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);
+ 
+            }
+ 
+            else {
+ 
+                //IE下，使用滤镜
+ 
+                docObj.select();
+ 
+                var imgSrc = document.selection.createRange().text;
+ 
+                // alert(imgSrc)
+ 
+                var localImagId = document.getElementById("img" + i);
+ 
+                //必须设置初始大小
+ 
+                localImagId.style.width = "189px";
+ 
+                localImagId.style.height = "168px";
+ 
+                //图片异常的捕捉，防止用户修改后缀来伪造图片
+ 
+                try {
+ 
+                    localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+ 
+                    localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+ 
+                }
+ 
+                catch (e) {
+ 
+                    alert("您上传的图片格式不正确，请重新选择!");
+ 
+                    return false;
+ 
+                }
+ 
+                imgObjPreview.style.display = 'none';
+ 
+                document.selection.empty();
+ 
+            }
+ 
+        }  
+ 
+        return true;
+ 
+    }
+ 
+</script> -->
+<script type="text/javascript">
+    // check_cover();
+    function check_cover(){
+        var count = $("input[name=cover]:checked").length;
+        if(count == 0){
+            $("input[name=cover]").eq(0).attr("checked","checked");
+        }
+    }
+    function acceptMsg(){
+        var name = $("#name").val();
+        var sort = $("#sort").val();
+        var cover = $("input[name=cover]:checked").val();
+        var opt = {name:name,sort:sort,cover:cover};
+        return opt;
+    }
+    $("#fileUploadContent").initUpload({
+        "uploadUrl":"save",//上传文件信息地址
+        //"size":350,//文件大小限制，单位kb,默认不限制
+        //"maxFileNumber":3,//文件个数限制，为整数
+        //"filelSavePath":"",//文件上传地址，后台设置的根目录
+        "beforeUpload":beforeUploadFun,//在上传前执行的函数
+        "onUpload":onUploadFun,//在上传后执行的函数
+        //autoCommit:true,//文件是否自动上传
+        "fileType":['png','jpg','jpeg','gif','JPG','PNG','JPEG','GIF']//文件类型限制，默认不限制，注意写的是文件后缀
+    });
+    function beforeUploadFun(opt){
+        var msg = acceptMsg();
+        check_cover();
+        opt.otherData =[{"name":"name","value":msg.name},{"name":"sort","value":msg.sort},{"name":"cover","value":msg.cover}];
+    }
+    function onUploadFun(opt,data){
+        // console.log(data);
+        uploadTools.uploadError(opt);//显示上传错误
+        uploadTools.uploadSuccess(opt);//显示上传成功
+        if(data.status==1){
+            window.location.href=data.url;
+        }
+    }
+    
+    
+    function testUpload(){
+        var opt = uploadTools.getOpt("fileUploadContent");
+        uploadEvent.uploadFileEvent(opt);
+        // window.location.href="staff";
+    }
+</script>

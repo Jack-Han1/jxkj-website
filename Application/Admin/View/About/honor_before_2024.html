@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>精信荣誉-走进精信</title>
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/slide.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/rotate.js"></script>
+    <style type="text/css">
+        #focus_Box li img{
+            width: 100%;
+            height: auto;
+        }
+        .none-indent p{
+            text-indent: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster2"></div>
+<!--海报-->
+<!--内容开始-->
+
+<div class="about-k">
+<div class="about-nav">
+<ul>
+    <a href="__APP__/index.php/Admin/About/index"><li><i class="triangle-solid"></i>精信简介</li></a>
+    <a href="__APP__/index.php/Admin/About/leader"><li><i class="triangle-solid"></i>发展历程</li></a>
+    <!-- <a href="__APP__/index.php/Admin/About/framework"><li><i class="triangle-solid"></i>精信架构</li></a> -->
+    <!-- <a href="__APP__/index.php/Admin/About/team"><li><i class="triangle-solid"></i>核心团队</li></a> -->
+    <a href="__APP__/index.php/Admin/About/honor"><li class="select"><i class="triangle-solid triangle-select"></i>精信荣誉</li></a>
+    <a href="__APP__/index.php/Admin/About/culture"><li><i class="triangle-solid"></i>精信文化</li></a>
+    <!-- <a href="__APP__/index.php/Admin/About/care"><li><i class="triangle-solid"></i>领导关怀</li></a> -->
+    <a href="__APP__/index.php/Admin/About/staff"><li><i class="triangle-solid"></i>员工风采</li></a>
+</ul>
+</div>
+<div class="about-con">
+<h1 class="about-con-title"><span class="c-green">精信荣誉</span></h1>
+    <div class="none-indent">
+        {$info}
+    </div>
+
+</div>
+</div>
+
+<!--内容结束-->
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+
+</body>
+</html>

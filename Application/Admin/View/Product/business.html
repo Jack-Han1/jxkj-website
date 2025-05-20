@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>商企项目-商企类-产品中心</title>
+    <link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+    <style type="text/css">
+        /*.dis-n {
+            display: none;
+        }*/
+        /*.product-nav li{*/
+        /*background-color: #97c740;*/
+        /*}*/
+        .product-subnav li{
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster4"></div>
+<!--海报-->
+<!--con-->
+<div class="product-bg">
+    <div class="product-k">
+        <!--侧导航-->
+        <div class="product-nav">
+            <ul id="product_menu">
+                <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)"><i class="triangle-solid"></i>教育类<!-- <i class="product-icon"></i> --></li>
+                <ul class="product-subnav  dis-n">
+                    <!--<a href="__APP__/index.php/Admin/Product/internet"><li>集约平台</li></a>-->
+                    <a href="__APP__/index.php/Admin/Product/school"><li>智慧教育</li></a>
+                </ul>
+                <li class="select"><i class="triangle-solid triangle-select"></i>商企类<!-- <i class="product-select-icon"></i> --></li>
+                <ul class="product-subnav">
+                    <a href="__APP__/index.php/Admin/Product/business"><li  class="select">商企项目</li></a>
+                </ul>
+                <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)"><i class="triangle-solid"></i>金融类<!-- <i class="product-icon"></i> --></li>
+                <ul class="product-subnav  dis-n">
+                    <a href="__APP__/index.php/Admin/Product/index"><li>智慧金融</li></a>
+                </ul>
+                <a href="__APP__/index.php/Admin/Product/yxt"><li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)"><i class="triangle-solid"></i>易信通</li></a>
+
+                <!-- <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)">文化类<i class="product-icon"></i></li>
+                <ul class="product-subnav dis-n">
+                    <a href="__APP__/index.php/Admin/Product/culture"><li>文化项目</li></a>
+                </ul>
+                <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)">呼叫类<i class="product-icon"></i></li>
+                <ul class="product-subnav dis-n">
+                    <a href="__APP__/index.php/Admin/Product/call"><li>电销业务</li></a>
+                </ul>
+                <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)">增值类<i class="product-icon"></i></li>
+                <ul class="product-subnav dis-n">
+                    <a href="__APP__/index.php/Admin/Product/sp"><li>增值业务</li></a>
+                    <a href="__APP__/index.php/Admin/Product/increment"><li>终端销售</li></a>
+                </ul> -->
+            </ul>
+        </div>
+        <!--右侧内容-->
+        <div class="product-con">
+            <div class="product-t product-t4">
+                <img src="__PUBLIC__/images/product-06-01-01.jpg" />
+                <h1>商企项目</h1>
+                <h2>Business Projects</h2>
+                <h3>依托于中国联通在网络、客户、渠道、业务和产业链等方面的整体优势，为客户提供满意的移网、固网、创新性等服务和解决方案。
+                </h3>
+            </div>
+            <!-- <div class="w-906">
+                <img src="__PUBLIC__/images/product-02-02-02.png" />
+            </div> -->
+            <div class="product-text">
+                <h1>商企项目</h1>
+                <h4>Business Projects</h4>
+                <h2>1、产品概述</h2>
+                <p>商企项目部依托公司和中国联通湖北分公司的战略合作伙伴关系，开展移动通信业务，固定通信业务，宽带网络接入业务和各类电信增值等业务。目标客户主要有写字楼内的企业、商场内的商户、临街商铺、商住楼内的住户、行业客户等。商企项目部员工通过各类营销活动，达成对应的销售。
+                </p>
+                <h2>2、产品类型</h2>
+                <p>● 移网产品：包括冰激凌卡、钉钉卡、互联网卡（腾讯王卡）等；
+                </p>
+                <p>● 固网产品：包括专线、电路、宽带、固话、语音、中继等；
+                </p>
+                <p>● 融合产品：包括智慧沃家（宽带+手机+固话）、全家福（宽带+手机+固话+IPTV）等；
+                </p>
+                <p>● 创新产品：包括IDC/云、沃云融合、物联网卡等；
+                </p>
+                <p>商企项目部将会依托于中国联通在网络、客户、渠道、业务和产业链等方面的整体优势，紧密围绕“客户满意的精准营销服务专家”的愿景，持续地为客户提供满意的移网、固网、创新性等服务和解决方案。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+<script type="text/javascript">
+    $("#product_menu").children('ul').hide();
+    $(".select").next("ul").show();
+    $("#product_menu").children('li').click(function(){
+        $(this).next("ul").toggle();
+    });
+    //    $("#product_menu").children('li').click(function(){
+    //        $(".dis-s").addClass('dis-n');
+    //        $(".dis-s").removeClass('dis-s');
+    //        $(this).next('ul').removeClass('dis-n');
+    //        $(this).next('ul').addClass('dis-s');
+    //    })
+    function mouse_in(e){
+        if($(e).next('ul').attr('class')!='product-subnav dis-s'){
+            $(e).css({"color":"#105dd5"})
+            $(e).children('i').addClass('green_down')
+//            $(e).children('i').removeClass('product-icon')
+        }
+//        console.log($(e).next('ul').attr('class')=='product-subnav dis-s')
+
+    }
+    function mouse_out(e) {
+        if ($(e).attr('class')!='select' && $(e).next('ul').attr('class') != 'product-subnav dis-s') {
+            $(e).css({"color": "#3c3c3c"})
+            $(e).children('i').removeClass('green_down')
+        }
+    }
+    //     $("#product_menu").children('li').click(function(){
+    // //        $(".dis-s").prev('li').css({"background-color":"#fff","color":"#3c3c3c"})
+    // //        $(".dis-s").prev('li').children('i').removeClass('product-select-icon');
+    // //        $(".dis-s").prev('li').children('i').addClass('product-icon');
+    // //        $(".dis-s").addClass('dis-n');
+    // //        $(".dis-s").removeClass('dis-s');
+    // //        $(this).next('ul').removeClass('dis-n');
+    // //        $(this).next('ul').addClass('dis-s');
+    // //        $(this).css({"background-color":"#97c740","color":"#fff"})
+    // //        $(this).children('i').addClass('product-select-icon');
+    // //        $(this).children('i').removeClass('product-icon');
+    // //        $(this).children('i').removeClass('green_down');
+    //         if($(this).attr('class')!='select'){
+    //             $(".dis-s").prev('li').css({"border":"none","color":"#3c3c3c"})
+    //             $(".dis-s").prev('li').children('i').removeClass('green_down');
+    //             $(".dis-s").addClass('dis-n');
+    //             $(".dis-s").removeClass('dis-s');
+    //             $(this).next('ul').removeClass('dis-n');
+    //             $(this).next('ul').addClass('dis-s');
+    //             $(this).css({"border-bottom":"1px #ccc dotted"})
+    //             $(this).children('i').addClass('green_down');
+    //         }
+    //     })
+</script>
+</body>
+</html>

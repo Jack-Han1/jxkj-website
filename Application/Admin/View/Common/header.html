@@ -1,0 +1,121 @@
+<style>
+  .nav-search {
+    width: 0;
+    border-radius: 5px;
+    height: 30px;
+    position: absolute;
+    top: 20px;
+    left: 500px;
+    background: #fff;
+    /*padding-left:10px;*/
+    display: none;
+    text-indent: 15px;
+    behavior: url(PIE.htc); /* 通知IE浏览器调用脚本作用于'box'类 */
+    /*border: 1px solid #ddd;*/
+    background: #f8f8f8;
+    margin-left: 50px;
+  }
+  /*.nav{
+        background: #0a112b;
+    }*/
+</style>
+<!--导航条开始-->
+<div class="nav">
+  <div class="w-1200">
+    <i class="logo"></i>
+    <ul>
+      <li>
+        <a href="__APP__/index.php/Admin/Index" target="_self" class="nav-link"
+          >首页</a
+        >
+      </li>
+      <volist name="menu_list" id="menu_list">
+        <li>
+          <a
+            href="__APP__/index.php/Admin/{$menu_list['url']}"
+            target="_self"
+            class="nav-link"
+            >{$menu_list['name']}</a
+          >
+          <if condition="$menu_list['children_list'] neq null">
+            <div class="subnav2">
+              <div class="subnav-left">
+                <volist
+                  name="menu_list['children_list']"
+                  id="menu_children_list"
+                >
+                  <a href="__APP__/index.php/Admin/{$menu_children_list['url']}"
+                    >{$menu_children_list['name']}</a
+                  >
+                </volist>
+              </div>
+            </div>
+          </if>
+        </li>
+      </volist>
+      <form
+        action="__APP__/index.php/Admin/Search"
+        method="get"
+        onsubmit="return search(this)"
+      >
+        <a href="javascript:;" target="_self"
+          ><i class="search-icon"></i
+          ><input
+            type="text"
+            name="txt"
+            placeholder="在此输入您要查找的内容"
+            class="nav-search"
+        /></a>
+        <a href="javascript:;" class="close-search" style="display: none"
+          ><img src="__PUBLIC__/images/close.png" alt="" id="closeImg"
+        /></a>
+      </form>
+    </ul>
+  </div>
+</div>
+<!--导航条结束-->
+<script type="text/javascript">
+  $(function () {
+    // 搜索框显示
+    $(".search-icon").click(function () {
+      $(".nav ul li").hide();
+      $(".nav-search").show();
+      $(".search-icon").hide();
+      $(".nav-search").animate(
+        {
+          width: "650px",
+        },
+        function () {
+          $(".close-search").attr("style", "display:block");
+          $(".icon").attr("onclick", "submit()");
+        }
+      );
+    });
+    $(".close-search").click(function () {
+      $(".nav-search").animate(
+        {
+          width: "0",
+        },
+        function () {
+          $(".nav ul li").show();
+          $(".close-search").hide();
+          $(".search-icon").show();
+          $(".icon").attr("onclick", "");
+        }
+      );
+    });
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var headHeight = $(".nav").height() + 10;
+    var nav = $(".nav");
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > headHeight) {
+        nav.addClass("navFix");
+      } else {
+        nav.removeClass("navFix");
+      }
+    });
+  });
+</script>

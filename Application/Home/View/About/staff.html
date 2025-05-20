@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.6.min.js"/>
+<title>精信官网后台人才</title>
+</head>
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+	<div class="widget">
+    	<div class="widget-header">
+        	<div class="title">员工风采</div>
+        </div>
+        <div class="widget-body" style="overflow: hidden;margin:0 auto;">
+            <div class="add-line-2" style="margin-bottom: 13px;">
+                <input type="button" name="btn" class="save-btn" value="添加图集" onclick="window.location.href='__APP__/index.php/Home/About/staff_add'">
+            </div>
+            <foreach name="list" item="vo">
+                    <div style="width: 218px;float: left;margin-left: 45px;"><img src="__ROOT__{$vo.cover_pic}" style="height: 218px;width: 218px;" />
+                        <h1 style="text-align: center;">{$vo.title}({$vo.count}张)</h1>
+                        <p style="text-align: center;"><a href="__APP__/index.php/Home/About/staff_edit?id={$vo.id}">编辑</a><span style="margin-left: 10px;cursor: pointer;" onclick="del({$vo.id})">删除</span></p>
+                    </div>
+            </foreach>
+        </div>
+    </div>
+    <div style="text-align: right;">
+        {$page}
+    </div>
+    
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+
+<script type="text/javascript">
+    function del(id){
+        $.post('__APP__/index.php/Home/About/del_staff', {id:id}, function(data){
+            data = eval('(' + data + ')');
+            if(data.status){
+                alert(data.info);
+                window.location.reload();
+            }else{
+                alert(data.info);
+            }
+        });
+    }
+
+    function set_top(id){
+        $.post('top', {id:id}, function(data){
+            data = eval('(' + data + ')');
+            if(data.status){
+                alert(data.info);
+                window.location.reload();
+            }else{
+                alert(data.info);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>法律声明</title>
+    <link
+      rel="Shortcut Icon"
+      href="__PUBLIC__/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <script
+      type="text/javascript"
+      src="__PUBLIC__/Js/jquery.scrollTo2.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="__PUBLIC__/Js/jquery.scrollTo.js"
+    ></script>
+    <!--nav-position -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var headHeight = $(".header").height() + 10;
+        var nav = $(".nav");
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > headHeight) {
+            nav.addClass("navFix");
+          } else {
+            nav.removeClass("navFix");
+          }
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      $(function () {
+        $(".Law-nav li a").click(function () {
+          $(".Law-nav li").removeClass("selected");
+          $(this).parent("li").addClass("selected");
+        });
+        $(".nav_one").click(function () {
+          $.scrollTo("#one", 500);
+        });
+        $(".nav_two").click(function () {
+          $.scrollTo("#two", 800);
+        });
+        $(".nav_three").click(function () {
+          $.scrollTo("#three", 1000);
+        });
+        $(".nav_four").click(function () {
+          $.scrollTo("#four", 1200);
+        });
+      });
+    </script>
+    <style type="text/css">
+      .Law-nav {
+        width: 200px;
+        position: fixed;
+        top: 130px;
+      }
+      .Law-nav li {
+        width: 188px;
+        height: 45px;
+        line-height: 45px;
+        text-align: right;
+        border-bottom: 1px solid #f0f0f0;
+        padding-right: 10px;
+        font-size: 18px;
+      }
+      .Law-nav li a {
+        color: #666;
+      }
+      .Law-nav li a:hover {
+        color: #105dd5;
+      }
+      .Law-nav li.selected {
+        border-right: 5px #105dd5 solid;
+      }
+      .Law-nav li.selected a {
+        color: #105dd5;
+      }
+      .Law-nav li:first-child {
+        border-top: 1px solid #f0f0f0;
+      }
+      #Law {
+        width: 1200px;
+        margin: 0px auto;
+        background: #fff;
+        padding-bottom: 50px;
+      }
+      #Law .clear {
+        clear: both;
+      }
+      #Law .box {
+        width: 950px;
+        margin-left: 250px;
+        line-height: 2em;
+        font-size: 14px;
+        border-bottom: 1px solid #e4e0e0;
+        padding-bottom: 60px;
+        padding-top: 60px;
+        color: #5e6267;
+      }
+      #Law .box li {
+        list-style: disc;
+      }
+      #Law h1 {
+        font-size: 20px;
+        line-height: 36px;
+        color: #333;
+      }
+
+      .f-mt45 {
+        margin-top: 45px;
+      }
+    </style>
+  </head>
+  <body>
+	 <!-- header组件 -->
+	 <include file="Admin@Common/new_header" />
+    <div id="Law">
+      <ul class="Law-nav">
+        <li class="selected"><a href="#one" class="nav_one">版权声明</a></li>
+        <li><a href="#two" class="nav_two">商标声明</a></li>
+        <li><a href="#three" class="nav_three">相关法律</a></li>
+        <li><a href="#four" class="nav_four">网站标识</a></li>
+      </ul>
+      <div class="Law-right">
+        <div id="one" class="box">
+          <h1 class="law-title">版权声明</h1>
+          <ul>
+            <li>
+              对于本网站内容，超越合理使用范畴、并未经本公司书面许可的使用行为，我公司均保留追究法律责任的权利。
+            </li>
+          </ul>
+        </div>
+        <div id="two" class="box">
+          <h1 class="law-title">商标声明</h1>
+          <ul>
+            <li>
+              未经本公司或商标权人书面许可，任何单位及个人不得以任何方式或理由使用上述商标，包括不得对商标任何部分进行复制、传播、展示、修改及抄录等。
+            </li>
+            <li>
+              凡侵犯本公司或关联公司商标权的，本公司将依法追究其法律责任。
+            </li>
+          </ul>
+        </div>
+        <div id="three" class="box">
+          <h1 class="law-title">相关法律</h1>
+          <ul>
+            <li>《中华人民共和国商标法》</li>
+            <li>《全国人民代表大会常务委员会关于维护互联网安全的决定》</li>
+            <li>《计算机软件保护条例》</li>
+            <li>因本公告或使用本网站所发生的争议适用中华人民共和国法律。</li>
+            <li>
+              因本公告或使用本网站发生争议，应当协商解决，协商不成的，由本公司所在地有管辖权人民法院诉讼解决。
+            </li>
+          </ul>
+        </div>
+        <div id="four" class="box" style="height: 150px">
+          <h1 class="law-title">网站标识</h1>
+          <p>
+            www.jingyingshenghua.com和
+            www.whszzy.com皆为精信科技公司网站域名，本公司郑重提醒，切勿登陆访问仿冒精信科技的不法网站，以免上当受害。
+          </p>
+        </div>
+      </div>
+    </div>
+	 <!-- footer组件 -->
+	 <include file="Admin@Common/new_footer" />
+  </body>
+</html>

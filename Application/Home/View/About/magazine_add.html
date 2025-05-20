@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css" />
+    <load href="__PUBLIC__/Js/jquery-1.8.3.min.js" />
+    <!-- <load href="__PUBLIC__/Js/pace.min.js"/> -->
+    <link href="__PUBLIC__/Css/iconfont.css" rel="stylesheet" type="text/css" />
+    <link
+      href="__PUBLIC__/Css/fileUpload.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/fileUpload.js"></script>
+    <load href="__PUBLIC__/Js/laydate.dev.js" />
+    <load href="__PUBLIC__/Js/laydate.js" />
+    <title>精信官网后台人才</title>
+  </head>
+  <body>
+    <!--top开始-->
+    <include file="Home@Common/head" />
+    <!--nav结束-->
+    <!--con开始-->
+
+    <div class="con">
+      <form
+        id="from"
+        action="add_magazine"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="add-line-1">
+          <input
+            type="text"
+            class="input-k w-350"
+            id="id"
+            name="id"
+            value=""
+            style="display: none"
+          />
+
+          <span>标题：</span
+          ><input
+            type="text"
+            class="input-k w-350"
+            id="title"
+            name="title"
+            value=""
+            style="
+              display: block;
+              height: 40px;
+              width: 1000px;
+              margin-bottom: 40px;
+            "
+          />
+          <span>封面链接：</span
+          ><input
+            type="text"
+            class="input-k w-350"
+            id="img"
+            name="img"
+            value=""
+            style="
+              display: block;
+              height: 40px;
+              width: 1000px;
+              margin-bottom: 40px;
+            "
+          />
+          <span>月刊链接：</span
+          ><input
+            type="text"
+            class="input-k w-350"
+            id="url"
+            name="url"
+            value=""
+            style="
+              display: block;
+              height: 40px;
+              width: 1000px;
+              margin-bottom: 40px;
+            "
+          />
+          <span>简介：</span
+          ><input
+            type="text"
+            class="input-k w-350"
+            id="text"
+            name="text"
+            value=""
+            style="
+              display: block;
+              height: 40px;
+              width: 1000px;
+              margin-bottom: 40px;
+            "
+          />
+          <span>发刊日期：</span
+          ><input
+            type="text"
+            class="input-k w-350"
+            id="date"
+            name="date"
+            value=""
+            readonly="readonly"
+            style="
+              display: block;
+              height: 40px;
+              width: 1000px;
+              margin-bottom: 40px;
+            "
+          />
+          <!-- <input
+            type="text"
+            class="input-k w-350"
+            id="date"
+            name="date"
+            value=""
+            style="
+              display: block;
+              height: 40px;
+              width: 1000px;
+              margin-bottom: 40px;
+            "
+          /> -->
+        </div>
+
+        <div class="add-line-1">
+          <input
+            onclick="sub()"
+            type="button"
+            class="save-btn mar-l-250"
+            value="添加"
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="footer">精信官网后台</div>
+  </body>
+</html>
+
+<script>
+  // 时间选择器
+  var magazine_date = {
+    elem: "#date",
+    format: "YYYY-MM-DD",
+    min: "1099-06-16", //设定最小日期为当前日期
+    max: "2099-06-16", //最大日期
+    istime: true,
+    istoday: true,
+    choose: function (datas) {
+      end.min = datas; //开始日选好后，重置结束日的最小日期
+      end.start = datas; //将结束日的初始值设定为开始日
+    },
+  };
+  laydate(magazine_date);
+
+  function sub() {
+    var container = $("#text").val();
+    var name = $("#title").val();
+    var img = $("#img").val();
+    var url = $("#url").val();
+    var date = $("#date").val();
+    console.log($("#date").val());
+    if (name == "") {
+      alert("请输入标题！");
+      return false;
+    } else if (container == "") {
+      alert("请填写内容！");
+      return false;
+    } else if (img == "") {
+      alert("请填写封面链接！");
+      return false;
+    } else if (url == "") {
+      alert("请填写杂志链接！");
+      return false;
+    } else if (date == "") {
+      alert("请填写发刊日期！");
+      return false;
+    }
+    $("#from").submit();
+  }
+</script>

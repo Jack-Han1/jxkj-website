@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>精信官网首页</title>
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+
+
+
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/slide.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/rotate-index.js"></script>
+<!-- 轮播背景鼠标效果 -->
+<script type="text/javascript" src="__PUBLIC__/Js/canvas-particle.js"></script>
+<script type="text/javascript">
+        $(function(){
+            var config = {
+                vx: 4,  //小球x轴速度,正为右，负为左
+                vy: 4,  //小球y轴速度
+                height: 2,  //小球高宽，其实为正方形，所以不宜太大
+                width: 2,
+                count: 100,     //点个数
+                color: "121, 162, 185",     //点颜色
+                stroke: "130,255,255",      //线条颜色
+                dist: 6000,     //点吸附距离
+                e_dist: 20000,  //鼠标吸附加速距离
+                max_conn: 10    //点到点最大连接数
+            }
+            //调用
+            CanvasParticle(config);
+        });
+</script>
+    <style type="text/css">
+        #focus_Box li img{
+            width: 250px;
+            height: 180px;
+        }
+        .news-list h1{
+            margin-top: 25px;
+        }
+        #focus_Box li{
+            width: 180px;
+        }
+    </style>
+</head>
+
+<body>
+
+<include file="Admin@Common/header"/>
+<!--轮播图开始-->
+<div class="roll" id="mydiv">
+    <div class="slide" id="img-play">
+        <ul>
+            <li><img src="__PUBLIC__/images/banner1.png"/></li>
+            <!-- <li><a href="#"><img src="__PUBLIC__/images/banner2.png" /></a></li> -->
+            <li><img src="__PUBLIC__/images/banner3.png"/></li>
+            <!--<li><a href="#"><img src=""/></a></li>-->
+            <!--<li><a href="#"><img src="__PUBLIC__/Images/admin_images/img-sy-1.png"/></a></li>-->
+
+        </ul>
+        <div class="num" style="margin-right: 540px;"></div>
+        <a class="skip prev" title="上一张">上一张</a>
+        <a class="skip next" title="下一张">下一张</a>
+    </div>
+</div>
+<!--轮播图结束-->
+<!--热点条开始-->
+<!-- <div class="hot">
+    <div class="w-1200 hot-con"><span class=" mar-l-20 f-14">&nbsp;热点HOT</span><span class="mar-l-10 mar-r-10">|</span>
+        <a style="color: white;" href="__APP__/index.php/Admin/News/detail?id={$hot_list.id}">{$hot_list.name}</a><span class="mar-l-40">{$hot_list.date}</span>
+ -->
+       <!-- <div class="wx">
+            <div class="wx-con">
+                <img src="__PUBLIC__/images/wx-m.png" />
+                <p class="w-con-line1">加入我们</p>
+                <p class="w-con-line2">我们的时代需要有你</p>
+            </div>
+        </div>-->
+
+        <!--<div class="wb">
+            <div class="wb-con">
+                <img src="__PUBLIC__/images/wx-m.png" />
+                <p class="w-con-line1">加入我们</p>
+                <p class="w-con-line2">我们的时代需要有你</p>
+            </div>
+        </div>-->
+
+<!--     </div>
+
+</div> -->
+<!--热点条结束-->
+<!--业务块开始-->
+<!-- <div class="business">
+    <div class="w-1200">
+        <h1 class="b-title"><i class="i"></i>旗下业务</h1>
+        <ul class="business-list">
+            <li><a href="__APP__/index.php/Admin/Product/index"><span class="icon-finance"></span><p>金融类</p></a>
+                <div class="bn-list-con"><a href="__APP__/index.php/Admin/Product/index"><p class="bn-line"></p>智慧金融</a></div>
+            </li>
+            <li><a href="__APP__/index.php/Admin/Product/internet"><span class="icon-internet"></span><p>互联网类</p></a>
+                <div class="bn-list-con"><p class="bn-line"></p> -->
+                    <!--<a href="__APP__/index.php/Admin/Product/internet">集约平台</a>、-->
+<!--<a href="__APP__/index.php/Admin/Product/school">智慧教育</a></div>
+            </li>
+            <li><a href="__APP__/index.php/Admin/Product/culture"><span class="icon-culture"></span><p>文化类</p></a>
+                <div class="bn-list-con"><p class="bn-line"></p><a href="__APP__/index.php/Admin/Product/culture">文化项目</a></div>
+            </li>
+            <li><a href="__APP__/index.php/Admin/Product/call"><span class="icon-call"></span><p>呼叫类</p></a>
+                <div class="bn-list-con"><p class="bn-line"></p><a href="__APP__/index.php/Admin/Product/call">电销业务</a></div>
+            </li>
+            <li><a href="__APP__/index.php/Admin/Product/sp"><span class="icon-increment"></span><p>增值类</p></a>
+                <div class="bn-list-con"><p class="bn-line"></p><a href="__APP__/index.php/Admin/Product/sp">增值业务</a>、<a href="__APP__/index.php/Admin/Product/increment">终端销售</a></div>
+            </li>
+        </ul>
+    </div>
+</div> -->
+<!--业务块结束-->
+
+<!-- 产品开始 -->
+<div class="pro-blk" style="position:absolute;left:50%;margin-left:-600px;">
+    <ul>
+        <li>
+            <a href="__APP__/index.php/Admin/Product/school" class="one">
+                <h1>智慧教育</h1>
+                <span class="line"></span>
+                <p>建立安全、便捷、开放的校园成长平台</p>
+            </a>
+        </li>
+        <li>
+            <a href="__APP__/index.php/Admin/Product/index" class="two">
+                <h1>智慧金融</h1>
+                <span class="line"></span>
+                <p>结合4G时代消费特点</p>
+                <p>打造通信消费新模式</p>
+            </a>
+        </li>
+        <li>
+            <a href="__APP__/index.php/Admin/Product/yxt" class="three">
+                <h1>易信通</h1>
+                <span class="line"></span>
+                <p>数字化移动营销解决方案</p>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- 产品结束 -->
+
+<!-- 热点新闻开始 -->
+<div class="hot-news" style="margin-top:150px;">
+    <h1>热点新闻</h1>
+    <span class="line"></span>
+    <a href="__APP__/index.php/Admin/News/detail?id=54">热烈祝贺湖北精英盛华信息科技股份有限公司成功在全国中小企业股份转让系统挂牌!</a>
+    <a href="javascript:;">【证券简称：精信科技  证券代码：870852】 </a>
+    <button onclick="window.location.href='__APP__/index.php/Admin/News/detail?id=54'" style="cursor:pointer;">点击查看</button>
+</div>
+<!-- 热点新闻结束 -->
+
+<!--新闻块开始-->
+<div class="w-1200 clear-b">
+    <div class="news">
+        <h1 class="b-title">
+        <!-- <i class="i"></i> -->
+        精信要闻 
+        <p class="line"></p>
+        <!-- / <span>NEWS</span><a href="__APP__/index.php/Admin/News/index" class="fr">MORE></a> --></h1>
+       
+        <div class="news-t">
+            <div class="news-img">
+                <img src="__ROOT__{$top_list['pic_info']['file_path']}" width="230px;" height="120px;"/>
+            </div>
+            <div class="news-detail">
+                <h1><a href="__APP__/index.php/Admin/News/detail?id={$top_list.id}" style=" line-height:25px;">{$top_list.name}</a></h1>
+                <p>{$top_list.abstract}</p>
+            </div>
+
+        </div>
+        <div class="news-list">
+            <volist name="news_list" id="vo">
+                <a href="__APP__/index.php/Admin/News/detail?id={$vo.id}" ><h1><i class="news-list-icon"></i>{$vo.name}<span class="news-list-time">{$vo.date}</span></h1></a>
+            </volist>
+            <!--<a href=""><h1><i class="news-list-icon"></i>我公司获得广西联通“战略合作伙伴”称号<span class="news-list-time">2016-05-30</span></h1></a>-->
+            <!--<a href=""><h1><i class="news-list-icon"></i>我公司获得广西联通“战略合作伙伴”称号<span class="news-list-time">2016-05-30</span></h1></a>-->
+            <!--<a href=""><h1><i class="news-list-icon"></i>我公司获得广西联通“战略合作伙伴”称号<span class="news-list-time">2016-05-30</span></h1></a>-->
+        </div>
+    </div>
+    <div class="honor">
+        <h1 class="b-title">
+        <!-- <i class="i"></i> -->
+        精信荣誉 <!-- / <span>HONOR</span><a href="__APP__/index.php/Admin/About/honor" class="fr">MORE></a> -->
+            <p class="line"></p>
+        </h1>
+
+
+        <div id="focus_Box" style="width: 520px;height: 215px;">
+            <span class="prev">&nbsp;</span>
+            <span class="next">&nbsp;</span>
+            <ul style="width: 520px;height: 250px;">
+                <li id="0">
+                   <img width="280px;" height="180px;" src="__PUBLIC__/images/honor/1_litter.png" />
+                    <span style="width: 250px;text-align: center;margin-top: 30px;display: none;">优秀企业</span>
+                </li>
+                <li id="1">
+                    <img height="180px;" src="__PUBLIC__/images/honor/2_litter.png" />
+                    <span style="width: 250px;text-align: center;margin-top: 30px;display: none;">会长单位</span>
+                </li>
+                <li id="2">
+                    <img height="180px;" src="__PUBLIC__/images/honor/3_litter.png" />
+                    <span style="width: 250px;text-align: center;margin-top: 30px;display: none;">硚口50强民营企业</span>
+                </li>
+                <!--<li id="3">-->
+                    <!--<img src="__PUBLIC__/images/honor/4_litter.png" />-->
+                    <!--<span style="width: 280px;text-align: center;margin-top: 30px;display: none;">硚口100强企业</span>-->
+                <!--</li>-->
+                <!--<li id="4">-->
+                    <!--<img src="__PUBLIC__/images/honor/5_litter.png" />-->
+                    <!--<span style="width: 280px;text-align: center;margin-top: 30px;display: none;">高新技术企业</span>-->
+                <!--</li >-->
+            </ul>
+        </div>
+        <div class="focus-list" style="width:173px;">
+            <ul id="focus-list">
+                <a style="cursor: pointer" class="list-left"></a>
+                <li></li>
+                <!--<li></li>-->
+                <!--<li></li>-->
+                <li></li>
+                <li></li>
+                <a style="cursor: pointer" class="list-right"></a>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--新闻块结束-->
+<include file="Admin@Common/footer"/>
+
+
+</body>
+</html>
+

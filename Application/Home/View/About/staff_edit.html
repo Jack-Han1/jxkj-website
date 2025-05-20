@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.8.3.min.js"/>
+    <link href="__PUBLIC__/Css/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/Css/fileUpload.css" rel="stylesheet" type="text/css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/fileUpload.js"></script>
+<title>精信官网后台人才</title>
+</head>
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <!-- <form id="from" action="staff_update" method="post" enctype="multipart/form-data" > -->
+        <input type="hidden" name="id" value="{$id}" style="display: none;" id="id">
+    <div class="add-line-1">
+    <span>图集名称：</span><input type="text" class="input-k w-350" id="name" name="name" value="{$info.title}"/>
+    </div>
+    <div class="add-line-1">
+            <span>图集顺序：</span>
+            <input type="text" class="input-k w-150" id="sort" name="sort" value="{$info.sort}"/>
+    </div>
+    <!-- <div class="add-line-1"> -->
+        <div class="fileUploadContent">
+            <span>原有图集：</span>
+            <volist name="picList" id="vo" key="i">
+                <div class="fileItem" filecodeId="{$i}">
+                    <div class="imgShow">
+                        <img src="__ROOT__/{$vo.url}">
+                    </div>
+                    <div class="status">
+                        <i class="iconfont icon-shanchu" onclick="del_(this)" data-id="{$vo.id}"></i>
+                        <span>设为封面</span>
+                        <input type="radio" name="cover" value="{$vo.id}" isset="1" <if condition="$vo.is_cover eq '1'">checked</if>>
+                    </div>
+                    <div class="fileName">{$vo.title}</div>
+                </div>
+            </volist>
+        </div>
+    <!-- </div> -->
+    <div id="fileUploadContent" class="fileUploadContent"></div>
+        
+    <div class="add-line-1"><input type="submit" class="save-btn mar-l-250" value="保存" onclick="testUpload()"/></div>
+    <!-- </form> -->
+</div>
+<div class="footer">精信官网后台</div>
+</body>
+</html>
+<script type="text/javascript">
+    check_cover();
+    function check_cover(){
+        var count = $("input[name=cover]:checked").length;
+        if(count == 0){
+            $("input[name=cover]").eq(0).attr("checked","checked");
+        }
+    }
+    del_ = function(obj){
+        var url = 'staff_del';
+        var id = $(obj).attr('data-id');
+        var r = confirm('确认删除该图片？');
+        if(r == false){
+            return false;
+        }
+        $.get(url,{id:id},function(data){
+            if(data.code==1){
+                alert('删除成功');
+                location.reload();
+            }else{
+                alert('删除失败');
+            }
+        },"json")
+    }
+    $(function(){
+        var arr;
+        var id = $("#id").val();
+        var url = "picList"
+        $.post(url,{id:id},function(data){
+            $("#picList").val(data);
+            // console.log($("#picList").val());
+            arr=data;
+        },"json")
+    })
+    function picList(){
+        var id = $("#id").val();
+        var url = "picList"
+        $.post(url,{id:id},function(data){
+            // $("#picList").val(data);
+            return data;
+        },"json")
+    }
+    function acceptMsg(){
+        var name = $("#name").val();
+        var sort = $("#sort").val();
+        var id = $("#id").val();
+        var cover = $("input[name=cover]:checked").val();
+        var isset = $("input[name=cover]:checked").attr('isset');
+        var opt = {name:name,sort:sort,cover:cover,isset:isset,id:id};
+        return opt;
+    }
+    $("#fileUploadContent").initUpload({
+        "picList":picList,
+        "uploadUrl":"staff_update",//上传文件信息地址
+        //"size":350,//文件大小限制，单位kb,默认不限制
+        //"maxFileNumber":3,//文件个数限制，为整数
+        //"filelSavePath":"",//文件上传地址，后台设置的根目录
+        "beforeUpload":beforeUploadFun,//在上传前执行的函数
+        "onUpload":onUploadFun,//在上传后执行的函数
+        //autoCommit:true,//文件是否自动上传
+        "fileType":['png','jpg','jpeg','gif','JPG','PNG','JPEG','GIF']//文件类型限制，默认不限制，注意写的是文件后缀
+    });
+    function beforeUploadFun(opt){
+        var msg = acceptMsg();
+        // var picList = picList();
+        check_cover();
+        opt.otherData =[{"name":"name","value":msg.name},{"name":"sort","value":msg.sort},{"name":"cover","value":msg.cover},{"name":"isset","value":msg.isset},{"name":"id","value":msg.id}];
+        // opt.picList = picList;
+    }
+    function onUploadFun(opt,data){
+        // console.log(data);
+        uploadTools.uploadError(opt);//显示上传错误
+        uploadTools.uploadSuccess(opt);//显示上传成功
+        if(data.status==1){
+            window.location.href=data.url;
+        }
+    }
+    
+    
+    function testUpload(){
+        var opt = uploadTools.getOpt("fileUploadContent");
+        uploadEvent.uploadFileEvent(opt);
+        // window.location.href="staff";
+    }
+</script>

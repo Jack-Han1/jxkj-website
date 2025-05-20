@@ -1,0 +1,222 @@
+<!-- 走进精信->企业新闻->新闻详情 v2024 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>员工关怀-详情</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        /* border: 1px solid red; */
+      }
+      .news-title {
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+        margin-top: 73px;
+        padding-bottom: 17px;
+        border-bottom: 1px solid rgba(230, 230, 230, 1);
+      }
+      .news-date {
+        height: 18px;
+        color: #666666;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        margin-top: 14px;
+        margin-bottom: 23px;
+        letter-spacing: 1px;
+      }
+      .news-head-img{
+        width: 100%;
+      }
+      .news-head-img img {
+        /* width: 100%; */
+        height: auto;
+        margin: 30px auto;
+        display: block;
+      }
+      .news-content {
+        color: #666666 !important;
+        font-family: "Microsoft YaHei" !important;
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 32px !important;
+      }
+      .news-content span {
+        background-color: transparent !important;
+        color: #666666 !important;
+        font-family: "Microsoft YaHei" !important;
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 32px !important;
+      }
+      .news-content p {
+        background-color: transparent !important;
+        color: #666666 !important;
+        font-family: "Microsoft YaHei" !important;
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 32px !important;
+      }
+      .bread-box {
+        /* min-height: 46px; */
+        line-height: 46px;
+        background-color: #f2f3f5;
+        font-size: 14px;
+      }
+      .bread-inner {
+        width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .bread-inner .breadcrumb {
+        margin-bottom: 0px;
+      }
+      /* .breadcrumb li {
+        font-size: 14px;
+      } */
+      .breadcrumb li a {
+        text-decoration: none;
+        color: #2a2e2e;
+      }
+      .breadcrumb li a:hover {
+        color: rgba(56, 28, 98, 1);
+      }
+      .to-top {
+        /* border: 1px solid red; */
+        /* background-color: #381c62; */
+        background-color: #cccccc80;
+        height: 44px;
+        width: 44px;
+        color: #fff;
+        line-height: 44px;
+        text-align: center;
+        border-radius: 50%;
+        position: fixed;
+        right: 8%;
+        bottom: -50px;
+        transition: all 0.3s ease-out;
+        z-index: 999;
+      }
+      .to-top:hover {
+        background-color: #b5b5b580;
+      }
+      .to-top-show {
+        bottom: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <header class="bs-docs-nav navbar navbar-static-top" id="top"></header> -->
+    <div id="top"></div>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- 面包屑导航 -->
+      <div class="bread-box">
+        <div class="bread-inner">
+          <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="__APP__/index.php/Admin/Index/Index">首页</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="__APP__/index.php/Admin/Responsibility/charitable">社会责任</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="__APP__/index.php/Admin/Responsibility/staffcare">员工关怀</a>
+              </li>
+              <li
+                class="breadcrumb-item active"
+                style="color: rgba(56, 28, 98, 1)"
+                aria-current="page"
+              >
+                文章详情
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <div class="w-1200 clearfix" style="margin-bottom: 200px">
+        <!-- 标题 -->
+        <div class="news-title">{$info['name']}</div>
+        <!-- 时间 -->
+        <div class="news-date">
+          发布时间：{$info['post_time']}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          阅读：{$info['clicks']}
+        </div>
+        <!-- 正文 -->
+         <!-- <div class="news-head-img">
+          <if condition="$info['file_id'] neq null">
+            <img src="__ROOT__{$info['pic_info']['file_path']}" width="550px;" />
+          </if>
+         </div> -->
+        
+        <!-- <div>__ROOT__{$info['pic_info']['file_path']}</div> -->
+        <div class="news-content">{$info['content']}</div>
+      </div>
+    </div>
+    <!-- 回到顶部 -->
+    <a href="#top" class="back-to-top">
+      <div class="to-top" id="to-top">
+        <svg
+          t="1712738133671"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="13167"
+          width="22"
+          height="22"
+        >
+          <path
+            d="M479.139 199.82a46.452 46.452 0 0 1 65.722 0l279.366 279.365a46.499 46.499 0 0 1-65.769 65.723l-199.913-199.96v632.507a46.545 46.545 0 0 1-41.1 46.22L512 1024a46.545 46.545 0 0 1-46.545-46.545V344.948l-199.913 199.96a46.499 46.499 0 0 1-61.347 3.91l-4.422-3.91a46.499 46.499 0 0 1 0-65.723zM878.545 0c28.905 0 52.364 20.852 52.364 46.545s-23.459 46.546-52.364 46.546h-733.09c-28.905 0-52.364-20.852-52.364-46.546S116.55 0 145.455 0z"
+            fill="#ffffff"
+            p-id="13168"
+          ></path>
+        </svg>
+      </div>
+    </a>
+
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+  </body>
+  <script>
+    window.addEventListener("scroll", function () {
+      var scrollDistance = window.scrollY;
+      const topElement = document.getElementById("to-top");
+
+      if (scrollDistance > 180) {
+        topElement.classList.add("to-top-show");
+        // console.log('滚动距离超过200px');
+      } else {
+        topElement.classList.remove("to-top-show");
+        // console.log('滚动距离不超过200px');
+        // 执行其他操作
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,192 @@
+<!-- 新闻中心-企业新闻 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no">
+    <title>精信简介</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .top-banner {
+        height: 467px;
+        width: 100%;
+        /* background-color: #d9d9d9; */
+      }
+      .top-banner img {
+        display: block; /* 图片必须是块级元素 */
+        margin: 0 auto; /* 水平居中 */
+        height: 467px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected  a:hover{
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .news {
+        padding-left: 0;
+        margin-top: 50px;
+      }
+      .news-item {
+        position: relative;
+        height: 118px;
+        border-bottom: 1px solid #d5dee5;
+      }
+      .news-item-img {
+        width: 160px;
+        height: 84px;
+        position: absolute;
+        left: 0;
+        top: 17px;
+      }
+      .news-item-title {
+        height: 17px;
+        width: 782px;
+        color: #000;
+        font-family: "PingFang SC Regular";
+        font-size: 12px;
+        font-weight: 400;
+        position: absolute;
+        left: 18px;
+        top: 22px;
+        margin-left: 160px;
+      }
+      .news-item-text {
+        height: 30px;
+        width: 782px;
+        color: #666;
+        font-family: "PingFang SC Regular";
+        font-size: 9px;
+        font-weight: 400;
+        position: absolute;
+        left: 18px;
+        top: 47px;
+        margin-left: 160px;
+      }
+      .news-item-date {
+        height: 13px;
+        width: 782px;
+        color: #666;
+        font-family: "PingFang SC Regular";
+        font-size: 9px;
+        font-weight: 400;
+        position: absolute;
+        left: 18px;
+        bottom: 4px;
+        margin-left: 160px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <!-- main -->
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <img src="__PUBLIC__/images/new_view_2025/Frame_25@2x.png" alt="" />
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item item-selected">企业新闻</div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-960 clearfix">
+        <ul class="news">
+          <li class="news-item">
+            <img src="" alt="" class="news-item-img" />
+            <p class="news-item-title">
+              精信科技总裁李文帅出席武汉市高新技术产业会...
+            </p>
+            <p class="news-item-text">
+              7月8日，荆门市鲁商联合会一届一次会员大会在荆门星球国际大酒店举行。荆门市委常委、统战部部长刘振军，湖北省山东商会会长、湖北精英盛华信息科技股份有限公司董事长李文帅率团应邀出席并发表讲话，荆门市工商联党组书记兰坤，市工商联主席王忠标，荆门九派通融媒...
+            </p>
+            <p class="news-item-date">2023-06-25</p>
+          </li>
+          <li class="news-item">
+            <img src="" alt="" class="news-item-img" />
+            <p class="news-item-title">
+              精信科技总裁李文帅出席武汉市高新技术产业会...
+            </p>
+            <p class="news-item-text">
+              7月8日，荆门市鲁商联合会一届一次会员大会在荆门星球国际大酒店举行。荆门市委常委、统战部部长刘振军，湖北省山东商会会长、湖北精英盛华信息科技股份有限公司董事长李文帅率团应邀出席并发表讲话，荆门市工商联党组书记兰坤，市工商联主席王忠标，荆门九派通融媒...
+            </p>
+            <p class="news-item-date">2023-06-25</p>
+          </li>
+          <li class="news-item">
+            <img src="" alt="" class="news-item-img" />
+            <p class="news-item-title">
+              精信科技总裁李文帅出席武汉市高新技术产业会...
+            </p>
+            <p class="news-item-text">
+              7月8日，荆门市鲁商联合会一届一次会员大会在荆门星球国际大酒店举行。荆门市委常委、统战部部长刘振军，湖北省山东商会会长、湖北精英盛华信息科技股份有限公司董事长李文帅率团应邀出席并发表讲话，荆门市工商联党组书记兰坤，市工商联主席王忠标，荆门九派通融媒...
+            </p>
+            <p class="news-item-date">2023-06-25</p>
+          </li>
+          <li class="news-item">
+            <img src="" alt="" class="news-item-img" />
+            <p class="news-item-title">
+              精信科技总裁李文帅出席武汉市高新技术产业会...
+            </p>
+            <p class="news-item-text">
+              7月8日，荆门市鲁商联合会一届一次会员大会在荆门星球国际大酒店举行。荆门市委常委、统战部部长刘振军，湖北省山东商会会长、湖北精英盛华信息科技股份有限公司董事长李文帅率团应邀出席并发表讲话，荆门市工商联党组书记兰坤，市工商联主席王忠标，荆门九派通融媒...
+            </p>
+            <p class="news-item-date">2023-06-25</p>
+          </li>
+          <li class="news-item">
+            <img src="" alt="" class="news-item-img" />
+            <p class="news-item-title">
+              精信科技总裁李文帅出席武汉市高新技术产业会...
+            </p>
+            <p class="news-item-text">
+              7月8日，荆门市鲁商联合会一届一次会员大会在荆门星球国际大酒店举行。荆门市委常委、统战部部长刘振军，湖北省山东商会会长、湖北精英盛华信息科技股份有限公司董事长李文帅率团应邀出席并发表讲话，荆门市工商联党组书记兰坤，市工商联主席王忠标，荆门九派通融媒...
+            </p>
+            <p class="news-item-date">2023-06-25</p>
+          </li>
+        </ul>
+      </div>
+      <!-- footer组件 -->
+      <include file="Admin@Common/new_footer" />
+    </div>
+  </body>
+</html>

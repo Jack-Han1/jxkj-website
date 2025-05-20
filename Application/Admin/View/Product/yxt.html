@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>通信业务-互联网类-产品中心</title>
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+    <style type="text/css">
+        /*.dis-n {
+            display: none;
+        }*/
+        /*.product-nav li{*/
+            /*background-color: #97c740;*/
+        /*}*/
+        .product-subnav li{
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster4"></div>
+<!--海报-->
+<!--con-->
+<div class="product-bg">
+    <div class="product-k">
+    	<!--侧导航-->
+    	<div class="product-nav">
+            <ul id="product_menu">
+               <a href="__APP__/index.php/Admin/Product/school"> <li ><i class="triangle-solid "></i>智慧校园</li></a>
+               <!-- <ul class="product-subnav">
+                    <a href="__APP__/index.php/Admin/Product/school"><li  class="select">智慧教育</li></a>
+                </ul>-->
+               <a href="__APP__/index.php/Admin/Product/index"> <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)"><i class="triangle-solid"></i>光伏电能投资运营</li></a>
+                <!--<ul class="product-subnav  dis-n">
+                    <a href="__APP__/index.php/Admin/Product/business"><li>商企项目</li></a>
+                </ul>-->
+               <a href="__APP__/index.php/Admin/Product/yxt"> <li class="select" onmouseover="mouse_in(this)" onmouseout="mouse_out(this)"><i class="triangle-solid triangle-select"></i>通信业务</li></a>
+                <!--<ul class="product-subnav  dis-n">
+                    <a href="__APP__/index.php/Admin/Product/index"><li>智慧金融</li></a>
+                </ul>-->
+                <a href="__APP__/index.php/Admin/Product/zhcg"><li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)"><i class="triangle-solid"></i>智慧城管</li></a>
+            </ul>
+        </div>
+    	<!--右侧内容-->
+   	    <div class="product-con">
+        <div class="product-t product-t3">
+            <img src="__PUBLIC__/images/tx-7-18.jpg" />
+<!--            <h1>通信业务</h1>-->
+<!--            <h2>Communication Business</h2>-->
+<!--            <h3>紧跟5G物联网的发展趋势，聚焦传统产业向智能化转变的商机。</h3>-->
+        </div>
+        <!-- <div class="w-906">
+            <img src="__PUBLIC__/images/product-02-02-02.png" />
+        </div> -->
+        <div class="product-text">
+            <h1>通信业务</h1>
+            <h4>Communication Business</h4>
+            <h2>一、产品概述</h2>
+            <p>公司与基础电信运营商达成合作，在国家允许的范围内开展相关移动增值服务及电信代理运营服务。</p>
+            <h2>二、产品类别</h2>
+            <h2>●智慧金融</h2>
+            <p>利用银行、证券、保险等金融平台，整合异业合作渠道和产品资源，为客户提供分期支付类通讯解决方案。</p>
+            <h2>●通信助理（全天候的私人助理）</h2>
+            <p>移动互联网时代背景下，为广大的移动手机用户提供的增值服务（基于网页版或客户端）。</p>
+            <p>为用户开发的增值服务，提供漏话提醒、留言查询、语音祝福、改号通知、出行向导等功能。</p>
+            <h2>●聚优惠（淘宝家园）</h2>
+            <p>通过多层次商品筛选、多角度质量保证、多维度运营支持，为消费者提供商品优惠、返利、包邮等服务。</p>
+            <h2>●呼叫服务</h2>
+            <p>面向企业的呼出式营销服务；面向个人的呼入式客服服务。</p>
+            <h2>●驻地网</h2>
+            <p>为用户终端灵活方便地进入接入网提供整套机线设备解决方案。</p>
+            <!--<img src="__PUBLIC__/images/yxt2.png" />-->
+        </div>
+        </div>
+    </div>
+</div>
+
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+<script type="text/javascript">
+$("#product_menu").children('ul').hide();
+    $(".select").next("ul").show();
+    $("#product_menu").children('li').click(function(){
+        $(this).next("ul").toggle();
+    });
+    //    $("#product_menu").children('li').click(function(){
+    //        $(".dis-s").addClass('dis-n');
+    //        $(".dis-s").removeClass('dis-s');
+    //        $(this).next('ul').removeClass('dis-n');
+    //        $(this).next('ul').addClass('dis-s');
+    //    })
+   /* function mouse_in(e){
+        if($(e).next('ul').attr('class')!='product-subnav dis-s'){
+            $(e).css({"color":"#105dd5"})
+            $(e).children('i').addClass('green_down')
+//            $(e).children('i').removeClass('product-icon')
+        }
+//        console.log($(e).next('ul').attr('class')=='product-subnav dis-s')
+
+    }
+    function mouse_out(e) {
+        if ($(e).attr('class')!='select' && $(e).next('ul').attr('class') != 'product-subnav dis-s') {
+            $(e).css({"color": "#3c3c3c"})
+            $(e).children('i').removeClass('green_down')
+        }
+    }*/
+//     $("#product_menu").children('li').click(function(){
+// //        $(".dis-s").prev('li').css({"background-color":"#fff","color":"#3c3c3c"})
+// //        $(".dis-s").prev('li').children('i').removeClass('product-select-icon');
+// //        $(".dis-s").prev('li').children('i').addClass('product-icon');
+// //        $(".dis-s").addClass('dis-n');
+// //        $(".dis-s").removeClass('dis-s');
+// //        $(this).next('ul').removeClass('dis-n');
+// //        $(this).next('ul').addClass('dis-s');
+// //        $(this).css({"background-color":"#97c740","color":"#fff"})
+// //        $(this).children('i').addClass('product-select-icon');
+// //        $(this).children('i').removeClass('product-icon');
+// //        $(this).children('i').removeClass('green_down');
+//         if($(this).attr('class')!='select'){
+//             $(".dis-s").prev('li').css({"border":"none","color":"#3c3c3c"})
+//             $(".dis-s").prev('li').children('i').removeClass('green_down');
+//             $(".dis-s").addClass('dis-n');
+//             $(".dis-s").removeClass('dis-s');
+//             $(this).next('ul').removeClass('dis-n');
+//             $(this).next('ul').addClass('dis-s');
+//             $(this).css({"border-bottom":"1px #ccc dotted"})
+//             $(this).children('i').addClass('green_down');
+//         }
+//     })
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>联系我们</title>
+    <link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+<!--    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>-->
+    <script type="text/javascript" src="https://api.map.baidu.com/api?ak=ZzmVg7pT8wYPZy3Wlk9bSfCCorevToiE&v=3.0"></script>
+</head>
+
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster6"></div>
+<!--海报-->
+<div class="tel-k">
+    <div class="tel-con">
+        <p class="f-16 c-green f-b">业务咨询</p>
+        <p class="c-9 mar-t-10">电话</p>
+        <p class="mar-t-5">0571-88480580</p>
+    </div>
+    <div class="tel-con">
+        <p class="f-16 c-green f-b">客服中心</p>
+        <p class="c-9 mar-t-10">电话</p>
+        <p class="mar-t-5">0571-28956233<br />
+            8008571250</p>
+    </div>
+</div>
+<div class="address">
+    <p class="c-9">地址：</p>
+    <p class="mar-t-5">湖北省武汉市硚口区解放大道578号中御广场23F</p>
+</div>
+<div class="address">
+    <p class="c-9">网址：</p>
+    <p class="mar-t-5">www.jingyingshenghua.com.0</p>
+</div>
+<div class="address">
+    <p class="c-9">邮编：</p>
+    <p class="mar-t-5">310000</p>
+</div>
+<div class="address-map" id="address-map"></div>
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+<script type="text/javascript">
+    var map = new BMap.Map("address-map");
+    var point = new BMap.Point(120.122688,30.297564);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+    map.centerAndZoom(point, 18);
+    var opts = {
+        width : 200,     // 信息窗口宽度
+        height: 100,     // 信息窗口高度
+        title : "上海洲信科技有限公司" , // 信息窗口标题
+        enableMessage:true,//设置允许信息窗发送短息
+        message:""
+    }
+    var infoWindow = new BMap.InfoWindow("杭州市西湖区翠苑街道西斗门路6号友知弄南门2号楼4-5层", opts);  // 创建信息窗口对象
+    marker.addEventListener("click", function(){
+        map.openInfoWindow(infoWindow,point); //开启信息窗口
+    });
+</script>
+</body>
+</html>

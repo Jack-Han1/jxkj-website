@@ -1,0 +1,235 @@
+<style>
+    body {
+      font-family: "PingFang SC Regular";
+    }
+    .top-banner {
+      height: 288px;
+      width: 100%;
+      background-color: #d9d9d9;
+    }
+    .top-snap-nav {
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+    }
+    .top-snap-nav-item {
+      width: 165px;
+      height: 28px;
+      /* border: 1px solid red; */
+      font-size: 11px;
+      /* font-family: "PingFang SC Regular"; */
+      font-weight: 400;
+      line-height: 28px;
+      text-align: center;
+      z-index: 2;
+    }
+    .top-snap-nav-item a {
+      text-decoration: none;
+      color: #000;
+      transition: all 1s ease-in-out;
+    }
+    .item-selected {
+      background: #381c62;
+    }
+    .item-selected a {
+      color: #fff;
+    }
+    .w-960 {
+      width: 960px;
+      margin: 0 auto;
+      /* border: 1px solid red; */
+    }
+    .who {
+      position: relative;
+      margin-top: 80px;
+      margin-bottom: 80px;
+      /* border: 1px solid gray; */
+      height: 342px;
+    }
+    .who-left {
+      height: 342px;
+      width: 459px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      /* border: 1px solid blue; */
+    }
+    .who-right {
+      height: 342px;
+      width: 467px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      /* border: 1px solid blue; */
+      background-color: #d9d9d9;
+    }
+    /* .who-left P {
+      margin: 0;
+    } */
+    .who-left-p1 {
+      color: #000;
+      font-family: "PingFang SC Regular" !important;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 16px; /* 72.727% */
+      margin: 0;
+    }
+    .who-left-p2 {
+      color: #000;
+      font-family: "PingFang SC Regular" !important;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px; /* 114.286% */
+      margin: 0;
+      margin-top: 32px;
+    }
+    .who-left-p3 {
+      color: #666;
+      text-align: justify;
+      font-family: "PingFang SC Regular" !important;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 18px; /* 163.636% */
+      margin: 0;
+      margin-top: 10px;
+    }
+    .nav-tab {
+      width: 165px;
+      height: 28px;
+      position: absolute;
+      /* left: 545px; */
+      top: 7x;
+      /* border: 1px solid red; */
+      font-size: 11px;
+      /* font-family: "PingFang SC Regular"; */
+      font-weight: 400;
+      line-height: 28px;
+      text-align: center;
+      background: #381c62;
+      /* background: rgba(214, 214, 214, 0.8); */
+      z-index: 1;
+      transition: all .8s cubic-bezier(0.68,-0.55,0.265,1.55);
+    }
+    .pre-select-item {
+        background: #381c6210;
+    }
+    .page{
+        display: none;
+    }
+    .select-page{
+        display: block;
+    }
+  </style>
+<div class="nav-tab"></div>
+<div class="top-snap-nav">
+    <div class="top-snap-nav-item">
+      <a
+        href="#item-1"
+        target="_self"
+        class="txt"
+        >企业新闻</a
+      >
+    </div>
+    <div class="top-snap-nav-item">
+      <a
+        href="#item-2"
+        target="_self"
+        class="txt"
+        >精信月刊</a
+      >
+    </div>
+    <div class="top-snap-nav-item">
+      <a
+        href="#item-3"
+        target="_self"
+        class="txt"
+        >招聘信息</a
+      >
+    </div>
+    
+  </div>
+  <article class="page select-page" id="item-1">
+    <p>A</p>
+  </article>
+  <article class="page" id="item-2">
+    <p>B</p>
+  </article>
+  <article class="page" id="item-3">
+    <p>C</p>
+  </article>
+
+ 
+
+  <script>
+    function getPage1_callback(){
+        console.log("get1...");
+        // 此处发送请求
+    }
+    function getPage2_callback(){
+        console.log("get2...");
+    }
+    function getPage3_callback(){
+        console.log("get3...");
+    }
+    function initNav(){
+        const items = document.querySelectorAll(".top-snap-nav-item");
+        const aElements = document.querySelectorAll(".top-snap-nav-item>a");
+        const pages = document.querySelectorAll(".page");
+        const pages_func = [getPage1_callback,getPage2_callback,
+                            getPage3_callback];
+        const tab = document.querySelector(".nav-tab");
+        let selectItem = items[0];
+        let preSelectItem = selectItem;
+        let selectPage = pages[0];
+        tab.style.left = selectItem.offsetLeft + "px";
+        console.log(selectItem.offsetLeft)
+        selectItem.children[0].style.color = '#fff';
+        function getPage(index){
+            pages_func[index]();
+            // 获得新页面资源
+            selectPage.classList.remove("select-page");
+            selectPage = pages[index];
+            selectPage.classList.add("select-page");
+        }
+        for(let i=0;i<items.length;i++)
+        {
+            items[i].addEventListener("click",(e)=>{
+                console.log(items[i].offsetLeft,items[i].offsetTop)
+                
+                getPage(i);
+                selectItem.children[0].style.color = '#000';
+                selectItem = items[i];
+                e.target.children[0].style.color = '#fff';
+                tab.style.transform = `translateX(${i*165}px)`;
+                // tab.style.transform = `translateX(${items[i].offsetLeft-355}px)`;
+                
+            });
+            aElements[i].addEventListener("click",(e)=>{
+                getPage(i);
+                e.preventDefault();
+                e.stopPropagation();
+                selectItem.children[0].style.color = '#000';
+                selectItem = items[i];
+                e.target.style.color = '#fff';
+                tab.style.transform = `translateX(${i*165}px)`;
+            });
+            items[i].addEventListener("mouseenter",(e)=>{
+                preSelectItem.classList.remove("pre-select-item");
+                preSelectItem = e.target;
+                preSelectItem.classList.add("pre-select-item");
+            });
+            items[i].addEventListener("mouseout",(e)=>{
+                preSelectItem.classList.remove("pre-select-item");
+                preSelectItem = items[0];
+            });
+            aElements[i].addEventListener("mouseenter",(e)=>{
+                preSelectItem.classList.remove("pre-select-item");
+                preSelectItem = e.target.parentNode;
+                preSelectItem.classList.add("pre-select-item");
+            });
+        }
+    }
+    initNav();
+    
+  </script>

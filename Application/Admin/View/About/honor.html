@@ -1,0 +1,261 @@
+<!-- 走进精信->荣誉资质 v2024 -->
+<!-- 走进精信-荣誉资质 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>走进精信-荣誉资质</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 467px;
+        width: 100%;
+        /* background-color: #d9d9d9; */
+        background-image: url("__PUBLIC__/images/new_view_2025/about_group101@2x.png");
+        background-size: cover; /* 图片覆盖整个区域 */
+        background-position: center; /* 图片居中显示 */
+        position: relative;
+      }
+      .top-banner-inside {
+        width: 1200px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 45%;
+      }
+      .top-banner-inside-p1 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 53.6px;
+      }
+      .top-banner-inside-p2 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 24.8px;
+      }
+      /* .top-banner img {
+        display: block;
+        margin: 0 auto;
+        height: 467px;
+        width: 100%;
+        object-fit: cover;
+      } */
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 120px;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .honor {
+        padding-top: 80px;
+      }
+      .container img {
+        display: block; /* 图片必须是块级元素 */
+        margin: 0 auto; /* 水平居中 */
+        width: 960px; /* 设置图片宽度 */
+      }
+      .honor-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+      }
+      .honor-item {
+        height: 300px;
+        width: 377px;
+        /* border: 1px solid red; */
+      }
+      .honor-item-img {
+        width: 377px;
+        height: 267px;
+        background-color: #d9d9d9;
+      }
+      .honor-item-name {
+        color: #333;
+        font-family: "PingFang SC Regular";
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 7px;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <!-- <img src="__PUBLIC__/images/new_view_2025/about_group101@2x.png" alt="" /> -->
+        <div class="top-banner-inside">
+          <p class="top-banner-inside-p1">走进精信</p>
+          <p class="top-banner-inside-p2">了解精信发展历史和最新动态</p>
+        </div>
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Introduce"
+            target="_self"
+            class=""
+            >精信简介</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Development"
+            target="_self"
+            class=""
+            >发展历程</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a href="__APP__/index.php/Admin/About/Honor" target="_self" class=""
+            >荣誉资质</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Culture"
+            target="_self"
+            class=""
+            >企业文化</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Magazine"
+            target="_self"
+            class=""
+            >精信月刊</a
+          >
+        </div>
+      </div>
+      <!-- content 1200px -->
+      <div class="w-1200 clearfix">
+        <div class="honor">
+          <!-- 以图片展示 -->
+          <div class="container" style="display: none;">
+            <img src="__PUBLIC__/images/new_view_2025/honor_89@2x.png" alt="" />
+          </div>
+          <div class="honor-row">
+            <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div>
+            <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div>
+            <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div>
+            <!-- <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div> -->
+          </div>
+          <div class="honor-row">
+            <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div>
+            <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div>
+            <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div>
+            <!-- <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div> -->
+          </div>
+          <div class="honor-row">
+            <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div>
+            <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div>
+            <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div>
+            <!-- <div class="honor-item">
+              <img src="" alt="" class="honor-item-img" />
+              <p class="honor-item-name">获奖名称</p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+  </body>
+</html>

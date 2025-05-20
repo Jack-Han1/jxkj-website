@@ -1,0 +1,160 @@
+<!-- 人力资源-人才理念 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no">
+    <title>人力资源-人才理念</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .top-banner {
+        height: 467px;
+        width: 100%;
+        /* background-color: #d9d9d9; */
+      }
+      .top-banner img {
+        display: block; /* 图片必须是块级元素 */
+        margin: 0 auto; /* 水平居中 */
+        height: 467px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected  a:hover{
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 150px;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .idea {
+        display: flex;
+        justify-self: center;
+        margin-top: 105px;
+      }
+      .idea-item {
+        width: 320px;
+        height: 473px;
+        /* border: 1px solid blue; */
+        background-color: #f1f1f1;
+      }
+      .after-line {
+        position: relative;
+      }
+      .after-line::after {
+        content: "";
+        height: 429px;
+        width: 1px;
+        background-color: #e1e1e1;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .idea-item-title {
+        color: #333;
+        font-family: "PingFang SC Regular";
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 1.44px;
+        margin: 0;
+        padding: 0 32px;
+        margin-top: 136px;
+      }
+      .idea-item-text {
+        color: #333;
+        text-align: justify;
+        font-family: "PingFang SC Regular";
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 18px; /* 180% */
+        margin: 0;
+        padding: 0 32px;
+        margin-top: 43px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <img src="__PUBLIC__/images/new_view_2025/Frame_25@2x.png" alt="" />
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item item-selected">人才理念</div>
+        <div class="top-nav-item">人才培养</div>
+        <div class="top-nav-item">员工风采</div>
+        <div class="top-nav-item">招贤纳士</div>
+        <div class="top-nav-item">薪酬福利</div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-960 clearfix">
+        <div class="idea">
+          <div class="idea-item after-line">
+            <p class="idea-item-title">能力择才</p>
+            <p class="idea-item-text">
+              即识才观。应聘者的综合能力是九州通甄选人才的首要标准。通过笔试、面试、体检、背景调查、试用这五个阶段，全面考察应聘者的综合素质，以选择适合九州通发展的优秀人才。
+            </p>
+          </div>
+          <div class="idea-item after-line">
+            <p class="idea-item-title">品德立才</p>
+            <p class="idea-item-text">
+              即用才观。在具备相应能力的基础上，员工的个人品德素养，是衡量员工能否重用和晋升的重要标准。
+              实战育才即育才观。九州通在人才培养上一方面为员工创造各种各样培训和深造的机会，帮助员工提升能力；另一方面建立"推一把、扶一把、拉一把"的人才培养机制，将人才放到合适的工作岗位上，用实战来促进其迅速成长。
+            </p>
+          </div>
+          <div class="idea-item">
+            <p class="idea-item-title">平台留才</p>
+            <p class="idea-item-text">
+              即留才观。九州通最吸引人才的地方就是在医药商业领域拥有广阔的发展平台。各种各样的人才都能在这里找到适合自己职业发展的舞台，而且九州通全力以赴为有志之士创造更为有利的职业发展空间，实现员工与企业的共赢。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+  </body>
+</html>

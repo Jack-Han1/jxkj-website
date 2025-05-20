@@ -1,0 +1,515 @@
+<!-- 产业布局->光伏电能 v2024 -->
+<script src="__PUBLIC__/Js/loading.js"></script>
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>产业布局-光伏电能</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 467px;
+        width: 100%;
+        /* background-color: #d9d9d9; */
+        background-image: url("__PUBLIC__/images/new_view_2025/chanye_25@2x.png");
+        background-size: cover; /* 图片覆盖整个区域 */
+        background-position: center; /* 图片居中显示 */
+        position: relative;
+      }
+      .top-banner-inside {
+        width: 1200px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 45%;
+      }
+      .top-banner-inside-p1 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 53.6px;
+      }
+      .top-banner-inside-p2 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 24.8px;
+      }
+      /* .top-banner img {
+        display: block;
+        margin: 0 auto;
+        height: 467px;
+        width: 100%;
+        object-fit: cover;
+      } */
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 120px;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px; /* 可选：添加内边距，避免内容贴边 */
+        box-sizing: border-box;
+        /* border: 1px solid red; */
+      }
+      .serve-title {
+        font-size: 40px;
+        line-height: 53px;
+        color: rgb(51, 51, 51);
+        font-weight: Bold;
+        font-family: "Microsoft YaHei";
+      }
+      .serve-text {
+        font-size: 16px;
+        line-height: 32px;
+        color: rgb(102, 102, 102);
+        font-family: "Microsoft YaHei";
+      }
+      .serve-img {
+        position: relative;
+      }
+      .serve-img img {
+        /* height: 388px; */
+        width: 100%;
+      }
+      .img-inner {
+        position: absolute;
+        top: 70;
+        left: 47;
+      }
+      .img-inner-title {
+        font-size: 30px;
+        line-height: 40px;
+        color: rgb(255, 255, 255);
+        font-weight: Bold;
+        font-family: "Microsoft YaHei";
+      }
+      .img-inner-text {
+        font-size: 14px;
+        line-height: 29px;
+        color: rgb(255, 255, 255);
+        font-family: "Microsoft YaHei";
+        width: 574px;
+      }
+      .type-box {
+        width: 100%;
+      }
+      .type-title {
+        font-size: 40px;
+        line-height: 53px;
+        color: rgb(51, 51, 51);
+        font-weight: Bold;
+        font-family: "Microsoft YaHei";
+      }
+      .type-text {
+        font-size: 16px;
+        line-height: 32px;
+        color: rgb(102, 102, 102);
+        font-family: "Microsoft YaHei";
+      }
+      .type-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        position: relative;
+      }
+      .type-content-dash {
+        width: 1128px;
+        height: 16px;
+        /* border: 1px dashed #999999; */
+        background-image: url("__PUBLIC__/images/new_view_2025/dash01.png");
+        background-repeat: repeat-x;
+        background-position: center;
+        position: absolute;
+        left: 16px;
+        top: 120px;
+      }
+      .type-item {
+        width: 25%;
+        height: 325px;
+        padding: 0 24px;
+        transition: all 600ms;
+        overflow: hidden;
+        background-color: #fff;
+        position: relative;
+        /* border: 1px solid red; */
+      }
+      .type-item::before {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 122px;
+        left: 132px;
+        background: #e1e1e1;
+        border-radius: 50%;
+        z-index: 1;
+        transition: all 600ms;
+      }
+      .type-active {
+        width: 50%;
+      }
+      .type-active::before {
+        left: 26px;
+        background: #381c62;
+      }
+      .type-item-title1 {
+        text-align: justify;
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28.5px;
+        margin-top: 45px;
+      }
+      .type-item-title2 {
+        text-align: justify;
+        color: #666666;
+        font-family: "Microsoft YaHei";
+        font-weight: 290;
+        font-size: 14px;
+        line-height: 28.5px;
+      }
+      .type-item-content {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-top: 55px;
+      }
+      .type-item-content-left {
+        position: absolute;
+        top: 0px;
+        left: 58px;
+        transition: all 600ms;
+      }
+      .type-active .type-item-content-left {
+        left: 0px;
+      }
+      .type-item-content-left img {
+        width: 115px;
+        height: 115px;
+        object-fit: cover;
+      }
+      .type-item-content-right {
+        position: absolute;
+        top: 0px;
+        left: 150px;
+        width: 335px;
+        height: 115px;
+        text-align: justify;
+        color: #666666;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
+        opacity: 0;
+        transition: all 600ms;
+      }
+      .type-active .type-item-content-right {
+        opacity: 1;
+      }
+      .type-banner {
+        width: 100%;
+        height: 373px;
+        /* border: 1px solid red; */
+        position: relative;
+      }
+      .type-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .banner-text {
+        position: absolute;
+        width: 100%;
+      }
+      .banner-text-top {
+        font-size: 40px;
+        line-height: 53px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        font-family: "Microsoft YaHei";
+        margin-top: 88px;
+        margin-bottom: 50px;
+      }
+      .banner-text-bottom {
+        width: 1050px;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 29px;
+        color: rgb(255, 255, 255);
+        font-family: "Microsoft YaHei";
+      }
+      .use-title {
+        font-size: 40px;
+        line-height: 56px;
+        color: rgb(0, 0, 0);
+        font-weight: Semibold;
+        font-family: "Microsoft YaHei";
+      }
+      .use-img-01 {
+        display: block;
+        margin: 0 auto;
+        width: 1024px;
+      }
+      .use-img-02 {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .use-text {
+        font-size: 16px;
+        line-height: 32px;
+        font-weight: Light;
+        color: rgb(51, 51, 51);
+        font-family: "Microsoft YaHei";
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <!-- <img src="__PUBLIC__/images/new_view_2025/about_group101@2x.png" alt="" /> -->
+        <div class="top-banner-inside">
+          <p class="top-banner-inside-p1">产业布局</p>
+          <p class="top-banner-inside-p2">了解精信发展历史和最新动态</p>
+        </div>
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Industry/Communicate"
+            target="_self"
+            class=""
+            >信息通信</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Industry/Urban"
+            target="_self"
+            class=""
+            >政务信息化</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Industry/Campus"
+            target="_self"
+            class=""
+            >智慧校园</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a
+            href="__APP__/index.php/Admin/Industry/Energy"
+            target="_self"
+            class=""
+            >光伏电能</a
+          >
+        </div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-1200 clearfix">
+        <div class="serve-box">
+          <p class="serve-title" style="margin-top: 115px">服务内容</p>
+          <p class="serve-text" style="margin-top: 30px">
+            太阳能是人类取之不尽用之不竭的可再生资源，具有充分的清洁型、绝对的安全性、确实的长寿命和资源的充足性、潜在的经济性等优点，在长期的能源战略中具有重要地位。我国的一次能源储量远远低于世界的平均水平，大约只有世界总储量的10%，因而国家对光伏发电十分重视，全面推进分布式光伏发电建设，重点发展屋顶分布式光伏发电系统。
+          </p>
+
+          <div class="serve-img" style="margin-top: 60px">
+            <img
+              src="__PUBLIC__/images/new_view_2025/energy_groun101@2x.png"
+              alt=""
+            />
+            <div class="img-inner">
+              <p class="img-inner-title">产品概述</p>
+              <p class="img-inner-text" style="margin-top: 20px">
+                公司大力响应国家倡导的绿色能源、节能环保的新型理念，以科技创新为主题发展战略，专注于储能技术应用和光伏投资运营，打造储能、新能源领域的独角兽企业。
+              </p>
+              <p class="img-inner-text" style="margin-top: 15px">
+                公司自主研发的ES储热材料，带动储能领域向低成本、高使用寿命方向发展，ES储热材料将广泛用于太阳能储热、工业储热、商业储热、储热发电等领域。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="type-box">
+          <p class="type-title" style="margin-top: 105px">产品类别</p>
+          <p class="type-text" style="margin-top: 30px">
+            光伏电能投资运营的主要业务方向包括：分布式光伏投资建设与运营、储热材料研发与生产、储热式太阳能生产销售等。公司按照“全国性产业布局”战略，规划在未来几年内完成200MW的屋顶光伏电站，成为分布式光伏领域的领军者和我国清洁能源普惠大众的践行者。
+          </p>
+          <div class="type-content" style="margin-top: 46px">
+            <div class="type-item type-active">
+              <p class="type-item-title1">分布式光伏投资建设与运营</p>
+              <p class="type-item-title2">电池事业板块</p>
+              <div class="type-item-content">
+                <div class="type-item-content-left">
+                  <img
+                    src="__PUBLIC__/images/new_view_2025/yewu_group_2@2x.png"
+                    alt=""
+                  />
+                </div>
+                <div class="type-item-content-right">
+                  太阳能是人类取之不尽用之不竭的可再生资源，具有充分的清洁型分布式光伏投资建设与运营。太阳能是人类取之不尽用之不竭的可再生资源，具有充分的清洁型分布式光伏投资建设与运营。
+                </div>
+              </div>
+            </div>
+            <div class="type-item">
+              <p class="type-item-title1">储热材料研发与生产</p>
+              <p class="type-item-title2">组件事业板块</p>
+              <div class="type-item-content">
+                <div class="type-item-content-left">
+                  <img
+                    src="__PUBLIC__/images/new_view_2025/yewu_group_3@2x.png"
+                    alt=""
+                  />
+                </div>
+                <div class="type-item-content-right">
+                  太阳能是人类取之不尽用之不竭的可再生资源，具有充分的清洁型分布式光伏投资建设与运营。太阳能是人类取之不尽用之不竭的可再生资源，具有充分的清洁型分布式光伏投资建设与运营。
+                </div>
+              </div>
+            </div>
+            <div class="type-item">
+              <p class="type-item-title1">储热式太阳能生产销售</p>
+              <p class="type-item-title2">生产销售版块</p>
+              <div class="type-item-content">
+                <div class="type-item-content-left">
+                  <img
+                    src="__PUBLIC__/images/new_view_2025/staff_group501@2x.png"
+                    alt=""
+                  />
+                </div>
+                <div class="type-item-content-right">
+                  太阳能是人类取之不尽用之不竭的可再生资源，具有充分的清洁型分布式光伏投资建设与运营。太阳能是人类取之不尽用之不竭的可再生资源，具有充分的清洁型分布式光伏投资建设与运营。
+                </div>
+              </div>
+            </div>
+            <div class="type-content-dash"></div>
+          </div>
+        </div>
+        <!-- end 1200px -->
+      </div>
+
+      <!-- 5G banner -->
+      <div class="type-banner" style="margin-top: 120px">
+        <div class="banner-text">
+          <p class="banner-text-top">应用模式</p>
+          <p class="banner-text-bottom">
+            光伏行业主要依赖于太阳能发电技术，其行业特点是具有环保和可再生的特性。近年来，随着技术的进步和政策的大力支持，光伏行业快速发展，成本持续降低，应用领域日益广泛。
+          </p>
+        </div>
+        <img
+          src="__PUBLIC__/images/new_view_2025/eneryg_group301@2x.png"
+          alt=""
+        />
+      </div>
+
+      <!-- 1200px -->
+      <div class="w-1200 clearfix">
+        <p class="use-title" style="margin-top: 122px">分布式储能</p>
+        <img
+          class="use-img-01"
+          style="margin-top: 32px"
+          src="__PUBLIC__/images/new_view_2025/energy_group401@2x.png"
+          alt=""
+        />
+        <p class="use-title" style="margin-top: 159px">分布式储能+光伏系统</p>
+        <img
+          class="use-img-01"
+          style="margin-top: 60px"
+          src="__PUBLIC__/images/new_view_2025/energy_group402@2x.png"
+          alt=""
+        />
+        <p class="use-title" style="margin-top: 127px">
+          战略合作伙伴和项目案例
+        </p>
+        <img
+          class="use-img-02"
+          style="margin-top: 60px"
+          src="__PUBLIC__/images/new_view_2025/energy_group403@2x.png"
+          alt=""
+        />
+        <p class="use-text" style="margin-top: 91px">
+          金桥庭院、旭辉御府、王家湾商务区、广电兰亭、光谷中心城、凯德广场、天祥尚府、当代国家花园、巴黎春天、华山软件新城、凯璟国际、阳光100、宝业光谷丽都、腾讯研发中心、御水华城、墨水湖岸、阳光上城、瑞景天城、爱家国际、鸿玺公馆、光谷8号……
+          未来，每个人既是能源的使用者、也是能源的创造者，我们坚持为每个项目提供最科学的解决方案。我们坚信，每一点绿色能源的汇聚，都将驱动绿色未来！人与自然和谐共生是我们企业的终生使命！ 
+        </p>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+  </body>
+  <script>
+    // 添加active动效
+    const type_items = document.getElementsByClassName("type-item");
+    for (let i = 0; i < type_items.length; i++) {
+      type_items[i].addEventListener("mouseover", function () {
+        for (let j = 0; j < type_items.length; j++) {
+          type_items[j].classList.remove("type-active");
+        }
+        this.classList.add("type-active");
+      });
+    }
+  </script>
+</html>

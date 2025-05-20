@@ -1,0 +1,390 @@
+<!-- 人力资源->人才培养 v2024 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>人力资源-人才培养</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 384px;
+        width: 100%;
+        position: relative;
+      }
+      .banner-text {
+        width: 854px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .banner-text-title {
+        font-size: 85px;
+        line-height: 113px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-family: "Microsoft YaHei";
+        margin-bottom: 16px;
+      }
+      .banner-text-bottom {
+        font-size: 32px;
+        line-height: 42px;
+        color: rgb(255, 255, 255);
+        font-family: "Microsoft YaHei";
+      }
+      .top-banner img {
+        display: block; /* 图片必须是块级元素 */
+        margin: 0 auto; /* 水平居中 */
+        height: 384px;
+        width: 100%;
+        /* object-fit: cover; */
+      }
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 120px;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        /* border: 1px solid red; */
+      }
+      .promotion-box1,
+      .promotion-box2 {
+        position: relative;
+        width: 100%;
+        height: 540px;
+      }
+      .promotion-box1 img,
+      .promotion-box2 img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .promotion-box1-text,
+      .promotion-box2-text {
+        width: 514px;
+        height: 347px;
+        padding-top: 85px;
+        padding-left: 69px;
+        background: rgba(255, 255, 255, 1);
+      }
+      .box1-move {
+        position: absolute;
+        top: 50%;
+        left: -30px;
+        transform: translateY(-50%);
+      }
+      .box2-move {
+        position: absolute;
+        top: 50%;
+        right: -30px;
+        transform: translateY(-50%);
+      }
+      .promotion-text-title {
+        color: rgba(51, 51, 51, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 20px;
+      }
+      .promotion-text-overview {
+        color: rgba(51, 51, 51, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 20px;
+        margin-top: 32px;
+        margin-bottom: 10px;
+      }
+      .promotion-text-detail {
+        width: 374px;
+        color: rgba(102, 102, 102, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 26px;
+      }
+      .study-title {
+        color: rgba(51, 51, 51, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 30px;
+        text-align: center;
+      }
+      .study-content {
+        display: flex;
+        justify-content: center;
+      }
+      .study-item {
+        flex: 1;
+        justify-content: space-between;
+      }
+      .study-item img {
+        width: 100%;
+      }
+      .study-content div:nth-child(2) {
+        margin-left: 22px;
+      }
+      .study-item-title {
+        color: rgba(51, 51, 51, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 20px;
+        margin-top: 34px;
+      }
+      .study-item-text {
+        color: rgba(51, 51, 51, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
+        margin-top: 14px;
+      }
+      /* 动画效果 */
+      .promotion-box1,
+      .promotion-box2,
+      .study-title,
+      .study-content {
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 1s ease-out;
+      }
+      .promotion-box1-animation,
+      .promotion-box2-animation,
+      .study-title-animation,
+      .study-content-animation {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <div class="banner-text">
+          <p class="banner-text-title">让沟通与信任无处不在</p>
+          <p class="banner-text-bottom">
+            搭建桥梁，强化团队凝聚力，携手迈向成功之路
+          </p>
+        </div>
+        <img
+          src="__PUBLIC__/images/new_view_2025/staff_group101@2x.png"
+          alt=""
+        />
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Concept"
+            target="_self"
+            class=""
+            >人才理念</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Promotion"
+            target="_self"
+            class=""
+            >人才培养</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Staff"
+            target="_self"
+            class=""
+            >员工风采</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Recruit"
+            target="_self"
+            class=""
+            >招贤纳士</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Salary"
+            target="_self"
+            class=""
+            >薪酬福利</a
+          >
+        </div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-1200 clearfix">
+        <div class="promotion">
+          <div class="promotion-box1" style="margin-top: 77px">
+            <img
+              src="__PUBLIC__/images/new_view_2025/staff_group201@2x.png"
+              alt=""
+            />
+            <div class="promotion-box1-text box1-move">
+              <p class="promotion-text-title">人才发展</p>
+              <p class="promotion-text-overview">人才是精信科技最宝贵的财富</p>
+              <p class="promotion-text-detail">
+                我们一直高度重视员工的发展，不仅为员工设计专业和管理的双通道职业发展路径，让员工的能力得到更聚焦更清晰的发展，也同时让每个人的成长贡献能够通过职级体系得到及时明确的体现。
+              </p>
+            </div>
+          </div>
+          <div class="promotion-box2" style="margin-top: 60px">
+            <img
+              src="__PUBLIC__/images/new_view_2025/staff_group202@2x.png"
+              alt=""
+            />
+            <div class="promotion-box2-text box2-move">
+              <p class="promotion-text-title">人才培养</p>
+              <p class="promotion-text-overview">人才是精信科技最宝贵的财富</p>
+              <p class="promotion-text-detail">
+                坚持以人为本，重视人才价值，致力于为员工提供业界具有竞争力的薪酬，按照岗位、能力、绩效的薪酬理念付薪。建立员工绩效贡献、任职能力提升、组织业绩增长三合一联动的薪酬激励机制，实现公司与员工的双赢。
+              </p>
+            </div>
+          </div>
+
+          <div class="study" style="margin-top: 107px">
+            <p class="study-title">培训课堂</p>
+            <div class="study-content" style="margin-top: 54px">
+              <div class="study-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/staff_group203@2x.png"
+                  alt=""
+                />
+                <p class="study-item-title">
+                  武汉大学经济与管理学院2024级营销管理特训班
+                </p>
+                <p class="study-item-text">
+                  武汉大学经济与管理学院2024级营销管理特训班，专为追求卓越的企业管理者设计。汇聚顶尖教育资源，由知名学者与行业精英联袂授课，深度解析市场趋势，传授前沿营销策略。通过实战案例分析，提升学员营销实战能力，助力企业抢占市场先机。特训班还提供丰富的校友网络与资源对接，拓宽人脉圈层。
+                </p>
+              </div>
+              <div class="study-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/staff_group204@2x.png"
+                  alt=""
+                />
+                <p class="study-item-title">
+                  武汉大学经济与管理学院2024级营销管理特训班
+                </p>
+                <p class="study-item-text">
+                  武汉大学经济与管理学院2024级营销管理特训班，专为追求卓越的企业管理者设计。汇聚顶尖教育资源，由知名学者与行业精英联袂授课，深度解析市场趋势，传授前沿营销策略。通过实战案例分析。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+    <script>
+      // 滚动懒加载动效（封装版）
+      function animateOnScroll(selector, className, threshold = 0.5) {
+        const elements = document.querySelectorAll(selector);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(className);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold,
+            rootMargin: "0px 0px 50% 0px", // 负值表示向内收缩观察区域
+          }
+        );
+
+        elements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+      // // 为元素添加动画效果
+      function addAnimation() {
+        const animationArr = [
+          {
+            element: ".promotion-box1",
+            className: "promotion-box1-animation",
+          },
+          {
+            element: ".promotion-box2",
+            className: "promotion-box2-animation",
+          },
+          {
+            element: ".study-title",
+            className: "study-title-animation",
+          },
+          {
+            element: ".study-content",
+            className: "study-content-animation",
+          },
+        ];
+        animationArr.forEach((item) => {
+          animateOnScroll(item.element, item.className);
+        });
+      }
+      addAnimation();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.6.min.js"/>
+    <load href="__PUBLIC__/uploadify/jquery.uploadify.min.js"/>
+    <load href="__PUBLIC__/uploadify/uploadify.css"/>
+
+<title>精信官网后台</title>
+
+</head>
+
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <form id="from" action="update" method="post" enctype="multipart/form-data" >
+        <input type="text" class="input-k w-350" id="m_id" name="m_id" value="{$info.id}" style="display: none;"/>
+	<div class="add-line-1">
+    <span>名称：</span><input type="text" class="input-k w-350" id="name" name="name" value="{$info.name}"/>
+    </div>
+    <div class="add-line-1">
+        <span>父级菜单：</span>
+        <select class="input-k w-350" style="height: 29px;" id="pid" name="pid">
+            <option value="0">无</option>
+            <volist name="list" id="vo">
+                <option value="{$vo.id}" <if condition="$info['pid'] eq $vo['id']">selected</if>>{$vo.name}</option>
+            </volist>
+        </select>
+    </div>
+    <div class="add-line-1">
+        <span>头部显示：</span>
+        <select class="input-k w-350" style="height: 29px;" id="head_show" name="head_show">
+            <option value="0" <if condition="$info['head_show'] eq 0">selected</if>>否</option>
+            <option value="1" <if condition="$info['head_show'] eq 1">selected</if>>是</option>
+        </select>
+    </div>
+    <div class="add-line-1">
+        <span>类别：</span>
+        <select class="input-k w-350" style="height: 29px;" id="kind" name="kind">
+            <option value="1" <if condition="$info['kind'] eq 1">selected</if>>列表菜单</option>
+            <option value="2" <if condition="$info['kind'] eq 2">selected</if>>内容菜单</option>
+        </select>
+    </div>
+    <div class="add-line-1">
+        <span>链接：</span><input type="text" class="input-k w-350" id="url" name="url" value="{$info['url']}"/>
+    </div>
+    <div class="add-line-1">
+        <span >图片：</span>
+        <if condition="$info['pic_id'] eq null">
+            <input id="menu_pic" name="menu_pic" type="file" class="input-k w-350" value="上传图片" style="padding-top: 5px;padding-bottom: 5px;" />
+            <else/>
+            <input id="img_id" value="{$info['pic_info']['id']}" style="display: none;"/>
+            <img id="img" class="w-350" src="__ROOT__{$info['pic_info']['file_path']}" alt=""/>
+            <input onclick="del_img()" type="button" class="save-btn mar-l-250" value="删除图片" />
+        </if>
+    </div>
+    <div class="add-line-1"><input onclick="sub()" type="button" class="save-btn mar-l-250" value="保存" /></div>
+    </form>
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+<script type="text/javascript">
+    function sub(){
+        var name = $("#name").val();
+        var url = $("#url").val();
+        if(name == ""){
+            alert("请输入名称");
+            return false;
+        }else if(url == ""){
+            alert("请输入链接");
+            return false;
+        }
+        $("#from").submit();
+    }
+
+    function del_img(){
+        var m_id = $("#m_id").val();
+        var img_id = $("#img_id").val();
+        var r = confirm("确定删除图片？")
+        if(r == true){
+            $.post('del_img', {id:m_id}, function(data){
+                data = eval('(' + data + ')');
+                if(data.status){
+                    alert(data.info);
+                    window.location.reload();
+                }else{
+                    alert(data.info);
+                }
+            });
+        }
+    }
+</script>
+</body>
+</html>

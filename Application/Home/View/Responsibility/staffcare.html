@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.6.min.js"/>
+<title>精信官网后台-员工关怀</title>
+</head>
+
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+	<div class="widget">
+    	<div class="widget-header">
+        	<div class="title">公益慈善列表</div>
+        </div>
+        <div class="widget-body">
+        	<table class="table">
+            	<tr>
+                	<th>ID</th>
+                	<th>标题</th>
+                    <th>所属菜单</th>
+                    <th>文章时间</th>
+                    <th>状态</th>
+                    <th>推荐</th>
+                    <th>操作</th>
+                </tr>
+                <if condition="$list eq null">
+                    <tr>
+                        <td colspan="5" style="text-align: center"><a >您还没有招聘信息！</a></td>
+                    </tr>
+                    <else/>
+                    <volist name="list" id="vo">
+                        <tr>
+                            <td>{$vo.show_id}</td>
+                            <td>{$vo.name}</td>
+                            <td>{$vo.menu_name}</td>
+                            <td>{$vo.article_time}</td>
+                            <td>
+                                <if condition="$vo.status eq -1">
+                                    未通过
+                                </if>
+                                <if condition="$vo.status eq 1">
+                                    待审核
+                                </if>
+                                <if condition="$vo.status eq 2">
+                                    通过
+                                </if>
+                            </td>
+                            <td>
+                                <if condition="$vo.top eq '1'">
+                                    {$vo.sort}
+                                </if>
+                            </td>
+                            <td >
+                                <span style="width: 205px;display: inline-block;text-align: left;">
+                                <a href="__APP__/index.php/Admin/Responsibility/staffcare_detail?id={$vo.id}" target="_blank">查看</a>
+                                <a href="__APP__/index.php/Home/Responsibility/edit?id={$vo.id}">编辑</a>
+                                <a style="cursor: pointer;" onclick="del({$vo.id})">删除</a>
+                                    <if condition="$vo.is_top eq 1">
+                                        <a style="cursor: pointer;" onclick="set_top({$vo.id})">置顶</a>
+                                    </if>
+                                <if condition="$vo.review eq 1">
+                                    <a href="__APP__/index.php/Home/Responsibility/review?id={$vo.id}">审核</a>
+                                </if>
+                                    </span>
+                            </td>
+
+                        </tr>
+                    </volist>
+                </if>
+            </table>
+        </div>
+    </div>
+    <div style="text-align: right;">
+        {$page}
+    </div>
+    
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+
+<script type="text/javascript">
+    function del(id){
+        $.post('__APP__/index.php/Home/News/del', {id:id}, function(data){
+            data = eval('(' + data + ')');
+            if(data.status){
+                alert(data.info);
+                window.location.reload();
+            }else{
+                alert(data.info);
+            }
+        });
+    }
+
+    function set_top(id){
+        $.post('top', {id:id}, function(data){
+            data = eval('(' + data + ')');
+            if(data.status){
+                alert(data.info);
+                window.location.reload();
+            }else{
+                alert(data.info);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

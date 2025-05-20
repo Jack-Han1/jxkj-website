@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>导航</title>
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+<link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+<script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/slide.js"></script>
+</head>
+
+<body>
+
+
+<!--top-->
+<!-- <div class="top">
+    <div class="w-1200">
+        <i class="logo logo2"></i>
+    </div>
+</div>
+
+导航条开始
+<div class="nav nav2">
+    <div class="w-1200">
+        <ul>
+            <li></li>
+            <li>
+            <a href="" target="_self" class="nav-link">首页</a>
+            
+            </li>
+           
+            <li>
+            <a href="" target="_self" class="nav-link">走进盛华</a>
+            <div class="subnav2"> 
+                <div class="subnav-left">
+                   <a href="">精信介绍</a>
+                <a href="">精信领袖</a>
+                <a href="">精信架构</a>
+                <a href="">核心团队</a>
+                <a href="">精信荣誉</a>
+                <a href="">精信文化</a>
+                <a href="">领导关怀</a>
+                <a href="">员工风采</a>
+                </div>
+               
+            </div>
+            </li>
+            <li>
+            <a href="" target="_self" class="nav-link">新闻中心</a>
+            <div class="subnav3">
+                <div class="subnav-left">
+                   <a href="">精信要闻</a><br />
+                <a href="">精信公告</a><br />
+                <a href="">行业动态</a><br />
+                <a href="">媒体聚焦</a>
+                </div>
+               
+            </div>
+            </li>
+            <li>
+            <a href="" target="_self" class="nav-link">产品中心</a>
+            <div class="subnav4">
+                <div class="subnav-left">
+                   <a href="">教育类</a>
+                <a href="">金融类</a>
+                <a href="">易信通</a>     
+                </div>
+               
+            </div>
+            </li>
+            <li>
+            <a href="" target="_self" class="nav-link">人才中心</a>
+            <div class="subnav5">
+                <div class="subnav-left">
+                       <a href="">招才纳士</a>
+                    <a href="">人才理念</a>
+                    <a href="">人才培养</a>
+                </div>
+               
+            </div>
+            </li>
+            <li>
+                <a href="" target="_self" class="nav-link">联系我们</a>
+            </li>
+            <li>
+            <a href="" target="_self" class="nav-link"><i class="search-icon"></i>搜索</a>
+            
+            </li>
+        </ul>
+    </div>
+</div> -->
+<!--导航条结束-->
+<include file="Admin@Common/header"/>
+<!-- 搜索框 开始-->
+<div class="search-box">
+    <form action="__APP__/index.php/Admin/Search" method="get" onsubmit="return search_(this)">
+    <input type="text" name="txt" class="search-inp" value="{$txt}">
+    <!-- <button class="search-btn"></button> -->
+    <input type="submit" value="搜索" class="search-btn" style="cursor:pointer;"/>
+    </form>
+    <p>共计{$count}条搜索结果</p>
+</div>
+<!-- 搜索框 结束-->
+<!-- 新闻列表 -->
+<notempty name="article">
+<div class="search-list">
+    <p class="classify">精信要闻</p>
+    <ul>
+        <volist name="article" id="vo">
+            <li>
+                <div class="new-list">
+                        <div class="new-time">
+                            <h2>{$vo.Ymd.1}.{$vo.Ymd.2}</h2>
+                            <h3>{$vo.Ymd.0}</h3>
+                        </div>
+                        <div class="new-detail">
+                            <h1><i class="new-icon"></i><a href="__APP__/index.php/Admin/News/detail?id={$vo.id}">{$vo.name}</a></h1>
+                            <p>{$vo.abstract}</p>
+                        </div>
+                </div>
+            </li>
+        </volist>
+        <!-- <li>
+            <div class="new-list">
+                    <div class="new-time">
+                        <h2>06.05</h2>
+                        <h3>2017</h3>
+                    </div>
+                    <div class="new-detail">
+                        <h1><i class="new-icon"></i><a href="http://localhost/jingxin/index.php/Admin/News/detail?id=57">“十年风雨同舟路，共谱精信新华章” --暨湖北精英盛华信息科技股份有限公司2016财年会圆满落幕</a></h1>
+                        <p>“风雨送春归，飞雪迎春到，俏也不争春，只把春来报”。时光荏苒，又是一季飘雪过，岁月更迭，恰是山花烂漫时！2017年4月23日，公司在艳阳天旺角酒店举办了以“十年风雨同舟路，共谱精信新华章”为主题的2016财年会，湖北精英盛华信息科技股份有限. . .</p>
+        
+                    </div>
+                </div>
+        </li> -->
+    </ul>
+</div>
+</notempty>
+<notempty name="product">
+<div class="search-list search-list2">
+    <p class="classify">产品</p>
+    <ul>
+        <volist name="product" id="vo">
+        <li>
+            <div class="new-list">
+                    <div class="new-detail">
+                        <h1><i class="new-icon"></i><a href="{$vo.url}">{$vo.name}</a></h1>
+                        <p>{$vo.abstract}</p>
+
+                    </div>
+            </div>
+        </li>
+        </volist>
+    </ul>
+</div>
+</notempty>
+<div class="h-120"></div>
+
+<!--foot-->
+<!-- <div class="footer clear-b">
+<div class="foot-con">
+<ul class="foot-list w-230">
+    <li><span>扫一扫</span></li>
+    <li>
+        <img src="__PUBLIC__/images/sy-ewm.png" alt="" />
+    </li>
+    <li class="mar-t-5">一键分享</li>
+    <li>
+        <a href="" class="QQ"></a>
+        <a href="" class="KJ"></a>
+        <a href="" class="WB"></a>
+        <a href="" class="WX"></a>
+        <a href="" class="PYQ"></a>
+    </li>
+</ul>
+<ul class="foot-list w-270">
+    <li><span>联系我们</span></li>
+    <li>地址：湖北省武汉市硚口区解放大道578号中御广场23F</li>
+    <li>电话：027-83987310</li>
+    <li>网址：www.jingyingshenghua.com</li>
+</ul>
+<ul class="foot-list">
+    <li><span>旗下公司</span></li>
+    <li><a href="">上海洲信信息技术有限公司</a></li>
+    <li><a href="">安徽共佳信息技术有限公司</a></li>
+</ul>
+<div class="foot-map"></div>
+</div>
+<div class="foot-bottom">2016-2017© 精信科技版权所有&nbsp;&nbsp;|&nbsp;&nbsp;沪ICP备07509391号&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">法律声明</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">隐私保护</a></div>
+</div> -->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+<!-- 轮播背景鼠标效果 -->
+
+
+
+</body>
+</html>
+<script type="text/javascript">
+    function search_(e){
+        var val=$(e).children("input[type=text]").val();
+        if(val==''){
+            alert("请输入查找内容");
+            return false;
+        }
+    }
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return decodeURI(r[2]); return null; //返回参数值
+    }
+    // alert(getUrlParam('txt'));
+        // $(function(){
+        //     //配置
+        //     var config = {
+        //         vx: 4,  //小球x轴速度,正为右，负为左
+        //         vy: 4,  //小球y轴速度
+        //         height: 2,  //小球高宽，其实为正方形，所以不宜太大
+        //         width: 2,
+        //         count: 100,     //点个数
+        //         color: "121, 162, 185",     //点颜色
+        //         stroke: "130,255,255",      //线条颜色
+        //         dist: 6000,     //点吸附距离
+        //         e_dist: 20000,  //鼠标吸附加速距离
+        //         max_conn: 10    //点到点最大连接数
+
+        //     }
+
+        //     //调用
+        //     CanvasParticle(config);
+        // })
+        $(function(){
+            // var txt=getUrlParam('txt');
+            // $(".search-inp").val(txt);
+            // $(".nav").addClass("nav2");
+            // $("#closeImg").attr("src","__PUBLIC__/images/close2.png");
+            // $(".logo").addClass("logo2");
+        })
+</script>
+<script type="text/javascript" src="js/canvas-particle.js"></script>

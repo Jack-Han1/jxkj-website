@@ -1,0 +1,1056 @@
+<!-- 首页 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>精信科技-首页</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="../../../../Public/swiper/swiper-bundle.min.css"
+    /> -->
+    <style>
+      body {
+        background-color: #f7f8fa;
+        font-family: "PingFang SC Regular", "Microsoft YaHei";
+      }
+      a {
+        text-decoration: none;
+      }
+      .swiper {
+        width: 100%;
+        min-width: 1200px;
+        /* height: 1080px; */
+        background-color: #d9d9d9;
+      }
+      .swiper-slide {
+        position: relative;
+      }
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* 自定义分页器样式 */
+      .swiper-pagination-bullet {
+        background-color: #ccc; /* 默认颜色 */
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        background-color: #fff; /* 激活状态颜色 */
+      }
+      /* 取消 Swiper 容器中的手型图标 */
+      .swiper {
+        cursor: default !important;
+      }
+      /* .test-bg{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        background: rgba(15, 35, 65, 0.1);
+        backdrop-filter: blur(50px);
+      } */
+
+      /* 如果需要取消滑动时的手型图标 */
+      .swiper .swiper-rtl {
+        cursor: default !important;
+      }
+      .jxkj-banner-text {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        background: rgba(0, 0, 0, 0);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .text-main {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0px auto;
+      }
+      .text-main h2 {
+        opacity: 0;
+        max-width: 960px;
+        font-size: 45px;
+        line-height: 1.2em;
+        margin: 12px 0px;
+        transform: translate(120px);
+        transition: all ease 0.5s;
+        transition-delay: 0.2s;
+      }
+      .swiper .swiper-slide-active h2 {
+        opacity: 1;
+        transform: translate(0px);
+      }
+      .text-main h5 {
+        opacity: 0;
+        max-width: 680px;
+        font-size: 15px;
+        line-height: 1.8em;
+        margin: 12px 0px;
+        transform: translate(120px);
+        transition: all ease 0.5s;
+        transition-delay: 0.4s;
+      }
+      .swiper .swiper-slide-active h5 {
+        opacity: 1;
+        transform: translate(0px);
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+      @media screen and (max-width: 1200px) {
+        .w-1200 {
+          width: 100%;
+          padding: 0 15px; /* 调整内边距 */
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .w-1200 {
+          padding: 0 10px;
+        }
+      }
+      .business-title {
+        color: #381c62;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 48px;
+        text-align: center;
+      }
+      .business-box-flex {
+        display: flex;
+        justify-content: center;
+      }
+      .business-click {
+        margin: 15px;
+      }
+      .business-item {
+        position: relative;
+        width: 583px;
+        height: 300px;
+        background-color: #fff;
+        font-family: "PingFang SC Regular";
+        /* margin: 15px; */
+        /* background-image: url('__PUBLIC__/images/cp02.jpg');
+            background-size: 466px 240px; */
+        color: #333;
+        border-radius: 5px;
+        cursor: pointer;
+        /* 动画 */
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
+      }
+      .business-item-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .business-item:hover {
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.16);
+        transform: scale3d(1.01, 1.01, 1.01);
+      }
+      .business-item p:nth-child(1) {
+        position: absolute;
+        color: #ffffff;
+        font-family: "PingFang SC";
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 42px;
+        top: 205px;
+        left: 40px;
+        z-index: 9;
+        transition: all 0.4s ease-in-out;
+      }
+      .business-item p:nth-child(2) {
+        position: absolute;
+        color: #ffffff;
+        font-family: "PingFang SC";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        top: 251px;
+        left: 40px;
+        z-index: 9;
+        transition: all 0.4s ease-in-out;
+      }
+
+      .business-item-mask {
+        position: absolute;
+        opacity: 1;
+        height: 70%;
+        width: 100%;
+        background: linear-gradient(
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.3) 70%
+        );
+        top: auto;
+        bottom: 0px;
+        z-index: 2;
+      }
+
+      .business-item:hover .business-item-mask {
+        opacity: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        background-image: url("__PUBLIC__/images/mask_grad.png");
+        background-repeat: repeat-x;
+        background-position: left bottom;
+        background-size: auto 100%;
+      }
+
+      .business-item:hover p {
+        transform: translateY(-18px);
+      }
+
+      .trend-top {
+        width: 100%;
+        height: 150px;
+        background-color: #fff;
+        margin: 0 auto;
+        margin-top: 60px;
+        margin-bottom: 3px;
+        line-height: 150px;
+        position: relative;
+      }
+      .trend-top-left {
+        /* float: left; */
+        position: absolute;
+        left: 51px;
+        color: #381c62;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 36px;
+      }
+      .trend-top-more {
+        position: absolute;
+        right: 70px;
+        color: #381c62;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 20px;
+      }
+      .trend-top-more::before {
+        content: "";
+        position: absolute;
+        right: -30px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 22px; /* 图标宽度 */
+        height: 22px; /* 图标高度 */
+        background-image: url("__PUBLIC__/images/new_view_2025/index_youjiantou.png"); /* 图标路径 */
+        background-size: cover; /* 确保图标完整显示 */
+      }
+      .trend-top-more:hover {
+        color: #5017a7;
+      }
+      .trend-bottom {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      .trend-item {
+        width: 400px;
+        height: 500px;
+        background-color: #fff;
+        padding: 43px 38px 50px;
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
+      }
+      .trend-item:hover {
+        box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.16);
+        /* transform: scale3d(1.06, 1.06, 1.06); */
+      }
+      .trend-item-time {
+        color: #666666;
+        font-family: "PingFang SC";
+        font-weight: 400;
+        font-size: 15px;
+        margin-left: 21px;
+        margin-bottom: 14px;
+        position: relative;
+      }
+      .trend-item-time::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px; /* 图标宽度 */
+        height: 12px; /* 图标高度 */
+        background-image: url("__PUBLIC__/images/new_view_2025/index_clock.png"); /* 图标路径 */
+        background-size: cover; /* 确保图标完整显示 */
+      }
+      .trend-item-title {
+        width: 306px;
+        height: 110px;
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        cursor: pointer;
+        /* border: 1px solid red; */
+      }
+      .trend-item-title:hover {
+        color: #0052d9;
+      }
+      .trend-item-button {
+        width: 119px;
+        height: 37px;
+        color: #fff;
+        font-size: 14px;
+        font-family: "Microsoft YaHei";
+        text-align: center;
+        line-height: 37px;
+        font-weight: 400;
+        background-color: #381c62;
+        border-radius: 25px;
+        margin-top: 16px;
+        margin-bottom: 30px;
+        cursor: pointer;
+      }
+      .trend-item-button:hover {
+        background-color: #5017a7;
+      }
+      .trend-item-img {
+        width: 306px;
+        height: 178px;
+        margin: 0 auto;
+        background-color: #f3f3f3;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      /* .trend-item-img img::after{
+            content: "" ;
+            border: 2px solid red ;
+            width: 100% ;
+            height: 100px ;
+            left: 10px;
+            top:10px;
+          } */
+      .trend-item-img img {
+        width: 306px;
+        height: 178px;
+        object-fit: cover;
+        transition: all 0.3s ease;
+      }
+      .trend-item-img img:hover {
+        transform: scale(1.05);
+      }
+      .trend-item-bottom {
+        /* width: 320px; */
+        width: 0px;
+        height: 4px;
+        margin-top: 43px;
+        margin-left: -38px;
+        background-color: #5017a7;
+        -webkit-transition: all 0.3s cubic-bezier(0.81, 0.24, 0.79, 0.4);
+        transition: all 0.3s cubic-bezier(0.81, 0.24, 0.79, 0.4);
+      }
+      .about-us {
+        /* border: 1px solid red; */
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 70px;
+        position: relative;
+      }
+      .abuot-us-more {
+        position: absolute;
+        right: 70px;
+        top: 10px;
+
+        color: #381c62;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 20px;
+      }
+
+      .abuot-us-more::before {
+        content: "";
+        position: absolute;
+        right: -30px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 22px; /* 图标宽度 */
+        height: 22px; /* 图标高度 */
+        background-image: url("__PUBLIC__/images/new_view_2025/index_youjiantou.png"); /* 图标路径 */
+        background-size: cover; /* 确保图标完整显示 */
+      }
+      .abuot-us--more:hover {
+        color: #5017a7;
+      }
+      .about-us-left {
+        width: 417px;
+        float: left;
+      }
+      .about-us-title {
+        color: #381c62;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 48px;
+        margin-bottom: 28px;
+        text-align: center;
+      }
+      .about-us-text {
+        text-align: justify;
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 290;
+        font-size: 14px;
+        line-height: 26px;
+      }
+      .about-us-more {
+        margin-top: 55px;
+        color: #381c62;
+        /* font-family: "PingFang SC Regular"; */
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px; /* 175% */
+        letter-spacing: 1px;
+      }
+      .about-us-video {
+        width: 517px;
+        height: 276px;
+        background-color: #f3f3f3;
+        float: right;
+      }
+      .cooperation-case {
+        width: 962px;
+        margin: 0 auto;
+      }
+      .cooperation-case-title {
+        color: rgb(56, 28, 98);
+        font-size: 30px;
+        line-height: 43px;
+        font-weight: 600;
+        margin-top: 130px;
+        margin-bottom: 42px;
+        text-align: center;
+      }
+      .cooperation-box img {
+        width: 100%;
+      }
+      .honor-box {
+        margin: 0 auto;
+        margin-top: 130px;
+        width: 1200px;
+        text-align: center;
+      }
+      .honor-box-title {
+        color: rgb(56, 28, 98);
+        font-size: 30px;
+        line-height: 43px;
+        font-weight: 600;
+      }
+      .honor-box-img {
+        /* width: 1200px; */
+        /* height: 412px; */
+        /* background-color: #fff; */
+        margin-top: 42px;
+      }
+      .honor-box-img img {
+        width: 1200px;
+        object-fit: cover;
+      }
+      /* 回到顶部 */
+      .to-top {
+        /* border: 1px solid red; */
+        /* background-color: #381c62; */
+        background-color: #cccccc80;
+        height: 44px;
+        width: 44px;
+        color: #fff;
+        line-height: 44px;
+        text-align: center;
+        border-radius: 50%;
+        position: fixed;
+        right: 8%;
+        bottom: -50px;
+        transition: all 0.3s ease-out;
+        z-index: 999;
+      }
+      .to-top:hover {
+        background-color: #b5b5b580;
+      }
+      .to-top-show {
+        bottom: 100px;
+      }
+
+      /* 轮播图样式 */
+      .my-carousel-item {
+        width: 280px;
+        height: 180px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 3px;
+        transition: transform 1s ease-in-out;
+        object-fit: cover;
+      }
+
+      .my-carousel-container {
+        /* position: absolute; */
+        width: 850px;
+        height: 250px;
+        /* background-color: rgb(255, 255, 255); */
+        perspective: 800px;
+        transform-style: preserve-3d;
+        margin: 0 auto;
+        margin-top: 50px;
+      }
+      /* 动画效果 */
+      .cooperation-box,
+      .cooperation-case-title,
+      .business-title,
+      .business-box-top,
+      .business-box-bottom,
+      .trend-top,
+      .trend-bottom,
+      .about-us,
+      .honor-box-title,
+      .honor-box-img {
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 1s ease-out;
+      }
+      .cooperation-case-title.cooperation-case-title-animation,
+      .cooperation-box.cooperation-box-animation,
+      .business-title-animation,
+      .business-box-top-animation,
+      .business-box-bottom-animation,
+      .trend-top-animation,
+      .trend-bottom-animation,
+      .about-us-animation,
+      .honor-box-title-animation,
+      .honor-box-img-animation {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <header class="bs-docs-nav navbar navbar-static-top" id="top"></header> -->
+    <div id="top"></div>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header_fullScreen" />
+    <!-- swiper组件 -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="__PUBLIC__/images/new_view_2025/index_group1011@2x.png"
+            target="_blank"
+          />
+          <div class="jxkj-banner-text">
+            <div class="text-main">
+              <h2>以数智创新塑造可持续未来</h2>
+              <h5>
+                我们坚持在全球范围内贯彻可持续发展理念，实现社会、环境及利益相关方的和谐共生，运用通信技术帮助不同地区的人们享有平等的通信自由。
+              </h5>
+            </div>
+          </div>
+          <!-- <div class="test-bg"></div> -->
+        </div>
+        <!-- <div class="swiper-slide">
+          <img src="__PUBLIC__/images/banner001.jpg" target="_blank" />
+          <div class="jxkj-banner-text">
+            <div class="text-main">
+              <h2>大数据驱动下的互联网金融创新</h2>
+              <h5>
+                大数据的建设和初步互融共通,为我们经济社会再次大发展注入了无比强大的动力。
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img src="__PUBLIC__/images/banner002.png" target="_blank" />
+          <div class="jxkj-banner-text">
+            <div class="text-main">
+              <h2>打破数据壁垒，实现数据开放</h2>
+              <h5>
+                大数据技术结合云计算、区块链、人工智能等新技术向金融领域渗透融合，释放出裂变式的创新活力和应用潜能，为金融行业包括财务公司带来巨大的机遇。
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img src="__PUBLIC__/images/banner003.jpg" target="_blank" />
+          <div class="jxkj-banner-text">
+            <div class="text-main">
+              <h2>精准营销核心秘密</h2>
+              <h5>
+                通过对数据的采集、处理、分析，洞察用户需求，精准找到目标用户群并提供相应的方案。
+              </h5>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <!-- 分页器 -->
+      <div class="swiper-pagination"></div>
+      <!-- 滚动条 -->
+      <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+    <!-- 主体内容 -->
+    <div class="main w-1200">
+      <!-- 业务领域 -->
+      <p class="business-title" style="margin-top: 124px; margin-bottom: 41px">
+        业务领域
+      </p>
+      <div class="business-box-top business-box-flex">
+        <a
+          href="__APP__/index.php/Admin/Industry/Campus?loading=1"
+          target="_self"
+          class="business-click"
+          ><div class="business-item">
+            <p>智慧校园</p>
+            <p>建立安全、便捷、开放的校园成长平台</p>
+            <img
+              data-src="__PUBLIC__/images/new_view_2025/yewu_group_1@2x.png"
+              alt=""
+              class="business-item-img lazyload"
+            />
+
+            <div class="business-item-mask"></div>
+          </div>
+        </a>
+
+        <a
+          href="__APP__/index.php/Admin/Industry/Energy?loading=1"
+          target="_self"
+          class="business-click"
+        >
+          <div class="business-item">
+            <p>光伏电能投资运营</p>
+            <p>掌握储能核心技术，打造储能产业“中国芯”</p>
+            <img
+              data-src="__PUBLIC__/images/new_view_2025/yewu_group_2@2x.png"
+              alt=""
+              class="business-item-img lazyload"
+            />
+
+            <div class="business-item-mask"></div>
+          </div>
+        </a>
+      </div>
+      <div class="business-box-bottom business-box-flex">
+        <a
+          href="__APP__/index.php/Admin/Industry/Communicate?loading=1"
+          target="_self"
+          class="business-click"
+        >
+          <div class="business-item">
+            <p>通信业务</p>
+            <p>数字化移动营销解决方案和精准营销服务专家</p>
+            <img
+              data-src="__PUBLIC__/images/new_view_2025/yewu_group_3@2x.png"
+              alt=""
+              class="business-item-img lazyload"
+            />
+
+            <div class="business-item-mask"></div>
+          </div>
+        </a>
+        <a
+          href="__APP__/index.php/Admin/Industry/Urban?loading=1"
+          target="_self"
+          class="business-click"
+        >
+          <div class="business-item">
+            <p>政务信息化</p>
+            <p>监管互动、分工合作、统一指挥、管理有序的城市管理新模式</p>
+            <img
+              data-src="__PUBLIC__/images/new_view_2025/yewu_group_4@2x.png"
+              alt=""
+              class="business-item-img lazyload"
+            />
+
+            <div class="business-item-mask"></div>
+          </div>
+        </a>
+      </div>
+      <!-- 精信动态 -->
+      <div class="trend-top">
+        <span class="trend-top-left">精信动态</span>
+        <a class="trend-top-more" href="__APP__/index.php/Admin/News/News"
+          >查看更多</a
+        >
+      </div>
+      <div class="trend-bottom">
+        <volist name="top_news_list" id="vo">
+          <div class="trend-item">
+            <div class="trend-item-time">{$vo.date}</div>
+            <a href="__APP__/index.php/Admin/News/news_detail?id={$vo.id}">
+              <div class="trend-item-title">{$vo.name}</div>
+            </a>
+            <a href="__APP__/index.php/Admin/News/news_detail?id={$vo.id}">
+              <div class="trend-item-button">了解更多</div>
+            </a>
+            <div class="trend-item-img">
+              <a href="__APP__/index.php/Admin/News/news_detail?id={$vo.id}">
+                <img src="__ROOT__{$vo.news_img}" alt="" />
+              </a>
+            </div>
+            <div class="trend-item-bottom"></div>
+          </div>
+        </volist>
+        <!-- <div class="trend-item">
+          <div class="trend-item-time">2022-09-25</div>
+          <div class="trend-item-title">
+            泰安市各级领导专班莅临我司调研指导工作
+          </div>
+          <div class="trend-item-button">了解更多</div>
+          <div class="trend-item-img">
+            <img src="__PUBLIC__/images/jxkj_test.jpg" alt="" />
+          </div>
+        </div>
+        <div class="trend-item">
+          <div class="trend-item-time">2022-09-25</div>
+          <div class="trend-item-title">
+            泰安市各级领导专班莅临我司调研指导工作
+          </div>
+          <div class="trend-item-button">了解更多</div>
+          <div class="trend-item-img">
+            <img src="__PUBLIC__/images/jxkj_test.jpg" alt="" />
+          </div>
+        </div> -->
+      </div>
+      <!-- 关于我们 -->
+      <!-- <div class="about-us clearfix">
+        <div class="about-us-left">
+          <p class="about-us-title">关于我们</p>
+          <a
+            href="__APP__/index.php/Admin/About/Introduce"
+            target="_self"
+            class=""
+          >
+            <p class="about-us-text">
+              湖北精英盛华信息科技股份有限公司(简称“精信科技”)，是一家从事数字化精准营销和互联网信息服务的高新技术企业，通过通信业务、智慧校园、智慧城管和光伏电能投资运营等产品和服务，致力于打造客户满意的精准营销服务专家。
+            </p></a
+          >
+          <a
+            href="__APP__/index.php/Admin/About/Introduce"
+            target="_self"
+            class=""
+            ><p class="about-us-more">查看更多>>></p></a
+          >
+        </div>  
+        <div class="about-us-video"></div>
+      </div> -->
+      <div class="about-us clearfix">
+        <a class="abuot-us-more" href="__APP__/index.php/Admin/About/Introduce"
+          >查看更多</a
+        >
+        <p class="about-us-title">关于我们</p>
+        <p class="about-us-text">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          湖北精英盛华信息科技股份有限公司(简称“精信科技”)，是一家从事数字化精准营销和互联网信息服务的高新技术企业，通过通信业务、智慧校园、智慧城管和光伏电能投资运营等产品和服务，致力于打造客户满意的精准营销服务专家。从2007年成立以来，精信科技历经十余年的发展，形成以北京、杭州、武汉为中心，辐射全国的发展大格局，目前在湖北、北京、浙江、广东、广西、山西、甘肃、辽宁、安徽、新疆、河南、河北、江苏、海南等省市设有20余家分支机构，发展规模近千人，并拥有一套覆盖全国的成熟的运营服务体系。
+        </p>
+        <div class="my-carousel-container">
+          <img
+            class="my-carousel-item"
+            alt="1"
+            src="__PUBLIC__/images/sy_banner01.jpg.png"
+          />
+          <img
+            class="my-carousel-item"
+            alt="2"
+            src="__PUBLIC__/images/logointr.jpg"
+          />
+          <img class="my-carousel-item" alt="3" src="__PUBLIC__/images/3.png" />
+          <img class="my-carousel-item" alt="4" src="__PUBLIC__/images/a.png" />
+          <img
+            class="my-carousel-item"
+            alt="5"
+            src="__PUBLIC__/images/ad.png"
+          />
+        </div>
+      </div>
+      <!-- 合作案例 -->
+      <div class="cooperation-case">
+        <div class="cooperation-case-title">合作案例</div>
+        <div class="cooperation-box">
+          <img
+            src="__PUBLIC__/images/new_view_2025/cooperation_group@2x.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- 荣誉资质 -->
+      <div class="honor-box" style="margin-bottom: 150px">
+        <div class="honor-box-title">荣誉资质</div>
+        <div class="honor-box-img">
+          <img src="__PUBLIC__/images/new_view_2025/honor_88@2x.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- 回到顶部 -->
+    <a href="#top" class="back-to-top">
+      <div class="to-top" id="to-top">
+        <svg
+          t="1712738133671"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="13167"
+          width="22"
+          height="22"
+        >
+          <path
+            d="M479.139 199.82a46.452 46.452 0 0 1 65.722 0l279.366 279.365a46.499 46.499 0 0 1-65.769 65.723l-199.913-199.96v632.507a46.545 46.545 0 0 1-41.1 46.22L512 1024a46.545 46.545 0 0 1-46.545-46.545V344.948l-199.913 199.96a46.499 46.499 0 0 1-61.347 3.91l-4.422-3.91a46.499 46.499 0 0 1 0-65.723zM878.545 0c28.905 0 52.364 20.852 52.364 46.545s-23.459 46.546-52.364 46.546h-733.09c-28.905 0-52.364-20.852-52.364-46.546S116.55 0 145.455 0z"
+            fill="#ffffff"
+            p-id="13168"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+    <!-- bootstrap.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- swiper.js -->
+    <script src="../../../../Public/swiper/swiper-bundle.min.js"></script>
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script> -->
+    <script src="__PUBLIC__/Js/my-lazyload.js"></script>
+    <script type="text/javascript">
+      var mySwiper = new Swiper(".swiper", {
+        // direction: "horizontal", // 垂直切换选项
+        loop: true, // 循环模式选项
+        autoplay: true,
+        // effect: "fade",
+        // 滚动条
+        // scrollbar: {
+        //   el: ".swiper-scrollbar",
+        // },
+        // 分页器
+        pagination: {
+          el: ".swiper-pagination",
+          // dynamicBullets: true,
+          clickable: true,
+        },
+      });
+      // 回到顶部
+      window.addEventListener("scroll", function () {
+        var scrollDistance = window.scrollY;
+        const topElement = document.getElementById("to-top");
+
+        if (scrollDistance > 180) {
+          topElement.classList.add("to-top-show");
+          // console.log('滚动距离超过200px');
+        } else {
+          topElement.classList.remove("to-top-show");
+          // console.log('滚动距离不超过200px');
+          // 执行其他操作
+        }
+      });
+
+      // 滚动懒加载动效（封装版）
+      function animateOnScroll(selector, className, threshold = 0.5) {
+        const elements = document.querySelectorAll(selector);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(className);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold,
+            rootMargin: "0px 0px 50% 0px", // 负值表示向内收缩观察区域
+          }
+        );
+
+        elements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+      // // 为元素添加动画效果
+      function addAnimation() {
+        const animationArr = [
+          {
+            element: ".cooperation-case-title",
+            className: "cooperation-case-title-animation",
+          },
+          {
+            element: ".cooperation-box",
+            className: "cooperation-box-animation",
+          },
+          {
+            element: ".business-title",
+            className: "business-title-animation",
+          },
+          {
+            element: ".business-box-top",
+            className: "business-box-top-animation",
+          },
+          {
+            element: ".business-box-bottom",
+            className: "business-box-bottom-animation",
+          },
+          {
+            element: ".trend-top",
+            className: "trend-top-animation",
+          },
+          {
+            element: ".trend-bottom",
+            className: "trend-bottom-animation",
+          },
+          {
+            element: ".about-us",
+            className: "about-us-animation",
+          },
+          {
+            element: ".honor-box-title",
+            className: "honor-box-title-animation",
+          },
+          {
+            element: ".honor-box-img",
+            className: "honor-box-img-animation",
+          },
+        ];
+        animationArr.forEach((item) => {
+          animateOnScroll(item.element, item.className);
+        });
+      }
+      addAnimation();
+
+      // 精信动态 底部动效
+      const top_news = document.querySelectorAll(".trend-item");
+      top_news.forEach((news) => {
+        news.addEventListener("mouseover", function (e) {
+          const bottom = news.querySelector(".trend-item-bottom");
+          const image = news.querySelector("img");
+          image.style.transform = "scale(1.05)";
+          bottom.style.width = "400px";
+        });
+        news.addEventListener("mouseout", function (e) {
+          const bottom = news.querySelector(".trend-item-bottom");
+          const image = news.querySelector("img");
+          image.style.transform = "scale(1)";
+          bottom.style.width = "0px";
+        });
+      });
+      function delayHref(url, delay) {
+        setTimeout("top.location.href = '" + url + "'", delay);
+      }
+
+      // const business_items = document.querySelectorAll(".business-item");
+      // const business_text = document.querySelectorAll(".business-item p:nth-child(1)");
+      // business_items.forEach((item, key)=>{
+      //   item.addEventListener("click", function(e){
+      //     let text = business_text[key];
+      //     business_items.forEach((item,key1)=>{
+      //       if(key1 != key){
+      //         item.style.transitionDuration = ".4s";
+      //         if(key1 == 0 || key1 ==2){
+      //           item.style.transform = "translateX(-200px)";
+      //         }else{
+      //           item.style.transform = "translateX(+200px)";
+      //         }
+      //         item.style.opacity = 0;
+      //       }
+      //     });
+      //     text.style.transition = "all .3s ease-out";
+      //     text.style.bottom = "20px";
+      //     text.style.opacity = 0;
+      //     item.style.zIndex = "9999";
+      //     item.style.transitionDuration = ".7s";
+      //     item.style.transitionDelay = ".3s";
+      //     item.style.transform = "scale3d(14,19,14)";
+      //   });
+      // });
+
+      //轮播图
+      const carouselImages = document.querySelectorAll(".my-carousel-item");
+      const imageCount = carouselImages.length;
+      let currentIndex = 0;
+      let timerId;
+
+      function initCarousel() {
+        setupView();
+        bindEvents();
+        startAutoPlay();
+      }
+
+      initCarousel();
+
+      function setupView() {
+        const halfLength = Math.floor(imageCount / 2);
+        for (let i = 0; i < halfLength; i++) {
+          let leftIndex = (currentIndex - i - 1 + imageCount) % imageCount;
+          let rightIndex = (currentIndex + i + 1) % imageCount;
+          carouselImages[leftIndex].style.transform = `translateX(${
+            -130 * (i + 1)
+          }px) translateZ(${200 - i * 100}px) rotateY(30deg)`;
+          carouselImages[rightIndex].style.transform = `translateX(${
+            130 * (i + 1)
+          }px) translateZ(${200 - i * 100}px) rotateY(-30deg)`;
+        }
+        carouselImages[currentIndex].style.transform = `translateZ(300px)`;
+      }
+
+      function bindEvents() {
+        for (let i = 0; i < imageCount; i++) {
+          (function (index) {
+            carouselImages[index].addEventListener("click", function () {
+              currentIndex = index;
+              setupView();
+            });
+            carouselImages[index].addEventListener("mouseenter", function () {
+              clearInterval(timerId);
+              anime();
+            });
+
+            carouselImages[index].addEventListener("mouseout", function () {
+              startAutoPlay();
+            });
+          })(i);
+        }
+      }
+
+      function startAutoPlay() {
+        timerId = setInterval(function () {
+          currentIndex = (currentIndex + 1) % imageCount;
+          setupView();
+        }, 2000);
+      }
+
+      function anime() {
+        carouselImages[currentIndex].style.transform = `translateZ(350px)`;
+      }
+    </script>
+  </body>
+</html>

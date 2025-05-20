@@ -1,0 +1,12 @@
+UPDATE jxkj_db.user SET name = 'admin', pwd = '37f9ed17dd93c7439e40b2c676e5d9fd', role = 1, create_id = 1, create_time = '2016-05-23 14:17:27.0', status = 1 WHERE id = 1;
+UPDATE jxkj_db.user SET name = 'guanliyuan', pwd = '202cb962ac59075b964b07152d234b70', role = 2, create_id = 1, create_time = '2016-05-27 14:41:32.0', status = 0 WHERE id = 2;
+UPDATE jxkj_db.user SET name = 'guanliyuan', pwd = 'e10adc3949ba59abbe56e057f20f883e', role = 2, create_id = 1, create_time = '2016-05-27 14:41:34.0', status = 0 WHERE id = 3;
+UPDATE jxkj_db.user SET name = 'guanliyuan', pwd = 'e10adc3949ba59abbe56e057f20f883e', role = 2, create_id = 1, create_time = '2016-05-27 14:41:34.0', status = 0 WHERE id = 4;
+UPDATE jxkj_db.user SET name = 'guanliyuan', pwd = 'e10adc3949ba59abbe56e057f20f883e', role = 2, create_id = 1, create_time = '2016-05-27 14:41:34.0', status = 0 WHERE id = 5;
+UPDATE jxkj_db.user SET name = 'guanliyuan', pwd = 'e10adc3949ba59abbe56e057f20f883e', role = 2, create_id = 1, create_time = '2016-05-27 14:41:34.0', status = 0 WHERE id = 6;
+UPDATE jxkj_db.user SET name = 'guanliyuan', pwd = 'e10adc3949ba59abbe56e057f20f883e', role = 2, create_id = 1, create_time = '2016-05-27 14:42:58.0', status = 0 WHERE id = 7;
+UPDATE jxkj_db.user SET name = 'guanliyuan', pwd = 'e10adc3949ba59abbe56e057f20f883e', role = 2, create_id = 1, create_time = '2016-05-27 14:45:13.0', status = 0 WHERE id = 8;
+UPDATE jxkj_db.user SET name = 'guanliyuan1', pwd = 'e10adc3949ba59abbe56e057f20f883e', role = 2, create_id = 1, create_time = '2016-05-27 14:48:14.0', status = 0 WHERE id = 9;
+UPDATE jxkj_db.user SET name = 'yonghu', pwd = '202cb962ac59075b964b07152d234b70', role = 3, create_id = 1, create_time = '2016-05-27 15:25:29.0', status = 0 WHERE id = 10;
+UPDATE jxkj_db.user SET name = 'renshi', pwd = '1ea52f1cf89f8e9834d328a0bb2b7e79', role = 3, create_id = 1, create_time = '2017-10-26 15:04:50.0', status = 1 WHERE id = 11;
+UPDATE jxkj_db.user SET name = 'zongban', pwd = '41e7ee3ff7b74eaad4b7023802e9cbf0', role = 2, create_id = 1, create_time = '2017-10-26 15:05:00.0', status = 1 WHERE id = 12;

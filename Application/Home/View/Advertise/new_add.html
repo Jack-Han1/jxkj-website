@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.9.1.min.js"/>
+    <load href="__PUBLIC__/ueditor/ueditor.config.js" />
+    <load href="__PUBLIC__/ueditor/ueditor.all.min.js" />
+    <title>精信官网后台新闻</title>
+
+</head>
+
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <div class="add-line-1">
+        <span>标题：</span><input type="text" class="input-k w-350" id="name"/>
+    </div>
+    <div class="add-line-1">
+        <span>招聘职业：</span><input type="text" class="input-k w-350" id="job"/>
+    </div>
+    <div class="add-line-1">
+        <span>招聘地址：</span><input type="text" class="input-k w-350" id="pos"/>
+    </div>
+    <div class="add-line-1">
+        <span>简介：</span><input type="text" class="input-k w-350" id="text"/>
+    </div>
+    <div class="add-line-1">
+    <span>所属分类：</span>
+        <select class="input-k w-150" style="height: 29px;" id="kind">
+            <option value="">请选择分类</option>
+            <option value="0">校招</option>
+            <option value="1">社招</option>
+            <option value="2">内推</option>
+        </select>
+        <!--<input type="text" class="input-k w-150" onclick="fPopCalendar(event,this,this)" onfocus="this.select()" readonly="readonly" />-->
+    </div>
+    <div class="add-line-1">
+    <span>标签：</span>
+        <select class="input-k w-150" style="height: 29px;" id="label-kind">
+            <option value="0">无标签</option>
+            <option value="1">紧急</option>
+            <!-- <option value="3">内推</option> -->
+        </select>
+        <!--<input type="text" class="input-k w-150" onclick="fPopCalendar(event,this,this)" onfocus="this.select()" readonly="readonly" />-->
+    </div>
+    <div class="add-line-1">
+        <span>排序：</span><input type="text" name="sort" class="input-k w-50" id="sort">
+    </div>
+    <div style="margin-top: 20px;">
+        <span style="display:inline-block; width:250px; text-align:right; float:left;">岗位职责：</span>
+        <div class="html-edit" style="height: auto;width:1050px;">
+            <script id="container" name="container" type="text/plain"></script>
+        </div>
+    </div>
+    <div style="margin-top: 20px;">
+        <span style="display:inline-block; width:250px; text-align:right; float:left;">岗位要求：</span>
+        <div class="html-edit" style="height: auto;width:1050px;">
+            <script id="container1" name="container" type="text/plain"></script>
+        </div>
+    </div>
+    <div class="add-line-1"><input onclick="sub()" type="button" class="save-btn mar-l-250" value="保存" /></div>
+
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+
+<script type="text/javascript">
+    $(function(){
+        var ue = UE.getEditor('container',{serverUrl :"{:U('Home/Advertise/ueditor')}"});
+        var ue1 = UE.getEditor('container1',{serverUrl :"{:U('Home/Advertise/ueditor')}"});
+    })
+
+    function sub(){
+        var container = UE.getEditor('container').getContent();
+        var container1 = UE.getEditor('container1').getContent();
+        var kind = $("#kind").val();
+        var label_kind = $("#label-kind").val();
+        var name = $("#name").val();
+        var sort = $("#sort").val();
+        var job = $("#job").val();
+        var pos = $("#pos").val();
+        var text = $("#text").val();
+        if(name==""||kind==""||container==""||container1==""||job==""||pos=="")
+            {
+                alert("请填写完整信息！");
+                return false;
+            }
+        $.post('save', {name:name,kind:kind,label_kind:label_kind,job:job,pos:pos,text:text,duty:container,require:container1,sort:sort}, function(data){
+            data = eval('(' + data + ')');
+            if(data.status){
+                alert(data.info);
+                window.location.href="index";
+            }else{
+                alert(data.info);
+            }
+        });
+    }
+</script>
+</body>
+
+</html>

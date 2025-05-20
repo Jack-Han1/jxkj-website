@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>招才纳士</title>
+    <link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+//        $(document).ready(function(){
+//            $("[name='open']").click(function(){
+////                if()
+////                $(".recruit-select-icon").parent().next('div[name="open-con"]').toggle();
+////                $(".recruit-select-icon").attr("class", "recruit-icon");
+//                var classname = $(this).attr("class");
+//                if(classname == 'recruit-select-icon'){
+//                    $(this).attr("class", "recruit-icon");
+//                }else{
+//                    $(".recruit-select-icon").parent().next('div[name="open-con"]').toggle();
+//                    $(".recruit-select-icon").attr("class", "recruit-icon");
+//                    $(this).attr("class", "recruit-select-icon");
+//                }
+////                console.log($(this).next('div[name="open-con"]'));
+//                $(this).parent().next('div[name="open-con"]').toggle();
+////                $("[name='open-con']").toggle();
+//
+//            });
+//        });
+        $(function(){
+            var param=getUrlParam('id');
+            if(param != null){
+                $('.recruit-list[name='+param+']').next('div[name="open-con"]').toggle();
+            }
+        })
+        function getUrlParam(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r!=null) return unescape(r[2]); return null; //返回参数值
+        }
+
+        function open_div(e){
+//            console.log($(e));
+//            return;
+                var classname = $(e).children("i").attr("class");
+                if(classname == 'recruit-select-icon'){
+                    $(e).children("i").attr("class", "recruit-icon");
+                }else{
+                    $(".recruit-select-icon").parent().next('div[name="open-con"]').toggle();
+                    $(".recruit-select-icon").attr("class", "recruit-icon");
+                    $(e).children("i").attr("class", "recruit-select-icon");
+                }
+                $(e).next('div[name="open-con"]').toggle();
+        }
+    </script>
+</head>
+
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster5"></div>
+<!--海报-->
+<div class="w-1200 mar-b-40">
+    <div class="recruit-title">招才纳士</div>
+    <volist name="list" id="vo">
+        <div class="recruit-list" onclick="open_div(this)" style="cursor: pointer;" name="{$vo.id}"><i class="recruit-icon open" name="open"></i>{$vo.name}</div>
+        <div class="recruit-con open-con" name="open-con">
+           {$vo.content}
+        </div>
+    </volist>
+</div>
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+
+</body>
+</html>

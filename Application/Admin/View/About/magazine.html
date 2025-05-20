@@ -1,0 +1,414 @@
+<!-- 走进精信->精信月刊 v2024 -->
+<!-- 走进精信-精信月刊 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>走进精信-精信月刊</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 467px;
+        width: 100%;
+        /* background-color: #d9d9d9; */
+        background-image: url("__PUBLIC__/images/new_view_2025/about_group101@2x.png");
+        background-size: cover; /* 图片覆盖整个区域 */
+        background-position: center; /* 图片居中显示 */
+        position: relative;
+      }
+      .top-banner-inside {
+        width: 1200px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 45%;
+      }
+      .top-banner-inside-p1 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 53.6px;
+      }
+      .top-banner-inside-p2 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 24.8px;
+      }
+      /* .top-banner img {
+        display: block;
+        margin: 0 auto;
+        height: 467px;
+        width: 100%;
+        object-fit: cover;
+      } */
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        /* padding-bottom: 120px; */
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        /* border: 1px solid red; */
+      }
+      .magazine {
+        margin-top: 79px;
+      }
+      .top-magazine {
+        width: 100%;
+        height: 367px;
+        border: 1px solid red;
+        display: flex;
+        margin-bottom: 90px;
+      }
+      .top-magazine-left {
+        width: 43%;
+        border-right: 1px solid #ccc;
+        padding: 21px 0 0 149px;
+      }
+      .top-magazine-right {
+        box-sizing: border-box;
+        flex: 1;
+        padding: 75px 149px 0 50px;
+        position: relative;
+      }
+      .top-magazine-left img {
+        display: block;
+        height: 324px;
+        object-fit: cover;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      .top-magazine-date {
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 16px;
+      }
+      .top-magazine-text {
+        color: #666666;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
+      }
+      .top-view-btn {
+        width: 168px;
+        height: 40px;
+        border: 1px solid #333333;
+        text-align: center;
+        line-height: 40px;
+        position: absolute;
+        bottom: 71px;
+        left: 50px;
+      }
+      .magazine-row {
+        display: grid;
+        grid-template-columns: repeat(2, 588px);
+        row-gap: 50px;
+        column-gap: 33px;
+        margin-bottom: 100px;
+      }
+      .magazine-item {
+        width: 100%;
+        height: 246px;
+        padding: 28px 38px 22px 34px;
+        background-color: #fff;
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.2s cubic-bezier(0, 0, 0.5, 1);
+        display: flex;
+        /* border: 1px solid red; */
+      }
+      .magazine-item:hover {
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.16);
+        transform: scale3d(1.01, 1.01, 1.01);
+      }
+      .item-left {
+        width: 37%;
+        border-right: 1px solid #ccc;
+      }
+      .item-right {
+        flex: 1;
+        padding-left: 38px;
+        position: relative;
+      }
+      .item-right-date {
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 14px;
+      }
+      .item-right-text {
+        color: #666666;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
+      }
+      .view-btn {
+        width: 80px;
+        height: 28px;
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 28px;
+        text-align: center;
+        border: 0.5px solid #333333;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 0;
+      }
+      .book-wrapper {
+        position: relative;
+        width: 100%;
+        height: 196px;
+        transform-style: preserve-3d; /* 保持子元素3D空间 */
+        transition: transform 0.5s ease;
+      }
+      .book-wrapper:hover .magazine-item-img {
+        transform: perspective(1200px) rotateY(2deg);
+        box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
+      }
+      .magazine-item-img {
+        display: block;
+        /* width: 100%; */
+        height: 196px;
+        /* margin: 0 auto; */
+        object-fit: cover;
+        background-color: #d9d9d9;
+        transform-origin: left center; /* 以左侧为旋转轴 */
+        transform: perspective(1200px) rotateY(22deg);
+        transition: all 0.5s ease;
+        padding-left: 6px;
+      }
+      .book-edge {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px; /* 厚度大小 */
+        height: 196px;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.2)
+        ); /* 模拟阴影 */
+        box-shadow: 1px 0 3px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+        transform-origin: right center; /* 以右侧为旋转轴 */
+        transform: perspective(1200px) rotateY(20deg); /* 立体边缘角度 */
+      }
+      .magazine-item a {
+        text-decoration: none;
+      }
+      .page {
+        /* border: 1px solid red; */
+        text-align: center;
+        text-decoration: none;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+      .page div {
+        display: inline-block;
+      }
+      .page .current,
+      .page .num,
+      .page .next,
+      .page .prev {
+        margin: 0 4px;
+        font-size: 12px;
+        line-height: 28px;
+        text-decoration: none;
+      }
+      .page .current {
+        float: left;
+        display: block;
+        width: 28px;
+        height: 28px;
+        background-color: rgb(56, 28, 98);
+        color: white;
+      }
+      .page .num {
+        float: left;
+        display: block;
+        width: 28px;
+        height: 28px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+      .page .next {
+        float: left;
+        display: block;
+        width: 58px;
+        height: 28px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+      .page .prev {
+        float: left;
+        display: block;
+        width: 58px;
+        height: 28px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <!-- <img src="__PUBLIC__/images/new_view_2025/about_group101@2x.png" alt="" /> -->
+        <div class="top-banner-inside">
+          <p class="top-banner-inside-p1">走进精信</p>
+          <p class="top-banner-inside-p2">了解精信发展历史和最新动态</p>
+        </div>
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Introduce"
+            target="_self"
+            class=""
+            >精信简介</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Development"
+            target="_self"
+            class=""
+            >发展历程</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a href="__APP__/index.php/Admin/About/Honor" target="_self" class=""
+            >荣誉资质</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Culture"
+            target="_self"
+            class=""
+            >企业文化</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a
+            href="__APP__/index.php/Admin/About/Magazine"
+            target="_self"
+            class=""
+            >精信月刊</a
+          >
+        </div>
+      </div>
+
+      <div class="w-1200 clearfix">
+        <div class="magazine">
+          <!-- 最新置顶 -->
+          <div class="top-magazine">
+            <volist name="list" id="vo" offset="0" length="1">
+              <div class="top-magazine-left">
+                <img data-src="{$vo.img}" alt="" class="lazyload" />
+              </div>
+              <div class="top-magazine-right">
+                <p class="top-magazine-date">{$vo.date}</p>
+                <p class="top-magazine-text">{$vo.text}</p>
+                <div class="top-view-btn">查看月刊</div>
+              </div>
+            </volist>
+          </div>
+          <!-- 列表 -->
+          <div class="magazine-row">
+            <volist name="list" id="vo" offset="1">
+              <div class="magazine-item">
+                <div class="item-left">
+                  <div class="book-wrapper">
+                    <img
+                      data-src="{$vo.img}"
+                      alt=""
+                      class="magazine-item-img lazyload"
+                    />
+                    <div class="book-edge"></div>
+                  </div>
+                </div>
+                <div class="item-right">
+                  <p class="item-right-date">{$vo.date}</p>
+                  <p class="item-right-text">{$vo.text}</p>
+                  <div class="view-btn">查看月刊</div>
+                </div>
+              </div>
+            </volist>
+          </div>
+          <div class="page clearfix">{$page}</div>
+        </div>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+  </body>
+</html>
+
+<script src="__PUBLIC__/Js/my-lazyload.js"></script>

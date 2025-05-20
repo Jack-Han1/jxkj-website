@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>新闻中心</title>
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster3"></div>
+<!--海报-->
+<!--con-->
+
+<div class="news-bg">
+<div class="box news-tab">
+			<ul class="tab_menu">
+                <a href="__APP__/index.php/Admin/News/index"><li>精信要闻</li></a>
+                <a href="__APP__/index.php/Admin/News/notice"><li >精信公告</li></a>
+                <a href="__APP__/index.php/Admin/News/trends"><li>行业动态</li></a>
+                <a href="__APP__/index.php/Admin/News/focus"><li class="current">领导关怀</li></a>
+			</ul>
+    <div class="tab_box">
+        <p class="h-35"></p>
+        <div class="tab-con">
+
+            <volist name="list" id="vo">
+                <div class="new-list">
+                    <div class="new-time">
+                        <h2>{$vo.data}</h2>
+                        <h3>{$vo.year}</h3>
+                    </div>
+                    <div class="new-detail">
+                        <h1><i class="new-icon"></i><a href="__APP__/index.php/Admin/News/detail?id={$vo.id}">{$vo.name}</a></h1>
+                        <p>{$vo.abstract}</p>
+
+                    </div>
+                </div>
+                <p class="h-1"></p>
+            </volist>
+            <!--page-->
+            <div class="page">
+                <!--<ul>-->
+                <!--<a href=""><li>上一页</li></a>-->
+                <!--<li class="select">1</li>-->
+                <!--<a href=""><li>2</li></a>-->
+                <!--<a href=""><li>下一页</li></a>-->
+                <!--</ul>-->
+                {$page}
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+</div>
+
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+
+<script type="text/javascript">
+
+
+
+</script>
+
+
+</body>
+</html>

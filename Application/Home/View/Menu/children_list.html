@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.6.min.js"/>
+<title>精信官网后台人才</title>
+</head>
+
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+	<div class="widget">
+    	<div class="widget-header">
+        	<div class="title">子菜单列表 >> {$parent_name}</div>
+        </div>
+        <div class="widget-body">
+        	<table class="table">
+            	<tr>
+                	<th>ID</th>
+                	<th>名称</th>
+                    <th>链接</th>
+                    <th>头部显示</th>
+                    <th>操作</th>
+                </tr>
+                <if condition="$list eq NULL">
+                    <tr>
+                        <td colspan="5" style="text-align: center"><a >“{$parent_name}”没有子菜单！</a></td>
+                    </tr>
+                    <else/>
+                    <volist name="list" id="vo">
+                        <tr>
+                            <td>{$vo.show_id}</td>
+                            <td>{$vo.name}</td>
+                            <td>{$vo.url}</td>
+                            <td><if condition="$vo['head_show'] eq 1">是<else/>否</if></td>
+                            <td>
+                                <!--<a href="">查看</a>-->
+                                <a href="__APP__/index.php/Home/Menu/edit?id={$vo.id}">编辑</a>
+                                <a style="cursor: pointer;" onclick="del({$vo.id})">删除</a>
+                            </td>
+                        </tr>
+                    </volist>
+                </if>
+            </table>
+        </div>
+    </div>
+    
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+
+<script type="text/javascript">
+    function del(id){
+        $.post('del', {id:id}, function(data){
+            data = eval('(' + data + ')');
+            if(data.status){
+                alert(data.info);
+                window.location.reload();
+            }else{
+                alert(data.info);
+            }
+        });
+    }
+</script>
+</body>
+</html>

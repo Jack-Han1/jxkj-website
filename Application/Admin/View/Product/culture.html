@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>文化类-产品中心</title>
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+    <style type="text/css">
+        /*.dis-n {
+            display: none;
+        }*/
+        /*.product-nav li{*/
+            /*background-color: #97c740;*/
+        /*}*/
+        .product-subnav li{
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster4"></div>
+<!--海报-->
+<!--con-->
+<div class="product-bg">
+    <div class="product-k">
+    	<!--侧导航-->
+    	<div class="product-nav">
+            <ul id="product_menu">
+                <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)">金融类<i class="product-icon"></i></li>
+                <ul class="product-subnav dis-n">
+                    <a href="__APP__/index.php/Admin/Product/index"><li>智慧金融</li></a>
+                </ul>
+                <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)">互联网类<i class="product-icon"></i></li>
+                <ul class="product-subnav  dis-n">
+                    <!--<a href="__APP__/index.php/Admin/Product/internet"><li>集约平台</li></a>-->
+                    <a href="__APP__/index.php/Admin/Product/school"><li>智慧校园</li></a>
+                </ul>
+                <li  class="select"  style="color: #fff;font-weight: 700;background-color: #97c740;">文化类<i class="product-select-icon"></i></li>
+                <ul class="product-subnav">
+                    <a href="__APP__/index.php/Admin/Product/culture"><li  class="select">文化项目</li></a>
+                </ul>
+                <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)">呼叫类<i class="product-icon"></i></li>
+                <ul class="product-subnav dis-n">
+                    <a href="__APP__/index.php/Admin/Product/call"><li>电销业务</li></a>
+                </ul>
+                <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)">增值类<i class="product-icon"></i></li>
+                <ul class="product-subnav dis-n">
+                    <a href="__APP__/index.php/Admin/Product/sp"><li>增值业务</li></a>
+                    <a href="__APP__/index.php/Admin/Product/increment"><li>终端销售</li></a>
+                </ul>
+            </ul>
+    </div>
+    	<!--右侧内容-->
+   	    <div class="product-con">
+        <div class="product-t">
+            <img src="__PUBLIC__/images/product-03-01.jpg" />
+            <h1>文化项目</h1>
+            <h2>Cultural Project</h2>
+            <h3>文化产业围绕书画家培养基地与书画之家两大业务开展。为
+艺术行业、艺术收藏家提供专业服务及优质的产品体验，构
+建全球最大书画服务平台。</h3>
+        </div>
+        <div class="w-906">
+          <img src="__PUBLIC__/images/product-03-02.png" />
+          <img src="__PUBLIC__/images/product-03-03.png" />
+          <img src="__PUBLIC__/images/product-03-04.png" />
+          <img src="__PUBLIC__/images/product-03-05.png" />
+        </div>
+    </div>
+    </div>
+</div>
+
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+<script type="text/javascript">
+    //    $("#product_menu").children('li').click(function(){
+    //        $(".dis-s").addClass('dis-n');
+    //        $(".dis-s").removeClass('dis-s');
+    //        $(this).next('ul').removeClass('dis-n');
+    //        $(this).next('ul').addClass('dis-s');
+    //    })
+    function mouse_in(e){
+        if($(e).next('ul').attr('class')!='product-subnav dis-s'){
+            $(e).css({"color":"#97c740"})
+            $(e).children('i').addClass('green_down')
+//            $(e).children('i').removeClass('product-icon')
+        }
+//        console.log($(e).next('ul').attr('class')=='product-subnav dis-s')
+
+    }
+    function mouse_out(e) {
+        if ($(e).next('ul').attr('class') != 'product-subnav dis-s') {
+            $(e).css({"color": "#3c3c3c"})
+            $(e).children('i').removeClass('green_down')
+        }
+    }
+    $("#product_menu").children('li').click(function(){
+//        $(".dis-s").prev('li').css({"background-color":"#fff","color":"#3c3c3c"})
+//        $(".dis-s").prev('li').children('i').removeClass('product-select-icon');
+//        $(".dis-s").prev('li').children('i').addClass('product-icon');
+//        $(".dis-s").addClass('dis-n');
+//        $(".dis-s").removeClass('dis-s');
+//        $(this).next('ul').removeClass('dis-n');
+//        $(this).next('ul').addClass('dis-s');
+//        $(this).css({"background-color":"#97c740","color":"#fff"})
+//        $(this).children('i').addClass('product-select-icon');
+//        $(this).children('i').removeClass('product-icon');
+//        $(this).children('i').removeClass('green_down');
+        if($(this).attr('class')!='select'){
+            $(".dis-s").prev('li').css({"border":"none","color":"#3c3c3c"})
+            $(".dis-s").prev('li').children('i').removeClass('green_down');
+            $(".dis-s").addClass('dis-n');
+            $(".dis-s").removeClass('dis-s');
+            $(this).next('ul').removeClass('dis-n');
+            $(this).next('ul').addClass('dis-s');
+            $(this).css({"border":"solid 1px #97c740"})
+            $(this).children('i').addClass('green_down');
+        }
+    })
+</script>
+</body>
+</html>

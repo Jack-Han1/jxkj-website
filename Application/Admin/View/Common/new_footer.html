@@ -1,0 +1,424 @@
+<style>
+  p {
+    margin: 0;
+  }
+  .new_footer {
+    width: 100%;
+    height: 621px;
+    /* border: 1px solid red; */
+    background-image: url("__PUBLIC__/images/new_view_2025/footer_group101@2x.png");
+    background-size: cover; /* 图片覆盖整个元素 */
+    background-position: center; /* 图片居中 */
+  }
+  .w-1200 {
+    width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .footer-box {
+    width: 100%;
+    height: 549px;
+    margin: 0 auto;
+    /* border: 1px solid blue; */
+  }
+  .footer-menu {
+    width: 100%;
+    /* height: 549px; */
+    margin: 0 auto;
+    position: relative;
+    /* border: 1px solid blue; */
+    display: flex;
+  }
+  .menu-item {
+    flex: 1;
+    position: relative;
+    height: 235px;
+  }
+  .menu-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 235px;
+    background-color: rgb(213, 222, 229);
+  }
+  .menu-item p:nth-child(1) {
+    text-align: center;
+  }
+  .item-title {
+    color: rgba(51, 51, 51, 1);
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .item-text {
+    line-height: 31px;
+    text-align: left;
+    padding-left: 64px;
+  }
+  .item-text a {
+    color: rgba(102, 102, 102, 1);
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .item-text a:hover {
+    color: #381c62;
+  }
+  .footer-adress {
+    width: 100%;
+    height: 231px;
+    position: relative;
+  }
+  .adress-phone {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 64px;
+  }
+  .adress-phone-title {
+    color: rgba(51, 51, 51, 1);
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    margin-bottom: 2px;
+  }
+  .adress-phone-text {
+    color: rgb(102, 102, 102);
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+  }
+  .adress-code1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 185px;
+  }
+  .adress-code2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50px;
+  }
+  .adress-code1 img,
+  .adress-code2 img {
+    width: 96px;
+    height: 96px;
+  }
+  .adress-code1 p,
+  .adress-code2 p {
+    color: rgba(102, 102, 102, 1);
+    font-family: "PingFang SC";
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  /* .footer-top {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .footer-menu {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+  }
+  .foot-menu-item {
+    border-right: 1px solid #d5dee5;
+    width: 116px;
+    height: 130px;
+    text-align: center;
+  }
+  .menu-item-title {
+    color: #333;
+    font-family: "PingFang SC Regular";
+    font-size: 10px;
+    font-weight: 400;
+    margin: 4px 0px;
+  }
+  .menu-item-name {
+    color: #666;
+    font-family: "PingFang SC Light";
+    font-size: 9px;
+    font-weight: 400;
+    margin: 4px 0px;
+  }
+  .footer-info {
+    height: 130px;
+    padding-left: 58px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #d5dee5;
+  }
+  .info-code-box {
+    float: left;
+  }
+  .code-wx-img {
+    width: 57px;
+    height: 57px;
+  }
+  .code-wx-text {
+    width: 80px;
+    height: 57px;
+    float: right;
+  }
+  .mr-20 {
+    margin-right: 20px;
+  }
+  .code-wx-text p:nth-child(1) {
+    color: #666;
+    font-family: "PingFang SC Regular";
+    font-size: 9px;
+    font-weight: 400;
+    margin: 0px;
+    margin-top: 13px;
+  }
+  .code-wx-text p:nth-child(2) {
+    color: #333;
+    font-family: "PingFang SC Regular";
+    font-size: 9px;
+    font-weight: 400;
+    margin: 0px;
+    margin-top: 4px;
+  }
+  .info-code-box {
+    height: 58px;
+    width: 148px;
+    float: left;
+  }
+  .footer-info-detail {
+    height: 48px;
+    color: #333;
+    font-family: "PingFang SC Regular";
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 16px; 
+    border-top: 1px solid #d5dee5;
+    margin-top: 7px;
+    padding-top: 14px;
+  }
+  .footer-info-detail p {
+    margin: 0px;
+  }
+  .txt {
+    text-decoration: none;
+  } */
+  .footer-bottom {
+    height: 72px;
+    width: 100%;
+    color: #fff;
+    font-family: "Microsoft YaHei";
+    font-size: 12px;
+    font-weight: 400;
+    background-color: #381c62;
+    text-align: center;
+    line-height: 72px;
+  }
+  .footer-bottom a{
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+  }
+</style>
+<div class="new_footer">
+  <div class="w-1200">
+    <div class="footer-box">
+      <div class="footer-menu" style="padding-top: 82px">
+        <div class="menu-item">
+          <p class="item-title" style="margin-bottom: 28px">走进精信</p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/About/Introduce">精信简介</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/About/Development">发展历程</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/About/Honor">荣誉资质</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/About/Culture">企业文化</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/About/Magazine">精信月刊</a>
+          </p>
+        </div>
+        <div class="menu-item">
+          <p class="item-title" style="margin-bottom: 28px">新闻中心</p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/News/News">企业新闻</a>
+          </p>
+        </div>
+        <div class="menu-item">
+          <p class="item-title" style="margin-bottom: 28px">产业布局</p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Industry/Communicate">信息通信</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Industry/Urban">政务信息化</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Industry/Campus">智慧校园</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Industry/Energy">光伏电能投资</a>
+          </p>
+        </div>
+        <div class="menu-item">
+          <p class="item-title" style="margin-bottom: 28px">社会责任</p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Responsibility/charitable"
+              >社会责任</a
+            >
+          </p>
+        </div>
+        <div class="menu-item">
+          <p class="item-title" style="margin-bottom: 28px">人力资源</p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Recruit/Concept">人才理念</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Recruit/Promotion">人才培养</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Recruit/Staff">员工风采</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Recruit/Recruit">招贤纳士</a>
+          </p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Recruit/Salary">薪酬福利</a>
+          </p>
+        </div>
+        <div class="menu-item">
+          <p class="item-title" style="margin-bottom: 28px">联系我们</p>
+          <p class="item-text">
+            <a href="__APP__/index.php/Admin/Contact/Contact">联系我们</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-adress">
+        <div class="adress-phone">
+          <p class="adress-phone-title">公司地址</p>
+          <p class="adress-phone-text">
+            湖北省武汉市硚口区解放大道578号中御广场23层
+          </p>
+          <p class="adress-phone-title" style="margin-top: 19px">联系电话</p>
+          <p class="adress-phone-text">027-83987888 027-83986789</p>
+        </div>
+        <div class="adress-code1">
+          <img src="__PUBLIC__/images/new_view_2025/footer-ewm101.png" alt="" />
+          <p>人力资源官微</p>
+        </div>
+        <div class="adress-code2">
+          <img src="__PUBLIC__/images/new_view_2025/footer-ewm101.png" alt="" />
+          <p>官方微信</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>
+      2016-2025© 精信科技版权所有 | <a href="https://beian.miit.gov.cn">鄂ICP16011915号-1</a> | <a href="https://beian.mps.gov.cn/#/query/webSearch">鄂公网安备
+        42010402000301号</a> | <a href="__APP__/index.php/Admin/Index/new_Legal_notices" style="color: #fff">法律声明</a>
+    </div>
+  </div>
+
+  <!-- <div class="footer-top">
+    <div class="footer-menu">
+      <div class="foot-menu-item">
+        <p class="menu-item-title">走进精信</p>
+
+        <volist name="footer_list1" id="footer_list1">
+          <a
+            href="__APP__/index.php/Admin/{$footer_list1['url']}"
+            target="_self"
+            class="txt"
+          >
+            <p class="menu-item-name">{$footer_list1['name']}</p>
+          </a>
+        </volist>
+      </div>
+      <div class="foot-menu-item">
+        <p class="menu-item-title">新闻中心</p>
+        <volist name="footer_list2" id="footer_list2">
+          <a
+            href="__APP__/index.php/Admin/{$footer_list2['url']}"
+            target="_self"
+            class="txt"
+          >
+            <p class="menu-item-name">{$footer_list2['name']}</p>
+          </a>
+        </volist>
+      </div>
+
+      <div class="foot-menu-item">
+        <p class="menu-item-title">产业布局</p>
+        <volist name="footer_list3" id="footer_list3">
+          <a
+            href="__APP__/index.php/Admin/{$footer_list3['url']}"
+            target="_self"
+            class="txt"
+          >
+            <p class="menu-item-name">{$footer_list3['name']}</p>
+          </a>
+        </volist>
+      </div>
+
+      <div class="foot-menu-item" style="border-right: 0px solid #d5dee5">
+        <p class="menu-item-title">加入我们</p>
+        <volist name="footer_list4" id="footer_list4">
+          <a
+            href="__APP__/index.php/Admin/{$footer_list4['url']}"
+            target="_self"
+            class="txt"
+          >
+            <p class="menu-item-name">{$footer_list4['name']}</p>
+          </a>
+        </volist>
+      </div>
+
+    </div>
+    <div class="footer-info">
+      <div class="footer-info-code clearfix">
+        <div class="info-code-box mr-20">
+          <img class="code-wx-img" src="" alt="" />
+          <div class="code-wx-text">
+            <p>扫一扫</p>
+            <p>精信科技官方微信</p>
+          </div>
+        </div>
+        <div class="info-code-box">
+          <img class="code-wx-img" src="" alt="" />
+          <div class="code-wx-text">
+            <p>扫一扫</p>
+            <p>精信科技官方微信</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-info-detail">
+        <p>地址：湖北省武汉市硚口区解放大道578号中御广场23层</p>
+        <p>电话：027-83987888&nbsp;&nbsp;027-83986789</p>
+        <p>网址：www.jingyingshenghua.com</p>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="footer-bottom">
+    <span
+      >2016-2023© 精信科技版权所有 | 鄂ICP16011915号-1 | 鄂公网安备
+      42010402000301号 | 法律声明</span
+    >
+  </div> -->
+</div>
+
+<script></script>

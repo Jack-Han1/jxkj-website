@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录-精信官网后台</title>
+
+<load href="__PUBLIC__/Css/home_base.css"/>
+<load href="__PUBLIC__/Js/jquery-1.9.1.min.js"/>
+<script type="text/javascript">
+	function login(){
+		var user_name = $("#user_name").val();
+		var user_pwd  = $("#user_pwd").val();
+		if(user_name == ''){
+			$(".error").text("请输入用户名");
+			return false;
+		}
+		if(user_pwd == ''){
+			$(".error").text("请输入密码");
+			return false;
+		}
+		var url = "__APP__/index.php/Home/Login/ajaxLogin";
+		$.post(url, {user_name:user_name,user_pwd:user_pwd}, function(data){
+			if(data.code == 2){
+				$(".error").text(data.error);
+			}
+			if(data.code == 1){
+				if(data.role == 3){
+					window.location.href = "__APP__/index.php/Home/Advertise";
+					return;
+				}
+				window.location.href = "__APP__/index.php/Home/News";
+			}
+		}, "json");
+
+
+	}
+</script>
+</head>
+
+<body>
+<!--头部-->
+<div class="top">
+<span class="name-logo" style="font-size: 20px;">精信官网后台</span>
+
+</div>
+<!--login-->
+<div >
+<div  style="width: 500px;margin: auto;margin-top: 10%;border: solid 1px;">
+<span style="margin-left:200px; color:#f00;display:inline-block;margin-top:20px;" class="error"></span>
+<div style="width: 260px;margin-left: 120px;;margin-top: 50px;">账号：
+    <input type="text" style="margin-top: 0px;height: 40px;width: 200px;border: 1px #ccc solid;border-radius: 3px;padding-left: 5px;" name="user_name" id="user_name" class="input-login" placeholder="请输入用户名/手机号" />
+</div>
+<div style="width: 260px;margin-left: 120px;;margin-top:15px;">密码：
+    <input style="margin-top: 0px;height: 40px;width: 200px;border: 1px #ccc solid;border-radius: 3px;padding-left: 5px;" type="password" name="user_pwd" id="user_pwd" class="input-login" placeholder="请输入密码" />
+</div>
+<!--<p class="mar-t-20"><input type="checkbox" />&nbsp;记住选择 <a href="" class="remember-a">找回密码</a></p>-->
+<div class="text-c mar-t-25" style="margin-top: 15px;margin-bottom: 30px;">
+    <input type="button" style="width: 100px;height: 35px;color: white;background-color: #5ab1d0;border-radius: 5px;cursor: pointer;" onclick="javascript:login()" value="登录" />
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

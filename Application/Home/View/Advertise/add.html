@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.9.1.min.js"/>
+    <load href="__PUBLIC__/ueditor/ueditor.config.js" />
+    <load href="__PUBLIC__/ueditor/ueditor.all.min.js" />
+    <title>精信官网后台新闻</title>
+
+</head>
+
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <div class="add-line-1">
+        <span>标题：</span><input type="text" class="input-k w-350" id="name"/>
+    </div>
+    <div class="add-line-1">
+    <span>所属分类：</span>
+        <select class="input-k w-150" style="height: 29px;" id="kind">
+            <option value="">请选择分类</option>
+            <volist name="kind" id="vo">
+                <option value="{$vo.id}">{$vo.name}</option>
+            </volist>
+        </select>
+        <!--<input type="text" class="input-k w-150" onclick="fPopCalendar(event,this,this)" onfocus="this.select()" readonly="readonly" />-->
+    </div>
+    <div class="add-line-1">
+        <span>排序：</span><input type="text" name="sort" class="input-k w-50" id="sort">
+    </div>
+    <div style="margin-top: 20px;">
+        <span style="display:inline-block; width:250px; text-align:right; float:left;">内容：</span>
+        <div class="html-edit" style="height: auto;width:1050px;">
+            <script id="container" name="container" type="text/plain"></script>
+        </div>
+    </div>
+    <div class="add-line-1"><input onclick="sub()" type="button" class="save-btn mar-l-250" value="保存" /></div>
+
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+
+<script type="text/javascript">
+    $(function(){
+        var ue = UE.getEditor('container',{serverUrl :"{:U('Home/Advertise/ueditor')}"});
+    })
+
+    function sub(){
+        var container = UE.getEditor('container').getContent();
+        var kind = $("#kind").val();
+        var name = $("#name").val();
+        var sort = $("#sort").val();
+        if(name == ""){
+            alert("请输入标题！");
+            return false;
+        }else if(kind == ""){
+            alert("请选择所属分类！");
+            return false;
+        }else if(container == ""){
+            alert("请填写内容！");
+            return false;
+        }
+        $.post('save', {name:name,kind:kind,container:container,sort:sort}, function(data){
+            data = eval('(' + data + ')');
+            if(data.status){
+                alert(data.info);
+                window.location.href="index";
+            }else{
+                alert(data.info);
+            }
+        });
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!-- 走进精信-精信文化 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no">
+    <title>走进精信-精信文化</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      .top-banner {
+        height: 467px;
+        width: 100%;
+        /* background-color: #d9d9d9; */
+      }
+      .top-banner img {
+        display: block; /* 图片必须是块级元素 */
+        margin: 0 auto; /* 水平居中 */
+        height: 467px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected  a:hover{
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 120px;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .culture {
+        width: 960px;
+        height: 554px;
+        background: linear-gradient(
+          270deg,
+          #d9d9d9 0%,
+          rgba(217, 217, 217, 0) 54.69%
+        );
+        margin-top: 80px;
+      }
+      .culture-item {
+        /* border: 1px solid red; */
+        padding-top: 20px;
+        /* padding-bottom: 30px; */
+      }
+      .culture-item-title {
+        color: #000;
+        font-family: "PingFang SC Regular";
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .culture-item-text {
+        color: #666;
+        font-family: "PingFang SC Regular";
+        font-size: 16px;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <img src="__PUBLIC__/images/new_view_2025/Frame_25@2x.png" alt="" />
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">精信简介</div>
+        <div class="top-nav-item">发展历程</div>
+        <div class="top-nav-item">荣誉资质</div>
+        <div class="top-nav-item item-selected">精信文化</div>
+        <div class="top-nav-item">精信月刊</div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-960 clearfix">
+        <div class="culture">
+          <div class="culture-item">
+            <p class="culture-item-title">愿景</p>
+            <p class="culture-item-text">客户满意的精准营销服务专家</p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">价值观</p>
+            <p class="culture-item-text">
+              客户第一，用我们的产品和服务让客户生活的更美好
+            </p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">目标</p>
+            <p class="culture-item-text">中国民营百强企业</p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">用人理念</p>
+            <p class="culture-item-text">
+              与公司同心同德，重价值、重业绩、重结果，为贤能是举
+            </p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">作风</p>
+            <p class="culture-item-text">
+              迅速反应，马上行动，雷厉风行，嫉慢如仇
+            </p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">精神</p>
+            <p class="culture-item-text" style="width: 336px">
+              严谨、敬业、专注、专业，精益求精的工匠精神
+              <br />
+              胜则举杯相庆，败则拼死相救的团队精神
+              <br />
+              前行成长，全力以赴，永争第一的个人拼搏精神
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>联系我们</title>
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+<!--    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>-->
+    <script type="text/javascript" src="https://api.map.baidu.com/api?ak=ZzmVg7pT8wYPZy3Wlk9bSfCCorevToiE&v=3.0"></script>
+    <script type="text/javascript">
+        $(function(){
+            // if($("div").hasClass("navFix")){
+            //     alert(1);
+            // }
+            // alert($("div").hasClass("navFix"));
+            $(window).scroll(function(){
+                if($(window).scrollTop()>0){
+                    $(".search-icon").addClass("topfix");
+                }else{
+                    $(".search-icon").removeClass("topfix");
+                }
+            })
+        })
+    </script>
+</head>
+<style>
+    .search-icon{
+        position: relative;
+        top: 35%;
+    }
+    .topfix{
+        top:26%;
+    }
+</style>
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster6"></div>
+<!--海报-->
+<div class="site-k">
+<div class="site-con">
+<p class="site-name">精信科技</p>
+<p class="site-detail-name">地址</p>
+<p class="site-detail">湖北省武汉市硚口区解放大道578号中御广场23层</p>
+<p class="site-detail-name">网址</p>
+<p class="site-detail">www.jingyingshenghua.com</p>
+<p class="site-detail-name">电话</p>
+<p class="site-detail">027-83987888<br/>027-83986789</p>
+</div>
+<div id="wh" class="site-map"></div>
+</div>
+<!--<div class="site-k">
+<div class="site-con">
+<p class="site-name">上海洲信信息技术有限公司</p>
+<p class="site-detail-name">杭州中心地址</p>
+<p class="site-detail">杭州西湖区西斗门路6号贝尔园区2号楼4层</p>
+<p class="site-detail-name">网址</p>
+<p class="site-detail">www.jingyingshenghua.com</p>
+<p class="site-detail-name">电话</p>
+<p class="site-detail">0571-88480580</p>
+</div>
+<div id="address-map" class="site-map"></div>
+</div>
+<div class="site-k">
+<div class="site-con">
+<p class="site-name">安徽共佳信息技术有限公司</p>
+<p class="site-detail-name">地址</p>
+<p class="site-detail">安徽省合肥市政务区蔚蓝商务港C座701-704室</p>
+<p class="site-detail-name">电话</p>
+<p class="site-detail">0551-62812785</p>
+</div>
+<div id="ah" class="site-map"></div>
+</div>-->
+
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+
+<script type="text/javascript">
+    var map = new BMap.Map("wh");
+    var point = new BMap.Point(114.260414,30.58313);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+    map.centerAndZoom(point, 18);
+    map.enableScrollWheelZoom();
+    var opts = {
+        width : 200,     // 信息窗口宽度
+        height: 100,     // 信息窗口高度
+        title : "精英盛华" , // 信息窗口标题
+        enableMessage:true,//设置允许信息窗发送短息
+        message:""
+    }
+//    var infoWindow = new BMap.InfoWindow("杭州市西湖区翠苑街道西斗门路6号友知弄南门2号楼4-5层", opts);  // 创建信息窗口对象
+//    marker.addEventListener("click", function(){
+//        map.openInfoWindow(infoWindow,point); //开启信息窗口
+//    });
+</script>
+
+<script type="text/javascript">
+    var map = new BMap.Map("address-map");
+    var point = new BMap.Point(120.122688,30.297564);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+    map.centerAndZoom(point, 18);
+    map.enableScrollWheelZoom();
+    var opts = {
+        width : 200,     // 信息窗口宽度
+        height: 100,     // 信息窗口高度
+        title : "上海洲信科技有限公司" , // 信息窗口标题
+        enableMessage:true,//设置允许信息窗发送短息
+        message:""
+    }
+//    var infoWindow = new BMap.InfoWindow("杭州市西湖区翠苑街道西斗门路6号友知弄南门2号楼4-5层", opts);  // 创建信息窗口对象
+//    marker.addEventListener("click", function(){
+//        map.openInfoWindow(infoWindow,point); //开启信息窗口
+//    });
+</script>
+
+<script type="text/javascript">
+    var map = new BMap.Map("ah");
+    var point = new BMap.Point(117.24121,31.818812);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+    map.centerAndZoom(point, 18);
+    map.enableScrollWheelZoom();
+    var opts = {
+        width : 200,     // 信息窗口宽度
+        height: 100,     // 信息窗口高度
+        title : "安徽共佳信息技术有限公司" , // 信息窗口标题
+        enableMessage:true,//设置允许信息窗发送短息
+        message:""
+    }
+//    var infoWindow = new BMap.InfoWindow("杭州市西湖区翠苑街道西斗门路6号友知弄南门2号楼4-5层", opts);  // 创建信息窗口对象
+//    marker.addEventListener("click", function(){
+//        map.openInfoWindow(infoWindow,point); //开启信息窗口
+//    });
+</script>
+
+</body>
+</html>

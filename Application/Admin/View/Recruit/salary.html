@@ -1,0 +1,299 @@
+<!-- 人力资源->薪酬福利 v2024 -->
+<!-- 人力资源-薪酬福利 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>人力资源-薪酬福利</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 384px;
+        width: 100%;
+        position: relative;
+      }
+      .banner-text {
+        width: 854px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .banner-text-title {
+        font-size: 85px;
+        line-height: 113px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-family: "Microsoft YaHei";
+        margin-bottom: 16px;
+
+      }
+      .banner-text-bottom {
+        font-size: 32px;
+        line-height: 42px;
+        color: rgb(255, 255, 255);
+        font-family: "Microsoft YaHei";
+        /* margin-bottom: 16px; */
+      }
+      .top-banner img {
+        display: block; /* 图片必须是块级元素 */
+        margin: 0 auto; /* 水平居中 */
+        height: 384px;
+        width: 100%;
+        /* object-fit: cover; */
+      }
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 120px;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        /* border: 1px solid red; */
+      }
+      .salary {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 两列 */
+        grid-template-rows: repeat(3, 374px); /* 三行，每行高度为100px */
+        gap: 0px; /* 设置网格之间的间隙 */
+      }
+      .salary-item {
+        /* width: 600px;
+        height: 374px; */
+      }
+      .salary-item img {
+        width: 100%;
+      }
+      .text-box1 {
+        padding-top: 70px;
+        padding-left: 50px;
+        background: rgba(255, 255, 255, 1);
+      }
+      .salary-item-title {
+        color: rgba(51, 51, 51, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 20px;
+      }
+      .salary-item-text {
+        width: 500px;
+        color: rgba(102, 102, 102, 1);
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 32px;
+        margin-top: 26px;
+      }
+      /* 动画效果 */
+      .salary-item {
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all .8s ease-out;
+      }
+      .salary-item-animation {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <div class="banner-text">
+          <p class="banner-text-title">让沟通与信任无处不在</p>
+          <p class="banner-text-bottom">
+            搭建桥梁，强化团队凝聚力，携手迈向成功之路
+          </p>
+        </div>
+        <img
+          src="__PUBLIC__/images/new_view_2025/staff_group101@2x.png"
+          alt=""
+        />
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Concept"
+            target="_self"
+            class=""
+            >人才理念</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Promotion"
+            target="_self"
+            class=""
+            >人才培养</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Staff"
+            target="_self"
+            class=""
+            >员工风采</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Recruit"
+            target="_self"
+            class=""
+            >招贤纳士</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Salary"
+            target="_self"
+            class=""
+            >薪酬福利</a
+          >
+        </div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-1200 clearfix">
+        <div class="salary" style="margin-top: 75px">
+          <div class="salary-item">
+            <img
+              src="__PUBLIC__/images/new_view_2025/staff_group501@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="salary-item text-box1">
+            <p class="salary-item-title">高竞争力的薪资水平</p>
+            <p class="salary-item-text">
+              坚持以人为本，重视人才价值，致力于为员工提供业界具有竞争力的薪酬，按照岗位、能力、绩效的薪酬理念付薪。建立员工绩效贡献、任职能力提升、组织业绩增长三合一联动的薪酬激励机制，实现公司与员工的双赢。
+            </p>
+          </div>
+          <div class="salary-item text-box1">
+            <p class="salary-item-title">灵活动态的调薪机制</p>
+            <p class="salary-item-text">
+              为了充分激发员工的潜能与创造力，我们推行了一套灵活动态的调薪机制，旨在构建一个既公平又富有激励性的薪酬环境。这一机制的核心在于，它不仅仅依赖于传统的年度绩效评估，而是将员工的日常表现、项目贡献、技能提升、团队协作以及市场薪酬水平等多个维度纳入考量范围，确保调薪决策的全面性和准确性。
+            </p>
+          </div>
+          <div class="salary-item">
+            <img
+              src="__PUBLIC__/images/new_view_2025/staff_group502@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="salary-item">
+            <img
+              src="__PUBLIC__/images/new_view_2025/staff_group503@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="salary-item text-box1">
+            <p class="salary-item-title">高价值贡献的提成&奖金激励</p>
+            <p class="salary-item-text">
+              为了充分激发团队成员的积极性与创造力，推动公司向更高层次发展，我们精心策划并实施了一项“高价值贡献提成&奖金激励”计划。该计划旨在通过公平、透明且具有高度吸引力的奖励机制，表彰那些在各自岗位上展现出卓越才能、做出显著贡献的团队成员。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+    <script>
+      // 滚动懒加载动效（封装版）
+      function animateOnScroll(selector, className, threshold = 0.5) {
+        const elements = document.querySelectorAll(selector);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(className);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold,
+            rootMargin: "0px 0px 20% 0px", // 负值表示向内收缩观察区域
+          }
+        );
+
+        elements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+      // // 为元素添加动画效果
+      function addAnimation() {
+        const animationArr = [
+          {
+            element: ".salary-item",
+            className: "salary-item-animation",
+          },
+        ];
+        animationArr.forEach((item) => {
+          animateOnScroll(item.element, item.className);
+        });
+      }
+      addAnimation();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .main {
+        background: rgba(245, 245, 245, 1);
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 288px;
+        width: 100%;
+        background-color: #d9d9d9;
+      }
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 165px;
+        height: 28px;
+        /* border: 1px solid red; */
+        font-size: 11px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 28px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        /* border: 1px solid red; */
+      }
+      .news {
+        padding-left: 0;
+        /* margin-top: 50px; */
+      }
+      .news-item {
+        position: relative;
+        height: 147px;
+        border-bottom: 1px solid #d5dee5;
+        margin-left: 100px;
+        /* list-style: none; */
+        display: none;
+      }
+      .news-item-img {
+        width: 200px;
+        height: 105px;
+        position: absolute;
+        left: 0;
+        top: 17px;
+      }
+      .news-item-title {
+        /* height: 17px; */
+        width: 870px;
+        /* height: 22px; */
+        color: #333333;
+        font-family: "PingFang SC";
+        font-weight: 400;
+        font-size: 16px;
+        position: absolute;
+        left: 18px;
+        top: 22px;
+        margin-left: 200px;
+        display: -webkit-box; /* 使用弹性盒子布局 */
+        -webkit-box-orient: vertical; /* 设置内容垂直排列 */
+        -webkit-line-clamp: 1; /* 限制显示的行数 */
+        overflow: hidden; /* 隐藏超出部分 */
+        text-overflow: ellipsis; /* 超出部分显示省略号 */
+      }
+      .news-item-text {
+        /* height: 35px; */
+        width: 870px;
+        color: #666666;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        position: absolute;
+        left: 18px;
+        top: 50px;
+        margin-left: 200px;
+        display: -webkit-box; /* 使用弹性盒子布局 */
+        -webkit-box-orient: vertical; /* 设置内容垂直排列 */
+        -webkit-line-clamp: 2; /* 限制显示的行数 */
+        overflow: hidden; /* 隐藏超出部分 */
+        text-overflow: ellipsis; /* 超出部分显示省略号 */
+      }
+      .news-item-date {
+        /* height: 13px; */
+        color: #666666;
+        font-family: "PingFang SC";
+        font-weight: 400;
+        font-size: 11.2px;
+        position: absolute;
+        left: 18px;
+        bottom: 20px;
+        margin-left: 200px;
+      }
+      .page {
+        /* border: 1px solid red; */
+        text-align: center;
+        text-decoration: none;
+        margin-top: 30px;
+      }
+      .page div {
+        display: inline-block;
+      }
+      .page .current,
+      .page .num,
+      .page .next,
+      .page .prev {
+        margin: 0 3px;
+        font-size: 9px;
+        line-height: 22px;
+        text-decoration: none;
+      }
+      .page .current {
+        float: left;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-color: rgb(56, 28, 98);
+        color: white;
+      }
+      .page .num {
+        float: left;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+      .page .next {
+        float: left;
+        display: block;
+        width: 46px;
+        height: 22px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+      .page .prev {
+        float: left;
+        display: block;
+        width: 46px;
+        height: 22px;
+        background-color: #ffffff;
+        color: rgb(102, 102, 102);
+      }
+      .child-nav {
+        background-color: #fefefe;
+        width: 100%;
+        height: 50px;
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: center;
+        margin-top: 1px;
+      }
+      .child-nav-item {
+        text-align: center;
+        line-height: 50px;
+        width: 100px;
+        height: 50px;
+        /* border: 2px solid red; */
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(51, 51, 51, 1);
+        display: inline-block;
+      }
+
+      .nav-tab {
+        width: 165px;
+        height: 41px;
+        position: absolute;
+
+        /* border: 1px solid red; */
+        font-size: 11px;
+        /* font-family: "PingFang SC Regular"; */
+        font-weight: 400;
+        line-height: 28px;
+        text-align: center;
+        background: #381c62;
+        /* background: rgba(214, 214, 214, 0.8); */
+        z-index: 1;
+        transition: all 0.3s ease-out;
+      }
+      .pre-select-item {
+        background: #381c6210;
+      }
+      .nav-page {
+        display: none;
+      }
+      .select-page {
+        display: initial;
+      }
+
+      .top-snap-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+        width: 100%;
+      }
+      .top-snap-nav-item {
+        width: 165px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        /* font-family: "PingFang SC Regular"; */
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+        z-index: 2;
+      }
+      .top-snap-nav-item a {
+        text-decoration: none;
+        color: #000;
+        transition: all 300ms ease-in-out;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+
+      /* .magazine-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      } */
+      .magazine-row {
+        display: grid;
+        grid-template-columns: repeat(3, 298px);
+        /* grid-template-rows: repeat(1, 186px); */
+        row-gap: 30px;
+        column-gap: 33px;
+        margin-bottom: 150px;
+      }
+      .magazine-item {
+        width: 300px;
+        height: 299px;
+        padding: 10px;
+        background-color: #fff;
+        /* border: 1px solid red; */
+        display: none;
+      }
+      .magazine-item-img {
+        display: block;
+        width: 280px;
+        height: 182px;
+        margin: 0 auto;
+        object-fit: cover;
+        background-color: #d9d9d9;
+      }
+      .magazine-item-title {
+        color: #000;
+        font-family: "PingFang SC Regular";
+        font-size: 12px;
+        font-weight: 400;
+        margin: 8px 0 10px;
+        display: -webkit-box; /* 使用弹性盒子布局 */
+        -webkit-box-orient: vertical; /* 设置内容垂直排列 */
+        -webkit-line-clamp: 1; /* 限制显示的行数 */
+        overflow: hidden; /* 隐藏超出部分 */
+        text-overflow: ellipsis; /* 超出部分显示省略号 */
+      }
+      .magazine-item-text {
+        height: 29px;
+        color: #666;
+        font-family: "PingFang SC Regular";
+        font-size: 10px;
+        font-weight: 400;
+        position: relative;
+        display: -webkit-box; /* 使用弹性盒子布局 */
+        -webkit-box-orient: vertical; /* 设置内容垂直排列 */
+        -webkit-line-clamp: 2; /* 限制显示的行数 */
+        overflow: hidden; /* 隐藏超出部分 */
+        text-overflow: ellipsis; /* 超出部分显示省略号 */
+      }
+      .magazine-item-text::after {
+        content: "";
+        height: 1px;
+        width: 100%;
+        background-color: #f5f5f5;
+        position: absolute;
+        bottom: -10px;
+        left: 0px;
+      }
+      .magazine-item-date {
+        color: #666;
+        font-family: "PingFang SC Regular";
+        font-size: 9px;
+        font-weight: 400;
+        margin-top: 20px;
+      }
+      .magazine-item a {
+        text-decoration: none;
+      }
+
+      /* .nav-page {
+        display: flex;
+        justify-content: left;
+        flex-direction:column;
+      } */
+
+      .info-card {
+        color: #333333;
+        position: relative;
+        width: 300px;
+        height: 100px;
+        left: -65px;
+        margin-bottom: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0px 0px 3px 0px #d9d9d9;
+        display: none;
+      }
+
+      .info-card .title {
+        position: relative;
+        font-family: "PingFang SC";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        left: 15px;
+        top: 10px;
+        display: -webkit-box; /* 使用弹性盒子布局 */
+        -webkit-box-orient: vertical; /* 设置内容垂直排列 */
+        -webkit-line-clamp: 2; /* 限制显示的行数 */
+        overflow: hidden; /* 隐藏超出部分 */
+        text-overflow: ellipsis; /* 超出部分显示省略号 */
+      }
+      .info-card-detail {
+        display: -webkit-box; /* 使用弹性盒子布局 */
+        -webkit-box-orient: vertical; /* 设置内容垂直排列 */
+        -webkit-line-clamp: 2; /* 限制显示的行数 */
+        overflow: hidden; /* 隐藏超出部分 */
+        text-overflow: ellipsis; /* 超出部分显示省略号 */
+      }
+
+      /* .info-card .title::before{
+       
+      } */
+
+      .emergency::before {
+        content: "急";
+        background-color: #d9d9d9;
+        font-size: 10px;
+        text-align: center;
+        line-height: 15px;
+        width: 15px;
+        height: 15px;
+        border-radius: 2px;
+        display: inline-block;
+      }
+
+      .info-card span:not(.title) {
+        position: relative;
+        font-family: "PingFang SC";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        left: 15px;
+        top: 15px;
+        margin-right: 20px;
+      }
+      .recruit-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 300px);
+        /* grid-template-rows: repeat(1, 186px); */
+        row-gap: 20px;
+        column-gap: 100px;
+        /* margin-top: 50px; */
+      }
+
+      /* 隐藏滑动条 */
+      html::-webkit-scrollbar {
+        display: none;
+      }
+      html {
+        scrollbar-width: none;
+      }
+
+      /* 回到顶部 */
+      .to-top {
+        /* border: 1px solid red; */
+        /* background-color: #381c62; */
+        background-color: #cccccc80;
+        height: 44px;
+        width: 44px;
+        color: #fff;
+        line-height: 44px;
+        text-align: center;
+        border-radius: 50%;
+        position: fixed;
+        right: 8%;
+        bottom: -50px;
+        transition: all 0.3s ease-out;
+        z-index: 999;
+      }
+      .to-top:hover {
+        background-color: #b5b5b580;
+      }
+      .to-top-show {
+        bottom: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- <div class="child-nav">
+        <div class="child-nav-item"><span>企业新闻</span></div>
+        <div class="child-nav-item"><span>精信月刊</span></div>
+        <div class="child-nav-item"><span>招聘信息</span></div>
+      </div> -->
+      <!-- <include file="Admin@Common/snap_nav" /> -->
+      <div style="position: relative; width: 100%;">
+        <div class="nav-tab"></div>
+        <div class="top-snap-nav">
+          <div class="top-snap-nav-item">
+            <a href="#item-1" target="_self" class="txt">企业新闻</a>
+          </div>
+          <div class="top-snap-nav-item">
+            <a href="#item-2" target="_self" class="txt">精信月刊</a>
+          </div>
+          <div class="top-snap-nav-item">
+            <a href="#item-3" target="_self" class="txt">招聘信息</a>
+          </div>
+        </div>
+      </div>
+      <article class="nav-page select-page" id="item-1">
+        <div
+          style="
+            width: 100%;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            font-size: 15px;
+          "
+        >
+          共{$news_cnt}条搜索结果
+        </div>
+        <div class="w-1200">
+          <ul class="news">
+            <volist name="news_list" id="vo">
+              <li class="news-item">
+                <a href="__APP__/index.php/Admin/News/news_detail?id={$vo.id}">
+                  <img
+                    data-src="__ROOT__{$vo.news_img}"
+                    alt="新闻首图"
+                    class="news-item-img lazyload"
+                  />
+                  <p class="news-item-title">{$vo.title}</p>
+                  <p class="news-item-text">{$vo.abstract}</p>
+                  <p class="news-item-date">{$vo.date}</p>
+                </a>
+              </li>
+            </volist>
+          </ul>
+        </div>
+      </article>
+      <article class="nav-page" id="item-2">
+        <div
+          style="
+            width: 100%;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            font-size: 15px;
+          "
+        >
+          共{$magazines_cnt}条搜索结果
+        </div>
+        <div class="w-960">
+          <div class="magazine-row">
+            <volist name="magazines_list" id="vo">
+              <div class="magazine-item">
+                <a href="{$vo.url}" target="_blank">
+                  <img
+                    data-src="{$vo.img}"
+                    alt=""
+                    class="magazine-item-img lazyload"
+                  />
+                  <p class="magazine-item-title">{$vo.title}</p>
+                  <p class="magazine-item-text">{$vo.abstract}</p>
+                  <p class="magazine-item-date">{$vo.date}</p>
+                </a>
+              </div>
+            </volist>
+          </div>
+        </div>
+      </article>
+      <article class="nav-page" id="item-3">
+        <div
+          style="
+            width: 100%;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            font-size: 15px;
+          "
+        >
+          共{$recruits_cnt}条搜索结果
+        </div>
+        <div class="w-960">
+          <div class="recruit-grid">
+            <volist name="recruits_list" id="vo">
+              <div class="info-card" id="info-card-{$vo.id}">
+                <a
+                  href="__APP__/index.php/Admin/Recruit/recruit_detail?id={$vo.id}"
+                  target="_self"
+                  style="text-decoration: none; color: #333333"
+                >
+                  <span class="title">{$vo.title}</span>
+                  <div><span>{$vo.job}</span><span>{$vo.position}</span></div>
+                  <div>
+                    <span class="info-card-detail">{$vo.abstract}</span>
+                  </div>
+                </a>
+              </div>
+            </volist>
+          </div>
+        </div>
+        <volist name="labels_list" id="vo">
+          <!-- <div class="po-id" style="display: none;">{$vo.id}</div> -->
+          <div class="po-title" style="display: none">{$vo.emergency}</div>
+        </volist>
+      </article>
+    </div>
+
+    <!-- 回到顶部 -->
+    <a href="#top" class="back-to-top">
+      <div class="to-top" id="to-top">
+        <svg
+          t="1712738133671"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="13167"
+          width="22"
+          height="22"
+        >
+          <path
+            d="M479.139 199.82a46.452 46.452 0 0 1 65.722 0l279.366 279.365a46.499 46.499 0 0 1-65.769 65.723l-199.913-199.96v632.507a46.545 46.545 0 0 1-41.1 46.22L512 1024a46.545 46.545 0 0 1-46.545-46.545V344.948l-199.913 199.96a46.499 46.499 0 0 1-61.347 3.91l-4.422-3.91a46.499 46.499 0 0 1 0-65.723zM878.545 0c28.905 0 52.364 20.852 52.364 46.545s-23.459 46.546-52.364 46.546h-733.09c-28.905 0-52.364-20.852-52.364-46.546S116.55 0 145.455 0z"
+            fill="#ffffff"
+            p-id="13168"
+          ></path>
+        </svg>
+      </div>
+    </a>
+
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+  </body>
+
+  <div id="search-data" style="display: none">{$res}</div>
+
+  <script>
+    // 渲染后钩子
+    window.addEventListener("DOMContentLoaded", (event) => {
+      var search_data = document.querySelector("#search-data").textContent;
+      search_data = JSON.parse(search_data);
+      // console.log(search_data);
+    });
+
+    // 回到顶部
+    window.addEventListener("scroll", function () {
+      var scrollDistance = window.scrollY;
+      const topElement = document.getElementById("to-top");
+
+      if (scrollDistance > 180) {
+        topElement.classList.add("to-top-show");
+        // console.log('滚动距离超过200px');
+      } else {
+        topElement.classList.remove("to-top-show");
+        // console.log('滚动距离不超过200px');
+        // 执行其他操作
+      }
+    });
+  </script>
+
+  <script>
+    var page_index = 1;
+    function getPage1_callback() {
+      page_index = 1;
+      top_pos = 500;
+    }
+    function getPage2_callback() {
+      page_index = 2;
+      top_pos = 400;
+    }
+    function getPage3_callback() {
+      page_index = 3;
+      top_pos = 40;
+    }
+    function initNav() {
+      const items = document.querySelectorAll(".top-snap-nav-item");
+      const aElements = document.querySelectorAll(".top-snap-nav-item>a");
+      const pages = document.querySelectorAll(".nav-page");
+      const pages_func = [
+        getPage1_callback,
+        getPage2_callback,
+        getPage3_callback,
+      ];
+      const tab = document.querySelector(".nav-tab");
+      let selectItem = items[0];
+      let preSelectItem = selectItem;
+      let selectPage = pages[0];
+      tab.style.left = selectItem.offsetLeft + "px";
+      console.log(selectItem.offsetLeft);
+      selectItem.children[0].style.color = "#fff";
+      function getPage(index) {
+        pages_func[index]();
+        // 获得新页面资源
+        selectPage.classList.remove("select-page");
+        selectPage = pages[index];
+        selectPage.classList.add("select-page");
+      }
+      for (let i = 0; i < items.length; i++) {
+        items[i].addEventListener("click", (e) => {
+          console.log(items[i].offsetLeft, items[i].offsetTop);
+
+          getPage(i);
+          selectItem.children[0].style.color = "#000";
+          selectItem = items[i];
+          e.target.children[0].style.color = "#fff";
+          tab.style.transform = `translateX(${i * 165}px)`;
+          // tab.style.transform = `translateX(${items[i].offsetLeft-355}px)`;
+        });
+        aElements[i].addEventListener("click", (e) => {
+          getPage(i);
+          e.preventDefault();
+          e.stopPropagation();
+          selectItem.children[0].style.color = "#000";
+          selectItem = items[i];
+          e.target.style.color = "#fff";
+          tab.style.transform = `translateX(${i * 165}px)`;
+        });
+        items[i].addEventListener("mouseenter", (e) => {
+          preSelectItem.classList.remove("pre-select-item");
+          preSelectItem = e.target;
+          preSelectItem.classList.add("pre-select-item");
+        });
+        items[i].addEventListener("mouseout", (e) => {
+          preSelectItem.classList.remove("pre-select-item");
+          preSelectItem = items[0];
+        });
+        aElements[i].addEventListener("mouseenter", (e) => {
+          preSelectItem.classList.remove("pre-select-item");
+          preSelectItem = e.target.parentNode;
+          preSelectItem.classList.add("pre-select-item");
+        });
+      }
+    }
+    initNav();
+  </script>
+
+  <script>
+    var items = document.querySelectorAll(".info-card .title");
+    var total = document
+      .querySelectorAll(".po-title")
+      .forEach((item, index) => {
+        if (item.textContent == "1") {
+          items[index].classList.add("emergency");
+        }
+      });
+  </script>
+
+  <script>
+    var news_items = document.querySelectorAll(".news-item");
+    var news_len = news_items.length;
+    var viewNewsCounter = function (n) {
+      let cnt = n;
+      return function () {
+        for (var i = n; i < n + 10 && i < news_len; i++) {
+          news_items[i].style.display = "block";
+        }
+        return (n += 10);
+      };
+    };
+    const view_newscounter = viewNewsCounter(0);
+    view_newscounter();
+
+    var magazine_items = document.querySelectorAll(".magazine-item");
+    var magazine_len = magazine_items.length;
+    var viewMagazineCounter = function (n) {
+      let cnt = n;
+      return function () {
+        for (var i = n; i < n + 9 && i < magazine_len; i++) {
+          magazine_items[i].style.display = "block";
+        }
+        return (n += 9);
+      };
+    };
+    const view_magazinecounter = viewMagazineCounter(0);
+    view_magazinecounter();
+
+    var recruit_items = document.querySelectorAll(".info-card");
+    var recruit_len = recruit_items.length;
+    var viewRecruitCounter = function (n) {
+      let cnt = n;
+      return function () {
+        for (var i = n; i < n + 15 && i < recruit_len; i++) {
+          recruit_items[i].style.display = "block";
+        }
+        return (n += 15);
+      };
+    };
+    const view_recruitcounter = viewRecruitCounter(0);
+    view_recruitcounter();
+
+    var top_pos = 500;
+    window.addEventListener("mousewheel", (e) => {
+      var scrollTop =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      console.log(scrollTop);
+      if (scrollTop >= top_pos) {
+        switch (page_index) {
+          case 1:
+            view_newscounter();
+            top_pos += 500;
+            break;
+          case 2:
+            view_magazinecounter();
+            top_pos += 400;
+            break;
+          case 3:
+            view_recruitcounter();
+            top_pos += 40;
+            break;
+        }
+      }
+    });
+  </script>
+
+  <script src="__PUBLIC__/Js/my-lazyload.js"></script>
+</html>

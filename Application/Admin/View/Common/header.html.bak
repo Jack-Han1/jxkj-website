@@ -1,0 +1,168 @@
+<!--top-->
+
+<!--[if lt IE 9]>
+<div style="height:50px;line-height:50px;text-align:center; font-size:20px;">
+    <div style="width:100%;height:50px; background:#fbfb99;filter:alpha(Opacity=50);opacity:.5; "></div>
+    <div style=" margin-top:-50px; ">您正在使用 <strong>过时的</strong> 浏览器. 是时候 <a target="_blank" href="http://browsehappy.com/" style="text-decoration:underline; "><strong>更换一个更好的浏览器</strong></a> 来提升用户体验.！</div>
+</div>
+<![endif]-->
+<style>
+    /*.subnav2{
+        display: block;
+        float: left;
+    }*/
+</style>
+<div class="top">
+    <div class="w-1200">
+    <i class="logo"></i>
+    </div>
+    <!-- <div class="top-search"> -->
+        <!--all-->
+       <!-- <div class="search-all">
+            <i class="search-left"></i>
+            <div class="search-input">
+                <input type="text" value="全站搜索" onfocus="javascript:if(this.value=='全站搜索')this.value=''; this.style.color='#333';"onblur="if(!value) {value=defaultValue; this.type='text'; this.style.color='#ccc'}" >
+                <a href="" class="search-icon"></a></div>
+            <i class="search-right"></i>
+        </div>-->
+        <!--language-->
+        <!--<div class="search-language">
+            <select name="choose" id="choose" class="search-select">
+                <option value="language" selected="selected">language</option>
+                <option value="简体中文">简体中文</option>
+                <option value="ENFLISH">ENGLISH</option>
+            </select>
+            <script type="text/javascript">
+                (function($){
+                    var selects=$('select');
+                    for(var i=0;i<selects.length;i++){
+                        createSelect(selects[i],i);
+                    }
+                    function createSelect(select_container,index){
+                        var tag_select=$('<div></div>');
+                        tag_select.attr('class','select_box');
+                        tag_select.insertBefore(select_container);
+                        var select_showbox=$('<div></div>');
+                        select_showbox.css('cursor','pointer').attr('class','select_showbox').appendTo(tag_select);
+                        var ul_option=$('<ul></ul>');
+                        ul_option.attr('class','select_option');
+                        ul_option.appendTo(tag_select);
+                        createOptions(index,ul_option);
+                        tag_select.toggle(function(){
+                            ul_option.show();
+                        },function(){
+                            ul_option.hide();
+                        });
+                        var li_option=ul_option.find('li');
+                        li_option.on('click',function(){
+                            $(this).addClass('selected').siblings().removeClass('selected');
+                            var value=$(this).text();
+                            select_showbox.text(value);
+                            ul_option.hide();
+                        });
+                        li_option.hover(function(){
+                            $(this).addClass('hover').siblings().removeClass('hover');
+                        },function(){
+                            li_option.removeClass('hover');
+                        });
+                    }
+                    function createOptions(index,ul_list){
+                        var options=selects.eq(index).find('option'),
+                                selected_option=options.filter(':selected'),
+                                selected_index=selected_option.index(),
+                                showbox=ul_list.prev();
+                        showbox.text(selected_option.text());
+                        for(var n=0;n<options.length;n++){
+                            var tag_option=$('<li></li>'),
+                                    txt_option=options.eq(n).text();
+                            tag_option.text(txt_option).css('cursor','pointer').appendTo(ul_list);
+                            if(n==selected_index){
+                                tag_option.attr('class','selected');
+                            }
+                        }
+                    }
+                })(jQuery)
+            </script>
+        </div>-->
+        <!--call-->
+        <!-- <div class="call"><i class="phone-icon"></i>027-83987310</div> -->
+   <!--  </div> -->
+</div>
+
+<!--导航条开始-->
+<div class="nav">
+    <div class="w-1200">
+        <ul>
+            <!--<li></li>-->
+            <li>
+                <a href="__APP__/index.php/Admin/Index" target="_self" class="nav-link">首页</a>
+            </li>
+            <volist name="menu_list" id="menu_list">
+                <li>
+                    <a href="__APP__/index.php/Admin/{$menu_list['url']}" target="_self" class="nav-link">{$menu_list['name']}</a>
+                    <if condition="$menu_list['children_list'] neq null">
+                        <div class="subnav2" <if condition="count($menu_list['children_list']) lt 5">style="width:100px;text-align:center;margin-left:0;"</if>>
+                            <div class="subnav-left">
+                                <volist name="menu_list['children_list']" id="menu_children_list">
+                                    <a style="display: inline-block;" href="__APP__/index.php/Admin/{$menu_children_list['url']}"><!-- <div class="triangle"></div> -->{$menu_children_list['name']}</a>
+                                </volist>
+                            </div>
+                           <!--  <div class="subnav-right">
+                                <if condition="$menu_list['pic_id'] neq null">
+                                    <img src="__ROOT__{$menu_list['pic_info']['file_path']}"/>
+                                </if>
+                                <p>{$menu_list['name']}</p>
+                            </div> -->
+                        </div>
+                    </if>
+                </li>
+            </volist>
+            <!-- <li><a href="javascript:;" target="_self" class="nav-link">搜索</a></li> -->
+        </ul>
+        <div class="navSearch-icon dis-n" style="position:relative;left:-40px;"><form action="__APP__/index.php/Admin/Search" method="get" onsubmit="return search(this)"><a href="javascript:;"><i class="icon"></i></a><input type="text" name="txt" placeholder="在此输入您要查找的内容" class="nav-search" style="width:0;">
+        <a href="javascript:;" class="close-search" style="display:none;"><img src="__PUBLIC__/images/close.png" alt="" style="position:relative;top:4px;left:5px;" id="closeImg"></a></form>
+        </div>
+
+    </div>
+</div>
+<!--导航条结束-->
+<script type="text/javascript">
+    function search(e){
+        var val=$(e).children("input[type=text]").val();
+        if(val==''){
+            alert("请输入查找内容");
+            return false;
+        }
+    }
+    $(function(){
+        // 搜索框显示
+        $(".icon").click(function(){
+            $(".nav ul").hide();
+            // $(".nav-search").show();
+            $(".nav-search").animate({
+                'width':'800px',
+            },function(){
+                $(".close-search").show();
+                $(".icon").attr("onclick","submit()");
+            });
+        });
+        $(".close-search").click(function(){
+            $(".nav-search").animate({
+                'width':'0'
+            },function(){
+                $(".nav ul").show();
+                $(".close-search").hide();
+                $(".icon").attr("onclick","");
+            });
+        });
+        
+    })
+    function submit(){
+        var txt=$("input[name=txt]").val();
+        if(txt!=''){
+            window.location.href="__APP__/index.php/Admin/Search?txt="+txt;
+        }else{
+            alert("请输入查找内容");
+        }
+    }
+</script>

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>员工风采-走进精信</title>
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+    <style type="text/css">
+        .img_f div{
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        .img_f div img{
+            max-width: 218px;
+            max-height: 218px;
+
+        }
+        .page .current{
+            float: left;
+            display: block;
+            padding: 2px 5px;
+            border: 1px #ccc solid;
+            margin: 0 5px;
+            background-color: #105dd5;
+            color: white;
+        }
+       .page .num{
+            float: left;
+            display: block;
+            padding: 2px 5px;
+            border: 1px #ccc solid;
+            margin: 0 5px;
+        }
+       .page .next{
+            float: left;
+            display: block;
+            padding: 2px 5px;
+            border: 1px #ccc solid;
+            margin: 0 5px;
+        }
+       .page .prev{
+            float: left;
+            display: block;
+            padding: 2px 5px;
+            border: 1px #ccc solid;
+            margin: 0 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        function img_s(){
+            $(".img_f").each(function(){
+                img_w($(this).children('div').children('img'));
+            })
+        }
+        function img_w(e){
+            var i=0;
+            if(e.width()>0){
+                var width = 218-e.width();
+                var height = 218-e.height();
+                e.css({'margin-left':width/2});
+                e.css({'margin-top':height/2});
+                i=1;
+            }
+            if(i == 0){
+                setTimeout(img_w(e), 1000);
+            }
+        }
+    </script>
+</head>
+
+<body onload="img_s()">
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster2"></div>
+<!--海报-->
+<!--内容开始-->
+
+<div class="about-k">
+<div class="about-nav">
+<ul>
+    <a href="__APP__/index.php/Admin/About/index"><li><i class="triangle-solid"></i>精信简介</li></a>
+    <a href="__APP__/index.php/Admin/About/leader"><li><i class="triangle-solid"></i>发展历程</li></a>
+    <!-- <a href="__APP__/index.php/Admin/About/framework"><li><i class="triangle-solid"></i>精信架构</li></a> -->
+    <!-- <a href="__APP__/index.php/Admin/About/team"><li><i class="triangle-solid"></i>核心团队</li></a> -->
+    <a href="__APP__/index.php/Admin/About/honor"><li><i class="triangle-solid"></i>精信荣誉</li></a>
+    <a href="__APP__/index.php/Admin/About/culture"><li><i class="triangle-solid"></i>精信文化</li></a>
+    <!-- <a href="__APP__/index.php/Admin/About/care"><li><i class="triangle-solid"></i>领导关怀</li></a> -->
+    <a href="__APP__/index.php/Admin/About/staff"><li class="select"><i class="triangle-solid triangle-select"></i>员工风采</li></a>
+</ul>
+</div>
+<div class="about-con mar-b-40 over-h">
+<h1 class="about-con-title"><span class="c-green">员工风采</span></h1>
+<!--相册-->
+<volist name="list" id="vo">
+    <div class="album-k">
+        <div class="album-l"></div>
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?id={$vo.id}">
+                <div style="width: 218px;height: 218px;"><img src="__ROOT__/{$vo.url}"/></div>
+            </a>
+            <h1>{$vo.title}</h1>
+        </div>
+    </div>
+</volist>
+   <!--  <div class="album-k">
+        <div class="album-l"></div>
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?url=staff_recent_activities">
+                <div style="width: 218px;height: 218px;"><img src="__PUBLIC__/images/1111111.jpg"/></div>
+            </a>
+            <h1>2017领导近期参加活动</h1>
+        </div>
+    </div>
+    <div class="album-k">
+        <div class="album-l"></div>
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?url=staff_singing-contest">
+                <div style="width: 218px;height: 218px;"><img src="__PUBLIC__/images/staff/Singing-contest/6_litter.jpg"/></div>
+            </a>
+            <h1>2017歌咏比赛精选</h1>
+        </div>
+    </div>
+    <div class="album-k">
+        <div class="album-l"></div>
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?url=staff_opening">
+                <div style="width: 218px;height: 218px;"><img src="__PUBLIC__/images/staff/opening/2_litter.JPG"/></div>
+            </a>
+            <h1>精信科技创立大会及揭牌仪式</h1>
+        </div>
+    </div>
+    <div class="album-k">
+        <div class="album-l"></div> 
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?url=staff_2016_nianhui">
+                <div style="width: 218px;height: 218px;"><img src="__PUBLIC__/images/staff/20160423-nianhui/2_litter.jpg"/></div>
+            </a>
+        <h1>2016年会</h1>
+        </div>
+    </div>
+    <div class="album-k">
+        <div class="album-l"></div> 
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?url=staff_2016_cy">
+                <div style="width: 218px;height: 218px;"><img src="__PUBLIC__/images/staff/20160409-cy/10_litter.png"/></div>
+            </a>
+        <h1>2016春游</h1>
+        </div>
+    </div>
+    <div class="album-k">
+        <div class="album-l"></div>
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?url=staff_yundonghui">
+                <div style="width: 218px;height: 218px;"><img src="__PUBLIC__/images/staff/20150328-yundonghui/5_litter.png"/></div>
+            </a>
+            <h1>2015趣味运动会</h1>
+        </div>
+    </div>
+    <div class="album-k">
+        <div class="album-l"></div>
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?url=staff_2014_awards_1">
+                <div style="width: 218px;height: 218px;"><img src="__PUBLIC__/images/staff/20150601-2014-awards/11_litter.jpg"/></div>
+            </a>
+            <h1>2014财年颁奖典礼</h1>
+        </div>
+    </div>
+    <div class="album-k">
+        <div class="album-l"></div>
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?url=staff_climbe">
+                <div style="width: 218px;height: 218px;"><img src="__PUBLIC__/images/staff/climbe/8_litter.JPG"/></div>
+            </a>
+            <h1>大顶山拓展登山</h1>
+        </div>
+    </div>
+    <div class="album-k">
+        <div class="album-l"></div>
+        <div class="album">
+            <a class="img_f" href="__APP__/index.php/Admin/About/staff_album?url=staff_fangda">
+                <div style="width: 218px;height: 218px;"><img src="__PUBLIC__/images/staff/fangda/2_litter.JPG"/></div>
+            </a>
+            <h1>纺大迎新</h1>
+        </div>
+    </div>
+    
+    
+
+<!--page-->
+<div class="page">
+    <!-- <ul>
+    <li class="select">1</li>
+    <a href="__APP__/index.php/Admin/About/staff?p=2"><li>2</li></a>
+    <a href="__APP__/index.php/Admin/About/staff?p=2"><li>下一页</li></a>
+    </ul> -->
+    {$page}
+</div>
+
+</div>
+</div>
+
+<!--内容结束-->
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!-- 顶部栏-仅适用于首页顶部 -->
+<style>
+  .search-container {
+    display: inline-block;
+    opacity: 0;
+  }
+  .search-icon {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    /* border: 1px solid red; */
+    /* margin: 0 auto; */
+    right: 100px;
+    bottom: 0px;
+    background-image: url("__PUBLIC__/images/icons/search.svg");
+    background-repeat: no-repeat;
+    background-size: 23px;
+    background-position: center;
+    display: inline-block;
+    z-index: 999;
+  }
+  .search-icon:hover {
+    cursor: pointer;
+  }
+  .search-box {
+    position: relative;
+    width: 380px;
+    height: 72px;
+    /* border: 1px solid #d4d4d4; */
+    /* margin: 0 auto; */
+    left: 500px;
+    top: 14px;
+    display: inline-block;
+    margin-right: 0px;
+    /* box-shadow: 1px 1px 2px 1px gray; */
+    /* border: 1px solid red; */
+  }
+  .search-box input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #d4d4d4;
+    line-height: 48px;
+    padding-left: 20px;
+    outline: none;
+    font-size: 16px;
+    padding-right: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    /* box-shadow: 0px 0px 4px 1px gray; */
+  }
+  .search-icon1 {
+    position: relative;
+    width: 50px;
+    height: 40px;
+    /* border: 1px solid red; */
+    /* margin: 0 auto; */
+    left: 328px;
+    bottom: 40px;
+    background-image: url("__PUBLIC__/images/icons/search_1.svg");
+    background-repeat: no-repeat;
+    background-size: 28px;
+    background-position: center;
+    display: inline-block;
+  }
+  .search-icon1:hover {
+    cursor: pointer;
+  }
+  .false-search-icon {
+    position: relative;
+    width: 50px;
+    height: 28px;
+    /* border: 1px solid red; */
+    /* margin: 0 auto; */
+    left: 505px;
+    bottom: 32px;
+    background-image: url("__PUBLIC__/images/icons/false.svg");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center;
+
+    display: inline-block;
+  }
+  .false-search-icon:hover {
+    cursor: pointer;
+  }
+  /* new style */
+  .nav-ul {
+    transition: all 0.3s ease-in-out;
+  }
+  .slide-in-blurred-right {
+    /* animation: stereotype-anime  .6s ease-in-out; */
+    -webkit-animation: slide-in-blurred-right 0.3s
+      cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation: slide-in-blurred-right 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  .reverse-slide-in-blurred-right {
+    -webkit-animation: reverse-slide-in-blurred-right 0.3s
+      cubic-bezier(0.32, 1, 0.23, 1) both;
+    animation: reverse-slide-in-blurred-right 0.3s
+      cubic-bezier(0.32, 1, 0.23, 1) both;
+  }
+  /* @keyframes stereotype-anime {
+    0%{transform: scale(0,0);}
+    100%{transform: scale(1,1);}
+  } */
+  @-webkit-keyframes slide-in-blurred-right {
+    0% {
+      -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      -webkit-transform-origin: 0% 50%;
+      transform-origin: 0% 50%;
+      -webkit-filter: blur(40px);
+      filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+      transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-blurred-right {
+    0% {
+      -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      -webkit-transform-origin: 0% 50%;
+      transform-origin: 0% 50%;
+      -webkit-filter: blur(40px);
+      filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+      transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes reverse-slide-in-blurred-right {
+    0% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+      transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      opacity: 1;
+    }
+    99% {
+      -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      -webkit-transform-origin: 0% 50%;
+      transform-origin: 0% 50%;
+      -webkit-filter: blur(40px);
+      filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      -webkit-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      opacity: 0;
+    }
+  }
+  @keyframes reverse-slide-in-blurred-right {
+    0% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+      transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      opacity: 1;
+    }
+    99% {
+      -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      -webkit-transform-origin: 0% 50%;
+      transform-origin: 0% 50%;
+      -webkit-filter: blur(40px);
+      filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      -webkit-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      opacity: 0;
+    }
+  }
+
+  .new_header {
+    width: 100%;
+    height: 72px;
+    background-color: transparent; /* 默认透明 */
+    /* border-bottom: 1px solid #7c7c7c; */
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+  }
+  /* 背景变为白色 */
+  .new_header.scrolled {
+    background-color: #fff; /* 白色背景 */
+  }
+  /* 菜单栏向上收起 */
+  .new_header.collapsed {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.2s linear;
+  }
+  /* 菜单栏展开 */
+  .new_header.expanded {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.2s linear;
+  }
+  .main-1200 {
+    width: 1200px;
+    height: 72px;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    position: relative;
+  }
+  .logo {
+    height: 48px;
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    z-index: 999;
+  }
+  .nav-ul {
+    position: absolute;
+    left: 260px;
+    /* border: 1px solid blue;  */
+  }
+  /* .text-box:hover {
+    width: 15px;
+    height: 15px;
+  } */
+  .nav-item {
+    /* border: 1px solid blue; */
+    /* color: #333; */
+    /* font-size: 14px; */
+    float: left;
+    margin-right: 32px;
+    /* margin-top: 17px; */
+    line-height: 72px;
+  }
+  .nav-item .txt {
+    display: block;
+    height: 72px;
+    text-decoration: none;
+    font-family: "MicrosoftYaHei PingFang SC Regular";
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+  .new_header.scrolled .nav-item .txt {
+    color: rgba(51, 51, 51, 1);
+  }
+  .nav-item .txt::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    opacity: 0;
+    background: rgba(56, 28, 98, 1);
+    position: absolute;
+    left: 0px;
+    bottom: 5px;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    transform-origin: 50% 0%;
+    transform: scale(0.01, 1);
+  }
+  .nav-item .txt:hover {
+    color: rgba(56, 28, 98, 1);
+  }
+  .nav-item:hover .txt::after {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  body {
+    background-color: #f7f8fa;
+    font-family: "PingFang SC Regular", "Microsoft YaHei";
+  }
+  a {
+    text-decoration: none;
+  }
+</style>
+
+<div class="new_header">
+  <a href="__APP__/index.php/Admin/Index" target="_self" class="txt"
+    ><img
+      class="logo"
+      src="__PUBLIC__/images/new_view_2025/jxkj_logo_white@2x.png"
+    />
+  </a>
+  <!-- jxkj_logo_white@2x
+    __PUBLIC__/images/logo.png
+  -->
+  <div class="main-1200 clearfix">
+    <ul class="nav-ul clearfix">
+      <li class="nav-item">
+        <a href="__APP__/index.php/Admin/Index" target="_self" class="txt"
+          >首页</a
+        >
+      </li>
+      <volist name="menu_list" id="menu_list">
+        <!-- <li>
+          <a
+            href="__APP__/index.php/Admin/{$menu_list['url']}"
+            target="_self"
+            class="nav-link"
+            >{$menu_list['name']}</a
+          >
+        </li> -->
+        <li class="nav-item">
+          <a
+            href="__APP__/index.php/Admin/{$menu_list['url']}"
+            target="_self"
+            class="txt"
+            >{$menu_list['name']}</a
+          >
+        </li>
+      </volist>
+    </ul>
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" placeholder="输入搜索内容" id="search-input" />
+        <div class="search-icon1"></div>
+      </div>
+      <div class="false-search-icon"></div>
+    </div>
+  </div>
+  <div class="search-icon"></div>
+</div>
+
+<script>
+  function initHeader() {
+    const searchIcon = document.querySelector(".search-icon");
+    const searchIcon1 = document.querySelector(".search-icon1");
+    const searchContainer = document.querySelector(".search-container");
+    const falseIcon = document.querySelector(".false-search-icon");
+    const nav = document.querySelector(".nav-ul");
+    const Winheight = window.screen.height;
+    const Winwidth = window.screen.width;
+
+    // console.log(Winheight,Winheight)
+
+    function searchFunc(query) {
+      // //搜素请求
+      // console.log(query);
+      // var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+      // httpRequest.open('POST', 'Search/search', true); //第二步：打开连接
+      // httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+      // httpRequest.send('query='+query);//发送请求 将情头体写在send中
+      // /**
+      //  * 获取数据后的处理程序
+      //  */
+      // httpRequest.onreadystatechange = function () {
+      //     //请求后的回调接口，可将请求成功后要执行的程序写在其中
+      //     if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+      //       //验证请求是否发送成功
+      //       var json = httpRequest.responseText;
+      //       //获取到服务端返回的数据
+      //       // var obj = JSON.parse(json);
+      //       // console.log(obj);
+      //       window.location.href = "__APP__/index.php/Admin/Search/searchresult?query="+window.btoa(json);
+      //     }
+      // }
+      window.location.href =
+        "__APP__/index.php/Admin/Search/searchresult?search_word=" + query;
+    }
+    searchIcon.addEventListener("click", (e) => {
+      nav.style.transform = `scale(0)`;
+      viewNavFlag = false;
+      searchContainer.classList.remove("reverse-slide-in-blurred-right");
+      void searchContainer.scrollWidth;
+      searchContainer.classList.add("slide-in-blurred-right");
+
+      searchIcon.style.transform = `scale(0)`;
+      //falseIcon.style.transform = `scale(1)`;
+    });
+
+    falseIcon.addEventListener("click", (e) => {
+      nav.style.transform = `scale(1)`;
+      nav.style.zIndex = 999;
+      viewNavFlag = true;
+
+      searchContainer.classList.remove("slide-in-blurred-right");
+      void searchContainer.scrollWidth;
+      searchContainer.classList.add("reverse-slide-in-blurred-right");
+
+      searchIcon.style.transform = `scale(1)`;
+
+      //falseIcon.style.transform = `scale(0)`;
+    });
+
+    searchIcon1.addEventListener("click", (e) => {
+      const query = document.querySelector(".search-box>input");
+      searchFunc(query.value);
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.keyCode === 13) {
+        var Input = document.getElementById("search-input");
+        if (Input == document.activeElement) {
+          searchFunc(Input.value);
+        }
+      }
+    });
+    // 顶部栏
+    const header = document.querySelector(".new_header");
+    let lastScrollTop = 0; //滚动条位置
+    let isScrolled = false; //是否向下滚动
+    let isCollapsed = false; //是否折叠
+    // 获取 img 元素
+    const logoImg = document.querySelector(".logo");
+
+    function handleScroll() {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      // console.log(scrollTop, lastScrollTop);
+
+      // 判断是否向下滚动
+      if (scrollTop > lastScrollTop) {
+        // 向下滚动
+        if (scrollTop >= 100 && !isScrolled) {
+          header.classList.add("scrolled");
+          isScrolled = true;
+          logoImg.src = "__PUBLIC__/images/logo.png";
+        }
+
+        if (scrollTop >= 200 && !isCollapsed) {
+          header.classList.add("collapsed");
+          header.classList.remove("expanded");
+          isCollapsed = true;
+        }
+      } else {
+        // 向上滚动
+        if (isCollapsed) {
+          header.classList.remove("collapsed");
+          header.classList.add("expanded");
+          isCollapsed = false;
+        }
+
+        if (scrollTop < 100 && isScrolled) {
+          header.classList.remove("scrolled");
+          isScrolled = false;
+          logoImg.src =
+            "__PUBLIC__/images/new_view_2025/jxkj_logo_white@2x.png";
+        }
+        // if (scrollTop < 200 && isCollapsed) {
+        //   header.classList.remove("collapsed");
+        //   header.classList.add("expanded");
+        //   isCollapsed = false;
+        // }
+      }
+
+      lastScrollTop = scrollTop;
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    // window.addEventListener("mousewheel", (e) => {
+    //   var scrollTop =
+    //     document.body.scrollTop || document.documentElement.scrollTop;
+    //   if (scrollTop >= 100) {
+    //     header.style.position = "fixed";
+    //   } else {
+    //     header.style.position = "relative";
+    //   }
+    // });
+  }
+  initHeader();
+</script>
+<!-- 页面自适应 -->
+<!-- <script src="__PUBLIC__/Js/fit-screen.js"></script> -->

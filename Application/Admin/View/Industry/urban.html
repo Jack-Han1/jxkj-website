@@ -1,0 +1,492 @@
+<!-- 产业布局->政务信息化 v2024 -->
+<script src="__PUBLIC__/Js/loading.js"></script>
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>产业布局-政务信息化</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 467px;
+        width: 100%;
+        /* background-color: #d9d9d9; */
+        background-image: url("__PUBLIC__/images/new_view_2025/chanye_25@2x.png");
+        background-size: cover; /* 图片覆盖整个区域 */
+        background-position: center; /* 图片居中显示 */
+        position: relative;
+      }
+      .top-banner-inside {
+        width: 1200px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 45%;
+      }
+      .top-banner-inside-p1 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 53.6px;
+      }
+      .top-banner-inside-p2 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 24.8px;
+      }
+      /* .top-banner img {
+        display: block;
+        margin: 0 auto;
+        height: 467px;
+        width: 100%;
+        object-fit: cover;
+      } */
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 120px;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .top-title {
+        font-size: 36px;
+        line-height: 48px;
+        color: rgb(51, 51, 51);
+        font-weight: Bold;
+        font-family: "microsoft yahei";
+        margin-top: 105px;
+        margin-bottom: 50px;
+      }
+      .urban {
+        height: 615px;
+        background-color: #fff;
+        /* border: 1px solid red; */
+      }
+      .urban-img {
+        width: 100%;
+        height: 440px;
+      }
+      .urban-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .urban-bottom {
+        display: flex;
+        justify-content: space-between;
+        /* margin-top: 20px; */
+      }
+      .urban-bottom-item {
+        flex: 1;
+        padding-top: 33px;
+        padding-left: 34px;
+        padding-right: 38px;
+      }
+      .urban-item-title {
+        font-size: 18px;
+        line-height: 27px;
+        color: rgb(56, 28, 98);
+        font-family: "microsoft yahei";
+        margin-bottom: 14px;
+      }
+      .urban-item-text {
+        font-size: 14px;
+        line-height: 20px;
+        color: rgb(102, 102, 102);
+        font-family: "microsoft yahei";
+      }
+      .urban-item-text p {
+        margin-bottom: 11px;
+      }
+      .urban-icon {
+        position: relative;
+        padding-left: 16px; /* 留出图标的空间 */
+      }
+      .urban-icon::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 3px;
+        width: 15px; /* 图标宽度 */
+        height: 15px; /* 图标高度 */
+        background-image: url("__PUBLIC__/images/new_view_2025/chanye_xiaosanjiao.png"); /* 图标路径 */
+        background-size: cover; /* 确保图标完整显示 */
+      }
+      .type-banner {
+        width: 100%;
+        height: 373px;
+        /* border: 1px solid red; */
+        position: relative;
+      }
+      .type-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .banner-text {
+        position: absolute;
+        width: 100%;
+        z-index: 9999;
+      }
+      .banner-text-top {
+        font-size: 40px;
+        line-height: 53px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        font-family: "Microsoft YaHei";
+        margin-top: 104px;
+        margin-bottom: 28px;
+      }
+      .banner-text-bottom {
+        width: 1200px;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 29px;
+        color: rgb(255, 255, 255);
+        font-family: "Microsoft YaHei";
+      }
+      .value-box {
+        display: flex;
+        gap: 17px;
+        /* justify-content: space-between; */
+      }
+      .value-item {
+        flex: 1;
+        width: 590px;
+        height: 190px;
+        /* border: 1px solid red; */
+        padding-top: 44px;
+        padding-left: 34px;
+        padding-right: 208px;
+        position: relative;
+        background-color: #fff;
+      }
+      .value-item-title {
+        font-size: 22px;
+        line-height: 27px;
+        color: rgb(51, 51, 51);
+        font-family: "Microsoft YaHei";
+        margin-bottom: 16px;
+      }
+      .value-item-text {
+        font-size: 14px;
+        line-height: 26px;
+        color: rgb(102, 102, 102);
+        font-family: "Microsoft YaHei";
+      }
+      .value-img {
+        width: 208px;
+        position: absolute;
+        top: 46;
+        right: 0;
+      }
+      .serve-box img {
+        width: 100%;
+      }
+      /* 动画效果 */
+      .top-title,
+      .urban,
+      .banner-text,
+      .type-banner-img,
+      .value-box,
+      .serve-box {
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 1s ease-out;
+      }
+      .top-title-animation,
+      .urban-animation,
+      .banner-text-animation,
+      .type-banner-img-animation,
+      .value-box-animation,
+      .serve-box-animation {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <!-- <img src="__PUBLIC__/images/new_view_2025/about_group101@2x.png" alt="" /> -->
+        <div class="top-banner-inside">
+          <p class="top-banner-inside-p1">产业布局</p>
+          <p class="top-banner-inside-p2">了解精信发展历史和最新动态</p>
+        </div>
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Industry/Communicate"
+            target="_self"
+            class=""
+            >信息通信</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a
+            href="__APP__/index.php/Admin/Industry/Urban"
+            target="_self"
+            class=""
+            >政务信息化</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Industry/Campus"
+            target="_self"
+            class=""
+            >智慧校园</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Industry/Energy"
+            target="_self"
+            class=""
+            >光伏电能</a
+          >
+        </div>
+      </div>
+      <!-- content 1200px -->
+      <div class="w-1200 clearfix">
+        <p class="top-title">方案概述</p>
+        <div class="urban">
+          <div class="urban-img">
+            <img
+              src="__PUBLIC__/images/new_view_2025/chanye_group201@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="urban-bottom">
+            <div class="urban-bottom-item">
+              <p class="urban-item-title">执法人员不足，难度大</p>
+              <div class="urban-item-text">
+                <p class="urban-icon">
+                  执法工作繁重，部分重点区域无法实现24小时定点监管
+                </p>
+                <p class="urban-icon">
+                  执法管辖范围广，业务时间紧，执法人员严重不足
+                </p>
+              </div>
+            </div>
+            <div class="urban-bottom-item">
+              <p class="urban-item-title">信息化水平低下，人工识别难</p>
+              <div class="urban-item-text">
+                <p class="urban-icon">
+                  传统人工巡查方式科技手段应用少，容易存在误判、漏判
+                </p>
+                <p class="urban-icon">
+                  执法部门主要依赖人力巡检，灵活度低，响应不及时
+                </p>
+              </div>
+            </div>
+            <div class="urban-bottom-item">
+              <p class="urban-item-title">事前无预警，事后处理难</p>
+              <div class="urban-item-text">
+                <p class="urban-icon">
+                  缺乏高效的预警手段，对违法事情进行“事前预警”
+                </p>
+                <p class="urban-icon">
+                  执法调度滞后，事件发生后主要靠临时调派执法，取证难
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 5G banner -->
+      <div class="type-banner" style="margin-top: 120px">
+        <div class="banner-text">
+          <p class="banner-text-top">助力城市管理更高效，生活更美好</p>
+          <p class="banner-text-bottom">
+            政府信息化是新一代信息技术支撑、知识社会创新2.0环境下的理新模式，通过新一代信息技术支撑实现全面透彻感知、宽带泛在互联、智能融合应用，推动以用户创新、开放创新、大众创新、协同创新为特征的以人为本的可持续创新行为。整个项目包含大屏监督指挥子系统、地理编码子系统、应用维护子系统、基础数据资源管理子系统、综合评价子系统、数据交换子系统、智慧环卫（基础设施管理、环卫车辆监管、环卫人员监管、公厕智能监管、环卫APP）、门前三包、自动化办公、大数据可视化等子系统。
+          </p>
+        </div>
+        <img
+          class="type-banner-img"
+          src="__PUBLIC__/images/new_view_2025/chanye_group202@2x.png"
+          alt=""
+        />
+      </div>
+      <!-- content 1200px -->
+      <div class="w-1200 clearfix">
+        <p class="top-title">方案价值</p>
+        <div class="value-box">
+          <div class="value-item">
+            <p class="value-item-title">赋能政府服务高效化智能化</p>
+            <p class="value-item-text">
+              - 24小时实时分析预警，实现远程监测，及时研判现场
+              指挥调度一线执法人员处置突发情况，提升巡查效率
+            </p>
+            <p class="value-item-text">
+              - 数据说话，执法行为有据可依，治理过程阳光透明
+            </p>
+            <img
+              class="value-img"
+              src="__PUBLIC__/images/new_view_2025/chanye_group203@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="value-item">
+            <p class="value-item-title">提升城市治理能力和治理水平</p>
+            <p class="value-item-text">
+              - 打造AI智能感知体系，实现一网统管，异常秒级推送
+            </p>
+            <p class="value-item-text">
+              - 降低执法人员业务负担，提升城市管理效率
+            </p>
+            <p class="value-item-text">
+              - 从数据驱动、AI分析、结果汇总分析，形成业务闭环
+            </p>
+            <img
+              class="value-img"
+              src="__PUBLIC__/images/new_view_2025/chanye_group204@2x.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <!-- 服务内容 -->
+        <p class="top-title">服务内容</p>
+        <div class="serve-box">
+          <img
+            src="__PUBLIC__/images/new_view_2025/chanye_group205@2x.png"
+            alt=""
+          />
+          <!-- <div class="grid-item">· 基础数据资源管理子系统</div>
+          <div class="grid-item">· 数据交换子系统</div>
+          <div class="grid-item">· 地理编码子系统</div>
+          <div class="grid-item">· 应用维护子系统</div>
+          <div class="grid-item">· 大屏监督智慧子系统</div>
+          <div class="grid-item">· 智慧环卫</div>
+          <div class="grid-item">· 自动化办公子系统</div>
+          <div class="grid-item">· 门前三包子系统</div>
+          <div class="grid-item">· 综合评价子系统</div>
+          <div class="grid-item">· 大数据可视化子系统</div> -->
+        </div>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+    <script>
+      // 滚动懒加载动效（封装版）
+      function animateOnScroll(selector, className, threshold = 0.1) {
+        const elements = document.querySelectorAll(selector);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(className);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold,
+            rootMargin: "0px 0px 50% 0px", // 负值表示向内收缩观察区域
+          }
+        );
+
+        elements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+      // // 为元素添加动画效果
+      function addAnimation() {
+        const animationArr = [
+          {
+            element: ".top-title",
+            className: "top-title-animation",
+          },
+          {
+            element: ".urban",
+            className: "urban-animation",
+          },
+          {
+            element: ".banner-text",
+            className: "banner-text-animation",
+          },
+          {
+            element: ".type-banner-img",
+            className: "type-banner-img-animation",
+          },
+          {
+            element: ".value-box",
+            className: "value-box-animation",
+          },
+          {
+            element: ".serve-box",
+            className: "serve-box-animation",
+          },
+        ];
+        animationArr.forEach((item) => {
+          animateOnScroll(item.element, item.className);
+        });
+      }
+      addAnimation();
+    </script>
+  </body>
+</html>

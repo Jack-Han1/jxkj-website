@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.9.1.min.js"/>
+    <!--<load href="__PUBLIC__/ueditor/ueditor.config.js" />-->
+    <!--<load href="__PUBLIC__/ueditor/ueditor.all.min.js" />-->
+    <title>精信官网后台新闻</title>
+
+</head>
+
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <div class="add-line-1">
+        <input type="text" class="input-k w-350" id="id" name="id" value="{$info.id}" style="display: none;"/>
+        <span>产品标题：</span><input type="text" class="input-k w-350" id="name" value="{$info['name']}"  readonly="readonly" />
+    </div>
+    <div class="add-line-1">
+        <span>产品摘要：</span>
+        <textarea style="width: 500px;;overflow: auto;resize: none;height: 100px;padding: 5px 10px;border:1px solid #ccc;" id="abstract" name="abstract" readonly>{$info.abstract}</textarea>
+        <!--<input type="text" class="input-k w-350" id="abstract" name="abstract" value="{$info.abstract}"/>-->
+    </div>
+    <!-- <div class="add-line-1">
+    <span>所属分类：</span>
+        <select class="input-k w-150" style="height: 29px;" id="kind">
+            <option value="">请选择分类</option>
+            <volist name="kind" id="vo">
+                <option value="{$vo.id}">{$vo.name}</option>
+            </volist>
+        </select>
+        <input type="text" class="input-k w-150" value="{$info['menu_name']}" readonly="readonly" />
+    </div> -->
+    <div class="add-line-1">
+        <span>产品链接：</span><input type="text" class="input-k w-150" id="url" name="url"  readonly="readonly" value="__APP__/index.php/Admin/{$info.url}" style="width:520px;"/>
+    </div>
+    <!-- <div class="add-line-1">
+        <span >图片：</span>
+        <if condition="$info['file_id'] eq null">
+            <input id="menu_pic" name="menu_pic" type="file" class="input-k w-350" value="上传图片" style="padding-top: 5px;padding-bottom: 5px;" />
+            <br>
+            <div style="width: 250px;"></div>
+            <else/>
+            <input id="img_id" value="{$info['pic_info']['id']}" style="display: none;"/>
+            <img id="img" class="w-350" src="__ROOT__{$info['pic_info']['file_path']}" alt=""/>
+            <input onclick="del_img()" type="button" class="save-btn mar-l-250" value="删除图片" />
+        </if>
+    </div> -->
+    <!-- <div style="margin-top: 20px;">
+        <span style="display:inline-block; width:250px; text-align:right; float:left;">内容：</span>
+        <div class="html-edit" style="height: auto;width:1050px;padding: 20px 5px;">
+           {$info.content}
+        </div>
+    </div> -->
+    <div class="add-line-1">
+        <input onclick="sub(2)" type="button" class="save-btn mar-l-250" value="通过" />
+        <input onclick="sub(-1)" type="button" class="save-btn mar-l-250" style="background-color: 	#EE4000" value="否决 " />
+    </div>
+
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+
+<script type="text/javascript">
+    function sub(status){
+        $.post('update_status', {id:$("#id").val(),status:status}, function(data){
+            data = eval('(' + data + ')');
+            if(data.status){
+                alert(data.info);
+                window.location.href="index";
+            }else{
+                alert(data.info);
+            }
+        });
+    }
+</script>
+</body>
+
+</html>

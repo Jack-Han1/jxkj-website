@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.8.3.min.js"/>
+    <load href="__PUBLIC__/Js/pace.min.js"/>
+<title>精信官网后台人才</title>
+</head>
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <!-- <form id="from" action="staff_update" method="post" enctype="multipart/form-data" > -->
+        <input type="hidden" name="id" value="{$id}" style="display: none;">
+    <div class="add-line-1">
+    <span>图集名称：</span><input type="text" class="input-k w-350" id="name" name="name" value="{$info.title}"/>
+    </div>
+    <div class="add-line-1">
+            <span>图集顺序：</span>
+            <input type="text" class="input-k w-150" id="sort" name="sort" value="{$info.sort}"/>
+    </div>
+    <div class="add-line-1" id="pic">
+        <volist name="picList" id="vo" key="i">
+            <div>
+                <img src="__ROOT__/{$vo.url}" width="187" height="166" />
+                <!-- <input onchange="picUpload(this)" type="file" class="input-k w-350 file" name="file{$vo.id}"/> -->
+                <div><span style="width: 74px;"><input type="radio" name="cover" value="{$vo.id}"  <if condition="$vo.is_cover eq 1">checked</if> >设为封面</span><span style="width: 74px;cursor:pointer;" onclick="del_(this)" data-id="{$vo.id}">删除</span></div>
+            </div>
+        </volist>
+            <div class="base_add">
+                <img src="__PUBLIC__/images/admin_images/addpic.png" width="187" height="166" />
+                <input onchange="setImagePreviews(this)" type="file" class="input-k w-350 file" name="file[]" multiple="multiple" accept="image/*" id="doc"/>
+            </div>
+    </div>
+    <div class="add-line-1"><input type="submit" class="save-btn mar-l-250" value="保存" /></div>
+    <!-- </form> -->
+</div>
+<div class="footer">精信官网后台</div>
+</body>
+</html>
+<!-- <script type="text/javascript">
+    $(function(){
+        picUpload = function(file){
+            var objUrl = getObjectURL(file.files[0]);
+            // console.log(objUrl);
+            var count = $('.file').length;
+            var html = '<div><img src="__PUBLIC__/images/admin_images/addpic.png" width="187" height="166"><input onchange="picUpload(this);" type="file" class="input-k w-350 file" name="file'+count+'"/></div>';
+            if(objUrl) {
+                $(file).prev('img').attr('src',objUrl);
+                if($(file).siblings('div').length == 0){
+                    $(file).parents('.add-line-1').append(html);
+                    $(file).parent().append('<div><span style="width: 74px;"><input type="radio" name="cover" value="'+count+'">设为封面</span><span style="width: 74px;cursor:pointer;" onclick="del(this)">删除</span></div>');
+                }
+            }
+        }
+        function getObjectURL(file) {
+            var url;
+            if (window.createObjectURL!=undefined) { // basic
+            url = window.createObjectURL(file) ;
+            } else if (window.URL!=undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file) ;
+            } else if (window.webkitURL!=undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file) ;
+            }
+            return url ;
+        }
+        del = function(obj){
+            $(obj).parent().parent().attr('style','display:none');
+            var name = $(obj).parent().siblings('input').attr('name');
+            $(obj).parent().siblings('input').attr('name','-'+name);
+        }
+        sub = function(){
+            var name = $('#name').val();
+            var sort = $('#sort').val();
+            if(name == ""){
+                alert("请输入图集名称！");
+                return false;
+            }else if(sort == ""){
+                alert("请填写图集顺序！");
+                return false;
+            }
+        }
+    })
+</script> -->
+<script type="text/javascript">
+    $(function(){
+        var arrList = new Array(); 
+        var docObj = document.getElementById("doc");
+        var fileList;
+        $('#doc').change(function(){
+            fileList = docObj.files;
+            Array.prototype.push.apply(arrList, fileList);
+        })
+        $('.add-line-1').on('click','.del',function(){
+            var num = $(this).attr('data-num');
+            delete arrList[num];
+            $(this).parent().parent().remove();
+        })
+        $('.save-btn').click(function(){
+            
+            // for(var k=0;k<=fileList.length;k++){
+            //     Array.prototype.push.apply(arrList, fileList[k]);
+            // }
+            // console.log(arrList);
+            // console.log(fileList[0]);
+            var Myform = new FormData();
+            var name = $('#name').val();
+            Myform.append("name",name);
+            var cover=$('input[name=cover]:checked').val();
+            Myform.append("cover",cover);
+            
+            var sort = $('#sort').val();
+
+            Myform.append('sort',sort);
+            if(fileList){
+                for (var i = 0, j = fileList.length; i < j; ++i) {
+                    Myform.append('myFileTest[]', fileList[i]);
+                }
+            }
+            // Myform.append('file',fileList);
+
+            var Req = new XMLHttpRequest();
+            Req.open("POST", "staff_update");
+            Req.send(Myform);
+            window.location.href='staff';
+            // var arrList = new Array();
+            // arrList = fileList;
+            // console.log(arrList);
+            // console.log(typeof arrList);
+        })
+    })
+
+
+
+
+    // del = function(obj){
+    //     $(obj).parent().parent().remove();
+    //         // $('#doc').reset();
+    //         var docObj = document.getElementById("doc");
+ 
+    //         var fileList = docObj.files;
+    //         delete fileList[0];
+    //         console.log(fileList);
+    // }
+    del_ = function(obj){
+        var url = 'staff_del';
+        var id = $(obj).attr('data-id');
+        var r = confirm('确认删除该图片？');
+        if(r == false){
+            return false;
+        }
+        $.get(url,{id:id},function(data){
+            if(data.code==1){
+                alert('删除成功');
+                location.reload();
+            }else{
+                alert('删除失败');
+            }
+        },"json")
+    }
+
+    //下面用于多图片上传预览功能
+
+    // setImagePreviews = function(avalue) {
+    //     var docObj = document.getElementById("doc");
+    //     $(docObj).parent().siblings('div').remove(); 
+    //     var arrList = new Array(); 
+    //     var fileList;
+    //     fileList = docObj.files;
+    //     Array.prototype.push.apply(arrList, fileList);
+    //     // var dd = document.getElementById("dd");
+ 
+    //     // dd.innerHTML = "";
+ 
+    //     // console.log(fileList);  
+    //     for (var i = 0; i < fileList.length; i++) {            
+    //         // dd.innerHTML += "<div style='float:left' > <img id='img" + i + "'  /> </div>";
+    //         $(avalue).parents('.add-line-1').find('.base_add').before("<div style='float:left' > <img id='img" + i + "'  /><div><span style='width: 74px;'><input type='radio' name='cover' value='"+i+"'>设为封面</span><span style='width: 74px;cursor:pointer;' data-num='"+i+"' class='del'>删除</span></div> </div>");
+    //         var imgObjPreview = document.getElementById("img"+i); 
+ 
+    //         if (docObj.files && docObj.files[i]) {
+ 
+    //             //火狐下，直接设img属性
+ 
+    //             imgObjPreview.style.display = 'block';
+ 
+    //             imgObjPreview.style.width = '189px';
+ 
+    //             imgObjPreview.style.height = '168px';
+ 
+    //             //imgObjPreview.src = docObj.files[0].getAsDataURL();
+ 
+    //             //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+ 
+    //             imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);
+ 
+    //         }
+ 
+    //         else {
+ 
+    //             //IE下，使用滤镜
+ 
+    //             docObj.select();
+ 
+    //             var imgSrc = document.selection.createRange().text;
+ 
+    //             // alert(imgSrc)
+ 
+    //             var localImagId = document.getElementById("img" + i);
+ 
+    //             //必须设置初始大小
+ 
+    //             localImagId.style.width = "189px";
+ 
+    //             localImagId.style.height = "168px";
+ 
+    //             //图片异常的捕捉，防止用户修改后缀来伪造图片
+ 
+    //             try {
+ 
+    //                 localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+ 
+    //                 localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+ 
+    //             }
+ 
+    //             catch (e) {
+ 
+    //                 alert("您上传的图片格式不正确，请重新选择!");
+ 
+    //                 return false;
+ 
+    //             }
+ 
+    //             imgObjPreview.style.display = 'none';
+ 
+    //             document.selection.empty();
+ 
+    //         }
+ 
+    //     }  
+ 
+    //     return true;
+ 
+    // }
+ 
+</script>

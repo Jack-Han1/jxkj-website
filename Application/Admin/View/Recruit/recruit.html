@@ -1,0 +1,858 @@
+<!-- 人力资源->招贤纳士 v2024 -->
+<!-- 人力资源-招贤纳士详情 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>人力资源-招贤纳士</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 384px;
+        width: 100%;
+        position: relative;
+      }
+      .banner-text {
+        width: 854px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .banner-text-title {
+        font-size: 85px;
+        line-height: 113px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-family: "Microsoft YaHei";
+        margin-bottom: 16px;
+      }
+      .banner-text-bottom {
+        font-size: 32px;
+        line-height: 42px;
+        color: rgb(255, 255, 255);
+        font-family: "Microsoft YaHei";
+      }
+      .top-banner img {
+        display: block; /* 图片必须是块级元素 */
+        margin: 0 auto; /* 水平居中 */
+        height: 384px;
+        width: 100%;
+        /* object-fit: cover; */
+      }
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        /* padding-bottom: 120px; */
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        /* border: 1px solid red; */
+      }
+      .recruit-search {
+        /* Rectangle 124 */
+        color: #333333;
+        position: relative;
+        /* width: 483px; */
+        width: 100%;
+        height: 200px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        /* left: 350px;
+        top: 25px; */
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 40px 200px;
+      }
+
+      .title-search {
+        /* 职位筛选 */
+        position: relative;
+        width: 60px;
+        height: 15px;
+        /* left: 581px;
+        top: 431px; */
+        font-family: "Microsoft YaHei";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 15px;
+        color: #333333;
+        /* left: 24px;
+        top: 15px; */
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      .search-box-left {
+        /* Rectangle 125 */
+        position: relative;
+        width: 463px;
+        height: 38px;
+        line-height: 38px;
+        /* left: 22px;
+        top: 10px; */
+        /* background: #D9D9D9; */
+        border: 1px solid #d9d9d9;
+        display: inline-block;
+        border-radius: 12px 0 0 12px;
+      }
+
+      .search-box-right {
+        /* Rectangle 126 */
+        position: relative;
+        width: 78px;
+        height: 38px;
+        line-height: 38px;
+        left: -6px;
+        top: -2px;
+        text-align: center;
+        font-family: "Microsoft YaHei";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        background: #381c62;
+        display: inline-block;
+        border-radius: 0 12px 12px 0;
+      }
+      .search-box-right:hover {
+        background: #4d3374;
+      }
+      .search-words {
+        color: #333333;
+        position: relative;
+        left: 15px;
+        top: 35px;
+        display: flex;
+        width: 100%;
+        height: 30px;
+        justify-content: left;
+      }
+
+      .search-words span {
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+
+      .search-words span:nth-child(6) {
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        margin-left: 145px;
+      }
+
+      .search-sidebar {
+        /* Rectangle 123 */
+        color: #333333;
+        position: relative;
+        width: 175px;
+        height: 220px;
+        left: 145px;
+        top: -175px;
+        background: #ffffff;
+        border-radius: 8px;
+        display: inline-block;
+      }
+
+      .search-sidebar p:nth-child(1) {
+        position: relative;
+        top: 12px;
+        left: 20px;
+        margin-bottom: 20px;
+        font-family: "Microsoft YaHei";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+      }
+
+      .search-sidebar p:nth-child(2) {
+        position: relative;
+        top: 12px;
+        left: 15px;
+        margin-bottom: 20px;
+        font-family: "Microsoft YaHei";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+      }
+
+      .search-sidebar div {
+        position: relative;
+        top: 12px;
+        left: 15px;
+        margin-bottom: 20px;
+        font-family: "Microsoft YaHei";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .recruit-box {
+        min-height: 500px;
+        width: 100%;
+      }
+      #empty-info img {
+        display: block;
+        margin: 0 auto;
+      }
+      .empty-text {
+        text-align: center;
+        font-size: 20px;
+        color: #999;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        margin-top: 20px;
+      }
+      .info-card {
+        color: #333333;
+        /* position: relative; */
+        width: 100%;
+        height: 167px;
+        /* left: 350px;
+        top: -223px; */
+        margin-bottom: 30px;
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 30px;
+      }
+      .info-card:hover {
+        background: #fafcff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+
+      .info-card .title {
+        display: block;
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 20px;
+      }
+      .info-tips {
+        color: #666666;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .info-content {
+        display: block;
+        color: #333333;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        margin-top: 12px;
+      }
+      .emergency::before {
+        content: "";
+        /* background-color:  #D9D9D9; */
+        background-image: url("__PUBLIC__/images/new_view_2025/recruit_ji.png");
+        background-position: center;
+        background-size: cover;
+        /* font-size: 10px; */
+        text-align: center;
+        /* line-height: 15px;  */
+        width: 15px;
+        height: 15px;
+        border-radius: 2px;
+        display: inline-block;
+        margin-right: 7px;
+      }
+      .page {
+        /* border: 1px solid red; */
+        text-align: center;
+        text-decoration: none;
+        margin-bottom: 60px;
+      }
+      .page div {
+        display: inline-block;
+      }
+      .page .current,
+      .page .num,
+      .page .next,
+      .page .prev {
+        margin: 0 4px;
+        font-size: 12px;
+        line-height: 28px;
+        text-decoration: none;
+      }
+      .page .current {
+        float: left;
+        display: block;
+        width: 28px;
+        height: 28px;
+        background-color: rgb(56, 28, 98);
+        color: white;
+      }
+      .page .num {
+        float: left;
+        display: block;
+        width: 28px;
+        height: 28px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+      .page .next {
+        float: left;
+        display: block;
+        width: 58px;
+        height: 28px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+      .page .prev {
+        float: left;
+        display: block;
+        width: 58px;
+        height: 28px;
+        background-color: #fff;
+        color: rgb(102, 102, 102);
+      }
+      #search-job {
+        width: 100%;
+        border: 0;
+        outline: none;
+        background-color: rgba(0, 0, 0, 0);
+        line-height: 27px;
+        text-align: center;
+        font-size: small;
+      }
+
+      .more-position {
+        display: none;
+        position: absolute;
+        width: 483px;
+        height: 155px;
+        left: -15px;
+        top: 25px;
+        background-color: #fff;
+        border-radius: 5px;
+        z-index: 998;
+        /* display: grid; */
+        grid-template-columns: repeat(6, 20px);
+        grid-template-rows: repeat(3, 10px);
+        row-gap: 20px;
+        column-gap: 58px;
+      }
+
+      .search-sidebar svg {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        position: relative;
+        left: 70px;
+        color: #333333;
+        opacity: 0;
+      }
+      /* 动画效果 */
+      .info-card {
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 1s ease-out;
+      }
+      .info-card-animation {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <div class="banner-text">
+          <p class="banner-text-title">让沟通与信任无处不在</p>
+          <p class="banner-text-bottom">
+            搭建桥梁，强化团队凝聚力，携手迈向成功之路
+          </p>
+        </div>
+        <img
+          src="__PUBLIC__/images/new_view_2025/staff_group101@2x.png"
+          alt=""
+        />
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Concept"
+            target="_self"
+            class=""
+            >人才理念</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Promotion"
+            target="_self"
+            class=""
+            >人才培养</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Staff"
+            target="_self"
+            class=""
+            >员工风采</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Recruit"
+            target="_self"
+            class=""
+            >招贤纳士</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Salary"
+            target="_self"
+            class=""
+            >薪酬福利</a
+          >
+        </div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-960 clearfix">
+        <div class="recruit-search" style="display: none">
+          <p class="title-search">职位筛选</p>
+          <div>
+            <div class="search-box-left">
+              <form
+                id="form"
+                action="{:U('recruit')}"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <input
+                  id="submit_kind_data"
+                  name="submit_kind_data"
+                  value=""
+                  style="display: none"
+                />
+                <input
+                  id="submit_pos_data"
+                  name="submit_pos_data"
+                  value=""
+                  style="display: none"
+                />
+                <input
+                  id="search-job"
+                  type="text"
+                  name="search-job"
+                  placeholder="请输入岗位"
+                  maxlength="10"
+                />
+              </form>
+            </div>
+            <div class="search-box-right">
+              <input
+                onclick="sub()"
+                id="search-btn"
+                style="
+                  border: 0;
+                  background-color: rgba(0, 0, 0, 0);
+                  color: #fff;
+                "
+                type="button"
+                value="搜索职位"
+              />
+            </div>
+          </div>
+          <div class="search-words">
+            <span>工作地点：</span>
+            <!-- <a href="{:U('recruit?pos=1')}">武汉市</a>
+            <a href="{:U('recruit?pos=2')}">襄阳市</a>
+            <a href="{:U('recruit?pos=3')}">黄冈市</a>
+            <a href="{:U('recruit?pos=4')}">荆州市</a> -->
+
+            <span onclick="save_pos_info(1)">武汉市</span>
+            <span onclick="save_pos_info(2)">襄阳市</span>
+            <span onclick="save_pos_info(3)">黄冈市</span>
+            <span onclick="save_pos_info(4)">荆州市</span>
+            <span onclick="save_pos_info()">全部</span>
+            <span onclick="more()">更多</span>
+            <div class="more-position">
+              <volist name="pos_list" id="vo">
+                <!-- <a href="{:U('recruit',['pos' => $vo['pos_id']])}"
+                  style="margin-left: 25px;margin-top:10px;width:40px;">{$vo.pos_name}</a> -->
+                <span
+                  onclick="save_pos_info('{$vo.pos_id}')"
+                  style="margin-left: 25px; margin-top: 10px; width: 40px"
+                  >{$vo.pos_name}</span
+                >
+              </volist>
+            </div>
+          </div>
+        </div>
+        <div class="search-sidebar" style="display: none">
+          <p>职能类型</p>
+          <p onclick="save_kind_info()">全部</p>
+          <!-- <form style="display: none;" id="form2" action="recruit" method="post" enctype="multipart/form-data" >
+           
+          </form> -->
+          <div>
+            <input
+              onclick="save_kind_info(0)"
+              type="button"
+              value="校园招聘"
+              style="
+                border: 0;
+                background-color: rgba(0, 0, 0, 0);
+                color: #333333;
+              "
+            />
+            <svg
+              t="1722952341675"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="2486"
+              width="200"
+              height="200"
+            >
+              <path
+                d="M671.807 927.804l-415.632-415.804 415.632-415.803 63.445 63.616-352.017 352.209 352.017 352.102z"
+                fill="#272636"
+                p-id="2487"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <input
+              onclick="save_kind_info(1)"
+              type="button"
+              value="社会招聘"
+              style="
+                border: 0;
+                background-color: rgba(0, 0, 0, 0);
+                color: #333333;
+              "
+            />
+            <svg
+              t="1722952341675"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="2486"
+              width="200"
+              height="200"
+            >
+              <path
+                d="M671.807 927.804l-415.632-415.804 415.632-415.803 63.445 63.616-352.017 352.209 352.017 352.102z"
+                fill="#272636"
+                p-id="2487"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <input
+              onclick="save_kind_info(2)"
+              type="button"
+              value="内部推荐"
+              style="
+                border: 0;
+                background-color: rgba(0, 0, 0, 0);
+                color: #333333;
+              "
+            />
+            <svg
+              t="1722952341675"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="2486"
+              width="200"
+              height="200"
+            >
+              <path
+                d="M671.807 927.804l-415.632-415.804 415.632-415.803 63.445 63.616-352.017 352.209 352.017 352.102z"
+                fill="#272636"
+                p-id="2487"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <!-- <div class="info-card">
+          <span class="title">招聘专员</span>
+          <div>
+          <span>话务专员</span><span>武汉.硚口</span>
+          </div>
+          <div>
+          <span>岗位职责：1.负责打电话。。。。。。。。。。。。。...</span>
+          </div>
+        </div> -->
+        <div class="recruit-box" style="margin-top: 72px">
+          <volist name="list" id="vo">
+            <div class="info-card" id="info-card-{$vo.id}">
+              <a
+                href="__APP__/index.php/Admin/Recruit/recruit_detail?id={$vo.id}"
+                target="_self"
+                style="text-decoration: none; color: #333333"
+              >
+                <span class="title">{$vo.title}</span>
+                <div>
+                  <span class="info-tips" style="margin-right: 30px"
+                    >{$vo.job}</span
+                  >
+                  <span class="info-tips">{$vo.position}</span>
+                </div>
+                <div>
+                  <span class="info-content">{$vo.duty}</span>
+                </div>
+              </a>
+            </div>
+          </volist>
+          <if condition="empty($list)">
+            <div id="empty-info">
+              <img
+                src="__PUBLIC__/images/new_view_2025/empty_icon.png"
+                alt=""
+              />
+              <p class="empty-text">暂时没有相关信息</p>
+            </div>
+          </if>
+        </div>
+
+        <div class="page">{$page}</div>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+    <script>
+      // 滚动懒加载动效（封装版）
+      function animateOnScroll(selector, className, threshold = 0.5) {
+        const elements = document.querySelectorAll(selector);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(className);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold,
+            rootMargin: "0px 0px 10% 0px", // 负值表示向内收缩观察区域
+          }
+        );
+
+        elements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+      // // 为元素添加动画效果
+      function addAnimation() {
+        const animationArr = [
+          {
+            element: ".info-card",
+            className: "info-card-animation",
+          },
+        ];
+        animationArr.forEach((item) => {
+          animateOnScroll(item.element, item.className);
+        });
+      }
+      addAnimation();
+    </script>
+  </body>
+
+  <volist name="list" id="vo">
+    <!-- <div class="po-id" style="display: none;">{$vo.id}</div> -->
+    <div class="po-title" style="display: none">{$vo.emergency}</div>
+  </volist>
+</html>
+
+<script>
+  var items = document.querySelectorAll(".info-card .title");
+  var total = document.querySelectorAll(".po-title").forEach((item, index) => {
+    if (item.textContent == "1") {
+      items[index].classList.add("emergency");
+    }
+  });
+
+  // 渲染后钩子
+  window.addEventListener("DOMContentLoaded", (event) => {
+    // var query, kind_id, pos_id = getFromSessionStorage();
+    // postForm(query, kind_id, pos_id);
+
+    document.querySelector("#search-job").value = get_search_info();
+    // var more_flag =  window.sessionStorage.getItem("position");
+    // if(more_flag == null){
+    //   unview_position();
+    // }
+    // else{
+    //   view_position();
+    // }
+    let kind_id = get_kind_info();
+    var svgs = document.querySelectorAll(".search-sidebar svg");
+    if (kind_id == 0) {
+      svgs[0].style.opacity = 1;
+    }
+    if (kind_id == 1) {
+      svgs[1].style.opacity = 1;
+    }
+    if (kind_id == 2) {
+      svgs[2].style.opacity = 1;
+    }
+  });
+  function view_position() {
+    document.querySelector(".more-position").style.display = "grid";
+    document.querySelector(".search-words span:nth-child(7)").textContent =
+      "收起";
+  }
+
+  function unview_position() {
+    document.querySelector(".more-position").style.display = "none";
+    document.querySelector(".search-words span:nth-child(7)").textContent =
+      "更多";
+  }
+
+  function sub() {
+    save_search_info();
+    var query = document.querySelector("#search-job").value;
+    if (query == "") {
+      window.alert("请输入内容！");
+    } else {
+      postForm();
+    }
+  }
+
+  function save_search_info() {
+    var search_text = document.querySelector("#search-job").value;
+    window.sessionStorage.setItem("query", search_text);
+  }
+
+  function get_search_info() {
+    var info = window.sessionStorage.getItem("query");
+    return info;
+  }
+
+  var more_flag = 0;
+  function more() {
+    if (more_flag == 0) {
+      view_position();
+      more_flag = 1;
+    } else {
+      unview_position();
+      more_flag = 0;
+    }
+  }
+
+  function save_pos_info(pos_id) {
+    window.sessionStorage.setItem("pos_id", pos_id);
+    postForm();
+  }
+
+  function get_pos_info() {
+    var info = window.sessionStorage.getItem("pos_id");
+    return info;
+  }
+
+  function save_kind_info(kind_id) {
+    window.sessionStorage.setItem("kind_id", kind_id);
+    postForm();
+  }
+
+  function get_kind_info() {
+    var info = window.sessionStorage.getItem("kind_id");
+    return info;
+  }
+
+  function getFromSessionStorage() {
+    return [get_search_info(), get_kind_info(), get_pos_info()];
+  }
+
+  function postForm() {
+    var query = "",
+      kind_id = "",
+      pos_id = "";
+    [query, kind_id, pos_id] = getFromSessionStorage();
+    if (query === "undefined") query = "";
+    if (kind_id === "undefined") kind_id = "";
+    if (pos_id === "undefined") pos_id = "";
+    document.querySelector("#search-job").value = query;
+    document.querySelector("#submit_kind_data").value = kind_id;
+    document.querySelector("#submit_pos_data").value = pos_id;
+    console.log(query, kind_id, pos_id);
+    document.querySelector("#form").submit();
+  }
+
+  window.addEventListener("keydown", (e) => {
+    if (e.keyCode === 13) {
+      var Input = document.getElementById("search-job");
+      if (Input == document.activeElement) {
+        sub();
+      }
+    }
+  });
+</script>

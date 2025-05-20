@@ -1,0 +1,79 @@
+/* 最常见，所有标签内外边距设为0*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 这两个是斜体标签，让字体不倾斜显示*/
+em,
+i {
+  font-style: normal;
+}
+
+/* 清除li标签前面的圆点或其它显示符*/
+li {
+  list-style: none;
+}
+
+/*解决图片下面空白缝隙以及去除边框bug*/
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+/*所有按钮指针样式为pointer*/
+button {
+  cursor: pointer;
+}
+
+/*链接下面没有下划线*/
+a {
+  color: #666;
+  text-decoration: none;
+}
+a:hover {
+  color: #c81623;
+}
+
+/*指定button，input的字体*/
+button,
+input {
+  font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB,
+    "\5B8B\4F53", sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased; /*CSS3新属性，减少字体放大时的巨齿形状*/
+  background-color: #fff;
+  font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB,
+    "\5B8B\4F53", sans-serif;
+  color: #666;
+}
+
+/*给标签添加这两个类名，使得元素不显示 不保留原来位置*/
+.hide,
+.none {
+  display: none;
+}
+
+/*浮动布局，清除浮动*/
+.clearfix:after {
+  visibility: hidden;
+  clear: both;
+  display: block;
+  content: ".";
+  height: 0;
+}
+/*也是清除浮动，只不过是IE浏览器的清除浮动*/
+.clearfix {
+  zoom: 1;
+}
+/* 自定义字体 */
+@font-face {
+  font-family: "PingFang SC Regular";
+  src: url("../fonts/PingFang/苹方黑体-准-简.ttf");
+}
+@font-face {
+  font-family: "PingFang SC Light";
+  src: url("../fonts/PingFang/苹方黑体-细-简.ttf");
+}

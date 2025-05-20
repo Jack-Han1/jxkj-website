@@ -1,0 +1,442 @@
+<!-- 人力资源->员工风采 v2024 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>走进精信-员工风采</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 384px;
+        width: 100%;
+        position: relative;
+      }
+      .banner-text {
+        width: 854px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .banner-text-title {
+        font-size: 85px;
+        line-height: 113px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-family: "Microsoft YaHei";
+        margin-bottom: 16px;
+      }
+      .banner-text-bottom {
+        font-size: 32px;
+        line-height: 42px;
+        color: rgb(255, 255, 255);
+        font-family: "Microsoft YaHei";
+        /* margin-bottom: 16px; */
+      }
+      .top-banner img {
+        display: block; /* 图片必须是块级元素 */
+        margin: 0 auto; /* 水平居中 */
+        height: 384px;
+        width: 100%;
+        /* object-fit: cover; */
+      }
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 120px;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .staff {
+        padding-top: 80px;
+      }
+      .staff-row {
+        display: grid;
+        grid-template-columns: repeat(3, 298px);
+        grid-template-rows: repeat(4, 186px);
+        row-gap: 20px;
+        column-gap: 33px;
+        /* flex-flow: row wrap; 
+        justify-content: flex-start; */
+        /* margin-bottom: 15px; */
+      }
+      .staff-item {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      .img-box {
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+      }
+      .staff-item-img {
+        width: 298px;
+        height: 186px;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+      .staff-item:hover .staff-item-img {
+        transform: scale(1.05);
+      }
+      .staff-item-mask {
+        position: absolute;
+        opacity: 1;
+        height: 70%;
+        width: 100%;
+        background: linear-gradient(
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.3) 70%
+        );
+        top: auto;
+        bottom: 0px;
+        z-index: 2;
+      }
+      .staff-item:hover .staff-item-mask {
+        opacity: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        background-image: url("__PUBLIC__/images/mask_grad.png");
+        background-repeat: repeat-x;
+        background-position: left bottom;
+        background-size: auto 100%;
+      }
+      .text-box {
+        position: absolute;
+        left: 0px;
+        bottom: -28px;
+        /* bottom: 0px; */
+        z-index: 9;
+        /* border: 1px solid red; */
+        width: 100% !important;
+        height: 70px !important;
+        padding: 10px 15px;
+        transition: all 0.5s;
+        cursor: pointer;
+      }
+      .staff-item:hover .text-box {
+        bottom: 0px;
+      }
+      .text-name {
+        /* word-break: break-word;
+        overflow: hidden;
+        overflow-wrap: break-word; */
+        width: 100%;
+        font-size: 14px;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        z-index: 10;
+        font-family: "PingFang SC Regular";
+      }
+      .text-box .read-more {
+        color: #fff;
+        font-size: 12px;
+        font-family: "PingFang SC Light";
+        width: 75px;
+        opacity: 0;
+        transition: all 0.5s ease-in;
+      }
+      .staff-item:hover .text-box .read-more {
+        opacity: 1;
+      }
+      .more-text {
+        transition: all 0.2s;
+      }
+      .read-more:hover .more-text {
+        margin-right: 3px;
+      }
+      /* 动画效果 */
+      .staff-item,
+      .promotion-box2,
+      .study-title,
+      .study-content {
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 1s ease-out;
+      }
+      .staff-item-animation,
+      .promotion-box2-animation,
+      .study-title-animation,
+      .study-content-animation {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <div class="banner-text">
+          <p class="banner-text-title">让沟通与信任无处不在</p>
+          <p class="banner-text-bottom">
+            搭建桥梁，强化团队凝聚力，携手迈向成功之路
+          </p>
+        </div>
+        <img
+          src="__PUBLIC__/images/new_view_2025/staff_group101@2x.png"
+          alt=""
+        />
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Concept"
+            target="_self"
+            class=""
+            >人才理念</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Promotion"
+            target="_self"
+            class=""
+            >人才培养</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Staff"
+            target="_self"
+            class=""
+            >员工风采</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Recruit"
+            target="_self"
+            class=""
+            >招贤纳士</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Recruit/Salary"
+            target="_self"
+            class=""
+            >薪酬福利</a
+          >
+        </div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-960 clearfix">
+        <div class="staff">
+          <!-- <volist name="list" id="vo">
+            <div class="album-k">
+              <div class="album-l"></div>
+              <div class="album">
+                <a
+                  class="img_f"
+                  href="__APP__/index.php/Admin/About/staff_album?id={$vo.id}"
+                >
+                  <div style="width: 218px; height: 218px">
+                    <img src="__ROOT__/{$vo.url}" />
+                  </div>
+                </a>
+                <h1>{$vo.title}</h1>
+              </div>
+            </div>
+          </volist> -->
+          <!-- <div class="page">{$page}</div> -->
+
+          <div class="staff-row">
+            <!-- <div class="staff-item">
+              <img src="" alt="" class="staff-item-img" />
+              <p class="staff-item-name">员工风采1</p>
+            </div> -->
+            <volist name="list" id="vo">
+              <a href="__APP__/index.php/Admin/Recruit/staff_album?id={$vo.id}">
+                <div class="staff-item">
+                  <div class="img-box">
+                    <img
+                      data-src="__ROOT__/{$vo.url}"
+                      alt=""
+                      class="staff-item-img lazyload"
+                    />
+                    <div class="staff-item-mask"></div>
+                  </div>
+                  <div class="text-box">
+                    <div class="text-name">{$vo.title}</div>
+                    <div class="read-more">
+                      <span class="more-text">更多详情</span>
+                      <svg
+                        t="1714009885579"
+                        class="icon"
+                        viewBox="0 0 1024 1024"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        p-id="11684"
+                        width="10"
+                        height="10"
+                      >
+                        <path
+                          d="M200.499017 0.915103h207.636819v204.067918H200.499017V0.915103z m207.636819 204.067918h207.728328v204.067917h-207.728328V204.983021z m207.728328 204.067917H823.500983V613.118856H615.864164V409.050938zM408.135836 613.118856h207.728328v204.983021h-207.728328V613.118856zM200.499017 818.101877h207.636819v204.067917H200.499017V818.101877z"
+                          fill="#c7000b"
+                          p-id="11685"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </volist>
+          </div>
+
+          <!-- <div class="staff-row">
+            <div class="staff-item">
+              <img src="" alt="" class="staff-item-img" />
+              <p class="staff-item-name">员工风采</p>
+            </div>
+            <div class="staff-item">
+              <img src="" alt="" class="staff-item-img" />
+              <p class="staff-item-name">员工风采</p>
+            </div>
+            <div class="staff-item">
+              <img src="" alt="" class="staff-item-img" />
+              <p class="staff-item-name">员工风采</p>
+            </div>
+            <div class="staff-item">
+              <img src="" alt="" class="staff-item-img" />
+              <p class="staff-item-name">员工风采</p>
+            </div>
+          </div>
+          <div class="staff-row">
+            <div class="staff-item">
+              <img src="" alt="" class="staff-item-img" />
+              <p class="staff-item-name">员工风采</p>
+            </div>
+            <div class="staff-item">
+              <img src="" alt="" class="staff-item-img" />
+              <p class="staff-item-name">员工风采</p>
+            </div>
+            <div class="staff-item">
+              <img src="" alt="" class="staff-item-img" />
+              <p class="staff-item-name">员工风采</p>
+            </div>
+            <div class="staff-item">
+              <img src="" alt="" class="staff-item-img" />
+              <p class="staff-item-name">员工风采</p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+    <script>
+      // 滚动懒加载动效（封装版）
+      function animateOnScroll(selector, className, threshold = 0.5) {
+        const elements = document.querySelectorAll(selector);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(className);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold,
+            rootMargin: "0px 0px 10% 0px", // 负值表示向内收缩观察区域
+          }
+        );
+
+        elements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+      // // 为元素添加动画效果
+      function addAnimation() {
+        const animationArr = [
+          {
+            element: ".staff-item",
+            className: "staff-item-animation",
+          },
+          {
+            element: ".promotion-box2",
+            className: "promotion-box2-animation",
+          },
+          {
+            element: ".study-title",
+            className: "study-title-animation",
+          },
+          {
+            element: ".study-content",
+            className: "study-content-animation",
+          },
+        ];
+        animationArr.forEach((item) => {
+          animateOnScroll(item.element, item.className);
+        });
+      }
+      addAnimation();
+    </script>
+  </body>
+</html>
+<script src="__PUBLIC__/Js/my-lazyload.js"></script>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兰兰改版首页</title>
+	<link rel="stylesheet" href="css/baes.css" type="text/css">
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<!--nav-position -->
+	<script type="text/javascript"> 
+	    $(document).ready(function(){ 
+	        var headHeight=$(".nav").height()+10; 
+	        var nav=$(".nav"); 
+	        $(window).scroll(function(){ 
+	            if($(this).scrollTop()>headHeight){ 
+	                nav.addClass("navFix"); 
+	            } 
+	            else{ 
+	                nav.removeClass("navFix"); 
+	            } 
+	        }) 
+	    }) 
+	</script> 
+	<!-- slider -->
+    <script type="text/javascript" src="js/banner.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $(".index_btn li").hover(function(){
+                $(this).find("div").stop(true).animate({top:-280},300);  
+            },function(){
+                $(this).find("div").stop(true).animate({top:-0},300);
+            });
+
+        });
+    </script>
+</head>
+<body>
+<!--导航条开始-->
+	<div class="nav">
+		<div class="w-1200">
+			<i class="logo"></i>
+			<ul>
+				<li>
+					<a href="" target="_self" class="nav-link">首页</a>
+				</li>
+				<li>
+					<a href="" target="_self" class="nav-link">走进盛华</a>
+					<div class="subnav2"> 
+						<div class="subnav-left">
+							<a href="">精信介绍</a>
+							<a href="">精信领袖</a>
+							<!-- <a href="">精信架构</a> -->
+							<a href="">核心团队</a>
+							<a href="">精信荣誉</a>
+							<a href="">精信文化</a>
+							<a href="">领导关怀</a>
+							<a href="">员工风采</a> 
+						</div>   
+					</div>
+				</li>
+				<li>
+					<a href="" target="_self" class="nav-link">新闻中心</a>
+					<div class="subnav3">
+						<div class="subnav-left">
+							<a href="">精信要闻</a>
+							<a href="">精信公告</a>
+							<a href="">行业动态</a>
+							<a href="">媒体聚焦</a>
+						</div>
+
+					</div>
+				</li>
+				<li>
+					<a href="" target="_self" class="nav-link">产品中心</a>
+					<div class="subnav4">
+						<div class="subnav-left">
+							<a href="">教育类</a>
+							<a href="">金融类</a>
+							<a href="">易信通</a>     
+						</div>
+
+					</div>
+				</li>
+				<li>
+					<a href="" target="_self" class="nav-link">人才中心</a>
+					<div class="subnav5">
+						<div class="subnav-left">
+							<a href="">招才纳士</a>
+							<a href="">人才理念</a>
+							<a href="">人才培养</a>
+						</div>
+
+					</div>
+				</li>
+				<li>
+					<a href="" target="_self" class="nav-link">联系我们</a>
+				</li>
+					<a href="" target="_self" class="nav-link"><i class="search-icon"></i></a>
+			</ul>
+		</div>
+	</div>
+<!--导航条结束-->
+<!-- 轮播开始 -->
+<div class="bannerbox">
+	<div class="Homebanner">
+		<ul>
+			<li class="Load cur" style="z-index:99">
+				<img src="images/banner001.jpg" alt="">
+				<div class="Homebannertext">
+					<img src="" class="bannereffect bannertime bigimg">
+					<dl class="bannerone clearfix">
+						<dt class="bannereffect bannertime1">
+							愿 景
+						</dt>
+						<dd class="bannereffect bannertime2">
+							客户满意的精准营销服务专家；
+						</dd>
+					</dl>
+				</div>
+			</li>
+			<li class="Load">
+				<img src="images/banner003.jpg" alt="">
+				<div class="Homebannertext">
+					<img src="" class="bannereffect bannertime bigimg">
+					<dl class="bannertwo clearfix">
+						<dt class="bannereffect bannertime1">
+							<h3>精神</h3>
+							<p>
+								严谨、敬业、专注、专业，精益求精的工匠精神；<br>
+								胜则举杯相庆，败则拼死相救的团队精神；<br>
+								前行成长，全力以赴，永争第一的个人拼搏精神。
+							</p>
+						</dt>
+					</dl>
+				</div>
+			</li>
+			<li class="Load"><img src="images/banner002.png" alt="">
+				<div class="Homebannertext">
+					<dl class="bannerthree clearfix">
+						<dt class="bannereffect bannertime"><!-- <img src="img/03-1.png" alt=""> --></dt>
+						<dd class="bannereffect bannertime1">
+							<!-- <img src="images/earthf.png" alt=""> -->
+							<h3>价值观</h3>
+							<p>客户第一，用我们的产品和服务让客户生活得更美好!</p>
+						</dd>
+					</dl>
+				</div>
+			</li>
+		</ul>
+		<div class="Homeleft"><</div>
+		<div class="Homeright">></div>
+		<div class="Homedot"><a href="javascript:;" class="cur">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a></div>
+	</div>
+</div>
+<!-- 轮播结束 -->
+<!-- 热点新闻开始 -->
+<div class="hot-news">
+    <h1>热点新闻</h1>
+    <span class="line"></span>
+    <div class="new-flash">
+    <a href="">热烈祝贺湖北精英盛华信息科技股份有限公司成功在全国中小企业股份转让系统挂牌!<br>【证券简称：精信科技  证券代码：870852】 </a>
+    </div>
+    <button>点击查看</button>
+</div>
+<!-- 热点新闻结束 -->
+<!-- 产品板块开始 -->
+<div class="m-cp">
+	<div class="m-cp-box box1">
+		<a href="" class="img">
+			<span class="cp01-icon"></span>
+			<img src="images/cp01.jpg">
+			<span class="img-hover"></span>
+		</a>
+		<h1>智慧教育</h1>
+		<p>建立安全、便捷、开放的校园成长平台</p>
+		<a href="" class="btn">了解更多</a>
+	</div>
+	<div class="m-cp-box box2">
+		<a href="" class="img">
+			<span class="cp02-icon"></span>
+			<img src="images/cp02.jpg">
+			<span class="img-hover"></span>
+		</a>
+		<h1>智慧金融</h1>
+		<p>结合4G时代消费特点<br>打造通信消费新模式</p>
+		<a href="" class="btn">了解更多</a>
+	</div>
+	<div class="m-cp-box box3">
+		<a href="" class="img">
+			<span class="cp03-icon"></span>
+			<img src="images/cp03.jpg">
+			<span class="img-hover"></span>
+		</a>
+		<h1>易信通</h1>
+		<p>数字化移动营销解决方案</p>
+		<a href="" class="btn">了解更多</a>
+	</div>
+</div>
+<!-- 产品板块结束 -->
+
+
+<!--新闻块开始-->
+<div class="w-1200 clear-b" >
+<div class="news">
+    <h1 class="b-title"><i class="i"></i>精信要闻 / <span>NEWS</span><a href="" class="fr">MORE></a></h1>
+    <div class="news-t">    
+        <div class="news-img">
+        <img src="images/2.png" />
+        </div>
+        <div class="news-detail">
+        <h1><a href="">我公司荣获闸北区科技创新特等奖</a></h1>
+        <p>1月8日，闸北区第九届科技创新奖揭晓，我公司申报的“高性能手机邮箱系统软件”凭借卓越的性能和显著的社会经济效益，获得科技创新奖特等奖...</p>
+        <a href="" class="news-into">查看详情>></a>
+        </div>
+        
+    </div>
+    <div class="news-list">
+        <a href=""><h1>我公司获得广西联通“战略合作伙伴”称号<span class="news-list-time">[2016-05-30]</span></h1></a>
+        <a href=""><h1>我公司获得广西联通“战略合作伙伴”称号<span class="news-list-time">[2016-05-30]</span></h1></a>
+        <a href=""><h1>我公司获得广西联通“战略合作伙伴”称号<span class="news-list-time">[2016-05-30]</span></h1></a>
+        <a href=""><h1>我公司获得广西联通“战略合作伙伴”称号<span class="news-list-time">[2016-05-30]</span></h1></a>
+        <a href=""><h1>我公司获得广西联通“战略合作伙伴”称号<span class="news-list-time">[2016-05-30]</span></h1></a>
+    </div>
+</div>
+<div class="m-blk">
+	<a href="">
+		<img src="images/blk01.png">
+	</a>
+	<a href="">
+		<img src="images/blk02.png">
+	</a>
+	<a href="">
+		<img src="images/blk03.png">
+	</a>
+	<a href="">
+		<img src="images/blk04.png">
+	</a>
+	<a href="">
+		<img src="images/blk05.png">
+	</a>
+</div>
+</div>
+
+<!--新闻块结束-->
+
+<!--foot 开始-->
+<div class="footer clear-b">
+	<div class="foot-con">
+		<ul class="foot-list w-230">
+			<li><span>扫一扫</span></li>
+			<li>
+				<img src="images/sy-ewm.png" alt="" />
+			</li>
+			<li class="mar-t-5">一键分享</li>
+			<li>
+				<a href="" class="QQ"></a>
+				<a href="" class="KJ"></a>
+				<a href="" class="WB"></a>
+				<a href="" class="WX"></a>
+				<a href="" class="PYQ"></a>
+			</li>
+		</ul>
+		<ul class="foot-list w-270">
+			<li><span>联系我们</span></li>
+			<li>地址：湖北省武汉市硚口区解放大道578号中御广场23F</li>
+			<li>电话：027-83987310</li>
+			<li>网址：www.jingyingshenghua.com</li>
+		</ul>
+		<ul class="foot-list">
+			<li><span>旗下公司</span></li>
+			<li><a href="">上海洲信信息技术有限公司</a></li>
+			<li><a href="">安徽共佳信息技术有限公司</a></li>
+		</ul>
+		<div class="foot-map"></div>
+	</div>
+	<div class="foot-bottom">2016-2017© 精信科技版权所有&nbsp;&nbsp;|&nbsp;&nbsp;沪ICP备07509391号&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">法律声明</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">隐私保护</a></div>
+</div>
+<!-- foot结束 -->
+</body>
+</html>

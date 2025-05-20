@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>智慧城管-互联网类-产品中心</title>
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+    <style type="text/css">
+        /*.dis-n {
+            display: none;
+        }*/
+        /*.product-nav li{*/
+            /*background-color: #97c740;*/
+        /*}*/
+        .product-subnav li{
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster4"></div>
+<!--海报-->
+<!--con-->
+<div class="product-bg">
+    <div class="product-k" style="width:1165px">
+    	<!--侧导航-->
+    	<div class="product-nav">
+            <ul id="product_menu">
+               <a href="__APP__/index.php/Admin/Product/school"> <li ><i class="triangle-solid "></i>智慧校园</li></a>
+               <!-- <ul class="product-subnav">
+                    <a href="__APP__/index.php/Admin/Product/school"><li  class="select">智慧教育</li></a>
+                </ul>-->
+               <a href="__APP__/index.php/Admin/Product/index"> <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)"><i class="triangle-solid"></i>光伏电能投资运营</li></a> 
+                <!--<ul class="product-subnav  dis-n">
+                    <a href="__APP__/index.php/Admin/Product/business"><li>商企项目</li></a>
+                </ul>-->
+               <a href="__APP__/index.php/Admin/Product/yxt"> <li onmouseover="mouse_in(this)" onmouseout="mouse_out(this)"><i class="triangle-solid"></i>通信业务</li></a>
+                <!--<ul class="product-subnav  dis-n">
+                    <a href="__APP__/index.php/Admin/Product/index"><li>智慧金融</li></a>
+                </ul>-->
+                <a href="__APP__/index.php/Admin/Product/zhcg"><li class="select" onmouseover="mouse_in(this)" onmouseout="mouse_out(this)"><i class="triangle-solid triangle-select"></i>智慧城管</li></a>
+            </ul>
+        </div>
+    	<!--右侧内容-->
+   	    <div class="product-con">
+        <div class="product-t product-t4">
+            <img src="__PUBLIC__/images/zhcg-7-18.jpg" />
+<!--            <h1>智慧城管</h1>-->
+<!--            <h2>Wisdom City Management System</h2>-->
+<!--            <h3>贯彻国家智慧城市建设标准，打造集高效、便捷、智慧于一身的综合城市管理体系</h3>-->
+        </div>
+        <!-- <div class="w-906">
+            <img src="__PUBLIC__/images/product-02-02-02.png" />
+        </div> -->
+        <div class="product-text">
+            <h1>智慧城管</h1>
+            <h4>Wisdom City Management System</h4>
+            <h2>一、产品背景</h2>
+            <p>根据十三五规划中“基础设施智能化、公共服务便利化、社会治理精细化，充分利用现代信息技术和大数据”的建设要求，城市管理工作必须结合最新互联网信息技术、数据共享万物互联的最新思路和高效便捷可操作性强的设计理念来构建智慧城管新体系。</p>
+            <h2>二、产品概述</h2>
+            <p>精信科技在智慧城市建设的整体框架下，不断推进技术应用创新和管理模式创新，结合城市管理实际需求，对“数字城管”信息平台进行提升和创新，着力打造智慧城市管理新格局。
+                                    通过融合物联网、移动通信、云计算、大数据可视化、视频智能分析、城管大脑等技术等多项前沿技术，建立智能程度更高、感知更全面的智慧城市管理平台，并运用互联网思维及城市治理理念，创新城市管理运营模式，建立科学的智慧管理新体系，真正实现从管理到服务、从治理到运营，从相对独立到协同一体的智慧城管新模式。
+            </p>
+            <h2>三、产品结构图</h2>
+            <img src="__PUBLIC__/images/cg-7-18.jpg" style="width:900px; margin-left:-60px;" />
+        </div>
+        </div>
+    </div>
+</div>
+
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+<script type="text/javascript">
+$("#product_menu").children('ul').hide();
+    $(".select").next("ul").show();
+    $("#product_menu").children('li').click(function(){
+        $(this).next("ul").toggle();
+    });
+    //    $("#product_menu").children('li').click(function(){
+    //        $(".dis-s").addClass('dis-n');
+    //        $(".dis-s").removeClass('dis-s');
+    //        $(this).next('ul').removeClass('dis-n');
+    //        $(this).next('ul').addClass('dis-s');
+    //    })
+   /* function mouse_in(e){
+        if($(e).next('ul').attr('class')!='product-subnav dis-s'){
+            $(e).css({"color":"#105dd5"})
+            $(e).children('i').addClass('green_down')
+//            $(e).children('i').removeClass('product-icon')
+        }
+//        console.log($(e).next('ul').attr('class')=='product-subnav dis-s')
+
+    }
+    function mouse_out(e) {
+        if ($(e).attr('class')!='select' && $(e).next('ul').attr('class') != 'product-subnav dis-s') {
+            $(e).css({"color": "#3c3c3c"})
+            $(e).children('i').removeClass('green_down')
+        }
+    }*/
+//     $("#product_menu").children('li').click(function(){
+// //        $(".dis-s").prev('li').css({"background-color":"#fff","color":"#3c3c3c"})
+// //        $(".dis-s").prev('li').children('i').removeClass('product-select-icon');
+// //        $(".dis-s").prev('li').children('i').addClass('product-icon');
+// //        $(".dis-s").addClass('dis-n');
+// //        $(".dis-s").removeClass('dis-s');
+// //        $(this).next('ul').removeClass('dis-n');
+// //        $(this).next('ul').addClass('dis-s');
+// //        $(this).css({"background-color":"#97c740","color":"#fff"})
+// //        $(this).children('i').addClass('product-select-icon');
+// //        $(this).children('i').removeClass('product-icon');
+// //        $(this).children('i').removeClass('green_down');
+//         if($(this).attr('class')!='select'){
+//             $(".dis-s").prev('li').css({"border":"none","color":"#3c3c3c"})
+//             $(".dis-s").prev('li').children('i').removeClass('green_down');
+//             $(".dis-s").addClass('dis-n');
+//             $(".dis-s").removeClass('dis-s');
+//             $(this).next('ul').removeClass('dis-n');
+//             $(this).next('ul').addClass('dis-s');
+//             $(this).css({"border-bottom":"1px #ccc dotted"})
+//             $(this).children('i').addClass('green_down');
+//         }
+//     })
+</script>
+</body>
+</html>

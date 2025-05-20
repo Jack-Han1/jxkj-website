@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.6.min.js"/>
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+    <load href="__PUBLIC__/ueditor/ueditor.config.js" />
+    <load href="__PUBLIC__/ueditor/ueditor.all.min.js" />
+    <load href="__PUBLIC__/Js/laydate.dev.js"/>
+    <load href="__PUBLIC__/Js/laydate.js"/>
+<title>精信官网后台新闻</title>
+
+</head>
+
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <form id="from" action="save" method="post" enctype="multipart/form-data" >
+	<div class="add-line-1">
+    <span>产品标题：</span><input type="text" class="input-k w-350" id="name" name="name"/>
+    </div>
+        <div class="add-line-1">
+            <span>产品摘要：</span>
+            <textarea style="width: 500px;overflow: auto;resize: none;height: 100px;padding: 5px 10px;border:1px solid #ccc;" id="abstract" name="abstract"></textarea>
+            <!--<input type="text" class="input-k w-350" id="abstract" name="abstract" value="{$info.abstract}"/>-->
+        </div>
+    <!-- <div class="add-line-1">
+        <span>所属分类：</span>
+        <select class="input-k w-150" style="height: 29px;" id="kind" name="kind">
+            <option value="">请选择分类</option>
+            <volist name="list" id="vo">
+                <option value="{$vo.id}">{$vo.name}</option>
+            </volist>
+        </select>
+    <span>时间：</span><input type="text" class="input-k w-150" onclick="fPopCalendar(event,this,this)" onfocus="this.select()" readonly="readonly" />
+    </div> -->
+        <div class="add-line-1">
+            <span>产品链接：</span><input type="text" class="input-k w-150" id="url" name="url" style="width:520px;"/>
+        </div>
+    <!-- <div class="add-line-1">
+        <span >图片：</span>
+        <input id="news_pic" name="news_pic" type="file" class="input-k w-350" value="上传图片" style="padding-top: 5px;padding-bottom: 5px;" />
+        <img id="img" style="display: none" class="w-350" src="__PUBLIC__/images/ad.png" alt=""/>
+    </div>
+    <div style="margin-top: 20px;">
+    <span style="display:inline-block; width:250px; text-align:right; float:left;">内容：</span>
+        <div class="html-edit" style="height: auto;width:1050px;">
+            <script id="container" name="container" type="text/plain"></script>
+        </div>
+    </div> -->
+    <div class="add-line-1"><input onclick="sub()" type="button" class="save-btn mar-l-250" value="保存" /></div>
+    </form>
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+<script type="text/javascript">
+    $(function(){
+        var ue = UE.getEditor('container',{serverUrl :"{:U('Home/Advertise/ueditor')}"});
+    })
+
+    var article_time = {
+        elem: '#article_time',
+        format: 'YYYY/MM/DD hh:mm:ss',
+        min: '1099-06-16 23:59:59', //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: true,
+        istoday: true,
+        choose: function(datas){
+            end.min = datas; //开始日选好后，重置结束日的最小日期
+            end.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+    laydate(article_time);
+
+    function sub(){
+        // var container = UE.getEditor('container').getContent();
+        // var kind = $("#kind").val();
+        var name = $("#name").val();
+        var abstract = $("#abstract").val();
+        var url = $("#url").val();
+        if(name == ""){
+            alert("请输入标题！");
+            return false;
+        }else if(abstract == ""){
+            alert("请填写摘要！");
+            return false;
+        }else if(url == ""){
+            alert("请填写产品链接！");
+            return false;
+        }
+        $("#from").submit();
+//        $.post('save', {name:name,kind:kind,container:container}, function(data){
+//            data = eval('(' + data + ')');
+//            if(data.status){
+//                alert(data.info);
+//                window.location.href="index";
+//            }else{
+//                alert(data.info);
+//            }
+//        });
+    }
+</script>
+</body>
+</html>

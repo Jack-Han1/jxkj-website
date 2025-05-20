@@ -1,0 +1,294 @@
+<!-- 走进精信->企业文化 v2024 -->
+<!-- 走进精信-精信文化 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>走进精信-精信文化</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 467px;
+        width: 100%;
+        /* background-color: #d9d9d9; */
+        background-image: url("__PUBLIC__/images/new_view_2025/about_group101@2x.png");
+        background-size: cover; /* 图片覆盖整个区域 */
+        background-position: center; /* 图片居中显示 */
+        position: relative;
+      }
+      .top-banner-inside {
+        width: 1200px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 45%;
+      }
+      .top-banner-inside-p1 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 53.6px;
+      }
+      .top-banner-inside-p2 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 24.8px;
+      }
+      /* .top-banner img {
+        display: block;
+        margin: 0 auto;
+        height: 467px;
+        width: 100%;
+        object-fit: cover;
+      } */
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected a:hover {
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 195px;
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .culture-box {
+        width: 100%;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr); /* 两行 */
+        grid-template-columns: repeat(3, 1fr); /* 三列 */
+        gap: 0px; /* 设置网格项之间的间距 */
+        background-image: url("__PUBLIC__/images/new_view_2025/culture_group102@2x.png");
+        background-size: cover; /* 让图片覆盖整个元素 */
+        background-position: center; /* 图片居中显示 */
+        background-repeat: no-repeat; /* 防止图片重复 */
+      }
+      .culture-item {
+        height: 315px;
+        width: 400px;
+        padding-left: 52px;
+      }
+      .culture-item:nth-child(1),
+      .culture-item:nth-child(2),
+      .culture-item:nth-child(3) {
+        padding-top: 113px;
+      }
+      .culture-item:nth-child(4),
+      .culture-item:nth-child(5),
+      .culture-item:nth-child(6) {
+        padding-top: 30px;
+      }
+      .culture-item:nth-child(1),
+      .culture-item:nth-child(2),
+      .culture-item:nth-child(4),
+      .culture-item:nth-child(5) {
+        border-right: 1px solid #ffffff3d;
+      }
+      .culture-item-title {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 26px;
+        margin-bottom: 25px;
+      }
+      .culture-item-text {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        width: 294px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <!-- <img src="__PUBLIC__/images/new_view_2025/about_group101@2x.png" alt="" /> -->
+        <div class="top-banner-inside">
+          <p class="top-banner-inside-p1">走进精信</p>
+          <p class="top-banner-inside-p2">了解精信发展历史和最新动态</p>
+        </div>
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Introduce"
+            target="_self"
+            class=""
+            >精信简介</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Development"
+            target="_self"
+            class=""
+            >发展历程</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a href="__APP__/index.php/Admin/About/Honor" target="_self" class=""
+            >荣誉资质</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a
+            href="__APP__/index.php/Admin/About/Culture"
+            target="_self"
+            class=""
+            >企业文化</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/About/Magazine"
+            target="_self"
+            class=""
+            >精信月刊</a
+          >
+        </div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-1200 clearfix">
+        <!-- 以图片形式展示 -->
+        <div class="culture-box" style="margin-top: 157px">
+          <div class="culture-item">
+            <p class="culture-item-title">愿景</p>
+            <p class="culture-item-text">客户满意的精准营销服务专家</p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">价值观</p>
+            <p class="culture-item-text">
+              客户第一，用我们的产品和服务让客户生活得更美好
+            </p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">目标</p>
+            <p class="culture-item-text">中国民营百强企业</p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">用人理念</p>
+            <p class="culture-item-text">
+              与公司同心同德，重价值、重业绩、重结果，
+              <br />
+              唯贤能是举
+            </p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">作风</p>
+            <p class="culture-item-text">
+              迅速反应，马上行动，雷厉风行，嫉慢如仇
+            </p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">精神</p>
+            <p class="culture-item-text">
+              严谨、敬业、专注、专业、精益求精的工匠精神
+              <br />
+              胜则举杯相庆，败则拼死相救的团队精神
+              <br />
+              前行成长，全力以赴，永争第一的个人拼搏精神
+            </p>
+          </div>
+          <!-- <img
+            src="__PUBLIC__/images/new_view_2025/culture_group102@2x.png"
+            alt=""
+          /> -->
+        </div>
+        <!-- <div class="culture">
+          <div class="culture-item">
+            <p class="culture-item-title">愿景</p>
+            <p class="culture-item-text">客户满意的精准营销服务专家</p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">价值观</p>
+            <p class="culture-item-text">
+              客户第一，用我们的产品和服务让客户生活的更美好
+            </p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">目标</p>
+            <p class="culture-item-text">中国民营百强企业</p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">用人理念</p>
+            <p class="culture-item-text">
+              与公司同心同德，重价值、重业绩、重结果，为贤能是举
+            </p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">作风</p>
+            <p class="culture-item-text">
+              迅速反应，马上行动，雷厉风行，嫉慢如仇
+            </p>
+          </div>
+          <div class="culture-item">
+            <p class="culture-item-title">精神</p>
+            <p class="culture-item-text" style="width: 336px">
+              严谨、敬业、专注、专业，精益求精的工匠精神
+              <br />
+              胜则举杯相庆，败则拼死相救的团队精神
+              <br />
+              前行成长，全力以赴，永争第一的个人拼搏精神
+            </p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+  </body>
+</html>

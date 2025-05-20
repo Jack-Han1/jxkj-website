@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>详情页-新闻中心</title>
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$keywords}">
+    <link rel="stylesheet" href="__PUBLIC__/Css/baes.css" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/Css/mart.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+<!--top-->
+<include file="Admin@Common/header"/>
+<!--导航条结束-->
+<!--海报-->
+<div class="poster3"></div>
+<!--海报-->
+<!--con-->
+
+<div class="news-bg">
+<div class="box news-tab">
+			<ul class="tab_menu">
+                <a href="__APP__/index.php/Admin/News/index"><li <eq name="info['menu_id']" value="19">class="current"</eq>>精信要闻</li></a>
+                <a href="__APP__/index.php/Admin/News/notice"><li <eq name="info['menu_id']" value="20">class="current"</eq>>精信公告</li></a>
+                <a href="__APP__/index.php/Admin/News/trends"><li <eq name="info['menu_id']" value="21">class="current"</eq>>行业动态</li></a>
+                <a href="__APP__/index.php/Admin/News/focus"><li <eq name="info['menu_id']" value="22">class="current"</eq>>领导关怀</li></a>
+			</ul>
+			<div class="tab_box">
+                <p class="h-35"></p>
+				<div class="tab-con">
+					<div class="new-list">
+                    <div class="new-time">
+                        <h2>{$info['date']}</h2>
+                        <h3>{$info['year']}</h3>
+                    </div>
+                    <div class="new-detail">
+                    <!--<h1><i class="new-icon"></i><a href="">{$info['name']}</a></h1>-->
+                    <!--<p>{$info['abstract']}</p>-->
+                        <h1>
+                            <!--<i class="new-icon"></i>-->
+                            <a href="" style="font-size: 16px;font-weight: bold;display: block;padding: 20px 0px;">{$info['name']}</a>
+                        </h1>
+                    
+                    </div>
+                    </div>
+                    <p class="h-1"></p>
+                    <!--内容展开-->
+                    <div class="news-list-con">
+                        <if condition="$info['file_id'] neq null">
+                            <img src="__ROOT__{$info['pic_info']['file_path']}" width="450px;"/>
+                        </if>
+                        {$info['content']}
+                    </div>
+                    <!--flip-->
+					<div class="flip">
+                        <if condition="$prev_id neq 0">
+                            <a href="__APP__/index.php/Admin/News/detail?id={$prev_id}" class="flip-next">上一篇</a>
+                        </if>
+                        <if condition="$next_id neq 0">
+                            <a href="__APP__/index.php/Admin/News/detail?id={$next_id}" class="flip-previous">下一篇</a>
+                        </if>
+                        <a href="{$back_url}" class="flip-back">返回</a>
+					</div>
+				</div>
+			</div>
+
+</div>
+</div>
+
+<!--foot-->
+<include file="Admin@Common/footer"/>
+
+<!--foot-->
+
+<script type="text/javascript">
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!--top开始-->
+<div class="top">
+	<span class="f-18">精信官网后台</span>
+    <a href="__APP__/index.php/Home/Common/logout" class="fr">[退出登录]</a>
+    <a href="__APP__/index.php/Home/Common/update_pwd" class="fr">[修改密码]</a>
+    <span class="fr">{$user.name}，你好！</span>
+</div>
+<!--top结束-->
+<!--nav开始-->
+<div class="nav-k">
+	<ul class="nav-list">
+    	<!--<a href=""><li class="nav-check"><i class="icon-people-w"></i>新闻管理</li></a>-->
+        <!--<a href=""><li><i class="icon-new"></i>人才招聘</li></a>-->
+        
+        <volist name="nav_list" id="nav">
+            <a href="__APP__/index.php/Home/{$nav.url}"><li <if condition="$menu_check['id'] eq $nav['id']">class="nav-check"</if>>{$nav.name}</li></a>
+        </volist>
+    </ul>
+    <div class="sub-nav">
+    <ul>
+        
+        <!-- <li><a href="" class="f-16">{$menu_check['name']}</a></li> -->
+        <volist name="menu_list" id="menu">
+            <li><a href="__APP__/index.php/Home/{$menu.url}" <if condition="$action_check eq $menu['url'] and $menu['id'] neq 64">class="select"</if>>{$menu.name}</a></li>
+        </volist>
+    	<!--<li><a href="" class="f-16">新闻管理</a></li>-->
+        <!--<li><a href="" class="select">新闻列表</a>|</li>-->
+        <!--<li><a href="">新闻添加</a></li>-->
+    </ul>
+    </div>
+</div>
+<!--nav结束-->

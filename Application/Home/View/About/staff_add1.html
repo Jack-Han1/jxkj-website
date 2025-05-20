@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <load href="__PUBLIC__/Css/home_base.css"/>
+    <load href="__PUBLIC__/Js/jquery-1.6.min.js"/>
+<title>精信官网后台内容</title>
+</head>
+
+<body>
+<!--top开始-->
+<include file="Home@Common/head"/>
+<!--nav结束-->
+<!--con开始-->
+<div class="con">
+    <form id="from" action="update" method="post" enctype="multipart/form-data" >
+    <div class="add-line-1">
+    <span>图集名称：</span><input type="text" class="input-k w-350" id="name" name="name"/>
+    </div>
+    <div class="add-line-1">
+            <span>图集顺序：</span>
+            <input type="text" class="input-k w-150" id="sort" name="sort"/>
+    </div>
+    <div class="add-line-1">
+    <img src="__PUBLIC__/images/admin_images/u167.png"><img src="__PUBLIC__/images/admin_images/u173.png" class="add_icon">
+    <input onchange="a(this)" type="file" class="input-k w-350 file" name="file"/>
+    </div>
+    <div class="add-line-1"><input onclick="sub()" type="button" class="save-btn mar-l-250" value="保存" /></div>
+    </form>
+</div>
+<!--con结束-->
+<!--footer开始-->
+<div class="footer">精信官网后台</div>
+<!--footer结束-->
+<script type="text/javascript">
+$(function(){
+    // $(".file").change(function(){
+    //     // console.log($(this).files[0]);
+    //     var objUrl = getObjectURL(this.files[0]) ; //获取图片的路径，该路径不是图片在本地的路径
+    //     var count = $('.file').length+1;
+    //     var html = '<div class="add-line-1"><img src="__PUBLIC__/images/admin_images/u167.png"><img src="__PUBLIC__/images/admin_images/u173.png" class="add_icon"><input type="file" class="input-k w-350 file" name="file'+count+'"/></div>';
+    //     if (objUrl) {
+    //     // $("#pic").attr("src", objUrl) ; //将图片路径存入src中，显示出图片
+    //     $(this).parent('.add-line-1').append(html);
+    //     $(this).parent('.add-line-1').html('<img src="'+objUrl+'" height=166 width=187>');
+    //     }
+    // })
+    // $(".file").change(function(){
+    //     $(this).parent().append('<img src="__PUBLIC__/images/admin_images/u167.png"><input type="file" class="input-k w-350 file" name="file"/>');
+    // })
+    function a(obj){
+        $(obj).parent().append('<img src="__PUBLIC__/images/admin_images/u167.png"><input onchange="a(this)" type="file" class="input-k w-350 file" name="file"/>');
+    }
+})
+    function sub(){
+        var container = UE.getEditor('container').getContent();
+        var name = $("#name").val();
+        if(name == ""){
+            alert("请输入标题！");
+            return false;
+        }else if(container == ""){
+            alert("请填写内容！");
+            return false;
+        }
+        $("#from").submit();
+    }
+    function getObjectURL(file) {
+        var url = null ;
+        if (window.createObjectURL!=undefined) { // basic
+            url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+    }
+</script>
+</body>
+</html>

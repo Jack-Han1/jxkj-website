@@ -1,0 +1,365 @@
+<!-- 产业布局->智慧校园 v2024 -->
+<script src="__PUBLIC__/Js/loading.js"></script>
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.3, maximum-scale=1.0, user-scalable=no">
+    <title>产业布局-智慧校园</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/new_base.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      p {
+        margin: 0;
+      }
+      .main{
+        padding-top: 72px;
+      }
+      .top-banner {
+        height: 467px;
+        width: 100%;
+        /* background-color: #d9d9d9; */
+        background-image: url("__PUBLIC__/images/new_view_2025/chanye_25@2x.png");
+        background-size: cover; /* 图片覆盖整个区域 */
+        background-position: center; /* 图片居中显示 */
+        position: relative;
+      }
+      .top-banner-inside {
+        width: 1200px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 45%;
+      }
+      .top-banner-inside-p1 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 700;
+        font-size: 53.6px;
+      }
+      .top-banner-inside-p2 {
+        color: #ffffff;
+        font-family: "Microsoft YaHei";
+        font-weight: 400;
+        font-size: 24.8px;
+      }
+      /* .top-banner img {
+        display: block;
+        margin: 0 auto;
+        height: 467px;
+        width: 100%;
+        object-fit: cover;
+      } */
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(214, 214, 214, 0.25);
+      }
+      .top-nav-item {
+        width: 240px;
+        height: 41px;
+        /* border: 1px solid red; */
+        font-size: 16px;
+        font-family: "PingFang SC Regular";
+        font-weight: 400;
+        line-height: 41px;
+        text-align: center;
+      }
+      .top-nav-item a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      .top-nav-item a:hover {
+        background-color: #f2f6fc;
+      }
+      .item-selected  a:hover{
+        background: #381c62;
+      }
+      .item-selected {
+        background: #381c62;
+      }
+      .item-selected a {
+        color: #fff;
+      }
+      .main {
+        background-color: #f5f5f5;
+        padding-bottom: 120px;
+      }
+      .w-960 {
+        width: 960px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .w-1200 {
+        width: 1200px;
+        margin: 0 auto;
+        /* border: 1px solid red; */
+      }
+      .container {
+        display: flex;
+      }
+      .container-left {
+        flex: 1;
+        width: 50%;
+        height: 378px;
+        /* border: 1px solid red; */
+        overflow: hidden; /* 超出部分隐藏 */
+      }
+      .container-right {
+        flex: 1;
+        width: 50%;
+        height: 378px;
+        /* border: 1px solid red; */
+      }
+      .left-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .content-top {
+        margin: 46px 37px 0;
+        font-size: 16px;
+        line-height: 32px;
+        color: rgb(51, 51, 51);
+      }
+      .gray-bg {
+        background: rgba(236, 236, 236, 1);
+      }
+      .content-bottom {
+        display: flex; /* 启用 flexbox */
+        justify-content: space-around; /* 使子元素等距分布 */
+        margin: 54px 60px;
+      }
+      .content-bottom item {
+        flex: 1; /* 每个子元素平分剩余空间 */
+        margin: 0 10px; /* 可选：添加间距 */
+        text-align: center; /* 文字居中 */
+        padding: 20px; /* 内边距 */
+      }
+      .p-top {
+        font-size: 40px;
+        line-height: 23px;
+        color: rgb(25, 40, 135);
+        font-weight: Bold;
+        text-align: center;
+        font-family: "Microsoft YaHei";
+      }
+      .p-bottom {
+        font-size: 17px;
+        line-height: 23px;
+        color: rgb(25, 40, 135);
+        text-align: center;
+        margin-top: 18px;
+        font-family: "Microsoft YaHei";
+      }
+      .serve-title {
+        font-size: 40px;
+        line-height: 53px;
+        color: rgb(51, 51, 51);
+        font-weight: bold;
+        font-family: "Microsoft YaHei";
+      }
+      .serve-grid {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr); /* 两行 */
+        grid-template-columns: repeat(2, 1fr); /* 两列 */
+        gap: 0px; /* 网格项之间的间隙 */
+        /* padding: 10px; */
+      }
+      .serve-item {
+        position: relative;
+        height: 265px;
+      }
+      .serve-item-bg1 {
+        background: rgba(255, 255, 255, 1);
+      }
+      .serve-item-bg2 {
+        background: rgba(239, 239, 239, 1);
+      }
+      .serve-item-num {
+        position: absolute;
+        top: 26;
+        left: 42;
+        font-size: 64px;
+        line-height: 84px;
+        color: rgb(231, 231, 231);
+        font-weight: bold;
+        font-family: "Microsoft YaHei";
+      }
+      .serve-item-title {
+        position: absolute;
+        top: 74;
+        left: 42;
+        font-size: 18px;
+        line-height: 24px;
+        color: rgb(56, 28, 98);
+        font-weight: bold;
+        font-family: "Microsoft YaHei";
+      }
+      .serve-item-text {
+        position: absolute;
+        top: 122;
+        left: 42;
+        width: 457px;
+        font-size: 16px;
+        line-height: 21px;
+        color: rgb(51, 51, 51);
+        font-family: "Microsoft YaHei";
+      }
+      .cooperate-box img {
+        display: block;
+        margin: 0 auto;
+        height: 544px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header组件 -->
+    <include file="Admin@Common/new_header" />
+    <div class="main">
+      <!-- banner -->
+      <div class="top-banner">
+        <!-- <img src="__PUBLIC__/images/new_view_2025/about_group101@2x.png" alt="" /> -->
+        <div class="top-banner-inside">
+          <p class="top-banner-inside-p1">产业布局</p>
+          <p class="top-banner-inside-p2">了解精信发展历史和最新动态</p>
+        </div>
+      </div>
+      <!-- nav -->
+      <div class="top-nav">
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Industry/Communicate"
+            target="_self"
+            class=""
+            >信息通信</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Industry/Urban"
+            target="_self"
+            class=""
+            >政务信息化</a
+          >
+        </div>
+        <div class="top-nav-item item-selected">
+          <a
+            href="__APP__/index.php/Admin/Industry/Campus"
+            target="_self"
+            class=""
+            >智慧校园</a
+          >
+        </div>
+        <div class="top-nav-item">
+          <a
+            href="__APP__/index.php/Admin/Industry/Energy"
+            target="_self"
+            class=""
+            >光伏电能</a
+          >
+        </div>
+      </div>
+      <!-- content 960px -->
+      <div class="w-1200 clearfix">
+        <div class="container" style="margin-top: 120px">
+          <div class="container-left">
+            <img
+              class="left-img"
+              src="__PUBLIC__/images/new_view_2025/school_group101@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="container-right gray-bg">
+            <p class="content-top">
+              智慧校园通常由以传感器网络及智能硬件为核心的校园基础设施和部署在数据中心内云端服务器上的智慧化软件系统构成，其功能可分为智慧教学环境、智慧教学资源、智慧校园管理、智慧校园服务四大板块。公司以互联网与移动互联网、大数据、云计算为核心，在传统校园基础上构建了一个数字空间，实现从环境信息（包括教室、实验室等）、资源信息（如图书、讲义、课件等）到应用信息（包括教学、管理、服务、办公等）等全部数字化，为资源和服务共享提供校园网络投资建设，运营服务及生态解决方案。
+            </p>
+          </div>
+        </div>
+
+        <div class="container" style="margin-top: 66px">
+          <div class="container-left gray-bg">
+            <div class="content-top">
+              公司已与电信运营商、高校合作，为高校提供智慧校园建设及一站式服务，已投建20余所高校网络。未来，将整合资源，布局智慧教育，打造科学管理体系和平安校园，为师生创造新体验。
+            </div>
+            <div class="content-bottom">
+              <div class="item">
+                <p class="p-top">20+</p>
+                <p class="p-bottom">合作高校</p>
+              </div>
+              <div class="item">
+                <p class="p-top">20万</p>
+                <p class="p-bottom">服务师生</p>
+              </div>
+            </div>
+          </div>
+          <div class="container-right gray-bg">
+            <img
+              class="left-img"
+              src="__PUBLIC__/images/new_view_2025/school_group102@2x.png"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="serve-box" style="margin-top: 113px">
+          <p class="serve-title">服务内容</p>
+          <div class="serve-grid" style="margin-top: 45px">
+            <div class="serve-item serve-item-bg1">
+              <p class="serve-item-num">01</p>
+              <p class="serve-item-title">智慧环境</p>
+              <p class="serve-item-text">
+                ·
+                以物联网、5G网络技术为基础，构建教学、科研、管理、校园生活为一体的智能环境
+              </p>
+            </div>
+            <div class="serve-item serve-item-bg2">
+              <p class="serve-item-num">02</p>
+              <p class="serve-item-title">综合服务</p>
+              <p class="serve-item-text">
+                ·
+                提供面向师生的综合信息服务，使全校师生能快速、准确的获取信息服务
+              </p>
+            </div>
+            <div class="serve-item serve-item-bg2">
+              <p class="serve-item-num">03</p>
+              <p class="serve-item-title">资源共享</p>
+              <p class="serve-item-text">
+                ·
+                通过智慧校园中各个应用系统的紧密连接，实现资源共享、信息共享、服务共享，从而提高教学、科研和管理水平
+              </p>
+            </div>
+            <div class="serve-item serve-item-bg1">
+              <p class="serve-item-num">04</p>
+              <p class="serve-item-title">优化网络</p>
+              <p class="serve-item-text">
+                ·
+                将学校的网络覆盖、数据平台进行更新及改造，作为学校进行教学创新的首要内容之一
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cooperate-box" style="margin-top: 100px">
+          <p class="serve-title">部分合作院校</p>
+          <img
+            style="margin-top: 45px"
+            src="__PUBLIC__/images/new_view_2025/school_group103.png"
+            alt=""
+          />
+        </div>
+
+        <!-- end 1200px -->
+      </div>
+    </div>
+    <!-- footer组件 -->
+    <include file="Admin@Common/new_footer" />
+  </body>
+</html>
