@@ -23,34 +23,61 @@
         width: 100%;
         position: relative;
       }
+      .top-banner-img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .top-banner .top-banner-img i {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url("__PUBLIC__/images/new_view_2025/staff_group101@2x.png");
+        background-size: cover; /* 图片覆盖整个区域 */
+        background-position: center; /* 图片居中显示 */
+        /* transform: scale(1.05); */
+        animation: banner_m 1.5s forwards;
+      }
+      @keyframes banner_m {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.05);
+        }
+      }
       .banner-text {
         width: 854px;
         position: absolute;
         top: 40%;
         left: 50%;
-        transform: translate(-50%, -50%);
         text-align: center;
+        animation: banner_text 0.8s 0.3s both;
+      }
+      @keyframes banner_text {
+        0% {
+          transform: translate3d(-50%, 100%, 0);
+          opacity: 0;
+        }
+        100% {
+          transform: translate3d(-50%, -50%, 0);
+          opacity: 1;
+        }
       }
       .banner-text-title {
-        font-size: 85px;
+        font-size: 55px;
         line-height: 113px;
         color: rgb(255, 255, 255);
         font-weight: bold;
         font-family: "Microsoft YaHei";
         margin-bottom: 16px;
+        letter-spacing: 2px;
       }
       .banner-text-bottom {
-        font-size: 32px;
+        font-size: 22px;
         line-height: 42px;
         color: rgb(255, 255, 255);
         font-family: "Microsoft YaHei";
-      }
-      .top-banner img {
-        display: block; /* 图片必须是块级元素 */
-        margin: 0 auto; /* 水平居中 */
-        height: 384px;
-        width: 100%;
-        /* object-fit: cover; */
       }
       .top-nav {
         display: flex;
@@ -435,16 +462,15 @@
     <div class="main">
       <!-- banner -->
       <div class="top-banner">
+        <div class="top-banner-img">
+          <i></i>
+        </div>
         <div class="banner-text">
           <p class="banner-text-title">让沟通与信任无处不在</p>
           <p class="banner-text-bottom">
             搭建桥梁，强化团队凝聚力，携手迈向成功之路
           </p>
         </div>
-        <img
-          src="__PUBLIC__/images/new_view_2025/staff_group101@2x.png"
-          alt=""
-        />
       </div>
       <!-- nav -->
       <div class="top-nav">

@@ -26,10 +26,30 @@
         height: 467px;
         width: 100%;
         /* background-color: #d9d9d9; */
+        position: relative;
+      }
+      .top-banner-img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .top-banner .top-banner-img i {
+        display: block;
+        width: 100%;
+        height: 100%;
         background-image: url("__PUBLIC__/images/new_view_2025/about_group101@2x.png");
         background-size: cover; /* 图片覆盖整个区域 */
         background-position: center; /* 图片居中显示 */
-        position: relative;
+        /* transform: scale(1.05); */
+        animation: banner_m 1.5s forwards;
+      }
+      @keyframes banner_m {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.05);
+        }
       }
       .top-banner-inside {
         width: 1200px;
@@ -37,6 +57,17 @@
         left: 50%;
         transform: translateX(-50%);
         top: 45%;
+        animation: banner_text 0.8s 0.3s both;
+      }
+      @keyframes banner_text {
+        0% {
+          transform: translate3d(-50%, 100%, 0);
+          opacity: 0;
+        }
+        100% {
+          transform: translate3d(-50%, 0%, 0);
+          opacity: 1;
+        }
       }
       .top-banner-inside-p1 {
         color: #ffffff;
@@ -328,7 +359,9 @@
     <div class="main">
       <!-- banner -->
       <div class="top-banner">
-        <!-- <img src="__PUBLIC__/images/new_view_2025/about_group101@2x.png" alt="" /> -->
+        <div class="top-banner-img">
+          <i></i>
+        </div>
         <div class="top-banner-inside">
           <p class="top-banner-inside-p1">走进精信</p>
           <p class="top-banner-inside-p2">了解精信发展历史和最新动态</p>
