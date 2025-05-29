@@ -153,7 +153,7 @@
       .top-magazine {
         width: 100%;
         height: 367px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         display: flex;
         margin-bottom: 90px;
       }
@@ -196,6 +196,8 @@
         text-align: center;
         line-height: 40px;
         position: absolute;
+        text-decoration: none;
+        color: inherit;
         bottom: 71px;
         left: 50px;
       }
@@ -238,6 +240,12 @@
         margin-bottom: 14px;
       }
       .item-right-text {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3; /* 限制显示3行 */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
         color: #666666;
         font-family: "Microsoft YaHei";
         font-weight: 400;
@@ -419,30 +427,34 @@
               <div class="top-magazine-right">
                 <p class="top-magazine-date">{$vo.date}</p>
                 <p class="top-magazine-text">{$vo.text}</p>
-                <div class="top-view-btn">查看月刊</div>
+                <a href="{$vo.url}" target="_blank" class="top-view-btn"
+                  >查看月刊</a
+                >
               </div>
             </volist>
           </div>
           <!-- 列表 -->
           <div class="magazine-row">
             <volist name="list" id="vo" offset="1">
-              <div class="magazine-item">
-                <div class="item-left">
-                  <div class="book-wrapper">
-                    <img
-                      data-src="{$vo.img}"
-                      alt=""
-                      class="magazine-item-img lazyload"
-                    />
-                    <div class="book-edge"></div>
+              <a href="{$vo.url}" target="_blank">
+                <div class="magazine-item">
+                  <div class="item-left">
+                    <div class="book-wrapper">
+                      <img
+                        data-src="{$vo.img}"
+                        alt=""
+                        class="magazine-item-img lazyload"
+                      />
+                      <div class="book-edge"></div>
+                    </div>
+                  </div>
+                  <div class="item-right">
+                    <p class="item-right-date">{$vo.date}</p>
+                    <p class="item-right-text">{$vo.text}</p>
+                    <div class="view-btn">查看月刊</div>
                   </div>
                 </div>
-                <div class="item-right">
-                  <p class="item-right-date">{$vo.date}</p>
-                  <p class="item-right-text">{$vo.text}</p>
-                  <div class="view-btn">查看月刊</div>
-                </div>
-              </div>
+              </a>
             </volist>
           </div>
           <div class="page clearfix">{$page}</div>

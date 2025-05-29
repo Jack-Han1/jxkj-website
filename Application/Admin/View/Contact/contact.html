@@ -26,6 +26,29 @@
         width: 100%;
         position: relative;
       }
+      .top-banner-img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .top-banner .top-banner-img i {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url("__PUBLIC__/images/new_view_2025/contact_group101@2x.png");
+        background-size: cover; /* 图片覆盖整个区域 */
+        background-position: center; /* 图片居中显示 */
+        /* transform: scale(1.05); */
+        animation: banner_m 1.5s forwards;
+      }
+      @keyframes banner_m {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.05);
+        }
+      }
       .top-banner img {
         display: block; /* 图片必须是块级元素 */
         margin: 0 auto; /* 水平居中 */
@@ -142,10 +165,9 @@
     <div class="main">
       <!-- banner -->
       <div class="top-banner">
-        <img
-          src="__PUBLIC__/images/new_view_2025/contact_group101@2x.png"
-          alt=""
-        />
+        <div class="top-banner-img">
+          <i></i>
+        </div>
       </div>
       <!-- nav -->
       <div class="top-nav">
