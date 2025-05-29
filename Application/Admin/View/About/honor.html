@@ -20,7 +20,7 @@
       }
       .main {
         background-color: #f5f5f5;
-        padding-bottom: 120px;
+        /* padding-bottom: 120px; */
         padding-top: 72px;
       }
       .top-banner {
@@ -142,6 +142,13 @@
         margin: 0 auto;
         /* border: 1px solid red; */
       }
+      .honor-bg {
+        background: url("__PUBLIC__/images/new_view_2025/honor_bg.png")
+          no-repeat center;
+        background-size: cover; /* 关键属性：背景图覆盖整个容器 */
+        width: 100%;
+        padding: 60px 0; /* 根据实际内容上下留白调整 */
+      }
       .w-1200 {
         width: 1200px;
         margin: 0 auto;
@@ -169,6 +176,7 @@
         width: 377px;
         height: 267px;
         background-color: #d9d9d9;
+        border-radius: 8px;
       }
       .honor-item-name {
         color: #333;
@@ -178,6 +186,16 @@
         text-align: center;
         margin-top: 7px;
         letter-spacing: 1px;
+      }
+      /* 动画效果 */
+      .honor-row {
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 1s ease-out;
+      }
+      .honor-row-animation {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
   </head>
@@ -235,71 +253,150 @@
           >
         </div>
       </div>
-      <!-- content 1200px -->
-      <div class="w-1200 clearfix">
-        <div class="honor">
-          <!-- 以图片展示 -->
-          <div class="container" style="display: none;">
-            <img src="__PUBLIC__/images/new_view_2025/honor_89@2x.png" alt="" />
-          </div>
-          <div class="honor-row">
-            <div class="honor-item">
-              <img src="" alt="" class="honor-item-img" />
-              <p class="honor-item-name">获奖名称</p>
+      <div class="honor-bg">
+        <!-- content 1200px -->
+        <div class="w-1200 clearfix">
+          <div class="honor">
+            <!-- 以图片展示 -->
+            <div class="container" style="display: none">
+              <img
+                src="__PUBLIC__/images/new_view_2025/honor_89@2x.png"
+                alt=""
+              />
             </div>
-            <div class="honor-item">
-              <img src="" alt="" class="honor-item-img" />
-              <p class="honor-item-name">获奖名称</p>
-            </div>
-            <div class="honor-item">
-              <img src="" alt="" class="honor-item-img" />
-              <p class="honor-item-name">获奖名称</p>
-            </div>
-            <!-- <div class="honor-item">
+            <div class="honor-row">
+              <div class="honor-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/honor2025/honor01.png"
+                  alt=""
+                  class="honor-item-img"
+                />
+                <p class="honor-item-name">武汉市科技创新平台</p>
+              </div>
+              <div class="honor-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/honor2025/honor02.png"
+                  alt=""
+                  class="honor-item-img"
+                />
+                <p class="honor-item-name">专精特新小巨人企业</p>
+              </div>
+              <div class="honor-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/honor2025/honor03.png"
+                  alt=""
+                  class="honor-item-img"
+                />
+                <p class="honor-item-name">硚口区科技小巨人企业</p>
+              </div>
+              <!-- <div class="honor-item">
               <img src="" alt="" class="honor-item-img" />
               <p class="honor-item-name">获奖名称</p>
             </div> -->
-          </div>
-          <div class="honor-row">
-            <div class="honor-item">
-              <img src="" alt="" class="honor-item-img" />
-              <p class="honor-item-name">获奖名称</p>
             </div>
-            <div class="honor-item">
-              <img src="" alt="" class="honor-item-img" />
-              <p class="honor-item-name">获奖名称</p>
-            </div>
-            <div class="honor-item">
-              <img src="" alt="" class="honor-item-img" />
-              <p class="honor-item-name">获奖名称</p>
-            </div>
-            <!-- <div class="honor-item">
+            <div class="honor-row">
+              <div class="honor-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/honor2025/honor04.png"
+                  alt=""
+                  class="honor-item-img"
+                />
+                <p class="honor-item-name">创新奖</p>
+              </div>
+              <div class="honor-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/honor2025/honor05.png"
+                  alt=""
+                  class="honor-item-img"
+                />
+                <p class="honor-item-name">湖北服务业企业100强</p>
+              </div>
+              <div class="honor-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/honor2025/honor06.png"
+                  alt=""
+                  class="honor-item-img"
+                />
+                <p class="honor-item-name">武汉市企业研究开发中心</p>
+              </div>
+              <!-- <div class="honor-item">
               <img src="" alt="" class="honor-item-img" />
               <p class="honor-item-name">获奖名称</p>
             </div> -->
-          </div>
-          <div class="honor-row">
-            <div class="honor-item">
-              <img src="" alt="" class="honor-item-img" />
-              <p class="honor-item-name">获奖名称</p>
             </div>
-            <div class="honor-item">
-              <img src="" alt="" class="honor-item-img" />
-              <p class="honor-item-name">获奖名称</p>
-            </div>
-            <div class="honor-item">
-              <img src="" alt="" class="honor-item-img" />
-              <p class="honor-item-name">获奖名称</p>
-            </div>
-            <!-- <div class="honor-item">
+            <div class="honor-row">
+              <div class="honor-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/honor2025/honor07.png"
+                  alt=""
+                  class="honor-item-img"
+                />
+                <p class="honor-item-name">商会会长单位</p>
+              </div>
+              <div class="honor-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/honor2025/honor08.png"
+                  alt=""
+                  class="honor-item-img"
+                />
+                <p class="honor-item-name">大学生实习基地</p>
+              </div>
+              <div class="honor-item">
+                <img
+                  src="__PUBLIC__/images/new_view_2025/honor2025/honor09.png"
+                  alt=""
+                  class="honor-item-img"
+                />
+                <p class="honor-item-name">国家高新技术企业</p>
+              </div>
+              <!-- <div class="honor-item">
               <img src="" alt="" class="honor-item-img" />
               <p class="honor-item-name">获奖名称</p>
             </div> -->
+            </div>
           </div>
         </div>
       </div>
     </div>
     <!-- footer组件 -->
     <include file="Admin@Common/new_footer" />
+    <script>
+      // 滚动懒加载动效（封装版）
+      function animateOnScroll(selector, className, threshold = 0.5) {
+        const elements = document.querySelectorAll(selector);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(className);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold,
+            rootMargin: "0px 0px 30% 0px", // 负值表示向内收缩观察区域
+          }
+        );
+
+        elements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+      // // 为元素添加动画效果
+      function addAnimation() {
+        const animationArr = [
+          {
+            element: ".honor-row",
+            className: "honor-row-animation",
+          },
+        ];
+        animationArr.forEach((item) => {
+          animateOnScroll(item.element, item.className);
+        });
+      }
+      addAnimation();
+    </script>
   </body>
 </html>
