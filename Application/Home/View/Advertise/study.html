@@ -57,14 +57,14 @@
                             </td>
                             <td >
                                 <span style="width: 205px;display: inline-block;text-align: left;">
-                                <a href="__APP__/index.php/Admin/Responsibility/jxdt_detail?id={$vo.id}" target="_blank">查看</a>
-                                <a href="__APP__/index.php/Home/Responsibility/edit?id={$vo.id}">编辑</a>
+                                <a href="__APP__/index.php/Admin/Recruit/study_detail?id={$vo.id}" target="_blank">查看</a>
+                                <a href="__APP__/index.php/Home/Advertise/edit_study?id={$vo.id}">编辑</a>
                                 <a style="cursor: pointer;" onclick="del({$vo.id})">删除</a>
                                     <if condition="$vo.is_top eq 1">
                                         <a style="cursor: pointer;" onclick="set_top({$vo.id})">置顶</a>
                                     </if>
                                 <if condition="$vo.review eq 1">
-                                    <a href="__APP__/index.php/Home/Responsibility/review?id={$vo.id}">审核</a>
+                                    <a href="__APP__/index.php/Home/Advertise/review?id={$vo.id}">审核</a>
                                 </if>
                                     </span>
                             </td>

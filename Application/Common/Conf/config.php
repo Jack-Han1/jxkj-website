@@ -55,9 +55,9 @@ return array(
 //本地环境
       'DB_TYPE' => 'mysql', // 数据库类型
       'DB_HOST' => '127.0.0.1', // 服务器地址
-      'DB_NAME' => 'jingxin', // 数据库名
+      'DB_NAME' => 'jingxin_dev', // 数据库名
       'DB_USER' => 'root', // 用户名
-      'DB_PWD' => 'root', // 密码
+      'DB_PWD' => '123456', // 密码
       'DB_PORT' => 3306, // 端口
 
 //私有服务器环境

@@ -90,48 +90,9 @@ class ResponsibilityController extends CommonController
         $this->display();
     }
 
-    // 精信大讲堂
-    public function jxdt(){
-        $ids = M('menu')->where('id=89 and status=1')->field('id')->select();
-        $id_arr = "";
-        for($i=0;$i<count($ids);$i++){
-            $id_arr .= $ids[$i]['id'];
-            if($id_arr!="" && $i<count($ids)-1){
-                $id_arr .= ",";
-            }
-        }
-        $count = M('article')->where('menu_id in ('.$id_arr.') and status!=0')->count();
-        $Page  = new \Think\Page($count, 20);
-        $Page->setConfig('prev', '上一页');
-        $Page->setConfig('next', '下一页');
-        $Page->setConfig('last', '末页');
-        $Page->setConfig('first', '首页');
-        $Page->setConfig('theme', '%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
-        $page  = $Page->show();
-        $list =  M('article')->where('menu_id in ('.$id_arr.') and status!=0')->order('top desc,article_time desc,create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
-        for($i=0;$i<count($list);$i++){
-            $list[$i]['show_id'] = $Page->firstRow + $i + 1;
-            $list[$i]['menu_name'] = M('menu')->where('id='.$list[$i]['menu_id'])->getField('name');
-            if($list[$i]['status']==2 && $list[$i]['menu_id']==19 && $list[$i]['top']==0 && $list[$i]['file_id']){
-                $list[$i]['is_top'] = 1;
-            }else{
-                $list[$i]['is_top'] = 0;
-            }
-            if($list[$i]['status']==1){
-                $list[$i]['review'] = 1;
-            }else{
-                $list[$i]['review'] = 0;
-            }
-        }
-        $this->assign("page", $page);
-        $this->assign('list',$list);
-        $this->assign('action_check',CONTROLLER_NAME."/".ACTION_NAME);
-        $this->display();
-    }
-
     public function add(){
         //id为87或者88的菜单
-        $where['id']= array('in','87,88,89');  
+        $where['id']= array('in','87,88');  
         $where['status'] = 1;
 //        $where['kind']=array('lt',3);
         $list = M('menu')->where($where)->select();
@@ -185,7 +146,7 @@ class ResponsibilityController extends CommonController
     public function edit(){
         // $where['pid']= 86;
         //id为87或者88的菜单
-        $where['id']= array('in','87,88,89');  
+        $where['id']= array('in','87,88');  
         $where['status'] = 1;
 //        $where['kind']=array('lt',3);
         $list = M('menu')->where($where)->select();
@@ -242,15 +203,12 @@ class ResponsibilityController extends CommonController
                 $this->success("修改成功", "index");
             } elseif($_POST['kind'] == 88){
                 $this->success("修改成功", "staffcare");
-            } elseif($_POST['kind'] == 89){
-                $this->success("修改成功", "jxdt");
-            }
             // $this->success("修改成功","index");
         }else{
             $this->errer("修改失败！");
         }
+        }
     }
-
     public function del(){
         $id = $_POST['id'];
         $update_data['status'] = 0 ;

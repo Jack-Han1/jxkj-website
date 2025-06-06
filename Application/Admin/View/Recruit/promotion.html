@@ -206,39 +206,145 @@
       }
       .study-content {
         display: flex;
-        justify-content: center;
-      }
-      .study-item {
-        flex: 1;
-        justify-content: space-between;
-      }
-      .study-item img {
+        align-items: center;
+        position: relative;
         width: 100%;
       }
-      .study-content div:nth-child(2) {
-        margin-left: 22px;
+      .arrow {
+        font-size: 32px;
+        color: #c7b4b4;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px;
+        display: inline-block;    
       }
-      .study-item-title {
-        color: rgba(51, 51, 51, 1);
+      .arrow:hover {
+        color: black;
+      }
+      .arrow-left {
+        display: inline-block; 
+        position: absolute;
+        left: -120px;
+        top: 120px;  
+      }
+      .arrow-right {
+        display: inline-block; 
+        position: absolute;
+        right: -120px;
+        top: 120px;
+      }
+      .study-wrapper {
+        overflow: hidden;
+        width: 100%;
+        height: 360px;
+      }
+      .startStudy {
+        display: flex;
+        transition: transform 0.5s ease;
+        width: max-content; /* 防止子元素溢出 */
+        gap: 40px; /* 设置子元素之间的间隔 */
+      }
+      .startStudy-item {
+        width: 375px;
+        height: 360px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #d5dee5;
+        padding: 10px;
+        position: relative;
+        /* box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08); */
+        transition: all 0.2s cubic-bezier(0, 0, 0.5, 1);
+        /* border: 1px solid red; */
+      }
+      .startStudy-item:hover {
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.16);
+        transform: scale3d(1.01, 1.01, 1.01);
+      }
+      .startStudy-item-pic {
+        width: 100%;
+        height: 216px;
+        /* background-color: #d9d9d9; */
+      }
+      .startStudy-item-pic img {
+        width: 100%;
+        height: 216px;
+        object-fit: cover;
+        object-position: center; /* 图片居中显示 */
+      }
+      .startStudy-item-text {
+        /* height: 55px; */
+        color: #333333;
         font-family: "Microsoft YaHei";
-        font-weight: 700;
+        font-weight: 400;
         font-size: 20px;
-        line-height: 20px;
-        margin-top: 34px;
+        line-height: 32px;
+        margin-top: 18px;
+        display: -webkit-box; /* 使用弹性盒子布局 */
+        -webkit-box-orient: vertical; /* 设置内容垂直排列 */
+        overflow: hidden; /* 隐藏超出部分 */
+        text-overflow: ellipsis; /* 超出部分显示省略号 */
+        position: absolute;
       }
-      .study-item-text {
-        color: rgba(51, 51, 51, 1);
+      .startStudy-item-date {
+        color: #666666;
         font-family: "Microsoft YaHei";
         font-weight: 400;
         font-size: 14px;
-        line-height: 28px;
-        margin-top: 14px;
+        position: absolute;
+        left: 10px;
+        bottom: 60px;
+        /* margin-top: 29px; */
       }
+      .more-link {
+        color: #1a73e8;
+        font-size: 14px;
+        left: 10px;
+        bottom: 20px;
+        position: absolute;
+        transition: color 0.3s;
+      }
+      .more-link:hover {
+        color: #0056b3;
+        text-decoration: underline;
+      }
+      .more-text {
+        color: rgb(56, 28, 98);
+        font-family: "PingFang SC Regular";
+        width: 100%;
+        height: 54px;
+        line-height: 54px;
+        display:block;
+        text-align: center;
+      }
+      .read-more-text {
+        color: white;
+        font-family: "PingFang SC", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        width: 180px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        display: block;
+        margin: 20px auto 0;
+        background-color: #007bff; /* 稳重蓝色 */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+
+      .read-more-text:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+        color: #fff;
+      }
+
       /* 动画效果 */
       .promotion-box1,
       .promotion-box2,
       .study-title,
-      .study-content {
+      .study-content
+      .more-text {
         opacity: 0;
         transform: translateY(100%);
         transition: all 1s ease-out;
@@ -246,7 +352,8 @@
       .promotion-box1-animation,
       .promotion-box2-animation,
       .study-title-animation,
-      .study-content-animation {
+      .study-content-animation 
+      .more-text-animation {
         opacity: 1;
         transform: translateY(0);
       }
@@ -342,32 +449,33 @@
           </div>
 
           <div class="study" style="margin-top: 107px">
-            <p class="study-title">培训课堂</p>
+            <p class="study-title">精信大讲堂</p>
             <div class="study-content" style="margin-top: 54px">
-              <div class="study-item">
-                <img
-                  src="__PUBLIC__/images/new_view_2025/staff_group203@2x.png"
-                  alt=""
-                />
-                <p class="study-item-title">
-                  武汉大学经济与管理学院2024级营销管理特训班
-                </p>
-                <p class="study-item-text">
-                  武汉大学经济与管理学院2024级营销管理特训班，专为追求卓越的企业管理者设计。汇聚顶尖教育资源，由知名学者与行业精英联袂授课，深度解析市场趋势，传授前沿营销策略。通过实战案例分析，提升学员营销实战能力，助力企业抢占市场先机。特训班还提供丰富的校友网络与资源对接，拓宽人脉圈层。
-                </p>
+              <div class="arrow arrow-left">❮</div>
+              <div class="study-wrapper">
+                <div class="startStudy">           
+                  <volist name="top_study_list" id="vo">
+                    <div class="startStudy-item">                     
+                      <a
+                        href="__APP__/index.php/Admin/Recruit/study_detail?id={$vo.id}"
+                      >
+                        <div class="startStudy-item-pic">
+                          <img src="__ROOT__{$vo.news_img}" alt="" />
+                        </div>
+                        <p class="startStudy-item-text">{$vo.name}</p>
+                        <p class="startStudy-item-date">{$vo.year}-{$vo.data}</p>
+                        <p class="more-link">了解详情</p>
+                      </a>
+                    </div>             
+                  </volist>                       
+                </div>
               </div>
-              <div class="study-item">
-                <img
-                  src="__PUBLIC__/images/new_view_2025/staff_group204@2x.png"
-                  alt=""
-                />
-                <p class="study-item-title">
-                  武汉大学经济与管理学院2024级营销管理特训班
-                </p>
-                <p class="study-item-text">
-                  武汉大学经济与管理学院2024级营销管理特训班，专为追求卓越的企业管理者设计。汇聚顶尖教育资源，由知名学者与行业精英联袂授课，深度解析市场趋势，传授前沿营销策略。通过实战案例分析。
-                </p>
-              </div>
+              <div class="arrow arrow-right">❯</div>
+            </div>
+            <div class="more-text">
+              <a class="read-more-text" href="__APP__/index.php/Admin/Recruit/study">
+              <span>查看更多</span>
+              </a>
             </div>
           </div>
         </div>
@@ -424,6 +532,68 @@
         });
       }
       addAnimation();
+
+      // 点击左右箭头切换内容
+      document.addEventListener("DOMContentLoaded", function () {
+        const wrapper = document.querySelector(".study-wrapper");
+        const slider = document.querySelector(".startStudy");
+        const leftArrow = document.querySelector(".arrow-left");
+        const rightArrow = document.querySelector(".arrow-right");
+      
+        const visibleCount = 3; // 每次显示3项
+        const itemWidth = 375;
+        const gap = 40;
+        const step = itemWidth + gap;
+      
+        let items = Array.from(slider.children);
+        const realCount = items.length;
+      
+        // 克隆前后可见项，用于实现无缝循环
+        for (let i = 0; i < visibleCount; i++) {
+          const cloneFirst = items[i].cloneNode(true);
+          const cloneLast = items[items.length - 1 - i].cloneNode(true);
+          slider.appendChild(cloneFirst);
+          slider.insertBefore(cloneLast, slider.firstChild);
+        }
+      
+        let currentIndex = visibleCount;
+        const totalCount = slider.children.length;
+        
+        // 初始偏移位置
+        slider.style.transform = `translateX(-${currentIndex * step}px)`;
+      
+        let isAnimating = false; /*动画节流锁，防止用户疯狂点击导致动画冲突*/
+    
+        function updateSlider() {
+          isAnimating = true; /*开启动画节流锁*/
+          slider.style.transition = "transform 0.5s ease";
+          slider.style.transform = `translateX(-${currentIndex * step}px)`;
+      
+          setTimeout(() => {
+            slider.style.transition = "none";
+            if (currentIndex >= realCount + visibleCount) {
+              currentIndex = visibleCount;
+              slider.style.transform = `translateX(-${currentIndex * step}px)`;
+            } else if (currentIndex < visibleCount) {
+              currentIndex = realCount + visibleCount - 1;
+              slider.style.transform = `translateX(-${currentIndex * step}px)`;
+            }
+            isAnimating = false;
+          }, 510);
+        }
+      
+        rightArrow.addEventListener("click", () => {
+          if (isAnimating) return;
+          currentIndex++;
+          updateSlider();
+        });
+      
+        leftArrow.addEventListener("click", () => {
+          if (isAnimating) return;
+          currentIndex--;
+          updateSlider();
+        });
+      });
     </script>
   </body>
 </html>
