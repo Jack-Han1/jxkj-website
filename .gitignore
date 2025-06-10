@@ -1,3 +1,14 @@
-Application/Runtime/*
-.idea
+# 忽略当前目录下的 Uploads 文件夹
+/Uploads/
+
+# 忽略 Public 目录中的 images 文件夹
+/Public/images/
+
+# 忽略 Application/Runtime 目录下的所有内容
+/Application/Runtime/*
+
+# 忽略 .idea 项目配置目录（如 PHPStorm / WebStorm 生成的）
+.idea/
+
+# 忽略 composer.lock 文件
 composer.lock
