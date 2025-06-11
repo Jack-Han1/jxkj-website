@@ -130,7 +130,7 @@ class AboutController extends CommonController
     // 走进精信->精信月刊
     public function magazine()
     {
-        $count = M('magazine')->count();
+        $count = M('magazine')->where(array('status' => 1))->count();
         $Page  = new \Think\Page($count, 9);
         $Page->setConfig('prev', '上一页');
         $Page->setConfig('next', '下一页');
@@ -138,7 +138,7 @@ class AboutController extends CommonController
         $Page->setConfig('first', '首页');
         $Page->setConfig('theme', '%UP_PAGE% %LINK_PAGE% %DOWN_PAGE%');
         $page  = $Page->show();
-        $list = M('magazine')->limit($Page->firstRow.','.$Page->listRows)
+        $list = M('magazine')->where(array('status' => 1))->limit($Page->firstRow.','.$Page->listRows)
         ->order('sort asc,date DESC')->select();
         // $list = M('magazine')->where(array('status' => 1))->order('date DESC')->select();
         // 将 date 字段格式化为 yyyy年m月
@@ -148,7 +148,7 @@ class AboutController extends CommonController
                 $item['date'] = $dateObj->format('Y年n月');
             }
         }
-        $list_top = M('magazine')->order('sort asc,date DESC')->limit(1)->select();
+        $list_top = M('magazine')->where(array('status' => 1))->order('sort asc,date DESC')->limit(1)->select();
         // $list = M('magazine')->where(array('status' => 1))->order('date DESC')->select();
         // 将 date 字段格式化为 yyyy年m月
         foreach ($list_top as &$item) {

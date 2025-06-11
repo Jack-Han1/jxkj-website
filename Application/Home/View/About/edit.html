@@ -87,23 +87,6 @@
 //            }
 //        });
     }
-
-    function del_img(){
-        var m_id = $("#id").val();
-        var img_id = $("#img_id").val();
-        var r = confirm("确定删除图片？")
-        if(r == true){
-            $.post('del_img', {id:m_id}, function(data){
-                data = eval('(' + data + ')');
-                if(data.status){
-                    alert(data.info);
-                    window.location.reload();
-                }else{
-                    alert(data.info);
-                }
-            });
-        }
-    }
 </script>
 </body>
 </html>

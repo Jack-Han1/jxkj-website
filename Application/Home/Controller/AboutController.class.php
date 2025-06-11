@@ -170,10 +170,11 @@ class AboutController extends CommonController
         }
         echo json_encode($data);
     }
+    
     public function del_img(){
         $id = $_POST['id'];
-        $save['file_id'] = NULL;
-        $res = M('article')->where('id='.$id)->save($save);
+        $save['file_id'] = 0;
+        $res = M('magazine')->where('id='.$id)->save($save);
         if($res){
             $this->writeLog("用户删除文件:".$_POST['id']);
             $data['status'] = 1;
@@ -428,7 +429,8 @@ class AboutController extends CommonController
         // $list = M('magazine')->where(array('status' => 1))
         // ->order('sort asc')->select();
         $magazine=M("magazine");
-        $count=$magazine->count();
+        $map['status'] = 1;
+        $count = M('magazine')->where($map)->count();
         $Page  = new \Think\Page($count, 12);
         $Page->setConfig('prev', '上一页');
         $Page->setConfig('next', '下一页');
@@ -436,7 +438,7 @@ class AboutController extends CommonController
         $Page->setConfig('first', '首页');
         $Page->setConfig('theme', '%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
         $page  = $Page->show();
-        $list = $magazine->limit($Page->firstRow.','.$Page->listRows)->order('date DESC')->select();
+        $list = $magazine->where(array('status' => 1))->limit($Page->firstRow.','.$Page->listRows)->order('date DESC')->select();
         $this->assign('list', $list);
         $this->assign("page", $page);
         $this->assign('action_check',CONTROLLER_NAME."/".ACTION_NAME);
@@ -465,13 +467,33 @@ class AboutController extends CommonController
     }
 
     public function update_magazine(){
+        if($_FILES){
+            $upload = new \Think\Upload();// 实例化上传类
+            $upload->maxSize   =     3145728 ;// 设置附件上传大小
+            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg', 'doc','docx','rmvb');// 设置附件上传类型
+            $upload->rootPath  =     './Uploads/'; // 设置附件上传根目录
+            $upload->savePath  =     ''; // 设置附件上传（子）目录
+            // 上传单个文件
+            $info   =   $upload->upload();
+            if($info) {
+                $file['file_name'] = $info['news_pic']['name'];
+                $file['file_path'] = "/Uploads/" . $info['news_pic']['savepath'] . $info['news_pic']['savename'];
+                $file['file_size'] = $info['news_pic']['size'];
+                $file['file_ext'] = $info['news_pic']['ext'];
+                $file['create_time'] = date("Y-m-d H:i:s" ,time());
+                $file_id = M('file')->add($file);
+                if($file_id){
+                    $this->writeLog("用户上传文件:".$file_id);
+                    $save['file_id'] = $file_id;
+                }
+            }
+        }
         $save['id'] = $_POST['id'];
         $save['text'] = $_POST['text'];
         // $save['sort'] = $_POST['sort'];
         $save['sort'] = 0;
         // 不让管理员改显示优先级
         $save['title'] = $_POST['title'];
-        $save['img'] = $_POST['img'];
         $save['url'] = $_POST['url'];
         $save['date'] = $_POST['date'];
         $save['create_id'] = session('user.id');
@@ -482,9 +504,8 @@ class AboutController extends CommonController
          // 按 date 字段降序排序（从新到旧）
         // $res = M('magazine')->where('id='.$_POST['id'])->order('date DESC')->save($save);
         if($res){
-            $this->writeLog("用户修改内容:".$_POST['id']);
-            $this->success("修改成功","index");
-            $this->redirect('magazine');
+            $this->writeLog("用户修改月刊内容:".$_POST['id']);
+            $this->success("修改成功","magazine");
         }else{
             $this->errer("修改失败！");
         }
@@ -524,20 +545,43 @@ class AboutController extends CommonController
 
 
     public function add_magazine(){
+        if($_FILES){
+            $upload = new \Think\Upload();// 实例化上传类
+            $upload->maxSize   =     3145728 ;// 设置附件上传大小
+            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg', 'doc','docx','rmvb');// 设置附件上传类型
+            $upload->rootPath  =     './Uploads/'; // 设置附件上传根目录
+            $upload->savePath  =     ''; // 设置附件上传（子）目录
+            // 上传单个文件
+            $info   =   $upload->upload();
+            if($info) {
+                $file['file_name'] = $info['news_pic']['name'];
+                $file['file_path'] = "/Uploads/" . $info['news_pic']['savepath'] . $info['news_pic']['savename'];
+                $file['file_size'] = $info['news_pic']['size'];
+                $file['file_ext'] = $info['news_pic']['ext'];
+                $file['create_time'] = date("Y-m-d H:i:s" ,time());
+                $file_id = M('file')->add($file);
+                if($file_id){
+                    $this->writeLog("用户上传文件:".$file_id);
+                    $save['file_id'] = $file_id;
+                }
+            }
+        }
         $content=M("magazine");
-        $data=array(
-            'title'=>$_POST['title'],
-            'text'=>$_POST['text'],
-            'img'=>$_POST['img'],
-            'url'=>$_POST['url'],
-            'date'=>$_POST['date'],
-            'sort'=>0,
-            'update_time'=>date("Y-m-d H:i:s",time()),
-            'status'=>1,
-            'create_id'=> session('user.id'),
-        );
-        $content->add($data);        
-        $this->redirect('magazine');
+        $save['title'] = $_POST['title'];
+        $save['text']= $_POST['text'];
+        $save['url'] = $_POST['url'];
+        $save['date'] = $_POST['date'];
+        $save['sort'] = 0;
+        $save['update_time'] = date("Y-m-d H:i:s",time());
+        $save['status'] = 1;
+        $save['create_id'] = session('user.id');
+        $res = $content->add($save);
+        if($res){
+            $this->writeLog("用户添加月刊:".$res);
+            $this->success("添加成功","magazine");
+        }else{
+            $this->errer("添加失败！");
+        }        
     }
 }
 

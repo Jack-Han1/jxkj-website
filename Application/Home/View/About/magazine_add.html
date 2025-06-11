@@ -54,20 +54,6 @@
               margin-bottom: 40px;
             "
           />
-          <span>封面链接：</span
-          ><input
-            type="text"
-            class="input-k w-350"
-            id="img"
-            name="img"
-            value=""
-            style="
-              display: block;
-              height: 40px;
-              width: 1000px;
-              margin-bottom: 40px;
-            "
-          />
           <span>月刊链接：</span
           ><input
             type="text"
@@ -125,6 +111,24 @@
             "
           /> -->
         </div>
+        <div class="add-line-1">
+          <span>月刊封面：</span>
+          <input
+            id="news_pic"
+            name="news_pic"
+            type="file"
+            class="input-k w-350"
+            value="上传图片"
+            style="padding-top: 5px; padding-bottom: 5px"
+          />
+          <img
+            id="img"
+            style="display: none; margin-left: 250px"
+            class="w-350"
+            src="__PUBLIC__/images/ad.png"
+            alt=""
+          />
+        </div>
 
         <div class="add-line-1">
           <input
@@ -157,12 +161,42 @@
   };
   laydate(magazine_date);
 
+  // 监听图片文件选择
+  document
+    .querySelector('input[type="file"]')
+    .addEventListener("change", function (event) {
+      // const files = event.target.files;
+      // console.log("Selected files:", files);
+      var fileInput = document.getElementById("news_pic");
+      var imgElement = document.getElementById("img");
+      // 检查是否有文件被选择
+      if (fileInput.files && fileInput.files[0]) {
+        var file = fileInput.files[0];
+
+        // 检查文件类型是否为图片
+        if (file.type.startsWith("image/")) {
+          // alert('图片已上传');
+          // 显示图片预览
+          
+          imgElement.style.display = "block";
+          imgElement.src = URL.createObjectURL(file);
+        } else {
+          alert("请上传图片文件");
+          // fileInput.value = ""; // 清空文件输入框
+        }
+      }else{
+        alert("未选择文件");
+        imgElement.style.display = "none";
+        imgElement.src = '';
+      }
+    });
+
   function sub() {
     var container = $("#text").val();
     var name = $("#title").val();
-    var img = $("#img").val();
     var url = $("#url").val();
     var date = $("#date").val();
+    var fileInput = document.getElementById("news_pic");
     console.log($("#date").val());
     if (name == "") {
       alert("请输入标题！");
@@ -170,14 +204,14 @@
     } else if (container == "") {
       alert("请填写内容！");
       return false;
-    } else if (img == "") {
-      alert("请填写封面链接！");
-      return false;
     } else if (url == "") {
       alert("请填写杂志链接！");
       return false;
     } else if (date == "") {
       alert("请填写发刊日期！");
+      return false;
+    } else if (fileInput.files.length == 0) {
+      alert("请上传封面图片！");
       return false;
     }
     $("#from").submit();
