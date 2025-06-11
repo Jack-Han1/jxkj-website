@@ -9,7 +9,7 @@ class ResponsibilityController extends CommonController
     }
     // 社会责任->社会责任
     public function charitable(){
-        $top_warm = M('article')->where('menu_id=87 and status=2 and top=1')->order('sort asc, article_time desc')->limit(0,3)->select();
+        $top_warm = M('article')->where('menu_id=87 and status=2')->order('sort asc, article_time desc')->limit(0,3)->select();
         foreach ($top_warm as $key => $val) {
             $top_warm[$key]['date'] = substr($val['article_time'],0,10);
 
@@ -25,7 +25,7 @@ class ResponsibilityController extends CommonController
                 }
         }
         
-        $top_care = M('article')->where('menu_id=88 and status=2 and top=1')->order('sort asc, article_time desc')->limit(0,3)->select();
+        $top_care = M('article')->where('menu_id=88 and status=2')->order('sort asc, article_time desc')->limit(0,3)->select();
         foreach ($top_care as $key => $val) {
             $top_care[$key]['date'] = substr($val['article_time'],0,10);
 
@@ -35,26 +35,9 @@ class ResponsibilityController extends CommonController
                 } else {
                     $top_care[$key]['news_img'] = ''; // 或默认图片路径
                 }
-        }
-
-        $top_jxdt = M('article')->where('menu_id=89 and status=2 and top=1')->order('sort asc, article_time desc')->select();
-        foreach ($top_jxdt as $key => $val) {
-            $top_jxdt[$key]['date'] = substr($val['article_time'],0,10);
-
-            if ($top_jxdt[$key]['article_time'])
-            $top_jxdt[$key]['create_time'] = $top_jxdt[$key]['article_time'];
-            $top_jxdt[$key]['year'] = date('Y', strtotime($top_jxdt[$key]['create_time']));
-            $top_jxdt[$key]['data'] = date('m-d', strtotime($top_jxdt[$key]['create_time']));
-            $fileId = $top_jxdt[$key]['file_id'];
-                if (!empty($fileId)) {
-                    $top_jxdt[$key]['news_img'] = M('file')->where(['id' => $fileId])->getField('file_path');
-                } else {
-                    $top_jxdt[$key]['news_img'] = ''; // 或默认图片路径
-                }
-        }
+        }      
         $this->assign("top_warm_list", $top_warm);
         $this->assign("top_care_list", $top_care);
-        $this->assign("top_jxdt_list", $top_jxdt);
         $this->display();
     }
 

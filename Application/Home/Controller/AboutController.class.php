@@ -427,8 +427,19 @@ class AboutController extends CommonController
     public function magazine(){
         // $list = M('magazine')->where(array('status' => 1))
         // ->order('sort asc')->select();
-        $list = M('magazine')->where(array('status' => 1))->order('date DESC')->select();
+        $magazine=M("magazine");
+        $count=$magazine->count();
+        $Page  = new \Think\Page($count, 12);
+        $Page->setConfig('prev', '上一页');
+        $Page->setConfig('next', '下一页');
+        $Page->setConfig('last', '末页');
+        $Page->setConfig('first', '首页');
+        $Page->setConfig('theme', '%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
+        $page  = $Page->show();
+        $list = $magazine->limit($Page->firstRow.','.$Page->listRows)->order('date DESC')->select();
         $this->assign('list', $list);
+        $this->assign("page", $page);
+        $this->assign('action_check',CONTROLLER_NAME."/".ACTION_NAME);
         $this->display();
     }
 

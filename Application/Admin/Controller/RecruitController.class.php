@@ -249,7 +249,7 @@ class RecruitController extends CommonController
     // 精信大讲堂
     public function promotion()
     {   
-        $top_study = M('article')->where('menu_id=90 and status=2 and top=1')->order('sort asc, article_time desc')->select();
+        $top_study = M('article')->where('menu_id=90 and status=2')->order('sort asc, article_time desc')->select();
         foreach ($top_study as $key => $val) {
             $top_study[$key]['date'] = substr($val['article_time'],0,10);
 
