@@ -142,19 +142,31 @@ class AboutController extends CommonController
         ->order('sort asc,date DESC')->select();
         // $list = M('magazine')->where(array('status' => 1))->order('date DESC')->select();
         // 将 date 字段格式化为 yyyy年m月
-        foreach ($list as &$item) {
-            if (!empty($item['date'])) {
-                $dateObj = new \DateTime($item['date']);
-                $item['date'] = $dateObj->format('Y年n月');
+        foreach ($list as $key => $val) {
+            if (!empty($list[$key]['date'])) {
+                $dateObj = new \DateTime($list[$key]['date']);
+                $list[$key]['date'] = $dateObj->format('Y年n月');
+                $fileId = $list[$key]['file_id'];
+                if (!empty($fileId)) {
+                    $list[$key]['news_img'] = M('file')->where(['id' => $fileId])->getField('file_path');
+                } else {
+                    $list[$key]['news_img'] = ''; // 或默认图片路径
+                }
             }
         }
         $list_top = M('magazine')->where(array('status' => 1))->order('sort asc,date DESC')->limit(1)->select();
         // $list = M('magazine')->where(array('status' => 1))->order('date DESC')->select();
         // 将 date 字段格式化为 yyyy年m月
-        foreach ($list_top as &$item) {
-            if (!empty($item['date'])) {
-                $dateObj = new \DateTime($item['date']);
-                $item['date'] = $dateObj->format('Y年n月');
+        foreach ($list_top as $key => $val) {
+            if (!empty($list_top[$key]['date'])) {
+                $dateObj = new \DateTime($list_top[$key]['date']);
+                $list_top[$key]['date'] = $dateObj->format('Y年n月');
+                $fileId = $list_top[$key]['file_id'];
+                if (!empty($fileId)) {
+                    $list_top[$key]['news_img'] = M('file')->where(['id' => $fileId])->getField('file_path');
+                } else {
+                    $list_top[$key]['news_img'] = ''; // 或默认图片路径
+                }
             }
         }
 

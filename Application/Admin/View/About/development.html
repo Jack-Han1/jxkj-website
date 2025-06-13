@@ -526,6 +526,16 @@
         });
 
         currentYearIndex = index;
+        const yearItems = Array.from(document.querySelectorAll(".year-item"));
+        const timelineRight = document.querySelector(".timeline-right");
+        timelineRight.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+        yearItems[index].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'  // 可改为 'center' 或 'start'
+        });
       }
 
       // 默认展示第一个年份
